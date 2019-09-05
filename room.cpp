@@ -4,7 +4,9 @@
 #include<tuple>
 #include<fstream>
 #include <utility>
-#include"ConnectedComponent.h"
+
+
+
 
 inline bool find_in_que(const deque<vec> &que, vec p) {
 	if (que.empty()) return false;
@@ -17,9 +19,6 @@ Room::Room(int x, int y, int z, int type) : lattice(x, y, z), shape(vec{x, y, z}
     if (type == 8) {
         cout << "using type8" << endl;
         count_parallel = &Room::count_parallel_nearby8;
-    } else if (abs(b2a) > 1e-10) {
-        cout << "using count_parallel_B" << endl;
-        count_parallel = &Room::count_parallel_B;
     } else {
         cout << "using count_parallel_nearby24" << endl;
         count_parallel = &Room::count_parallel_nearby24;
@@ -37,9 +36,6 @@ Room::Room(int x, int y, int z,
     if (type == 8) {
         cout << "using type8" << endl;
 		count_parallel = &Room::count_parallel_nearby8;
-	} else if (abs(b2a) > 1e-10) {
-        cout << "using count_parallel_B" << endl;
-		count_parallel = &Room::count_parallel_B;
 	}
 	else {
         cout << "using count_parallel_nearby24" << endl;
@@ -51,15 +47,13 @@ Room::Room(int x, int y, int z,
 	//cout<< time(NULL);
 }
 
-void Room::initmoves()
+void Room::initmoves()//27种moves
 {
 	if (dimension == 3) {
 		for (int x = -1; x <= 1; x++) {
 			for (int y = -1; y <= 1; y++) {
-				for (int z = -1; z <= 1; z++) {
-					if (!(x == 0 && y == 0 && z == 0)) {
-						moves.emplace_back(vec{ x,y,z });
-					}
+				for (int z = -1; z <= 1; z++){
+				    moves.emplace_back(vec{ x,y,z });
 				}
 			}
 		}
@@ -259,9 +253,9 @@ int Room::get_side_num(vec & p1, vec & p2) const
 {
 	try {
 		shared_ptr< Point> a = lattice[p1];
-		if (a == nullptr) return -1;
+		if (a == nullptr||a->true_position!=0) return -1;
 		shared_ptr< Point> b = lattice[p2];
-		if (b == nullptr) return -1;
+		if (b == nullptr||b->true_position!=0) return -1;
 		if (a->chain_num == b->chain_num) {
 			if (abs(a->pos_in_chain - b->pos_in_chain) == 1)
 				return a->chain_num;
@@ -295,18 +289,22 @@ bool Room::canMove(vec & point, vec & direction)const
 	}
 }
 
-void Room::stepMove(vec & position, vec & next_position, stack<vec>& path)
+void Room::stepMove(vec & position, vec & next_position, stack<pair<vec,int>>& path,int true_p)
 {
-
-	path.push(position);
-	path.push(next_position);
-	shared_ptr< Point>temp = lattice[position];
-	lattice[position] = nullptr;
-	lattice[next_position] = temp;
-	temp->location = next_position;
+    if(position==next_position){
+        lattice[position]->true_position=true_p;
+    }else{
+        path.push(make_pair(position,lattice[position]->true_position));
+        path.push(make_pair(next_position,true_p));
+        shared_ptr< Point>temp = lattice[position];
+        lattice[position] = nullptr;
+        lattice[next_position] = temp;
+        temp->location = next_position;
+        temp->true_position=true_p;
+    }
 }
 
-void Room::localSnakeMove(int i, stack<vec> &path)
+void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 {
     Polymer &polymer = polymer_list[i];
     int length = polymer.length;
@@ -318,8 +316,14 @@ void Room::localSnakeMove(int i, stack<vec> &path)
 
 	vec p1, p2;
 
-	int m_rand = rand() % moves.size();
+	int m_rand = rand() %this->q;
+    int true_p=m_rand%(this->q/moves.size());
+    m_rand  /=this->q/moves.size();
 	vec direction(moves[m_rand]);
+	if(direction==vec{0,0,0}){
+        //TODO
+        // stepMove((*pol_iter).location, p_next, path,rand()%(this->q/moves.size()));
+	}
 	vec p_next;
 	if (canMove((*pol_iter).location, direction)) {
         p_next = ((*pol_iter).location + direction) % shape;
@@ -333,7 +337,7 @@ void Room::localSnakeMove(int i, stack<vec> &path)
 		p1 = (*pol_iter).location;
 		p2 = (*pol_iter).location;
 
-		stepMove((*pol_iter).location, p_next, path);
+		stepMove((*pol_iter).location, p_next, path,rand()%(this->q/moves.size()));
 		//break;
 	}
 	// 模式2
@@ -347,7 +351,7 @@ void Room::localSnakeMove(int i, stack<vec> &path)
 			try {
 				if (lattice[p1] == nullptr) {
                     vec t1 = polymer[j]->location;
-					stepMove(t1, p1, path);
+					stepMove(t1, p1, path,rand()%(this->q/moves.size()));
 					p1 = t1;
 				}
 				else {
@@ -367,7 +371,7 @@ void Room::localSnakeMove(int i, stack<vec> &path)
 			try {
 				if (lattice[p2] == nullptr) {
                     vec t2 = polymer[j]->location;
-					stepMove(t2, p2, path);
+					stepMove(t2, p2, path,rand()%(this->q/moves.size()));
 					p2 = t2;
 				}
 				else {
@@ -395,7 +399,7 @@ void Room::movie(int m, int n, double T)
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < polymer_list.size(); j++) {
 
-			stack<vec> path;
+			stack<pair<vec,int>> path;
 			this->localSnakeMove(j, path);
 			//TODO if 有交叉，repair；
 			if (path.empty()) {
@@ -496,17 +500,17 @@ double Room::cal_Ec()const
 
 }
 
-double Room::cal_dEp(deque<vec > &path)const
+double Room::cal_dEp(deque<pair<vec,int>> &path)const
 {
 
 
 	double num = 0;
 	vec v1, v2;
     auto iter = path.begin();
-	if (iter != path.end()) v1 = (*iter); else return num;
+	if (iter != path.end()) v1 = (*iter).first; else return num;
 	iter++;
 	while (iter != path.end()) {
-		v2 = (*iter);
+		v2 = (*iter).first;
 		num += ((this->*count_parallel))(v1, v2, path, 1);
 		v1 = v2;
 		iter++;
@@ -514,7 +518,7 @@ double Room::cal_dEp(deque<vec > &path)const
 	return num;
 }
 
-double Room::cal_dEc(deque<vec > &path)const
+double Room::cal_dEc(deque<pair<vec,int> > &path)const
 {
 
 	double num = 0;
@@ -534,10 +538,10 @@ double Room::cal_dEc(deque<vec > &path)const
 	return -num;
 }
 
-double Room::cal_dEf(deque<vec> path) const
+double Room::cal_dEf(deque<pair<vec,int>> path) const
 {
 	double num = 0;
-	vec v1, v2;
+    pair<vec,int> v1, v2;
     auto iter = path.begin();
 	if (iter != path.end()) v1 = (*iter); else return num;
 	iter++;
@@ -563,16 +567,16 @@ double Room::cal_one_Ec(int i)const
 	return -num;
 }
 
-double Room::cal_dEc_nearby(stack<vec> path)const
+double Room::cal_dEc_nearby(stack<pair<vec,int>> path)const
 {
 
 	if (path.empty()) return 0.0;
 	deque<vec> new_path, old_path;
 
 	while (!path.empty()) {
-		vec v1 = path.top();
+        auto v1 = path.top();
 		path.pop();
-		vec v2 = path.top();
+        auto v2 = path.top();
 		path.pop();
 		new_path.emplace_back(v1);
 		old_path.emplace_back(v2);
@@ -623,18 +627,18 @@ double Room::cal_dEc_nearby(stack<vec> path)const
 
 }
 
-double Room::cal_dEp_nearby(stack<vec> path)
+double Room::cal_dEp_nearby(stack<pair<vec,int>> path)
 {
 
 	if (path.empty()) return 0.0;
-	deque<vec> new_path, old_path;
+	deque<pair<vec,int>> new_path, old_path;
 
-	stack<vec> do_path(path);
+	stack<pair<vec,int>> do_path(path);
 
 	while (!path.empty()) {
-		vec v1 = path.top();
+		auto v1 = path.top();
 		path.pop();
-		vec v2 = path.top();
+        auto v2 = path.top();
 		path.pop();
 		new_path.emplace_back(v1);
 		old_path.emplace_back(v2);
@@ -688,7 +692,7 @@ double Room::cal_dEp_nearby(stack<vec> path)
 		cout << __FUNCTION__ << endl;
 		throw;
 	}
-	stack<vec> re = repair(do_path);
+	stack<pair<vec, int>> re = repair(do_path);
 
 	double dEp2;
 	dEp2 = cal_dEp(old_path);
@@ -996,71 +1000,71 @@ double Room::cal_average_thick() const
 	return 0.0;
 }
 
-double Room::count_parallel_B(vec &point1, vec &point2,
-	deque<vec> & que, int cal_type)const {
-    //cout << __FUNCTION__ << endl;
-
-	double num_self = 0, num_others = 0;
-	int chain_num;
-	if (lattice[point1] == nullptr)
-		throw "NULL";
-	chain_num = lattice[point1]->chain_num;
-	vec p1, p2;
-	vec direction = cal_direction(point1, point2);
-	//cout << direction<<endl;
-	for (auto &direc : moves) {
-		if ((direc == direction) || ((direc + direction) == vec{ 0,0,0 })) {
-			//cout << vec{ x,y,z };
-			continue;
-		}
-		for (int i = 0; i < 5; i++) {
-            if (i == 1) {
-
-            }
-			p1 = (point1 + i * direc) % shape;
-			p2 = (point2 + i * direc) % shape;
-			int result = get_side_num(p1, p2);
-            if (result == -1) {
-                break;
-            }
-			else {
-                if (i == 0) {
-                    if (result == chain_num) {
-                        if (find_in_que(que, p1) && find_in_que(que, p2)) {
-                            num_self -= 2.0;
-                        } else {
-                            num_self -= 4.0;
-                        }
-                    } else {
-                        num_others -= 4.0;
-                    }
-                }
-				if (result == chain_num) {
-					if (find_in_que(que, p1) && find_in_que(que, p2)) {
-						num_self += 0.5*pow(this->b2a, i);
-					}
-					else {
-						num_self += 1 * pow(this->b2a, i);
-					}
-				}
-				else {
-					num_others += 1 * pow(this->b2a, i);
-				}
-			}
-		}
-	}
-
-	if (cal_type == 0) {
-		return num_others + num_self / 2.0;
-        cout << num_others << ',' << num_self << endl;
-	}
-	else {
-		if (num_self != 0) {
-//			cout << num_others << ',' << num_self << endl;
-		}
-        return num_others + num_self;// TODO
-	}
-}
+//double Room::count_parallel_B(vec &point1, vec &point2,
+//	deque<vec> & que, int cal_type)const {
+//    //cout << __FUNCTION__ << endl;
+//
+//	double num_self = 0, num_others = 0;
+//	int chain_num;
+//	if (lattice[point1] == nullptr)
+//		throw "NULL";
+//	chain_num = lattice[point1]->chain_num;
+//	vec p1, p2;
+//	vec direction = cal_direction(point1, point2);
+//	//cout << direction<<endl;
+//	for (auto &direc : moves) {
+//		if ((direc == direction) || ((direc + direction) == vec{ 0,0,0 })) {
+//			//cout << vec{ x,y,z };
+//			continue;
+//		}
+//		for (int i = 0; i < 5; i++) {
+//            if (i == 1) {
+//
+//            }
+//			p1 = (point1 + i * direc) % shape;
+//			p2 = (point2 + i * direc) % shape;
+//			int result = get_side_num(p1, p2);
+//            if (result == -1) {
+//                break;
+//            }
+//			else {
+//                if (i == 0) {
+//                    if (result == chain_num) {
+//                        if (find_in_que(que, p1) && find_in_que(que, p2)) {
+//                            num_self -= 2.0;
+//                        } else {
+//                            num_self -= 4.0;
+//                        }
+//                    } else {
+//                        num_others -= 4.0;
+//                    }
+//                }
+//				if (result == chain_num) {
+//					if (find_in_que(que, p1) && find_in_que(que, p2)) {
+//						num_self += 0.5*pow(this->b2a, i);
+//					}
+//					else {
+//						num_self += 1 * pow(this->b2a, i);
+//					}
+//				}
+//				else {
+//					num_others += 1 * pow(this->b2a, i);
+//				}
+//			}
+//		}
+//	}
+//
+//	if (cal_type == 0) {
+//		return num_others + num_self / 2.0;
+//        cout << num_others << ',' << num_self << endl;
+//	}
+//	else {
+//		if (num_self != 0) {
+////			cout << num_others << ',' << num_self << endl;
+//		}
+//        return num_others + num_self;// TODO
+//	}
+//}
 
 
 
@@ -1091,15 +1095,16 @@ double Room::cal_h2()const// 均方末端距
 	return num;
 }
 
-stack<vec> Room::repair(stack<vec> &path)
+stack<pair<vec,int>> Room::repair(stack<pair<vec,int>> &path)
 {
-	stack<vec> no_use;
+	stack<pair<vec,int>> no_use;
 	while (!path.empty()) {
-		vec v1 = path.top();
+		vec v1 = path.top().first;
 		path.pop();
-		vec v2 = path.top();
+		vec v2 = path.top().first;
+		int true_p=path.top().second;
 		path.pop();
-		stepMove(v1, v2, no_use);
+		stepMove(v1, v2, no_use,true_p);
 	}
 	return no_use;
 }
@@ -1192,145 +1197,7 @@ ostream & operator<<(ostream & o, Polymer & p)
 
 
 
-vector<int> Room::cal_thickness()const//计算厚度
-{
 
-	matrix::Matrix3 temp_lattice(shape[0], shape[1], shape[2] - 1);
-
-
-	vec point1, point2;
-
-	for (int i = 0; i < shape[0]; i++) {
-		for (int j = 0; j < shape[1]; j++) {
-			for (int k = 0; k < shape[2] - 1; k++) {
-				//for (int k = shape[2]/4+15; k < shape[2] - 1; k++) {
-				point1[0] = i; point2[0] = i;
-				point1[1] = j; point2[1] = j;
-				point1[2] = k; point2[2] = k + 1;
-				auto p1 = lattice[point1], p2 = lattice[point2];
-				if (p1 == nullptr || p2 == nullptr) {
-					continue;
-				}
-				else if (p1->chain_num == p2->chain_num) {
-					if (p1->pos_in_chain - p2->pos_in_chain == -1) {
-						temp_lattice[i][j][k] = 1;
-
-					}
-					else if (p1->pos_in_chain - p2->pos_in_chain == 1) {
-						//cout << i << j << k<<endl;
-						temp_lattice[i][j][k] = -1;
-					}
-
-				}
-			}
-		}
-	}
-    return vector<int>();
-	/*matrix::ConnectedComponentLabeling(temp_lattice);
-	return matrix::ConnectedComponentLabeling(temp_lattice);*/
-}
-
-
-vector<int> Room::cal_thick_by_point()const//计算厚度
-{
-	//py::list thicka, thickb, thickc;
-	//py::list *thickness = new py::list;
-	//cout << "calthickness" << endl;
-	vec point1{ 0,0,0 }, point2{ 0,0,1 };
-	for (int k = 0; k < shape[2] - 1; k++) {
-		for (int i = 0; i < shape[0]; i++) {
-			int th_a = 0;
-			for (int j = 0; j < shape[1]; j++) {
-
-				point1[0] = i; point2[0] = i;
-				point1[1] = j; point2[1] = j;
-				point1[2] = k; point2[2] = k + 1;
-				if (this->get_side_num(point1, point2) != -1)
-					th_a++;
-				else {
-					if (th_a != 0) {
-						//thicka.append(th_a);
-						th_a = 0;
-					}
-
-				}
-
-			}
-			if (th_a != 0) {
-				if (th_a == 1) {
-					th_a = 0;
-					continue;
-				}
-				//thicka.append(th_a);
-				//cout << th_a;
-				th_a = 0;
-			}
-		}
-	}
-	for (int k = 0; k < shape[2] - 1; k++) {
-		for (int j = 0; j < shape[1]; j++) {
-			int th_b = 0;
-			for (int i = 0; i < shape[0]; i++) {
-				point1[0] = i; point2[0] = i;
-				point1[1] = j; point2[1] = j;
-				point1[2] = k; point2[2] = k + 1;
-				if (this->get_side_num(point1, point2) != -1)
-					th_b++;
-				else {
-					if (th_b == 1) {
-						th_b = 0;
-						continue;
-					}
-					if (th_b != 0) {
-						//thickb.append(th_b);
-						//cout << th_b;
-						th_b = 0;
-					}
-				}
-			}
-			if (th_b != 0) {
-				//thickb.append(th_b);
-				th_b = 0;
-			}
-		}
-	}
-	for (int j = 0; j < shape[1]; j++) {
-		for (int i = 0; i < shape[0]; i++) {
-			int th_c = 0;
-			for (int k = 0; k < shape[2] - 1; k++) {
-				point1[0] = i; point2[0] = i;
-				point1[1] = j; point2[1] = j;
-				point1[2] = k; point2[2] = k + 1;
-				if (this->get_side_num(point1, point2) != -1)
-					th_c++;
-				else {
-					if (th_c == 1) {
-						th_c = 0;
-						continue;
-					}
-					if (th_c != 0) {
-						//cout << th_c;
-						//thickc.append(th_c);
-						//cout << th_c;
-						th_c = 0;
-					}
-				}
-			}
-			if (th_c != 0) {
-				//thickc.append(th_c);
-				th_c = 0;
-			}
-		}
-	}
-
-	/*thickness->append(thicka);
-	thickness->append(thickb);
-	thickness->append(thickc);
-	*/
-
-	//return thickness;
-    return vector<int>();
-}
 
 
 

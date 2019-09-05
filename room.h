@@ -42,10 +42,11 @@ public:
 	vector< vec > moves;
 	//parameters
 	const double Ec0 = 1.0;
+	int q;//27µÄ±¶Êý
 	vector<vector<double> > Eb_matrix;
 	vector<vector<double> > Ep_matrix;
-	double (Room:: * count_parallel)(vec &, vec&, deque<vec>&, int) const;
-	double (Room:: * cal_Eb_func)(vec &, vec&, deque<vec>&, int) const;
+	double (Room:: * count_parallel)(vec &, vec&, deque<pair<vec, int>>&, int) const;
+	double (Room:: * cal_Eb_func)(vec &, vec&, deque<pair<vec, int>>&, int) const;
 
 	vector<Polymer> polymer_list;
 
@@ -81,12 +82,11 @@ public:
 	
 
 	//move
-	void stepMove(vec &position, vec &next_position, stack<vec> & path);
-	void localSnakeMove(int i, stack<vec > &path);
+
+
 	void movie(int m, int n, double T);
 
     void preheat(int m);
-	stack<vec> repair(stack<vec > &path);
 	//calculate something
 	void lazy_delete_chain(int i) {
 		for (auto &p : polymer_list[i].chain) {
@@ -114,13 +114,9 @@ public:
 	double cal_one_Ep(int)const;
 	double cal_one_Eb(int)const;
 
-	double cal_dEp(deque<vec> &path)const;
-	double cal_dEc(deque<vec> &path)const;
-	double cal_dEf(deque<vec> path) const;
 	//double cal_dEb(deque<vec> &path)const;
 
-	double cal_dEc_nearby(stack<vec> path)const;
-	double cal_dEp_nearby(stack<vec> path);
+
 	double cal_dEb_nearby(stack<vec> path);
 
 	double cal_ifline(vec &p1, vec &p2, vec &p3)const;
@@ -134,12 +130,12 @@ public:
 
 	/*double count_parallel_nearby(vec & point1, vec & point2, int i, int j, deque<vec>& que, int cal_type)const;
 	double count_parallel_nearby24(vec & point1, vec & point2, int i, int j, const  deque<vec>& que, int cal_type)const;*/
-	double count_parallel_nearby24(vec & point1, vec & point2,  deque<vec>& que, int cal_type) const;
-	double count_parallel_nearby12(vec & point1, vec & point2, deque<vec>& que, int cal_type) const;
-	double count_parallel_nearby8(vec & point1, vec & point2, deque<vec>& que, int cal_type) const;
-	double count_parallel_nearby4(vec & point1, vec & point2, deque<vec>& que, int cal_type) const;
+	double count_parallel_nearby24(vec & point1, vec & point2,  deque<pair<vec, int>>& que, int cal_type) const;
+
+	double count_parallel_nearby8(vec & point1, vec & point2, deque<pair<vec, int>>& que, int cal_type) const;
+
 	//double count_parallel_nearby8(vec & point1, vec & point2, int i, int j, deque<vec>& que, int cal_type)const;
-	double count_parallel_B(vec & point1, vec & point2, deque<vec>& que, int cal_type) const;
+//	double count_parallel_B(vec & point1, vec & point2, deque<vec>& que, int cal_type) const;
 	double cal_average_thick()const;
 
 
@@ -151,10 +147,6 @@ public:
 	double cal_PSM()const;
 	double cal_PSM_point(vec &) const;
 
-	vector<int> cal_thickness() const;
-
-	vector<int> cal_thick_by_point() const;
-
 	//load&save
 	void save();
 	void load();
@@ -165,5 +157,9 @@ public:
 	}
 
     ~Room() = default;
+
+    void stepMove(vec &position, vec &next_position, stack<pair<vec, int>> &path, int true_p);
+
+    stack<pair<vec, int>> repair(stack<pair<vec, int>> &path);
 };
 

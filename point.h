@@ -8,7 +8,7 @@ class Point //A point class
 public:
 	int chain_num;
 	int pos_in_chain;
-	int movable;//0¿ÉÒÔÒÆ¶¯,1²»¿ÉÒÔÒÆ¶¯
+	int movable;//0å¯ä»¥ç§»åŠ¨,1ä¸å¯ä»¥ç§»åŠ¨
 	int type;
 	vec location;
 	int true_position;

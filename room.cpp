@@ -47,7 +47,7 @@ Room::Room(int x, int y, int z,
 	//cout<< time(NULL);
 }
 
-void Room::initmoves()//27ÖÖmoves
+void Room::initmoves()//27ç§moves
 {
 	if (dimension == 3) {
 		for (int x = -1; x <= 1; x++) {
@@ -340,7 +340,7 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 		stepMove((*pol_iter).location, p_next, path,rand()%(this->q/moves.size()));
 		//break;
 	}
-	// Ä£Ê½2
+	// æ¨¡å¼2
 	else {
 		return;
 	}
@@ -355,7 +355,7 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 					p1 = t1;
 				}
 				else {
-					cout << "±»Õ¼ÓÃÁË1";
+					cout << "è¢«å ç”¨äº†1";
 				}
 			}
 			catch (...) {
@@ -375,7 +375,7 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 					p2 = t2;
 				}
 				else {
-					cout << "±»Õ¼ÓÃÁË2" << endl;
+					cout << "è¢«å ç”¨äº†2" << endl;
 				}
 			}
 			catch (...) {
@@ -401,7 +401,7 @@ void Room::movie(int m, int n, double T)
 
 			stack<pair<vec,int>> path;
 			this->localSnakeMove(j, path);
-			//TODO if ÓĞ½»²æ£¬repair£»
+			//TODO if æœ‰äº¤å‰ï¼Œrepairï¼›
 			if (path.empty()) {
 				continue;
 			}
@@ -459,7 +459,7 @@ void Room::preheat(int m) {
 
             stack<vec> path;
             this->localSnakeMove(j, path);
-            //TODO if ÓĞ½»²æ£¬repair£»
+            //TODO if æœ‰äº¤å‰ï¼Œrepairï¼›
             if (path.empty()) {
                 continue;
             }
@@ -771,7 +771,7 @@ double Room::cal_Eb() const
 
 double Room::cal_one_Ep(int i)const
 {
-	//·Ö×ÓÄÚµÄÒª³ı¶ş£¬¶ø·Ö×ÓÍâµÄ²»ÓÃ³ı¶ş£»
+	//åˆ†å­å†…çš„è¦é™¤äºŒï¼Œè€Œåˆ†å­å¤–çš„ä¸ç”¨é™¤äºŒï¼›
 	deque<vec> a;
 	double num = 0;
     const Polymer &polymer = polymer_list[i];
@@ -1068,7 +1068,7 @@ double Room::cal_average_thick() const
 
 
 
-double Room::cal_Rg()const// ¾ù·½Ğı×ª°ë¾¶
+double Room::cal_Rg()const// å‡æ–¹æ—‹è½¬åŠå¾„
 {
     throw "NOT DONE!";
 	double num = 0;
@@ -1085,7 +1085,7 @@ double Room::cal_Rg()const// ¾ù·½Ğı×ª°ë¾¶
 	return 0.0;
 }
 
-double Room::cal_h2()const// ¾ù·½Ä©¶Ë¾à
+double Room::cal_h2()const// å‡æ–¹æœ«ç«¯è·
 {
     throw "NOT DONE!";
 	double num = 0;

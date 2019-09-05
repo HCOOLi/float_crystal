@@ -42,7 +42,7 @@ public:
 	vector< vec > moves;
 	//parameters
 	const double Ec0 = 1.0;
-	int q;//27µÄ±¶Êı
+	int q;//27çš„å€æ•°
 	vector<vector<double> > Eb_matrix;
 	vector<vector<double> > Ep_matrix;
 	double (Room:: * count_parallel)(vec &, vec&, deque<pair<vec, int>>&, int) const;

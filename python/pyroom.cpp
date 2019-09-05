@@ -77,7 +77,7 @@ void pyroom::construct_by_pylist(py::list chain_list) {
 				point[k] = x;
 			}
 			int type = py::extract<int>(point_in_list["type"]);
-			p[j] = set_point(point, chain_num, j, type, 0);
+            p[j] = set_point(point, chain_num, j, type, 0, 0);
 
 
 		}

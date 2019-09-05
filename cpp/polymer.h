@@ -5,7 +5,7 @@
 #include"point.h"
 #include<set>
 #include<stack>
-#include"myerror.h"
+
 #include<memory>
 using namespace std;
 

@@ -47,7 +47,7 @@ Room::Room(int x, int y, int z,
 	//cout<< time(NULL);
 }
 
-void Room::initmoves()//27ç§moves
+void Room::initmoves()//27ÖÖmoves
 {
 	if (dimension == 3) {
 		for (int x = -1; x <= 1; x++) {
@@ -125,7 +125,7 @@ void Room::input_one_FCC(vec init, int length, int direction, int fold_direction
 			}
 			point[fold_direction] += int(j / shape[direction]);
 
-			p[j] = set_point(point, chain_num, j, type, moveable);
+            p[j] = set_point(point, chain_num, j, type, moveable, 0);
 		}
 		polymer_list.emplace_back(move(p));
 	}
@@ -340,7 +340,7 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 		stepMove((*pol_iter).location, p_next, path,rand()%(this->q/moves.size()));
 		//break;
 	}
-	// æ¨¡å¼2
+        // Ä£Ê½2
 	else {
 		return;
 	}
@@ -355,7 +355,7 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 					p1 = t1;
 				}
 				else {
-					cout << "è¢«å ç”¨äº†1";
+                    cout << "±»Õ¼ÓÃÁË1";
 				}
 			}
 			catch (...) {
@@ -375,7 +375,7 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 					p2 = t2;
 				}
 				else {
-					cout << "è¢«å ç”¨äº†2" << endl;
+                    cout << "±»Õ¼ÓÃÁË2" << endl;
 				}
 			}
 			catch (...) {
@@ -399,9 +399,9 @@ void Room::movie(int m, int n, double T)
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < polymer_list.size(); j++) {
 
-			stack<pair<vec,int>> path;
+            stack<pair<vec, int> > path;
 			this->localSnakeMove(j, path);
-			//TODO if æœ‰äº¤å‰ï¼Œrepairï¼›
+            //TODO if ÓĞ½»²æ£¬repair£»
 			if (path.empty()) {
 				continue;
 			}
@@ -457,9 +457,9 @@ void Room::preheat(int m) {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < polymer_list.size(); j++) {
 
-            stack<vec> path;
+            stack<pair<vec, int >> path;
             this->localSnakeMove(j, path);
-            //TODO if æœ‰äº¤å‰ï¼Œrepairï¼›
+            //TODO if ÓĞ½»²æ£¬repair£»
             if (path.empty()) {
                 continue;
             }
@@ -541,12 +541,12 @@ double Room::cal_dEc(deque<pair<vec,int> > &path)const
 double Room::cal_dEf(deque<pair<vec,int>> path) const
 {
 	double num = 0;
-    pair<vec,int> v1, v2;
+    vec v1, v2;
     auto iter = path.begin();
-	if (iter != path.end()) v1 = (*iter); else return num;
+    if (iter != path.end()) v1 = (*iter).first; else return num;
 	iter++;
 	while (iter != path.end()) {
-		v2 = (*iter);
+        v2 = (*iter).first;
 		num += ((this->*count_parallel))(v1, v2, path, 1);
 		v1 = v2;
 		iter++;
@@ -644,8 +644,8 @@ double Room::cal_dEp_nearby(stack<pair<vec,int>> path)
 		old_path.emplace_back(v2);
 	}
 
-	vec v1 = new_path[0];
-	vec v2 = new_path.back();
+    vec v1 = new_path[0].first;
+    vec v2 = new_path.back().first;
 	shared_ptr< Point> p1 = lattice[v1];
 	shared_ptr< Point> p2 = lattice[v2];
 	int chain_num = p1->chain_num;
@@ -771,7 +771,7 @@ double Room::cal_Eb() const
 
 double Room::cal_one_Ep(int i)const
 {
-	//åˆ†å­å†…çš„è¦é™¤äºŒï¼Œè€Œåˆ†å­å¤–çš„ä¸ç”¨é™¤äºŒï¼›
+    //·Ö×ÓÄÚµÄÒª³ı¶ş£¬¶ø·Ö×ÓÍâµÄ²»ÓÃ³ı¶ş£»
 	deque<vec> a;
 	double num = 0;
     const Polymer &polymer = polymer_list[i];
@@ -1068,7 +1068,7 @@ double Room::cal_average_thick() const
 
 
 
-double Room::cal_Rg()const// å‡æ–¹æ—‹è½¬åŠå¾„
+double Room::cal_Rg() const// ¾ù·½Ğı×ª°ë¾¶
 {
     throw "NOT DONE!";
 	double num = 0;
@@ -1085,7 +1085,7 @@ double Room::cal_Rg()const// å‡æ–¹æ—‹è½¬åŠå¾„
 	return 0.0;
 }
 
-double Room::cal_h2()const// å‡æ–¹æœ«ç«¯è·
+double Room::cal_h2() const// ¾ù·½Ä©¶Ë¾à
 {
     throw "NOT DONE!";
 	double num = 0;

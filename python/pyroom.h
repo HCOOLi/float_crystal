@@ -34,7 +34,7 @@ public:
 						}
 						dic["p"] = py_position;
 						dic["t"] = polymer_list[i].chain[j]->type;
-						dic["m"] = polymer_list[i].chain[j]->moveable;
+                    dic["m"] = polymer_list[i].chain[j]->movable;
 					
 					chain_list.append(dic);
 				}

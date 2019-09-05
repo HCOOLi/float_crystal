@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
-project(crystal)
+project(float_crystal)
 
 set(CMAKE_CXX_STANDARD 14)
 add_definitions(-D BOOST_PYTHON_STATIC_LIB)
@@ -38,15 +38,17 @@ link_directories(${BOOST_LIBRARYDIR})
 #endif()
 
 
-add_library(crystal SHARED
-        pycrystal.cpp pyroom.cpp pyroom.h
-        point.h
-        polymer.cpp
-        room.cpp
+add_library(float_crystal SHARED
+        pycrystal.cpp
+        pyroom.cpp
+        ../cpp/polymer.cpp
+        ../cpp/polymer.h
+        ../cpp/point.h
+        ../cpp/room.cpp
 
         )
 set_target_properties(
-        crystal
+        float_crystal
         PROPERTIES
         PREFIX ""
         SUFFIX ".pyd"

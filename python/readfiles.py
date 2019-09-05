@@ -1,8 +1,7 @@
-import json
 import matplotlib.pyplot as plt
+import numpy as np
 import os
 from multiprocessing import Pool
-import numpy as np
 
 from pyroom import *
 

@@ -42,7 +42,7 @@ public:
 	vector< vec > moves;
 	//parameters
 	const double Ec0 = 1.0;
-	int q;//27的倍数
+    int q;//27的倍数
 	vector<vector<double> > Eb_matrix;
 	vector<vector<double> > Ep_matrix;
 	double (Room:: * count_parallel)(vec &, vec&, deque<pair<vec, int>>&, int) const;
@@ -161,5 +161,17 @@ public:
     void stepMove(vec &position, vec &next_position, stack<pair<vec, int>> &path, int true_p);
 
     stack<pair<vec, int>> repair(stack<pair<vec, int>> &path);
+
+    void localSnakeMove(int i, stack<pair<vec, int>> &path);
+
+    double cal_dEp_nearby(stack<pair<vec, int>> path);
+
+    double cal_dEp(deque<pair<vec, int>> &path) const;
+
+    double cal_dEc(deque<pair<vec, int>> &path) const;
+
+    double cal_dEf(deque<pair<vec, int>> path) const;
+
+    double cal_dEc_nearby(stack<pair<vec, int>> path) const;
 };
 

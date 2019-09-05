@@ -1,11 +1,9 @@
 import json
-import math
 import matplotlib.pyplot as plt
-import os
-import time
 import numpy as np
+from typing import List
+
 from crystal import *
-from typing import Dict, List, Tuple
 
 
 class pyRoom(pyroom):
@@ -33,7 +31,7 @@ class pyRoom(pyroom):
             file.write(json.dumps(saving_dict))
 
     def new_draw_box(self, point1, point2, box_color='blue'):
-        from vpython import canvas, vector, curve, color
+        from vpython import vector, curve, color
         # def into_vector(a):
         #     return vector(a[0], a[1], a[2])
         # print("draw a box")
@@ -56,11 +54,10 @@ class pyRoom(pyroom):
                     c = curve(vector(p1[0], p1[1], p1[2]), vector(p2[0], p2[1], p2[2]), color=box_color, radius=radius)
 
     def draw_box(self):
-        from vpython import canvas, vector, curve, color
         self.new_draw_box([0, 0, 0], self.shape)
 
     def draw_all(self, polylist=None, title=None):
-        from vpython import canvas, vector, curve, color, sphere
+        from vpython import canvas, vector, curve, color
 
         scene = canvas(title=title, width=800, height=800,
                        center=vector(self.shape[0] / 2, self.shape[1] / 2, self.shape[2] / 2), background=color.white)

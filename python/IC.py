@@ -1,11 +1,9 @@
-from pyroom import *
-import time
-from concurrent.futures import ProcessPoolExecutor
-from multiprocessing import Pool
-import os
 import numpy as np
-from typing import List, Dict
-from copy import deepcopy
+import os
+import time
+from multiprocessing import Pool
+
+from pyroom import *
 
 
 class Simulator():

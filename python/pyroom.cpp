@@ -1,4 +1,5 @@
 #include<boost/python.hpp>
+#include <utility>
 #include"pyroom.h"
 using namespace std;
 
@@ -87,15 +88,14 @@ void pyroom::construct_by_pylist(py::list chain_list) {
 }
 
 
+void pyroom::py_input_one_ECC(int x, int y, int z, int length, int direction, py::list type, int movable) {
+    //cout << __FUNCTION__ << endl;
+    //cout << typearray.size() << ',' << py::len(type) << endl;
+    vector<int> typearray = pylist2vector<int>(std::move(type));
+    auto temp = vec{x, y, z};
+    Room::input_one_ECC(temp, length, direction, typearray, movable);
+    //cout << "input finished" << endl;
 
-
-void pyroom::input_one_ECC(int x, int y, int z, int length, int direction, py::list type, int moveable)
-{
-    vector<int> typearray = pylist2vector<int>(type);
-	//cout << __FUNCTION__ << endl;
-	//cout << typearray.size() << ',' << py::len(type) << endl;
-	Room::input_one_ECC(vec{ x,y,z }, length, direction, typearray, moveable);
-	//cout << "input finished" << endl;
 }
 
 void pyroom::input_one_FCC(int x, int y, int z, int length, int direction, int fold_direction, py::list type, int moveable)

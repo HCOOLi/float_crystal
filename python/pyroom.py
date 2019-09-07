@@ -1,9 +1,9 @@
 import json
-import matplotlib.pyplot as plt
-import numpy as np
 from typing import List
 
-from crystal import *
+import matplotlib.pyplot as plt
+import numpy as np
+from float_crystal import *
 
 
 class pyRoom(pyroom):

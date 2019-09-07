@@ -6,7 +6,7 @@ namespace py=boost::python;
 
 
 
-BOOST_PYTHON_MODULE(crystal)
+BOOST_PYTHON_MODULE (float_crystal)
 {
 	py::class_<Point>("Point");
 
@@ -15,7 +15,7 @@ BOOST_PYTHON_MODULE(crystal)
 		;
 	py::class_<pyroom>("pyroom", py::init<int, int, int, py::list, py::list,int >())
 		.def("inputECC", &pyroom::inputECC)
-		.def("input_one_ECC", &pyroom::input_one_ECC)
+            .def("input_one_ECC", &pyroom::py_input_one_ECC)
 		.def("input_one_FCC", &pyroom::input_one_FCC)
 		.def("input_stop_chain",&pyroom::input_stop_chain)
 		.def("input_stop_chain2", &pyroom::input_stop_chain2)
@@ -26,9 +26,9 @@ BOOST_PYTHON_MODULE(crystal)
 		.def("preheat", &pyroom::preheat)
 		.def("delete_chain",&pyroom::lazy_delete_chain)
 		.def("get_list",&pyroom::get_list)
-		.def("cal_Ec",&pyroom::cal_Ec)
+//		.def("cal_Ec",&pyroom::cal_Ec)
 		.def("cal_Ep",&pyroom::cal_Ep)
-		.def("ca_Eb",&pyroom::cal_Eb)
+//		.def("ca_Eb",&pyroom::cal_Eb)
 		/*.def("get_result",&pyroom::get_result)*/
 		//.def("get_polymer",&pyroom::get_polymer, py::return_internal_reference<>())
 		.def("get_num_of_polymers",&pyroom::num_of_polymers)

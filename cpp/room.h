@@ -9,6 +9,8 @@
 #include<ctime>
 using namespace std;
 
+typedef pair<vec, int> Position;
+
 class Grid {
 public:
     vec shape{};
@@ -41,12 +43,18 @@ public:
 	Grid lattice;
 	vector< vec > moves;
 	//parameters
-	const double Ec0 = 1.0;
-    int q;//27的倍数
+    double Ec0 = 1.0;
+    int q = 27;//27的倍数
 	vector<vector<double> > Eb_matrix;
 	vector<vector<double> > Ep_matrix;
-	double (Room:: * count_parallel)(vec &, vec&, deque<pair<vec, int>>&, int) const;
-	double (Room:: * cal_Eb_func)(vec &, vec&, deque<pair<vec, int>>&, int) const;
+
+    double (Room::* count_parallel)(vec &, vec &, deque<Position> &, int) const;
+
+    double (Room::* cal_Eb_func)(vec &, vec &, deque<Position> &, int) const {};
+
+    void setter(string S) {
+
+    };
 
 	vector<Polymer> polymer_list;
 
@@ -130,9 +138,9 @@ public:
 
 	/*double count_parallel_nearby(vec & point1, vec & point2, int i, int j, deque<vec>& que, int cal_type)const;
 	double count_parallel_nearby24(vec & point1, vec & point2, int i, int j, const  deque<vec>& que, int cal_type)const;*/
-	double count_parallel_nearby24(vec & point1, vec & point2,  deque<pair<vec, int>>& que, int cal_type) const;
+    double count_parallel_nearby24(vec &point1, vec &point2, deque<Position> &que, int cal_type) const;
 
-	double count_parallel_nearby8(vec & point1, vec & point2, deque<pair<vec, int>>& que, int cal_type) const;
+    double count_parallel_nearby8(vec &point1, vec &point2, deque<Position> &que, int cal_type) const;
 
 	//double count_parallel_nearby8(vec & point1, vec & point2, int i, int j, deque<vec>& que, int cal_type)const;
 //	double count_parallel_B(vec & point1, vec & point2, deque<vec>& que, int cal_type) const;
@@ -158,20 +166,22 @@ public:
 
     ~Room() = default;
 
-    void stepMove(vec &position, vec &next_position, stack<pair<vec, int>> &path, int true_p);
+    void stepMove(vec &position, vec &next_position, stack<Position> &path, int true_p);
 
-    stack<pair<vec, int>> repair(stack<pair<vec, int>> &path);
+    stack<Position> repair(stack<Position> &path);
 
-    void localSnakeMove(int i, stack<pair<vec, int>> &path);
+    void localSnakeMove(int i, stack<Position> &path);
 
-    double cal_dEp_nearby(stack<pair<vec, int>> path);
+    double cal_dEp_nearby(stack<Position> path);
 
-    double cal_dEp(deque<pair<vec, int>> &path) const;
+    double cal_dEp(deque<Position> &path) const;
 
-    double cal_dEc(deque<pair<vec, int>> &path) const;
+    double cal_dEc(deque<Position> &path) const;
 
-    double cal_dEf(deque<pair<vec, int>> path) const;
+    double cal_dEf(deque<Position> path) const;
 
-    double cal_dEc_nearby(stack<pair<vec, int>> path) const;
+    double cal_dEc_nearby(stack<Position> path) const;
+
+    double count_parallel_nearby8(vec &point1, vec &point2, deque<vec> &que, int cal_type) const;
 };
 

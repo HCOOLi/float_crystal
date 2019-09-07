@@ -5,24 +5,22 @@
 #include<fstream>
 #include <utility>
 
-
-
-
-inline bool find_in_que(const deque<vec> &que, vec p) {
+template<typename T>
+inline bool find_in_que(const deque<T> &que, T p) {
 	if (que.empty()) return false;
 	auto iter = std::find(que.begin(), que.end(), p);
-	return iter != que.end() ? true : false;
+    return iter != que.end();
 }
 
 Room::Room(int x, int y, int z, int type) : lattice(x, y, z), shape(vec{x, y, z}) {
     cout << "construction" << endl;
-    if (type == 8) {
-        cout << "using type8" << endl;
-        count_parallel = &Room::count_parallel_nearby8;
-    } else {
+//    if (type == 8) {
+//        cout << "using type8" << endl;
+//        count_parallel = &Room::count_parallel_nearby8;
+//    } else {
         cout << "using count_parallel_nearby24" << endl;
         count_parallel = &Room::count_parallel_nearby24;
-    }
+//    }
 
     initmoves();
     srand(time(NULL));
@@ -33,14 +31,14 @@ Room::Room(int x, int y, int z,
         : lattice(x, y, z), shape(vec{x, y, z}) {
     Ep_matrix = std::move(Ep);
     Eb_matrix = std::move(Eb);
-    if (type == 8) {
-        cout << "using type8" << endl;
-		count_parallel = &Room::count_parallel_nearby8;
-	}
-	else {
+//    if (type == 8) {
+//        cout << "using type8" << endl;
+//		count_parallel = &Room::count_parallel_nearby8;
+//	}
+//	else {
         cout << "using count_parallel_nearby24" << endl;
 		count_parallel = &Room::count_parallel_nearby24;
-	}
+//	}
 
 	initmoves();
 	srand(time(NULL));
@@ -150,7 +148,7 @@ void Room::inputECC(int num, int length)
 			//int type = rand() % 2 + 1;
 			if (i*sqrt_num + j < num) {
 				vec init{ start_point[0] + i,start_point[1] + j,start_point[2] };
-				//input_one_ECC( init, length,2,type,0);
+                //py_input_one_ECC( init, length,2,type,0);
 			}
 			else {
 				return;
@@ -171,7 +169,7 @@ void Room::input_stop_chain()
 		for (int i = 0; i < shape[0] - 1; i++) {
 			for (int j = 0; j < 2; j++) {
 				vec init = { i,i + j,0 };
-				//input_one_ECC(init, shape[2], 2, 1,1);
+                //py_input_one_ECC(init, shape[2], 2, 1,1);
 			}
 		}
 
@@ -186,7 +184,7 @@ void Room::input_stop_chain()
 void Room::input_stop_chain2() {
 	for (int i = 0; i < shape[0]; i++) {
 		vec init = { 0,i,0 };
-		//input_one_ECC(init, shape[2], 2, 1,1);
+        //py_input_one_ECC(init, shape[2], 2, 1,1);
 	}
 
 }
@@ -322,7 +320,7 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 	vec direction(moves[m_rand]);
 	if(direction==vec{0,0,0}){
         //TODO
-        // stepMove((*pol_iter).location, p_next, path,rand()%(this->q/moves.size()));
+        stepMove((*pol_iter).location, (*pol_iter).location, path, true_p);
 	}
 	vec p_next;
 	if (canMove((*pol_iter).location, direction)) {
@@ -524,12 +522,12 @@ double Room::cal_dEc(deque<pair<vec,int> > &path)const
 	double num = 0;
 	vec v1, v2, v3;
     auto iter = path.begin();
-	if (iter != path.end()) v1 = (*iter); else return num;
+    if (iter != path.end()) v1 = (*iter).first; else return num;
 	iter++;
-	if (iter != path.end()) v2 = (*iter); else return num;
+    if (iter != path.end()) v2 = (*iter).first; else return num;
 	iter++;
 	while (iter != path.end()) {
-		v3 = (*iter);
+        v3 = (*iter).first;
 		num += cal_ifline(v1, v2, v3);
 		v1 = v2;
 		v2 = v3;
@@ -571,7 +569,7 @@ double Room::cal_dEc_nearby(stack<pair<vec,int>> path)const
 {
 
 	if (path.empty()) return 0.0;
-	deque<vec> new_path, old_path;
+    deque<Position> new_path, old_path;
 
 	while (!path.empty()) {
         auto v1 = path.top();
@@ -581,42 +579,60 @@ double Room::cal_dEc_nearby(stack<pair<vec,int>> path)const
 		new_path.emplace_back(v1);
 		old_path.emplace_back(v2);
 	}
-	vec v1 = new_path[0];
-	vec v2 = new_path.back();
+    vec v1 = new_path[0].first;
+    vec v2 = new_path.back().first;
 	shared_ptr< Point>p1 = lattice[v1];
 	shared_ptr< Point>p2 = lattice[v2];
 	int chain_num = p1->chain_num;
 	int length = polymer_list[chain_num].length;
 	if ((p1->pos_in_chain) > (p2->pos_in_chain)) {
 		for (int i = p1->pos_in_chain + 1, j = 0; i < length && j < 2; i++, j++) {
-			new_path.push_front(polymer_list[chain_num][i]->location);
-			old_path.push_front(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 		for (int i = p2->pos_in_chain - 1, j = 0; i >= 0 && j < 2; i--, j++) {
-			new_path.push_back(polymer_list[chain_num][i]->location);
-			old_path.push_back(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 
 
 	}
 	else if (p1->pos_in_chain == p2->pos_in_chain) {
 		for (int i = p1->pos_in_chain - 1, j = 0; i >= 0 && j < 2; i--, j++) {
-			new_path.push_front(polymer_list[chain_num][i]->location);
-			old_path.push_front(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 		for (int i = p2->pos_in_chain + 1, j = 0; i < length&& j < 2; i++, j++) {
-			new_path.push_back(polymer_list[chain_num][i]->location);
-			old_path.push_back(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 	}
 	else {
 		for (int i = p1->pos_in_chain - 1, j = 0; i >= 0 && j < 2; i--, j++) {
-			new_path.push_front(polymer_list[chain_num][i]->location);
-			old_path.push_front(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 		for (int i = p2->pos_in_chain + 1, j = 0; i < length && j < 2; i++, j++) {
-			new_path.push_back(polymer_list[chain_num][i]->location);
-			old_path.push_back(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 
 	}
@@ -652,33 +668,51 @@ double Room::cal_dEp_nearby(stack<pair<vec,int>> path)
 	int length = polymer_list[chain_num].length;
 	if (p1->pos_in_chain > p2->pos_in_chain) {
 		for (int i = p1->pos_in_chain + 1, j = 0; i < length && j < 1; i++, j++) {
-			new_path.push_front(polymer_list[chain_num][i]->location);
-			old_path.push_front(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 		for (int i = p2->pos_in_chain - 1, j = 0; i >= 0 && j < 1; i--, j++) {
-			new_path.push_back(polymer_list[chain_num][i]->location);
-			old_path.push_back(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 
 	}
 	else if (p1->pos_in_chain == p2->pos_in_chain) {
 		for (int i = p1->pos_in_chain - 1, j = 0; i >= 0 && j < 1; i--, j++) {
-			new_path.push_front(polymer_list[chain_num][i]->location);
-			old_path.push_front(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 		for (int i = p1->pos_in_chain + 1, j = 0; i < length&& j < 1; i++, j++) {
-			new_path.push_back(polymer_list[chain_num][i]->location);
-			old_path.push_back(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 	}
 	else {
 		for (int i = p1->pos_in_chain - 1, j = 0; i >= 0 && j < 1; i--, j++) {
-			new_path.push_front(polymer_list[chain_num][i]->location);
-			old_path.push_front(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 		for (int i = p2->pos_in_chain + 1, j = 0; i < length && j < 1; i++, j++) {
-			new_path.push_back(polymer_list[chain_num][i]->location);
-			old_path.push_back(polymer_list[chain_num][i]->location);
+            auto pair_data = make_pair(polymer_list[chain_num][i]->location,
+                                       polymer_list[chain_num][i]->true_position);
+
+            new_path.push_front(pair_data);
+            old_path.push_front(pair_data);
 		}
 
 	}
@@ -710,41 +744,41 @@ double Room::cal_dEp_nearby(stack<pair<vec,int>> path)
 
 }
 
-double Room::cal_dEb_nearby(stack<vec> path)
-{
-
-	if (path.empty()) return 0.0;
-	deque<vec> new_path, old_path;
-
-	stack<vec> do_path(path);
-
-	while (!path.empty()) {
-		vec v1 = path.top();
-		path.pop();
-		vec v2 = path.top();
-		path.pop();
-		//cout << v1 << ',' << v2 << endl;
-		new_path.emplace_back(v1);
-		old_path.emplace_back(v2);
-	}
-
-	vec first_point_new = new_path.back();
-
-
-	vec	last_point_old = old_path.front();
-
-	double Eb1 = cal_Eb_point(first_point_new, 2) + cal_Eb_point(last_point_old, 2);
-	stack<vec> re = repair(do_path);
-	double Eb2 = cal_Eb_point(last_point_old, 2) + cal_Eb_point(first_point_new, 2);
-	repair(re);
-	return Eb1 - Eb2;
-
-}
+//double Room::cal_dEb_nearby(stack<pair<vec,int>> path)
+//{
+//
+//	if (path.empty()) return 0.0;
+//	deque<pair<vec,int>> new_path, old_path;
+//
+//	stack<pair<vec,int>> do_path(path);
+//
+//	while (!path.empty()) {
+//        auto v1 = path.top();
+//		path.pop();
+//        auto v2 = path.top();
+//		path.pop();
+//		//cout << v1 << ',' << v2 << endl;
+//		new_path.emplace_back(v1);
+//		old_path.emplace_back(v2);
+//	}
+//
+//	vec first_point_new = new_path.back();
+//
+//
+//	vec	last_point_old = old_path.front();
+//
+//	double Eb1 = cal_Eb_point(first_point_new, 2) + cal_Eb_point(last_point_old, 2);
+//	stack<pair<vec,int>> re = repair(do_path);
+//	double Eb2 = cal_Eb_point(last_point_old, 2) + cal_Eb_point(first_point_new, 2);
+//	repair(re);
+//	return Eb1 - Eb2;
+//
+//}
 
 double Room::cal_Ep()const
 {
 	double num = 0;
-	deque<vec> a;
+    deque<Position> a;
 
     for (const auto &p : polymer_list) {
         int length = p.length;
@@ -758,21 +792,21 @@ double Room::cal_Ep()const
 	return num / 2.0;
 }
 
-double Room::cal_Eb() const
-{
-	double sum = 0;
-	for (auto &p : polymer_list) {
-		for (auto &point : p.chain) {
-			sum += cal_Eb_point(point->location);
-		}
-	}
-	return sum;
-}
+//double Room::cal_Eb() const
+//{
+//	double sum = 0;
+//	for (auto &p : polymer_list) {
+//		for (auto &point : p.chain) {
+//			sum += cal_Eb_point(point->location);
+//		}
+//	}
+//	return sum;
+//}
 
 double Room::cal_one_Ep(int i)const
 {
     //分子内的要除二，而分子外的不用除二；
-	deque<vec> a;
+    deque<Position> a;
 	double num = 0;
     const Polymer &polymer = polymer_list[i];
     int length = polymer.length;
@@ -788,7 +822,7 @@ double Room::cal_one_Eb(int) const
 }
 
 double Room::count_parallel_nearby24(vec &point1, vec &point2,
-	deque<vec> & que, int cal_type)const {
+                                     deque<pair<vec, int>> &que, int cal_type) const {
 
 	double num_self = 0, num_others = 0;
 	int chain_num;
@@ -802,7 +836,7 @@ double Room::count_parallel_nearby24(vec &point1, vec &point2,
 
 	//cout << direction<<endl;
 	for (auto &direc : moves) {
-		if ((direc == direction) || if_opposite(direc, direction)) {
+        if ((direc == direction) || if_opposite(direc, direction) || (direc == vec{0, 0, 0})) {
 			//cout << vec{ x,y,z };
 			continue;
 		}
@@ -818,7 +852,8 @@ double Room::count_parallel_nearby24(vec &point1, vec &point2,
 			double Ep_cross = Ep_matrix[type1][type2];
 			if (result == chain_num) {
 
-				if (find_in_que(que, p1) && find_in_que(que, p2)) {
+                if (find_in_que(que, make_pair(p1, lattice[p1]->true_position)) &&
+                    find_in_que(que, make_pair(p2, lattice[p2]->true_position))) {
 					num_self += 0.5*Ep_cross;
 				}
 				else {

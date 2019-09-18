@@ -3,7 +3,7 @@ project(crystal)
 
 set(CMAKE_CXX_STANDARD 14)
 add_definitions(-D BOOST_PYTHON_STATIC_LIB)
-set(CMAKE_CXX_FLAGS "/O2 /EHsc")
+set(CMAKE_CXX_FLAGS "-O2")
 set(PYTHON_ROOT "C:\\Users\\1007\\Anaconda3")
 set(PYTHON_INCLUDEDIR "C:\\Users\\1007\\Anaconda3\\include")
 set(PYTHON_LIBRARYDIR "C:\\Users\\1007\\Anaconda3\\libs")

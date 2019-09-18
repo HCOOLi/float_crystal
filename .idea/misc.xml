@@ -3,6 +3,13 @@
   <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$/python">
     <contentRoot DIR="$PROJECT_DIR$" />
   </component>
+  <component name="CidrRootsConfiguration">
+    <excludeRoots>
+      <file path="$PROJECT_DIR$/Complex" />
+      <file path="$PROJECT_DIR$/Data" />
+      <file path="$PROJECT_DIR$/python/Data" />
+    </excludeRoots>
+  </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>

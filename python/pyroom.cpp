@@ -35,31 +35,11 @@ pyroom::pyroom(int x, int y, int z, py::list Ep, py::list Eb, int type) : Room(x
 }
 
 
-template<typename T>
-vector<T> pylist2vector(py::list list) {
-    vector<T> result;
-	for (int i = 0; i < py::len(list); i++) {
-        T x = py::extract<T>(list[i]);
-		result.push_back(x);
-	}
-	return result;
-
-
-}
-//map<string,double> pydict2map(py::dict list) {
-//	vector<int> result;
-//	for (int i = 0; i < py::len(list); i++) {
-//		int x = py::extract<int>(list[i]);
-//		result.push_back(x);
-//	}
-//	return result;
-//
-//}
 
 void pyroom::construct_by_pylist(py::list chain_list) {
 
 	polymer_list.clear();
-	lattice = Grid(shape[0], shape[1], shape[2]);
+    lattice = Grid<shared_ptr<Point>>(shape[0], shape[1], shape[2]);
 	for (int i = 0; i < py::len(chain_list); i++) {
 		py::dict chain_dict = py::extract<py::dict>(chain_list[i]);
 		py::list chain = py::extract<py::list>(chain_dict["chain"]);

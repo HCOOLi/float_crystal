@@ -11,24 +11,29 @@ using namespace std;
 
 typedef pair<vec, int> Position;
 
+template<typename T>
 class Grid {
 public:
     vec shape{};
-	vector<vector< vector<shared_ptr< Point> > > > lattice;
+    vector<T> lattice;
     Grid() = default;
 
-	shared_ptr< Point>  & operator[](const vec &P) {
-		return lattice[P[0]][P[1]][P[2]];
-	}
-	shared_ptr< Point>   operator[](const vec &P)const {
-		return lattice[P[0]][P[1]][P[2]];
-	}
-	void thread_yz(int i, int y, int z);
-	Grid(int x, int y, int z) :shape(vec{ x,y,z })
-	{
-		lattice.resize(x);
+    T &operator[](const vec &P) {
+        return lattice[P[0] * shape[1] * shape[2] + P[1] * shape[2] + P[2]];
+    }
+
+    T operator[](const vec &P) const {
+        return lattice[P[0] * shape[1] * shape[2] + P[1] * shape[2] + P[2]];
+    }
+
+    Grid(int x, int y, int z) : shape(vec{x, y, z}) {
+        lattice.resize(x * y * z);
 		for (int i = 0; i < x; i++) {
-			thread_yz(i, y, z);
+            for (int j = 0; j < y; j++) {
+                for (int k = 0; k < z; k++) {
+                    lattice[i * y * z + j * z + k] = nullptr;
+                }
+            }
 		}
 	}
 
@@ -38,9 +43,9 @@ public:
 class Room {
 public:
 
-	const vec shape;
+    vec shape{};
 	const int dimension = 3;
-	Grid lattice;
+    Grid<shared_ptr<Point>> lattice;
 	vector< vec > moves;
 	//parameters
     double Ec0 = 1.0;
@@ -48,13 +53,10 @@ public:
 	vector<vector<double> > Eb_matrix;
 	vector<vector<double> > Ep_matrix;
 
-    double (Room::* count_parallel)(vec &, vec &, deque<Position> &, int) const;
+    double (Room::* count_parallel)(vec &, vec &, deque<Position> &, int) const {};
 
     double (Room::* cal_Eb_func)(vec &, vec &, deque<Position> &, int) const {};
 
-    void setter(string S) {
-
-    };
 
 	vector<Polymer> polymer_list;
 
@@ -62,6 +64,7 @@ public:
 		return polymer_list[i];
 	}
 
+    Room() = default;
     Room(int x, int y, int z, int type = 24);
 	Room(int x, int y, int z, vector<vector<double> > Ep, vector<vector<double> > Eb,int type);
 
@@ -140,8 +143,6 @@ public:
 	double count_parallel_nearby24(vec & point1, vec & point2, int i, int j, const  deque<vec>& que, int cal_type)const;*/
     double count_parallel_nearby24(vec &point1, vec &point2, deque<Position> &que, int cal_type) const;
 
-    double count_parallel_nearby8(vec &point1, vec &point2, deque<Position> &que, int cal_type) const;
-
 	//double count_parallel_nearby8(vec & point1, vec & point2, int i, int j, deque<vec>& que, int cal_type)const;
 //	double count_parallel_B(vec & point1, vec & point2, deque<vec>& que, int cal_type) const;
 	double cal_average_thick()const;
@@ -155,10 +156,7 @@ public:
 	double cal_PSM()const;
 	double cal_PSM_point(vec &) const;
 
-	//load&save
-	void save();
-	void load();
-	//python 
+
 
 	int num_of_polymers()const {
 		return polymer_list.size();
@@ -183,5 +181,9 @@ public:
     double cal_dEc_nearby(stack<Position> path) const;
 
     double count_parallel_nearby8(vec &point1, vec &point2, deque<vec> &que, int cal_type) const;
+
+    void save(string filename);
+
+    void load(string filename);
 };
 

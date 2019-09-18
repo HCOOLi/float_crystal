@@ -4,9 +4,10 @@
 #include<tuple>
 #include<fstream>
 #include <utility>
+#include <string>
 
-template<typename T>
-inline bool find_in_que(const deque<T> &que, T p) {
+
+inline bool find_in_que(const deque<Position> &que, Position p) {
 	if (que.empty()) return false;
 	auto iter = std::find(que.begin(), que.end(), p);
     return iter != que.end();
@@ -45,7 +46,7 @@ Room::Room(int x, int y, int z,
 	//cout<< time(NULL);
 }
 
-void Room::initmoves()//27种moves
+void Room::initmoves()//27??moves
 {
 	if (dimension == 3) {
 		for (int x = -1; x <= 1; x++) {
@@ -289,8 +290,19 @@ bool Room::canMove(vec & point, vec & direction)const
 
 void Room::stepMove(vec & position, vec & next_position, stack<pair<vec,int>>& path,int true_p)
 {
+//    if (true_p!=0){
+//        printf(" true not zero\n");
+//        throw   string(" true not zero") ;
+//    }
     if(position==next_position){
+        if (lattice[position]->true_position == true_p) {
+            return;
+        }
+        path.push(make_pair(position, lattice[position]->true_position));
+        path.push(make_pair(next_position, true_p));
+
         lattice[position]->true_position=true_p;
+
     }else{
         path.push(make_pair(position,lattice[position]->true_position));
         path.push(make_pair(next_position,true_p));
@@ -319,8 +331,10 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
     m_rand  /=this->q/moves.size();
 	vec direction(moves[m_rand]);
 	if(direction==vec{0,0,0}){
+//	    printf("no move");
         //TODO
         stepMove((*pol_iter).location, (*pol_iter).location, path, true_p);
+        return;
 	}
 	vec p_next;
 	if (canMove((*pol_iter).location, direction)) {
@@ -335,10 +349,10 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 		p1 = (*pol_iter).location;
 		p2 = (*pol_iter).location;
 
-		stepMove((*pol_iter).location, p_next, path,rand()%(this->q/moves.size()));
+        stepMove((*pol_iter).location, p_next, path, true_p);
 		//break;
 	}
-        // 模式2
+        // ??2
 	else {
 		return;
 	}
@@ -349,11 +363,12 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 			try {
 				if (lattice[p1] == nullptr) {
                     vec t1 = polymer[j]->location;
+
 					stepMove(t1, p1, path,rand()%(this->q/moves.size()));
 					p1 = t1;
 				}
 				else {
-                    cout << "被占用了1";
+                    cout << "???????1";
 				}
 			}
 			catch (...) {
@@ -364,6 +379,9 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 			break;
 		}
 	}
+    //TODO
+    // intersect(point, p_next);
+    //repair then return;
 	for (int j = start_point + 1; j < length; j++) {
         if (distance_squre(polymer[j]->location, polymer[j - 1]->location) > dimension) {
 			try {
@@ -373,7 +391,7 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 					p2 = t2;
 				}
 				else {
-                    cout << "被占用了2" << endl;
+                    cout << "???????2" << endl;
 				}
 			}
 			catch (...) {
@@ -383,7 +401,9 @@ void Room::localSnakeMove(int i, stack<pair<vec,int>> &path)
 		else {
 			break;
 		}
-
+        //TODO
+        // intersect(point, p_next);
+        //repair then return;
 	}
 }
 
@@ -399,11 +419,11 @@ void Room::movie(int m, int n, double T)
 
             stack<pair<vec, int> > path;
 			this->localSnakeMove(j, path);
-            //TODO if 有交叉，repair；
+            //TODO if   repair
 			if (path.empty()) {
 				continue;
 			}
-//			double dEc = cal_dEc_nearby(path)*Ec0;
+            double dEc = cal_dEc_nearby(path) * Ec0;
 			double dEp = cal_dEp_nearby(path);
 //			double dEb = cal_dEb_nearby(path);
 			//double dEf = cal_dEf(path);
@@ -414,6 +434,11 @@ void Room::movie(int m, int n, double T)
 //				Ec += dEc;
 				Ep += dEp;
 //				Eb += dEb;
+//                if (E!=cal_Ep()){
+//                    cout<<E<<endl;
+//                    cout<<cal_Ep()<<endl;
+//                    throw "error";
+//                }
 			}
 			else {
 				auto a = randfloat();
@@ -425,14 +450,32 @@ void Room::movie(int m, int n, double T)
 					Ep += dEp;
 //					Eb += dEb;
 					//E = Ec + Ep;
+//                    if (E!=cal_Ep()){
+//                        cout<<E<<endl;
+//                        cout<<cal_Ep()<<endl;
+//                        throw "error";
+//                    }
 				}
 				else {
-					//cout << "not move"<<endl;
+//                    cout << "before repair"<<endl;
+//                    if (E!=cal_Ep()+dEp){
+//                        cout<<E<<endl;
+//                        cout<<cal_Ep()<<endl;
+//                        cout<<dEp<<endl;
+////                        throw "error";
+//                    }
 					repair(path);
+//                    cout << "after repair"<<endl;
+//                    if (E!=cal_Ep()){
+//                        cout<<E<<endl;
+//                        cout<<cal_Ep()<<endl;
+//                        throw "error";
+//                    }
 				}
 			}
 		}
 		if (i%n == 0) {
+
 			//TODO
 		}
 
@@ -440,7 +483,7 @@ void Room::movie(int m, int n, double T)
 //	cout << "*****Ec=" << Ec << endl;
 	cout << "*****Ep=" << Ep << endl;
 //	cout << "*****Eb=" << Eb << endl;
-	cout << "*****E=" << E << endl;
+    cout << "*****E=" << cal_Ep() << endl;
 	//results->append(E_list);
 	//results->append(Ec_list);
 	//results->append(Eb_list);
@@ -457,7 +500,7 @@ void Room::preheat(int m) {
 
             stack<pair<vec, int >> path;
             this->localSnakeMove(j, path);
-            //TODO if 有交叉，repair；
+            //TODO if ???????repair??
             if (path.empty()) {
                 continue;
             }
@@ -469,17 +512,40 @@ void Room::preheat(int m) {
 
 }
 
-void Room::save()
-{
-	ofstream file("polymer.txt");
+void Room::save(string filename) {
+    ofstream file(filename, ios::app);
+    file << "# " << "shape" << this->shape[0] << endl;
+    file << "# " << "Ep" << this->Ep_matrix[0][0] << endl;
+    file << "# " << "Eb" << this->Eb_matrix[0][0] << endl;
+    file << "# " << "numofpolymers" << this->polymer_list.size() << endl;
+
     for (auto &p : polymer_list) {
-        file << p << endl;
-	}
+        for (shared_ptr<Point> &point:p.chain) {
+            file << point->location[0] << ' ' << point->location[1] << ' ' << point->location[2] << ' '
+                 << point->type << ' ' << point->movable << ' ' << point->true_position << endl;
+        }
+        file << "####" << endl;
+    }
+
 	file.close();
 }
 
-void Room::load()
-{
+void Room::load(string filename) {
+    ifstream file(filename, ios::in);
+
+    string temp;
+    while (getline(file, temp)) {
+        if (temp[0] == '#') {
+
+        } else {
+            int a, b, c;
+            sscanf_s(temp.c_str(), "%d%d%d", &a, &b, &c);
+
+
+        }
+
+    }
+    file.close();
 
 }
 
@@ -513,6 +579,9 @@ double Room::cal_dEp(deque<pair<vec,int>> &path)const
 		v1 = v2;
 		iter++;
 	}
+#ifdef DEBUG
+    cout<<__FUNCTION__<<num<<endl;
+#endif
 	return num;
 }
 
@@ -597,8 +666,8 @@ double Room::cal_dEc_nearby(stack<pair<vec,int>> path)const
             auto pair_data = make_pair(polymer_list[chain_num][i]->location,
                                        polymer_list[chain_num][i]->true_position);
 
-            new_path.push_front(pair_data);
-            old_path.push_front(pair_data);
+            new_path.push_back(pair_data);
+            old_path.push_back(pair_data);
 		}
 
 
@@ -615,8 +684,8 @@ double Room::cal_dEc_nearby(stack<pair<vec,int>> path)const
             auto pair_data = make_pair(polymer_list[chain_num][i]->location,
                                        polymer_list[chain_num][i]->true_position);
 
-            new_path.push_front(pair_data);
-            old_path.push_front(pair_data);
+            new_path.push_back(pair_data);
+            old_path.push_back(pair_data);
 		}
 	}
 	else {
@@ -631,8 +700,8 @@ double Room::cal_dEc_nearby(stack<pair<vec,int>> path)const
             auto pair_data = make_pair(polymer_list[chain_num][i]->location,
                                        polymer_list[chain_num][i]->true_position);
 
-            new_path.push_front(pair_data);
-            old_path.push_front(pair_data);
+            new_path.push_back(pair_data);
+            old_path.push_back(pair_data);
 		}
 
 	}
@@ -645,6 +714,7 @@ double Room::cal_dEc_nearby(stack<pair<vec,int>> path)const
 
 double Room::cal_dEp_nearby(stack<pair<vec,int>> path)
 {
+//    printf(__FUNCTION__);
 
 	if (path.empty()) return 0.0;
 	deque<pair<vec,int>> new_path, old_path;
@@ -653,8 +723,10 @@ double Room::cal_dEp_nearby(stack<pair<vec,int>> path)
 
 	while (!path.empty()) {
 		auto v1 = path.top();
+//		cout<<v1.first<<endl;
 		path.pop();
         auto v2 = path.top();
+//        cout<<v2.first<<endl;
 		path.pop();
 		new_path.emplace_back(v1);
 		old_path.emplace_back(v2);
@@ -678,8 +750,8 @@ double Room::cal_dEp_nearby(stack<pair<vec,int>> path)
             auto pair_data = make_pair(polymer_list[chain_num][i]->location,
                                        polymer_list[chain_num][i]->true_position);
 
-            new_path.push_front(pair_data);
-            old_path.push_front(pair_data);
+            new_path.push_back(pair_data);
+            old_path.push_back(pair_data);
 		}
 
 	}
@@ -695,8 +767,8 @@ double Room::cal_dEp_nearby(stack<pair<vec,int>> path)
             auto pair_data = make_pair(polymer_list[chain_num][i]->location,
                                        polymer_list[chain_num][i]->true_position);
 
-            new_path.push_front(pair_data);
-            old_path.push_front(pair_data);
+            new_path.push_back(pair_data);
+            old_path.push_back(pair_data);
 		}
 	}
 	else {
@@ -711,8 +783,8 @@ double Room::cal_dEp_nearby(stack<pair<vec,int>> path)
             auto pair_data = make_pair(polymer_list[chain_num][i]->location,
                                        polymer_list[chain_num][i]->true_position);
 
-            new_path.push_front(pair_data);
-            old_path.push_front(pair_data);
+            new_path.push_back(pair_data);
+            old_path.push_back(pair_data);
 		}
 
 	}
@@ -805,7 +877,7 @@ double Room::cal_Ep()const
 
 double Room::cal_one_Ep(int i)const
 {
-    //分子内的要除二，而分子外的不用除二；
+    //????????????????????????????????
     deque<Position> a;
 	double num = 0;
     const Polymer &polymer = polymer_list[i];
@@ -821,6 +893,7 @@ double Room::cal_one_Eb(int) const
 	return 0.0;
 }
 
+//TODO
 double Room::count_parallel_nearby24(vec &point1, vec &point2,
                                      deque<pair<vec, int>> &que, int cal_type) const {
 
@@ -828,6 +901,11 @@ double Room::count_parallel_nearby24(vec &point1, vec &point2,
 	int chain_num;
 	if (lattice[point1] == nullptr)
 		throw "NULL";
+    if (lattice[point1]->true_position != 0 || lattice[point2]->true_position != 0) {
+//        cout<<"true_position!=0"<<endl;
+//	    throw "true_position!=0";
+        return 0;
+    }
 	chain_num = lattice[point1]->chain_num;
 	int type1 = lattice[point1]->type;
 	vec p1, p2;
@@ -854,6 +932,7 @@ double Room::count_parallel_nearby24(vec &point1, vec &point2,
 
                 if (find_in_que(que, make_pair(p1, lattice[p1]->true_position)) &&
                     find_in_que(que, make_pair(p2, lattice[p2]->true_position))) {
+//                    cout<<"find"<<endl;
 					num_self += 0.5*Ep_cross;
 				}
 				else {
@@ -981,53 +1060,53 @@ double Room::count_parallel_nearby24(vec &point1, vec &point2,
 //	}
 //}
 
-double Room::count_parallel_nearby8(vec &point1, vec &point2,
-	deque<vec> & que, int cal_type)const {
-
-	double num_self = 0, num_others = 0;
-	int chain_num;
-	chain_num = lattice[point1]->chain_num;
-	int type1 = lattice[point1]->type;
-	vec p1, p2;
-	vec direction = cal_direction(point1, point2);
-
-	for (auto &direc : moves) {
-		if (0==direc * direction) {
-			//cout << vec{ x,y,z };
-			p1 = (point1 + direc) % shape;
-			p2 = (point2 + direc) % shape;
-			int result = get_side_num(p1, p2);
-			if (result == -1) { continue; }
-			else {
-				int type2 = lattice[p1]->type;
-				double Ep_cross = Ep_matrix[type1][type2];
-				if (result == chain_num) {
-
-					if (find_in_que(que, p1) && find_in_que(que, p2)) {
-						num_self += 0.5*Ep_cross;
-					}
-					else {
-						num_self += Ep_cross;
-					}
-				}
-				else {
-					num_others += Ep_cross;
-				}
-		}
-		
-		}
-	}
-	if (cal_type == 0) {
-		return num_others + num_self / 2;
-		//cout << num_others << ',' << num_self << endl;
-	}
-	else {
-
-		if (num_self != 0) { ; }
-		//cout << num_others << ',' << num_self << endl;
-		return num_others + num_self;
-	}
-}
+//double Room::count_parallel_nearby8(vec &point1, vec &point2,
+//	deque<vec> & que, int cal_type)const {
+//
+//	double num_self = 0, num_others = 0;
+//	int chain_num;
+//	chain_num = lattice[point1]->chain_num;
+//	int type1 = lattice[point1]->type;
+//	vec p1, p2;
+//	vec direction = cal_direction(point1, point2);
+//
+//	for (auto &direc : moves) {
+//		if (0==direc * direction) {
+//			//cout << vec{ x,y,z };
+//			p1 = (point1 + direc) % shape;
+//			p2 = (point2 + direc) % shape;
+//			int result = get_side_num(p1, p2);
+//			if (result == -1) { continue; }
+//			else {
+//				int type2 = lattice[p1]->type;
+//				double Ep_cross = Ep_matrix[type1][type2];
+//				if (result == chain_num) {
+//
+//					if (find_in_que(que, p1) && find_in_que(que, p2)) {
+//						num_self += 0.5*Ep_cross;
+//					}
+//					else {
+//						num_self += Ep_cross;
+//					}
+//				}
+//				else {
+//					num_others += Ep_cross;
+//				}
+//		}
+//		
+//		}
+//	}
+//	if (cal_type == 0) {
+//		return num_others + num_self / 2;
+//		//cout << num_others << ',' << num_self << endl;
+//	}
+//	else {
+//
+//		if (num_self != 0) { ; }
+//		//cout << num_others << ',' << num_self << endl;
+//		return num_others + num_self;
+//	}
+//}
 
 
 double Room::cal_average_thick() const
@@ -1103,7 +1182,7 @@ double Room::cal_average_thick() const
 
 
 
-double Room::cal_Rg() const// 均方旋转半径
+double Room::cal_Rg() const// ?????????
 {
     throw "NOT DONE!";
 	double num = 0;
@@ -1120,7 +1199,7 @@ double Room::cal_Rg() const// 均方旋转半径
 	return 0.0;
 }
 
-double Room::cal_h2() const// 均方末端距
+double Room::cal_h2() const// ????????
 {
     throw "NOT DONE!";
 	double num = 0;
@@ -1204,16 +1283,6 @@ double Room::cal_PSM_point(vec &p) const
 	return 0.0;
 }
 
-void Grid::thread_yz(int i, int y, int z)
-{
-	lattice[i].resize(y);
-	for (int j = 0; j < y; j++) {
-		lattice[i][j].resize(z);
-		for (int k = 0; k < z; k++) {
-			lattice[i][j][k] = nullptr;
-		}
-	}
-}
 
 
 ostream & operator<<(ostream & o, Point & p)

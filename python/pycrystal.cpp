@@ -14,6 +14,9 @@ BOOST_PYTHON_MODULE (float_crystal)
 		//.def("get_list", &Polymer::get_list)
 		;
 	py::class_<pyroom>("pyroom", py::init<int, int, int, py::list, py::list,int >())
+            .def_readwrite("q", &pyroom::q) //¶ÁÐ´
+            .add_property("Ep", &pyroom::Ep_setter, &pyroom::Ep_getter)
+            .add_property("Eb", &pyroom::Eb_setter, &pyroom::Eb_getter)
 		.def("inputECC", &pyroom::inputECC)
             .def("input_one_ECC", &pyroom::py_input_one_ECC)
 		.def("input_one_FCC", &pyroom::input_one_FCC)

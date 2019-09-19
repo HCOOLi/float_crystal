@@ -57,7 +57,7 @@ def drawpicture(date, T):
 if __name__ == '__main__':
     start = time.time()
     print('Parent process %s.' % os.getpid())
-    date = "2019-9-12-q=27c=0.1"
+    date = "2019-9-12-q=27c=1"
     # S.simulate(parameter_list[1])
     with Pool(10) as p:
 

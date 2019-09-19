@@ -32,7 +32,7 @@ class SecondNuclear(Simulator):
         Ep = [1.0]
         length = [64]
         # T = [2.2, 2.4, 2.6, 2.8,3.2, 3.4, 3.6, 3.8,4.0,4.2]
-        T = list(np.arange(5, 7.1, 1))
+        T = list(np.arange(1, 7.1, 1))
         d = [0]
         return itertools.product(Ep, d, T)
 
@@ -62,7 +62,7 @@ class SecondNuclear(Simulator):
                 if nums < 46:
                     r.py_input_one_FCC([i, j, 0], 64, 2, 1, [1] * 64, 0)
                 else:
-                    r.py_input_one_FCC([i, j, 0], 64, 2, 1, [2] * 64, 0)
+                    r.py_input_one_FCC([i, j, 0], 64, 2, 1, [1] * 64, 0)
 
 
 
@@ -75,20 +75,21 @@ class SecondNuclear(Simulator):
             print('Run task %f ,%f,%f(%s)...' % (Ep, 1, T, os.getpid()))
             # start = time.time()
             # EC_max = 31 * 31 * (31 - 1)
-            date = "2019-9-12-q=27c=0.1"
+            date = "2019-9-12-q=27c=1"
             if not os.path.exists('Data'):
                 os.mkdir('Data')
             if not os.path.exists('Data/' + date + '/'):
                 os.mkdir('Data/' + date + '/')
             r = pyRoom(32, 32, 32, Ep=[[0, 0, 0], [0, Ep, 0], [0, 0, 0]], Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]],
                        roomtype=24)
+            print(r.Ep)
             # E_list, Ec_list, Ep_list, t_list = [], [], [], []
 
             SecondNuclear.install_model(r, d)
             print("install model")
             # r.draw_all()
             # r.movie(10000, 10000, 100)
-            r.preheat(10000000)
+            r.preheat(100000)
             print("end preheat")
 
             # # E_list, Ec_list, Ep_list, t_list, f = r.step_heating(6 * Ep+0.1, 1 * Ep, -0.1 * Ep,10000,5000, EC_max)
@@ -99,7 +100,7 @@ class SecondNuclear(Simulator):
             for i in range(1000):
                 r.movie(5000, 1, T * Ep)
                 print("after movie%d" % (i))
-                E_result, Ec_result, Ep_result, Eb_result = r.get_result()
+                # E_result, Ec_result, Ep_result, Eb_result = r.get_result()
                 # E_list += E_result
                 # Ec_list += Ec_result
                 # Ep_list += Ep_result
@@ -124,7 +125,8 @@ if __name__ == '__main__':
     # S.simulate(parameter_list[1])
     try:
         # with ProcessPoolExecutor(max_workers=5) as p:
-        with Pool(2) as p:
+        with Pool(10) as p:
+
             p.map_async(S.simulate, parameter_list)
             p.close()
             p.join()

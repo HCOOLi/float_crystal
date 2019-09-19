@@ -15,32 +15,18 @@ inline bool find_in_que(const deque<Position> &que, Position p) {
 
 Room::Room(int x, int y, int z, int type) : lattice(x, y, z), shape(vec{x, y, z}) {
     cout << "construction" << endl;
-//    if (type == 8) {
-//        cout << "using type8" << endl;
-//        count_parallel = &Room::count_parallel_nearby8;
-//    } else {
         cout << "using count_parallel_nearby24" << endl;
         count_parallel = &Room::count_parallel_nearby24;
-//    }
-
     initmoves();
     srand(time(NULL));
-    //cout<< time(NULL);
 }
 Room::Room(int x, int y, int z,
            vector<vector<double> > Ep, vector<vector<double> > Eb, int type)
         : lattice(x, y, z), shape(vec{x, y, z}) {
     Ep_matrix = std::move(Ep);
     Eb_matrix = std::move(Eb);
-//    if (type == 8) {
-//        cout << "using type8" << endl;
-//		count_parallel = &Room::count_parallel_nearby8;
-//	}
-//	else {
-        cout << "using count_parallel_nearby24" << endl;
-		count_parallel = &Room::count_parallel_nearby24;
-//	}
-
+    cout << "using count_parallel_nearby24" << endl;
+    count_parallel = &Room::count_parallel_nearby24;
 	initmoves();
 	srand(time(NULL));
 	//cout<< time(NULL);
@@ -290,10 +276,7 @@ bool Room::canMove(vec & point, vec & direction)const
 
 void Room::stepMove(vec & position, vec & next_position, stack<pair<vec,int>>& path,int true_p)
 {
-//    if (true_p!=0){
-//        printf(" true not zero\n");
-//        throw   string(" true not zero") ;
-//    }
+
     if(position==next_position){
         if (lattice[position]->true_position == true_p) {
             return;
@@ -308,9 +291,10 @@ void Room::stepMove(vec & position, vec & next_position, stack<pair<vec,int>>& p
         path.push(make_pair(next_position,true_p));
         shared_ptr< Point>temp = lattice[position];
         lattice[position] = nullptr;
-        lattice[next_position] = temp;
         temp->location = next_position;
         temp->true_position=true_p;
+        lattice[next_position] = temp;
+
     }
 }
 
@@ -434,11 +418,6 @@ void Room::movie(int m, int n, double T)
 //				Ec += dEc;
 				Ep += dEp;
 //				Eb += dEb;
-//                if (E!=cal_Ep()){
-//                    cout<<E<<endl;
-//                    cout<<cal_Ep()<<endl;
-//                    throw "error";
-//                }
 			}
 			else {
 				auto a = randfloat();
@@ -449,46 +428,21 @@ void Room::movie(int m, int n, double T)
 //					Ec += dEc;
 					Ep += dEp;
 //					Eb += dEb;
-					//E = Ec + Ep;
-//                    if (E!=cal_Ep()){
-//                        cout<<E<<endl;
-//                        cout<<cal_Ep()<<endl;
-//                        throw "error";
-//                    }
+
 				}
 				else {
-//                    cout << "before repair"<<endl;
-//                    if (E!=cal_Ep()+dEp){
-//                        cout<<E<<endl;
-//                        cout<<cal_Ep()<<endl;
-//                        cout<<dEp<<endl;
-////                        throw "error";
-//                    }
+//
 					repair(path);
-//                    cout << "after repair"<<endl;
-//                    if (E!=cal_Ep()){
-//                        cout<<E<<endl;
-//                        cout<<cal_Ep()<<endl;
-//                        throw "error";
-//                    }
 				}
 			}
 		}
+        printf("%f\t%f\t%f\t%f\n",0.0,Ep,0.0,E);
 		if (i%n == 0) {
 
 			//TODO
 		}
 
 	}
-//	cout << "*****Ec=" << Ec << endl;
-	cout << "*****Ep=" << Ep << endl;
-//	cout << "*****Eb=" << Eb << endl;
-    cout << "*****E=" << cal_Ep() << endl;
-	//results->append(E_list);
-	//results->append(Ec_list);
-	//results->append(Eb_list);
-	//results->append(Ep_list);
-	//cout << "list";
 
 
 }
@@ -1253,11 +1207,11 @@ double Room::cal_Eb_point(vec & p) const
 {
 	vec point;//some bugs
 	int i, j;
-	i = lattice[p] == nullptr ? 0 : lattice[p]->type;
+	i = (lattice[p] == nullptr ? 0 : lattice[p]->type);
 	double sum = 0;
 	for (auto &direc : moves) {
 		point = (p + direc) % shape;
-		j = lattice[point] == nullptr ? 0 : lattice[point]->type;
+		j = (lattice[point] == nullptr ? 0 : lattice[point]->type);
 		if ((i*j) != 0)
 			sum += this->Eb_matrix[i][j] / 2;
 		else {

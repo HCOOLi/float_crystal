@@ -10,8 +10,7 @@ class pyRoom(pyroom):
     def __init__(self, a, b, c, Ep, Eb, roomtype):
         pyroom.__init__(self, int(a), int(b), int(c), Ep, Eb, int(roomtype))
         self.shape = np.asarray([a, b, c])
-        self.Ep = Ep
-        self.Eb = Eb
+
 
     def py_input_one_ECC(self, a, length, direction, ty, movable):
         # type: (List[int], int, int, List, int) -> None

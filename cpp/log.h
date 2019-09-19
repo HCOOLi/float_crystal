@@ -7,9 +7,12 @@
 
 #include <fstream>
 #include <iostream>
+#include <sstream>
 #include <string>
 
 using namespace std;
+
+template<typename > formate
 
 class logger {
     std::ofstream file;
@@ -18,9 +21,11 @@ class logger {
         file = fopen(filename, "w+");
     }
 
-    void log(string data) {
+    template<typenameT>
+    logger& operator<<(T data){
+        file<<data;
+        return (*this)
 
-        file << data << endl;
     }
 
     ~logger() {

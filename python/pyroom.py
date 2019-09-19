@@ -1,19 +1,16 @@
 import json
-import math
+from typing import List
+
 import matplotlib.pyplot as plt
-import os
-import time
 import numpy as np
-from crystal import *
-from typing import Dict, List, Tuple
+from float_crystal import *
 
 
 class pyRoom(pyroom):
     def __init__(self, a, b, c, Ep, Eb, roomtype):
         pyroom.__init__(self, int(a), int(b), int(c), Ep, Eb, int(roomtype))
         self.shape = np.asarray([a, b, c])
-        self.Ep = Ep
-        self.Eb = Eb
+
 
     def py_input_one_ECC(self, a, length, direction, ty, movable):
         # type: (List[int], int, int, List, int) -> None
@@ -33,7 +30,7 @@ class pyRoom(pyroom):
             file.write(json.dumps(saving_dict))
 
     def new_draw_box(self, point1, point2, box_color='blue'):
-        from vpython import canvas, vector, curve, color
+        from vpython import vector, curve, color
         # def into_vector(a):
         #     return vector(a[0], a[1], a[2])
         # print("draw a box")
@@ -56,11 +53,10 @@ class pyRoom(pyroom):
                     c = curve(vector(p1[0], p1[1], p1[2]), vector(p2[0], p2[1], p2[2]), color=box_color, radius=radius)
 
     def draw_box(self):
-        from vpython import canvas, vector, curve, color
         self.new_draw_box([0, 0, 0], self.shape)
 
     def draw_all(self, polylist=None, title=None):
-        from vpython import canvas, vector, curve, color, sphere
+        from vpython import canvas, vector, curve, color
 
         scene = canvas(title=title, width=800, height=800,
                        center=vector(self.shape[0] / 2, self.shape[1] / 2, self.shape[2] / 2), background=color.white)
@@ -227,10 +223,17 @@ class pyRoom(pyroom):
                     if last_point != None:
                         if point[1] == last_point[1] and 8 <= min(point[2], last_point[2]) and max(point[2],
                                                                                                    last_point[2]) < 24:
-                            ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="red")
-                            count += 1
+                            if this_color == 'grey':
+                                ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="grey")
+                                count += 1
+                            else:
+                                ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="red")
+                                count += 1
                         else:
-                            ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="blue")
+                            if this_color == 'grey':
+                                ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="grey")
+                            else:
+                                ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="blue")
                             if count != 0:
                                 countlist.append(count)
                                 count = 0
@@ -258,11 +261,12 @@ class pyRoom(pyroom):
         plt.figure(figsize=(10, 5))
         ax1 = plt.subplot(1, 2, 1)
         ax1.plot([0, 32], [8, 8])
-        ax1.plot([0, 32], [23, 23])
+        ax1.plot([0, 32], [29, 29])
         ax2 = plt.subplot(1, 2, 2)
         countlist = []
         count = 0
         for chain in polylist:
+
             # c = curve(color=color.yellow, radius=0.1)
             last_point = None
             if count != 0:
@@ -272,12 +276,12 @@ class pyRoom(pyroom):
                 last_point = chain["c"][0].copy()['p']
                 type = chain["c"][0].copy()["t"]
                 if type == 1:
-                    pass
-                    # this_color = color.yellow
+
+                    this_color = 'any'
                 elif type == 2:
-                    pass
-                    # continue
-                    # this_color = color.blue
+                    this_color = 'grey'
+
+
                 elif type == 3:
                     continue
                     # this_color = color.red
@@ -297,8 +301,8 @@ class pyRoom(pyroom):
                     pass
                     # this_color = color.yellow
                 elif type == 2:
+                    # pass
                     pass
-                    # continue
                     # this_color = color.blue
                 elif type == 3:
                     continue
@@ -313,14 +317,18 @@ class pyRoom(pyroom):
                             last_point = None
                     if last_point != None:
                         if point[1] == last_point[1] and 8 <= min(point[2], last_point[2]) and max(point[2],
-                                                                                                   last_point[2]) < 24:
-                            ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="red")
-                            count += 1
+                                                                                                   last_point[2]) < 29:
+                            if this_color == 'grey':
+                                ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="grey")
+                                count += 1
+                            else:
+                                ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="red")
+                                count += 1
                         else:
-                            ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="blue")
-                            if count != 0:
-                                countlist.append(count)
-                                count = 0
+                            if this_color == 'grey':
+                                ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="grey")
+                            else:
+                                ax1.plot([point[1], last_point[1]], [point[2], last_point[2]], color="blue")
                     last_point = point.copy()
 
             point2 = None
@@ -328,14 +336,14 @@ class pyRoom(pyroom):
                 countlist.append(count)
                 count = 0
         plt.figure()
-        histlist, bins, _ = plt.hist(countlist, bins=range(1, 17, 1))
+        histlist, bins, _ = plt.hist(countlist, bins=range(1, 21, 1))
         # print(histlist, bins)
         plt.close()
         # countlist
 
         ax2.bar(bins[:-1], np.asarray(histlist) * np.asarray(bins[:-1]))
         plt.ylim(0, 80)
-        plt.xlim(0, 16)
+        plt.xlim(0, 21)
 
         # plt.show()
 

@@ -1,11 +1,9 @@
-from pyroom import *
-import time
-from concurrent.futures import ProcessPoolExecutor
-from multiprocessing import Pool
 import os
+import time
+from multiprocessing import Pool
+
 import numpy as np
-from typing import List, Dict
-from copy import deepcopy
+from pyroom import *
 
 
 class Simulator():
@@ -34,7 +32,7 @@ class SecondNuclear(Simulator):
         Ep = [1.0]
         length = [64]
         # T = [2.2, 2.4, 2.6, 2.8,3.2, 3.4, 3.6, 3.8,4.0,4.2]
-        T = list(np.arange(3.0, 5.0, 0.1))
+        T = list(np.arange(1, 7.1, 1))
         d = [0]
         return itertools.product(Ep, d, T)
 
@@ -48,16 +46,26 @@ class SecondNuclear(Simulator):
         """
         for i in range(0, r.shape[1]):
             r.py_input_one_ECC([0, i, 8], 20, 2, [1] * 20, 1)
+        for i in range(8, 29):
+            r.py_input_one_ECC([31, 0, i], r.shape[1], 1, [0] * r.shape[1], 1)
         # for i in range(0, r.shape[2], d):
         #     r.py_input_one_ECC([15, 0, i], r.shape[1], 1, [0] * r.shape[1], 1)
         # for i in range(0, r.shape[2], 3):
         #     r.py_input_one_ECC([62, 0, i], r.shape[1], 1, [0] * r.shape[1], 1)
-
-        for i in range(2, int((r.shape[0] - 1) / 1.5)):
+        nums = 0
+        for i in range(2, int((r.shape[0] - 1))):
             # if i == 15 or i == 62:
             #     continue
+
             for j in range(0, r.shape[1] - 1, 2):
-                r.py_input_one_FCC([i, j, 0], 64, 2, 1, [1] * 64, 0)
+                nums = nums + 1
+                if nums < 46:
+                    r.py_input_one_FCC([i, j, 0], 64, 2, 1, [1] * 64, 0)
+                else:
+                    r.py_input_one_FCC([i, j, 0], 64, 2, 1, [1] * 64, 0)
+
+
+
 
     @staticmethod
     def simulate(parameter):
@@ -67,27 +75,30 @@ class SecondNuclear(Simulator):
             print('Run task %f ,%f,%f(%s)...' % (Ep, 1, T, os.getpid()))
             # start = time.time()
             # EC_max = 31 * 31 * (31 - 1)
-            date = "2019-8-29-m=-4.0-x=1.5"
+            date = "2019-9-12-q=27c=1"
             if not os.path.exists('Data'):
                 os.mkdir('Data')
             if not os.path.exists('Data/' + date + '/'):
                 os.mkdir('Data/' + date + '/')
-            r = pyRoom(48, 48, 48, Ep=[[0, 0], [0, Ep]], Eb=[[0, 0], [0, 0]], roomtype=24)
+            r = pyRoom(32, 32, 32, Ep=[[0, 0, 0], [0, Ep, 0], [0, 0, 0]], Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+                       roomtype=24)
+            print(r.Ep)
             # E_list, Ec_list, Ep_list, t_list = [], [], [], []
 
             SecondNuclear.install_model(r, d)
             print("install model")
             # r.draw_all()
-            r.movie(1000000, 10000, 100)
+            # r.movie(10000, 10000, 100)
+            r.preheat(100000)
             print("end preheat")
-            # r.movie(2000000, 10000, T*Ep)
+
             # # E_list, Ec_list, Ep_list, t_list, f = r.step_heating(6 * Ep+0.1, 1 * Ep, -0.1 * Ep,10000,5000, EC_max)
             # r.save("Data/no-ECCheated%3.2f-d.json" % (Ep * T))
             # # E_list, Ec_list, Ep_list, t_list, f = r.step_heating(6 * Ep+0.1, 1 * Ep, -0.1 * Ep+0.01,10000,5000, EC_max)
             # # plt.plot(t_list, f)
             # # plt.savefig("stepheating%3.2f.png" % (Ep))
             for i in range(1000):
-                r.movie(2000, 1000, T * Ep)
+                r.movie(5000, 1, T * Ep)
                 print("after movie%d" % (i))
                 # E_result, Ec_result, Ep_result, Eb_result = r.get_result()
                 # E_list += E_result
@@ -115,6 +126,7 @@ if __name__ == '__main__':
     try:
         # with ProcessPoolExecutor(max_workers=5) as p:
         with Pool(10) as p:
+
             p.map_async(S.simulate, parameter_list)
             p.close()
             p.join()

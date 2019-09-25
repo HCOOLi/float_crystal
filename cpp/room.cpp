@@ -436,8 +436,9 @@ void Room::movie(int m, int n, double T)
 				}
 			}
 		}
-        printf("%f\t%f\t%f\t%f\n",0.0,Ep,0.0,E);
+
 		if (i%n == 0) {
+            printf("%f\t%f\t%f\t%f\n",0.0,Ep,0.0,E);
 
 			//TODO
 		}
@@ -468,15 +469,27 @@ void Room::preheat(int m) {
 
 void Room::save(string filename) {
     ofstream file(filename, ios::app);
-    file << "# " << "shape" << this->shape[0] << endl;
-    file << "# " << "Ep" << this->Ep_matrix[0][0] << endl;
-    file << "# " << "Eb" << this->Eb_matrix[0][0] << endl;
-    file << "# " << "numofpolymers" << this->polymer_list.size() << endl;
+    file << "# " << "shape" <<'\n'<< this->shape[0]<<'\t' <<this->shape[1]<<'\t'<<this->shape[2]<< endl;
+    file << "# " << "Ep" <<endl;
+    for(auto Ep_list:Ep_matrix){
+        for(auto Ep:Ep_list){
+            file<< Ep<<'\t';
+        }
+        file<< endl;
+    }
+    file << "# " << "Eb" <<endl;
+    for(auto Ep_list:Ep_matrix){
+        for(auto Ep:Ep_list){
+            file<< Ep<<'\t';
+        }
+        file<< endl;
+    }
+    file << "# " << "num of polymers" << "\n"<<this->polymer_list.size() << endl;
 
     for (auto &p : polymer_list) {
         for (shared_ptr<Point> &point:p.chain) {
-            file << point->location[0] << ' ' << point->location[1] << ' ' << point->location[2] << ' '
-                 << point->type << ' ' << point->movable << ' ' << point->true_position << endl;
+            file << point->location[0] << '\t' << point->location[1] << '\t' << point->location[2] << '\t'
+                 << point->type << '\t' << point->movable << '\t' << point->true_position << endl;
         }
         file << "####" << endl;
     }
@@ -484,16 +497,54 @@ void Room::save(string filename) {
 	file.close();
 }
 
+void split(std::string& s,std::string& delim,std::vector<std::string>* ret) {
+    size_t last = 0;
+    size_t index = s.find_first_of(delim, last);
+    while (index != string::npos) {
+        ret->push_back(s.substr(last, index - last));
+        last = index + 1;
+        index = s.find_first_of(delim, last);
+    }
+    if (index - last > 0) {
+        ret->push_back(s.substr(last, index - last));
+    }
+}
 void Room::load(string filename) {
     ifstream file(filename, ios::in);
 
     string temp;
+    int chain_num=0,pos_in_chain= 0;
     while (getline(file, temp)) {
         if (temp[0] == '#') {
+            if(temp.find("shape") != -1){
+                getline(file, temp);
+                sscanf_s(temp.c_str(), "%d%d%d", &this->shape[0], &this->shape[1], &this->shape[2]);
+                lattice= Grid<shared_ptr< Point>>(shape[0],shape[1],shape[2]);
+            }else if(temp.find("Ep")!= -1)
+            {
+
+//                getline(file, temp);
+//                temp.split();
+//                sscanf_s(temp.c_str(), "%d%d%d", &this->Ep_matrix[0], &this->shape[1], &this->shape[2]);
+
+            }else if(temp.find("Ec")!= -1){
+//                getline(file, temp);
+//                sscanf_s(temp.c_str(), "%d%d%d", &this->shape[0], &this->shape[1], &this->shape[2]);
+
+            }else if(temp.find("num of polymers")!= -1){
+
+
+            }else if(temp=="####"){
+                chain_num++;
+                pos_in_chain=0;
+            }
 
         } else {
-            int a, b, c;
-            sscanf_s(temp.c_str(), "%d%d%d", &a, &b, &c);
+            int x, y, z,t,m,t_p;
+            Polymer p;
+            sscanf_s(temp.c_str(), "%d%d%d%d%d", &x, &y, &z,&t,&m,&t_p);
+            p.chain.push_back(set_point(vec{x,y,z},chain_num,pos_in_chain,t,m,t_p));
+            pos_in_chain++;
 
 
         }

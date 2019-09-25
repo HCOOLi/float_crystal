@@ -345,7 +345,7 @@ class pyRoom(pyroom):
         plt.ylim(0, 80)
         plt.xlim(0, 21)
 
-        # plt.show()
+        return countlist
 
         # return scene
 
@@ -354,11 +354,11 @@ class pyRoom(pyroom):
         time = 1
         with open(filepath, 'r') as file:
             all_line_txt = file.readline()  # 读所有行
-            all_line_txt = all_line_txt.replace("position", "p").replace("type", "t").replace("chain", "c").replace(
-                "moveable", "m")
+            # all_line_txt = all_line_txt.replace("position", "p").replace("type", "t").replace("chain", "c").replace(
+            #     "moveable", "m")
             polymerlist = json.loads(all_line_txt)
-        with open(filepath, 'w') as file:
-            file.writelines(all_line_txt)
+        # with open(filepath, 'w') as file:
+        #     file.writelines(all_line_txt)
 
         try:
             return polymerlist['data']

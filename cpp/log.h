@@ -1,7 +1,7 @@
 //
 // Created by 1007 on 2019/9/12.
 //
-
+#pragma once
 #ifndef CRYSTAL_LOG_H
 #define CRYSTAL_LOG_H
 
@@ -11,8 +11,6 @@
 #include <string>
 
 using namespace std;
-
-template<typename > formate
 
 class logger {
     std::ofstream file;

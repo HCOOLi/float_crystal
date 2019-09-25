@@ -38,7 +38,7 @@ vector<vector<T>> pylist2matrix(py::list listoflist) {//TODO
         py::list list  = py::extract<py::list>(listoflist[i]);
         result[i].resize(py::len(list));
         for(int j=0;j<py::len(list);j++){
-            T data  = py::extract<T>(listoflist[i]);
+            T data  = py::extract<T>(list[j]);
             result[i][j]=data;
         }
 
@@ -185,10 +185,10 @@ py::list pyroom::get_list() const {
     return result;
 }
 
-py::list pyroom::Ep_getter() {
+py::list pyroom::Ep_getter() const {
     return vector2pylist(Ep_matrix);
 }
 
-py::list pyroom::Eb_getter() {
+py::list pyroom::Eb_getter() const {
     return vector2pylist(Eb_matrix);
 }

@@ -22,12 +22,12 @@ class pyRoom(pyroom):
         self.input_one_FCC(int(a[0]), int(a[1]), int(a[2]), int(length), int(direction),
                            int(fold_direction), ty, int(movable))
 
-    def save(self, file_path):
-        parameters = {"Ep": self.Ep, "Eb": self.Eb}
-        saving_dict = {"parameters": parameters, "data": self.get_list()}
-        with open(file_path, 'w') as file:
-            # file.write(json.dumps(self.get_list()))
-            file.write(json.dumps(saving_dict))
+    # def save(self, file_path):
+    #     parameters = {"Ep": self.Ep, "Eb": self.Eb}
+    #     saving_dict = {"parameters": parameters, "data": self.get_list()}
+    #     with open(file_path, 'w') as file:
+    #         # file.write(json.dumps(self.get_list()))
+    #         file.write(json.dumps(saving_dict))
 
     def new_draw_box(self, point1, point2, box_color='blue'):
         from vpython import vector, curve, color

@@ -18,6 +18,11 @@ class logger {
     logger(string filename) {
         file = fopen(filename, "w+");
     }
+    void log(){
+        time_t now = time(0);
+        char* dt = ctime(&now);
+        file << dt << endl;
+    }
 
     template<typenameT>
     logger& operator<<(T data){

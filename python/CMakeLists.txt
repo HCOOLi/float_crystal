@@ -46,7 +46,7 @@ add_library(float_crystal SHARED
         ../cpp/point.h
         ../cpp/room.cpp
 
-        )
+        ../cpp/utils.h)
 set_target_properties(
         float_crystal
         PROPERTIES

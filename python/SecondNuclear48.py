@@ -1,7 +1,7 @@
 import os
 import time
 from multiprocessing import Pool
-
+import random
 import numpy as np
 from pyroom import *
 
@@ -59,10 +59,13 @@ class SecondNuclear(Simulator):
 
             for j in range(0, r.shape[1] - 2, 2):
                 nums = nums + 1
+
+                typelist=[(1 if random.random()<0.9 else 2) for _ in range(64) ]
+
                 if nums < 46:
-                    r.py_input_one_FCC([i, j, 0], 64, 2, 1, [1] * 64, 0)
+                    r.py_input_one_FCC([i, j, 0], 64, 2, 1, typelist, 0)
                 else:
-                    r.py_input_one_FCC([i, j, 0],64, 2, 1, [1] *64, 0)
+                    r.py_input_one_FCC([i, j, 0],64, 2, 1, typelist, 0)
 
 
 
@@ -75,7 +78,7 @@ class SecondNuclear(Simulator):
             print('Run task %f ,%f,%f(%s)...' % (Ep, 1, T, os.getpid()))
             # start = time.time()
             # EC_max = 31 * 31 * (31 - 1)
-            date = "2019-9-23-q=135a=64_32_40"
+            date = "2019-9-24-q=135a=64_32_40c=0.9"
             if not os.path.exists('Data'):
                 os.mkdir('Data')
             if not os.path.exists('Data/' + date + '/'):
@@ -85,8 +88,16 @@ class SecondNuclear(Simulator):
             r.q=135
             # E_list, Ec_list, Ep_list, t_list = [], [], [], []
 
-            SecondNuclear.install_model(r, d)
             print("install model")
+            SecondNuclear.install_model(r, d)
+            print("saving")
+            r.save("test.data")
+            print("loading")
+            r.load("test.data")
+
+            print("saving2")
+            r.save("test2.data")
+
             # r.draw_all()
             # r.movie(10000, 10000, 100)
             r.preheat(1000000)
@@ -97,7 +108,7 @@ class SecondNuclear(Simulator):
             # # E_list, Ec_list, Ep_list, t_list, f = r.step_heating(6 * Ep+0.1, 1 * Ep, -0.1 * Ep+0.01,10000,5000, EC_max)
             # # plt.plot(t_list, f)
             # # plt.savefig("stepheating%3.2f.png" % (Ep))
-            for i in range(2000):
+            for i in range(1000):
                 r.movie(10000, 5000, T * Ep)
                 print("after movie%d" % (i))
                 # E_result, Ec_result, Ep_result, Eb_result = r.get_result()
@@ -122,7 +133,8 @@ if __name__ == '__main__':
     print('Parent process %s.' % os.getpid())
     S = SecondNuclear()
     parameter_list = list(S.parameters())
-    # S.simulate(parameter_list[1])
+    S.simulate(parameter_list[1])
+    exit(0)
     try:
         # with ProcessPoolExecutor(max_workers=5) as p:
         with Pool(10) as p:

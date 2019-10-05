@@ -9,39 +9,41 @@ from pyroom import *
 
 def drawpicture(date, T):
     path = './Data/' + date + '/'
-    picpath = './Data/' + date + '-1.0-' + T + 'thin/'
-    thinpath = './Data/' + date + 'thin/'
+    picpath = './Data/' + date + '-1.0-' + T + '/'
+    thinpath = './Data/' + date + '/'
     if not os.path.exists(picpath):
         os.mkdir(picpath)
-    Ep1,Ep2,Ep3=[],[],[]
+    Ec = []
     r = pyRoom(64, 32, 40, Ep=[[0, 0, 0], [0, 1, 0], [0, 0, 0]], Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]], roomtype=24)
-    for i in range(0, 10000*1000, 10000):
+    for i in range(0, 10000 * 1000, 50000):
         filename = ('d=0E%d=1.00,T=' + T + '.data') % i
         # print("init")
-        # r = pyRoom(64, 64, 64, Ep=[[0, 0, 0], [0, 2,0 ], [0, 0, 0]], Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]], roomtype=24)
+        # r = pyRoom(64, 64, 64, Ep=[[0, 0, 0], [0, 2,0 ], [0, 0, 0]],
+        # Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]], roomtype=24)
         print(thinpath + filename)
         print("loading")
         r.load(thinpath + filename)
         print("getlist")
-        polymerlist=r.get_list()
+        # Ec.append(r.cal_Ec())
         # r.draw(path=loadpath)50
         # r.draw_all()
         # r.draw_a_layer(1,title=str(i))
         # print("before draw")
-        countlist = r.draw_a_layer_plot_json(1, polymerlist)
-        Ep1.append(sum(countlist))
-        plt.savefig(picpath + str(i) + "-1")
+        polymerlist = r.get_list()
+        countlist = r.draw_a_layer_plot_json(10, polymerlist)
+        #
+        plt.savefig(picpath + str(i) + "-10")
         plt.close()
 
-        countlist = r.draw_a_layer_plot_json(2, polymerlist)
-        Ep2.append(sum(countlist))
-        plt.savefig(picpath + str(i) + "-2")
-        plt.close()
-
-        countlist = r.draw_a_layer_plot_json(3, polymerlist)
-        Ep3.append(sum(countlist))
-        plt.savefig(picpath + str(i) + "-3")
-        plt.close()
+        # countlist = r.draw_a_layer_plot_json(2, polymerlist)
+        #
+        # plt.savefig(picpath + str(i) + "-2")
+        # plt.close()
+        #
+        # countlist = r.draw_a_layer_plot_json(3, polymerlist)
+        # Ep3.append(sum(countlist))
+        # plt.savefig(picpath + str(i) + "-3")
+        # plt.close()
         # r.draw_a_layer_plot_json(3, polymerlist)
         # Ep.append(sum(countlist))
     #     plt.savefig(picpath + str(i) + "-3")
@@ -50,16 +52,16 @@ def drawpicture(date, T):
     # # Ep.append(sum(countlist))
     #     plt.savefig(picpath + str(i) + "-5")
     #     plt.close()
-    plt.plot(Ep1)
-    plt.title(T)
-    plt.savefig(picpath + "lines1")
-    plt.plot(Ep2)
-    plt.title(T)
-    plt.savefig(picpath + "lines2")
-    plt.plot(Ep3)
-    plt.title(T)
-    plt.savefig(picpath + "lines3")
-    plt.close()
+    # plt.plot(Ec)
+    # plt.title(T)
+    # plt.savefig(picpath + "lines1")
+    # # plt.plot(Ep2)
+    # # plt.title(T)
+    # # plt.savefig(picpath + "lines2")
+    # # plt.plot(Ep3)
+    # # plt.title(T)
+    # # plt.savefig(picpath + "lines3")
+    # plt.close()
 
 
         # coutlist = r.draw_a_layer_plot_json(2, polymerlist)
@@ -93,7 +95,7 @@ def drawpicture(date, T):
 if __name__ == '__main__':
     start = time.time()
     print('Parent process %s.' % os.getpid())
-    date =  "2019-9-23-q=135a=64_32_40"
+    date = "2019-9-23-q=135a=64_32_40thin"
     # S.simulate(parameter_list[1])
     with Pool(12) as p:
 

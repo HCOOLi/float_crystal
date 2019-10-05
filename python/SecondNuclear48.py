@@ -1,7 +1,8 @@
 import os
+import random
 import time
 from multiprocessing import Pool
-import random
+
 import numpy as np
 from pyroom import *
 
@@ -32,7 +33,7 @@ class SecondNuclear(Simulator):
         Ep = [1.0]
         length = [64]
         # T = [2.2, 2.4, 2.6, 2.8,3.2, 3.4, 3.6, 3.8,4.0,4.2]
-        T = list(np.arange(2.1, 2.35, 0.02))
+        T = list(np.arange(2.0, 2.30, 0.02))
         d = [0]
         return itertools.product(Ep, d, T)
 
@@ -61,11 +62,7 @@ class SecondNuclear(Simulator):
                 nums = nums + 1
 
                 typelist=[(1 if random.random()<0.9 else 2) for _ in range(64) ]
-
-                if nums < 46:
-                    r.py_input_one_FCC([i, j, 0], 64, 2, 1, typelist, 0)
-                else:
-                    r.py_input_one_FCC([i, j, 0],64, 2, 1, typelist, 0)
+                r.py_input_one_FCC([i, j, 0], 64, 2, 1, typelist, 0)
 
 
 
@@ -78,7 +75,7 @@ class SecondNuclear(Simulator):
             print('Run task %f ,%f,%f(%s)...' % (Ep, 1, T, os.getpid()))
             # start = time.time()
             # EC_max = 31 * 31 * (31 - 1)
-            date = "2019-9-24-q=135a=64_32_40c=0.9"
+            date = "2019-10-4-q=135a=64_32_40c=0.9"
             if not os.path.exists('Data'):
                 os.mkdir('Data')
             if not os.path.exists('Data/' + date + '/'):
@@ -88,19 +85,12 @@ class SecondNuclear(Simulator):
             r.q=135
             # E_list, Ec_list, Ep_list, t_list = [], [], [], []
 
-            print("install model")
+
             SecondNuclear.install_model(r, d)
-            print("saving")
-            r.save("test.data")
-            print("loading")
-            r.load("test.data")
-
-            print("saving2")
-            r.save("test2.data")
-
+            r.save('Data/' + date + '/d=%dE%d=%3.2f,T=%3.2f.data' % (d, -1, Ep, T * Ep))
             # r.draw_all()
             # r.movie(10000, 10000, 100)
-            r.preheat(1000000)
+            r.preheat(5000000)
             print("end preheat")
 
             # # E_list, Ec_list, Ep_list, t_list, f = r.step_heating(6 * Ep+0.1, 1 * Ep, -0.1 * Ep,10000,5000, EC_max)
@@ -108,14 +98,14 @@ class SecondNuclear(Simulator):
             # # E_list, Ec_list, Ep_list, t_list, f = r.step_heating(6 * Ep+0.1, 1 * Ep, -0.1 * Ep+0.01,10000,5000, EC_max)
             # # plt.plot(t_list, f)
             # # plt.savefig("stepheating%3.2f.png" % (Ep))
-            for i in range(1000):
-                r.movie(10000, 5000, T * Ep)
+            for i in range(2000):
+                r.movie(20000, 5000, T * Ep)
                 print("after movie%d" % (i))
                 # E_result, Ec_result, Ep_result, Eb_result = r.get_result()
                 # E_list += E_result
                 # Ec_list += Ec_result
                 # Ep_list += Ep_result
-                r.save('Data/' + date + '/d=%dE%d=%3.2f,T=%3.2f.json' % (d, i*10000, Ep, T * Ep))
+                r.save('Data/' + date + '/d=%dE%d=%3.2f,T=%3.2f.data' % (d, i * 20000, Ep, T * Ep))
 
             # with open("Data/Ec_list,Ep2=%3.2f,T=%3.2f.json" % (Ep, T * Ep), 'w') as file:
             #     # file.write(json.dumps(self.get_list()))
@@ -133,11 +123,11 @@ if __name__ == '__main__':
     print('Parent process %s.' % os.getpid())
     S = SecondNuclear()
     parameter_list = list(S.parameters())
-    S.simulate(parameter_list[1])
-    exit(0)
+    # S.simulate(parameter_list[1])
+    # exit(0)
     try:
         # with ProcessPoolExecutor(max_workers=5) as p:
-        with Pool(10) as p:
+        with Pool(11) as p:
 
             p.map_async(S.simulate, parameter_list)
             p.close()

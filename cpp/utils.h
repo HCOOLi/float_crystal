@@ -30,3 +30,11 @@ inline std::vector<std::string> split(const std::string& s, char delimiter)
        }
   return tokens;
 }
+
+inline vector<double> range(double from, double to, double step) {//generate a random float
+    vector<double> temp;
+    for (double i = from; i < to; i += step) {
+        temp.emplace_back(i);
+    }
+    return temp;
+}

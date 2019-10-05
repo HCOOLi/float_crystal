@@ -29,7 +29,7 @@ BOOST_PYTHON_MODULE (float_crystal)
 		.def("preheat", &pyroom::preheat)
 		.def("delete_chain",&pyroom::lazy_delete_chain)
 		.def("get_list",&pyroom::get_list)
-//		.def("cal_Ec",&pyroom::cal_Ec)
+            .def("cal_Ec", &pyroom::cal_Ec)
 		.def("cal_Ep",&pyroom::cal_Ep)
 //		.def("ca_Eb",&pyroom::cal_Eb)
 		/*.def("get_result",&pyroom::get_result)*/

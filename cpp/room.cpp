@@ -911,7 +911,7 @@ double Room::count_parallel_nearby24(vec &point1, vec &point2,
         return 0;
     }
     chain_num = lattice[point1]->chain_num;
-    int type1 = lattice[point1]->type;
+    int type1 = max(lattice[point1]->type, lattice[point2]->type);
     vec p1, p2;
     vec direction = cal_direction(point1, point2);
 
@@ -927,7 +927,7 @@ double Room::count_parallel_nearby24(vec &point1, vec &point2,
         int result = get_side_num(p1, p2);
         if (result == -1) { continue; }
         else {
-            int type2 = lattice[p1]->type;
+            int type2 = max(lattice[p1]->type, lattice[p2]->type);
 
             //cout << type1 << type2;
 

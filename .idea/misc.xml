@@ -7,7 +7,7 @@
     <excludeRoots>
       <file path="$PROJECT_DIR$/Complex" />
       <file path="$PROJECT_DIR$/Data" />
-      <file path="$PROJECT_DIR$/python/Data" />
+      <file path="$PROJECT_DIR$/python/data" />
     </excludeRoots>
   </component>
   <component name="JavaScriptSettings">

@@ -38,7 +38,7 @@ vector<vector<T>> pylist2matrix(py::list listoflist) {//TODO
         py::list list  = py::extract<py::list>(listoflist[i]);
         result[i].resize(py::len(list));
         for(int j=0;j<py::len(list);j++){
-            T data  = py::extract<T>(listoflist[i]);
+            T data  = py::extract<T>(list[j]);
             result[i][j]=data;
         }
 
@@ -87,23 +87,21 @@ void pyroom::construct_by_pylist(py::list chain_list) {
     lattice = Grid<shared_ptr<Point>>(shape[0], shape[1], shape[2]);
 	for (int i = 0; i < py::len(chain_list); i++) {
 		py::dict chain_dict = py::extract<py::dict>(chain_list[i]);
-		py::list chain = py::extract<py::list>(chain_dict["chain"]);
-		int type = py::extract<int>(chain_dict["type"]);
+		py::list chain = py::extract<py::list>(chain_dict["c"]);
 		Polymer p;
 		p.chain.resize(py::len(chain));
-		p.length = py::len(chain);
 		int chain_num = polymer_list.size();
 		for (int j = 0; j < py::len(chain); j++) {
 			py::dict point_in_list = py::extract<py::dict>(chain[j]);
-			py::list position = py::extract<py::list>(point_in_list["position"]);
-			//{}
+			py::list position = py::extract<py::list>(point_in_list["p"]);
 			vec point;
 			for (int k = 0; k < py::len(position); k++) {
 				int x = py::extract<int>(position[k]);
 				point[k] = x;
 			}
-			int type = py::extract<int>(point_in_list["type"]);
-            p[j] = set_point(point, chain_num, j, type, 0, 0);
+			int type = py::extract<int>(point_in_list["t"]);
+            int movable = py::extract<int>(point_in_list["m"]);
+            p[j] = set_point(point, chain_num, j, type, movable, 0);
 
 
 		}
@@ -162,7 +160,7 @@ py::list pyroom::get_list() const {
 
         py::dict json;
         py::list chain_list;
-        for (int j = 0; j < polymer.length; j++) {
+        for (int j = 0; j < polymer.chain.size(); j++) {
 
             py::dict dic;
             py::list py_position;
@@ -176,7 +174,6 @@ py::list pyroom::get_list() const {
             chain_list.append(dic);
         }
         json["c"] = chain_list;
-        json["t"] = polymer.type;
 
         result.append(json);
     }
@@ -185,10 +182,10 @@ py::list pyroom::get_list() const {
     return result;
 }
 
-py::list pyroom::Ep_getter() {
+py::list pyroom::Ep_getter() const {
     return vector2pylist(Ep_matrix);
 }
 
-py::list pyroom::Eb_getter() {
+py::list pyroom::Eb_getter() const {
     return vector2pylist(Eb_matrix);
 }

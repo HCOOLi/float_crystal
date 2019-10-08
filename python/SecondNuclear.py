@@ -75,21 +75,21 @@ class SecondNuclear(Simulator):
             print('Run task %f ,%f,%f(%s)...' % (Ep, 1, T, os.getpid()))
             # start = time.time()
             # EC_max = 31 * 31 * (31 - 1)
-            date = "2019-9-12-q=27c=1"
+            date = "2019-9-23-q=135c=1"
             if not os.path.exists('Data'):
                 os.mkdir('Data')
             if not os.path.exists('Data/' + date + '/'):
                 os.mkdir('Data/' + date + '/')
             r = pyRoom(32, 32, 32, Ep=[[0, 0, 0], [0, Ep, 0], [0, 0, 0]], Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]],
                        roomtype=24)
-            print(r.Ep)
+            r.q=135
             # E_list, Ec_list, Ep_list, t_list = [], [], [], []
 
             SecondNuclear.install_model(r, d)
             print("install model")
             # r.draw_all()
             # r.movie(10000, 10000, 100)
-            r.preheat(100000)
+            r.preheat(5000000)
             print("end preheat")
 
             # # E_list, Ec_list, Ep_list, t_list, f = r.step_heating(6 * Ep+0.1, 1 * Ep, -0.1 * Ep,10000,5000, EC_max)
@@ -97,14 +97,14 @@ class SecondNuclear(Simulator):
             # # E_list, Ec_list, Ep_list, t_list, f = r.step_heating(6 * Ep+0.1, 1 * Ep, -0.1 * Ep+0.01,10000,5000, EC_max)
             # # plt.plot(t_list, f)
             # # plt.savefig("stepheating%3.2f.png" % (Ep))
-            for i in range(1000):
-                r.movie(5000, 1, T * Ep)
+            for i in range(2000):
+                r.movie(10000, 1, T * Ep)
                 print("after movie%d" % (i))
                 # E_result, Ec_result, Ep_result, Eb_result = r.get_result()
                 # E_list += E_result
                 # Ec_list += Ec_result
                 # Ep_list += Ep_result
-                r.save('Data/' + date + '/d=%dE%d=%3.2f,T=%3.2f.json' % (d, i, Ep, T * Ep))
+                r.save('Data/' + date + '/d=%dE%d=%3.2f,T=%3.2f.json' % (d, i*5000, Ep, T * Ep))
 
             # with open("Data/Ec_list,Ep2=%3.2f,T=%3.2f.json" % (Ep, T * Ep), 'w') as file:
             #     # file.write(json.dumps(self.get_list()))
@@ -125,7 +125,7 @@ if __name__ == '__main__':
     # S.simulate(parameter_list[1])
     try:
         # with ProcessPoolExecutor(max_workers=5) as p:
-        with Pool(10) as p:
+        with Pool(12) as p:
 
             p.map_async(S.simulate, parameter_list)
             p.close()

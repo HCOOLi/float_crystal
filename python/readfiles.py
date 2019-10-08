@@ -9,23 +9,59 @@ from pyroom import *
 
 def drawpicture(date, T):
     path = './Data/' + date + '/'
-    picpath = './Data/' + date + '-1.0-' + T + '/'
+    picpath = './Data/' + date + '-1.0-' + T + 'thin/'
+    thinpath = './Data/' + date + 'thin/'
     if not os.path.exists(picpath):
         os.mkdir(picpath)
-
-    for i in range(0, 2000, 1):
-        filename = ('d=0E%d=1.00,T=' + T + '.json') % i
+    Ep1,Ep2,Ep3=[],[],[]
+    r = pyRoom(64, 32, 40, Ep=[[0, 0, 0], [0, 1, 0], [0, 0, 0]], Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]], roomtype=24)
+    for i in range(0, 10000*1000, 10000):
+        filename = ('d=0E%d=1.00,T=' + T + '.data') % i
         # print("init")
-        r = pyRoom(64, 64, 64, Ep=[[0, 0, 0], [0, 0, 2], [0, 2, 0]], Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]], roomtype=4)
-        print(path + filename)
-        polymerlist = r.load_polymer(filepath=path + filename)
+        # r = pyRoom(64, 64, 64, Ep=[[0, 0, 0], [0, 2,0 ], [0, 0, 0]], Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]], roomtype=24)
+        print(thinpath + filename)
+        print("loading")
+        r.load(thinpath + filename)
+        print("getlist")
+        polymerlist=r.get_list()
         # r.draw(path=loadpath)50
         # r.draw_all()
         # r.draw_a_layer(1,title=str(i))
         # print("before draw")
-        coutlist = r.draw_a_layer_plot_json(1, polymerlist)
+        countlist = r.draw_a_layer_plot_json(1, polymerlist)
+        Ep1.append(sum(countlist))
         plt.savefig(picpath + str(i) + "-1")
         plt.close()
+
+        countlist = r.draw_a_layer_plot_json(2, polymerlist)
+        Ep2.append(sum(countlist))
+        plt.savefig(picpath + str(i) + "-2")
+        plt.close()
+
+        countlist = r.draw_a_layer_plot_json(3, polymerlist)
+        Ep3.append(sum(countlist))
+        plt.savefig(picpath + str(i) + "-3")
+        plt.close()
+        # r.draw_a_layer_plot_json(3, polymerlist)
+        # Ep.append(sum(countlist))
+    #     plt.savefig(picpath + str(i) + "-3")
+    #     plt.close()
+    #     r.draw_a_layer_plot_json(5, polymerlist)
+    # # Ep.append(sum(countlist))
+    #     plt.savefig(picpath + str(i) + "-5")
+    #     plt.close()
+    plt.plot(Ep1)
+    plt.title(T)
+    plt.savefig(picpath + "lines1")
+    plt.plot(Ep2)
+    plt.title(T)
+    plt.savefig(picpath + "lines2")
+    plt.plot(Ep3)
+    plt.title(T)
+    plt.savefig(picpath + "lines3")
+    plt.close()
+
+
         # coutlist = r.draw_a_layer_plot_json(2, polymerlist)
         # plt.savefig(picpath + str(i) + "-2")
         # plt.close()
@@ -35,7 +71,7 @@ def drawpicture(date, T):
 
         # plt.show()
         # plt.savefig(picpath+str(i)+"3")
-        plt.close()
+        # plt.close()
         # plt.ylim(0,40)
         # plt.hist(coutlist,bins=list(range(16)),)
         # plt.savefig(picpath + str(i)+"hist2")
@@ -57,13 +93,13 @@ def drawpicture(date, T):
 if __name__ == '__main__':
     start = time.time()
     print('Parent process %s.' % os.getpid())
-    date = "2019-9-12-q=27c=1"
+    date =  "2019-9-23-q=135a=64_32_40"
     # S.simulate(parameter_list[1])
-    with Pool(10) as p:
+    with Pool(12) as p:
 
         # for T in ["4.60", "4.80", "4.40"]:"2.20","2.40","2.60","2.80",
         # for T in ["3.00","3.20","3.40","3.60","3.80","4.00","4.20","4.60", "4.80", "4.40"]:
-        for T in ['%3.2f' % x for x in np.arange(1.0, 7.1, 1)]:
+        for T in ['%3.2f' % x for x in np.arange(2.1, 2.3, 0.02)]:
             p.apply_async(drawpicture, (date, T))
         p.close()
         p.join()

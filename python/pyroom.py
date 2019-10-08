@@ -1,7 +1,6 @@
 import json
 from typing import List
 
-import matplotlib.pyplot as plt
 import numpy as np
 from float_crystal import *
 
@@ -22,12 +21,12 @@ class pyRoom(pyroom):
         self.input_one_FCC(int(a[0]), int(a[1]), int(a[2]), int(length), int(direction),
                            int(fold_direction), ty, int(movable))
 
-    def save(self, file_path):
-        parameters = {"Ep": self.Ep, "Eb": self.Eb}
-        saving_dict = {"parameters": parameters, "data": self.get_list()}
-        with open(file_path, 'w') as file:
-            # file.write(json.dumps(self.get_list()))
-            file.write(json.dumps(saving_dict))
+    # def save(self, file_path):
+    #     parameters = {"Ep": self.Ep, "Eb": self.Eb}
+    #     saving_dict = {"parameters": parameters, "data": self.get_list()}
+    #     with open(file_path, 'w') as file:
+    #         # file.write(json.dumps(self.get_list()))
+    #         file.write(json.dumps(saving_dict))
 
     def new_draw_box(self, point1, point2, box_color='blue'):
         from vpython import vector, curve, color
@@ -160,7 +159,7 @@ class pyRoom(pyroom):
         return scene
 
     def draw_a_layer_plot(self, layer, polylist=None, title=None):
-
+        import matplotlib.pyplot as plt
         nums = self.get_num_of_polymers()
         plt.figure(figsize=(10, 5))
         ax1 = plt.subplot(1, 2, 1)
@@ -345,7 +344,7 @@ class pyRoom(pyroom):
         plt.ylim(0, 80)
         plt.xlim(0, 21)
 
-        # plt.show()
+        return countlist
 
         # return scene
 
@@ -354,11 +353,11 @@ class pyRoom(pyroom):
         time = 1
         with open(filepath, 'r') as file:
             all_line_txt = file.readline()  # 读所有行
-            all_line_txt = all_line_txt.replace("position", "p").replace("type", "t").replace("chain", "c").replace(
-                "moveable", "m")
+            # all_line_txt = all_line_txt.replace("position", "p").replace("type", "t").replace("chain", "c").replace(
+            #     "moveable", "m")
             polymerlist = json.loads(all_line_txt)
-        with open(filepath, 'w') as file:
-            file.writelines(all_line_txt)
+        # with open(filepath, 'w') as file:
+        #     file.writelines(all_line_txt)
 
         try:
             return polymerlist['data']

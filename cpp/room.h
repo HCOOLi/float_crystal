@@ -109,7 +109,7 @@ public:
 				p = nullptr;
 			}
 		}
-		polymer_list[i].length = 0;
+
 		polymer_list[i].chain.clear();
 
 		//cout << polymer_list.size();

@@ -61,7 +61,7 @@ class SecondNuclear(Simulator):
             for j in range(0, r.shape[1] - 2, 2):
                 nums = nums + 1
 
-                typelist=[(1 if random.random()<0.9 else 2) for _ in range(64) ]
+                typelist = [(1 if random.random() < 1.1 else 2) for _ in range(64)]
                 r.py_input_one_FCC([i, j, 0], 64, 2, 1, typelist, 0)
 
 
@@ -75,7 +75,7 @@ class SecondNuclear(Simulator):
             print('Run task %f ,%f,%f(%s)...' % (Ep, 1, T, os.getpid()))
             # start = time.time()
             # EC_max = 31 * 31 * (31 - 1)
-            date = "2019-10-4-q=135a=64_32_40c=0.9"
+            date = "2019-10-4-q=135a=64_32_40c=1.0"
             if not os.path.exists('Data'):
                 os.mkdir('Data')
             if not os.path.exists('Data/' + date + '/'):

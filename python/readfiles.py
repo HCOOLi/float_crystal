@@ -13,10 +13,10 @@ def drawpicture(date, T):
     thinpath = './Data/' + date + '/'
     if not os.path.exists(picpath):
         os.mkdir(picpath)
-    Ec = []
+    max = []
     r = pyRoom(64, 32, 40, Ep=[[0, 0, 0], [0, 1, 0], [0, 0, 0]], Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]], roomtype=24)
-    for i in range(0, 10000 * 2000, 100000):
-        filename = ('d=0E%d=1.00,T=' + T + '.data') % i
+    for i in range(0, 10000):
+        filename = ('d=0E%d=1.00,T=' + T + '.data') % (i * 100)
         # print("init")
         # r = pyRoom(64, 64, 64, Ep=[[0, 0, 0], [0, 2,0 ], [0, 0, 0]],
         # Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]], roomtype=24)
@@ -25,37 +25,23 @@ def drawpicture(date, T):
         r.load(thinpath + filename)
         print("getlist")
         # Ec.append(r.cal_Ec())
-        # r.draw(path=loadpath)50
-        # r.draw_all()
-        # r.draw_a_layer(1,title=str(i))
-        # print("before draw")
-        polymerlist = r.get_list()
-        # countlist = r.draw_a_layer_plot_json(10, polymerlist)
-        # #
-        # plt.savefig(picpath + str(i) + "-10")
-        # plt.close()
+        max.append(r.get_max_nucleus(1))
 
-        countlist = r.draw_a_layer_plot_json(2, polymerlist)
+    mmmax = 0
+    mmmax_list = []
+    for m in max:
+        if m > mmmax:
+            mmmax = m
+        mmmax_list.append(mmmax)
 
-        plt.savefig(picpath + str(i) + "-2")
-        plt.close()
-        #
-        # countlist = r.draw_a_layer_plot_json(3, polymerlist)
-        # Ep3.append(sum(countlist))
-        # plt.savefig(picpath + str(i) + "-3")
-        # plt.close()
-        # r.draw_a_layer_plot_json(3, polymerlist)
-        # Ep.append(sum(countlist))
-    #     plt.savefig(picpath + str(i) + "-3")
-    #     plt.close()
-    #     r.draw_a_layer_plot_json(5, polymerlist)
-    # # Ep.append(sum(countlist))
-    #     plt.savefig(picpath + str(i) + "-5")
-    #     plt.close()
-    # coeffs = np.polyfit(list(range(1000)), Ec[1000:], 1)
-    # plt.plot(Ec)
-    # plt.title(T+" %f,%d"%(coeffs[0],coeffs[1]))
-    # plt.savefig(picpath + "lines")
+    plt.plot(mmmax_list, list(range(10000)))
+    plt.title(T)
+    plt.savefig(picpath + "step_max")
+    plt.close()
+    plt.plot(max)
+    plt.title(T)
+    plt.savefig(picpath + "max")
+    plt.close()
     # # plt.plot(Ep2)
     # # plt.title(T)
     # # plt.savefig(picpath + "lines2")
@@ -96,13 +82,13 @@ def drawpicture(date, T):
 if __name__ == '__main__':
     start = time.time()
     print('Parent process %s.' % os.getpid())
-    date = "2019-10-4-q=135a=64_32_40c=0.9"
+    date = "2019-10-4-q=108a=64_32_40c=1.0t=4"
     # S.simulate(parameter_list[1])
     with Pool(12) as p:
 
         # for T in ["4.60", "4.80", "4.40"]:"2.20","2.40","2.60","2.80",
         # for T in ["3.00","3.20","3.40","3.60","3.80","4.00","4.20","4.60", "4.80", "4.40"]:
-        for T in ['%3.2f' % x for x in np.arange(2.0, 2.3, 0.02)]:
+        for T in ['%3.2f' % x for x in np.arange(0.1, 0.8, 0.1)]:
             p.apply_async(drawpicture, (date, T))
         p.close()
         p.join()

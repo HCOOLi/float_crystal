@@ -5,6 +5,7 @@
 #include"point.h"
 #include<set>
 #include<stack>
+#include"ConnectedComponent.h"
 
 #include<ctime>
 using namespace std;
@@ -180,10 +181,14 @@ public:
 
     double cal_dEc_nearby(stack<Position> path) const;
 
-    double count_parallel_nearby8(vec &point1, vec &point2, deque<vec> &que, int cal_type) const;
-
+    double Room::count_parallel_nearby4(vec &point1, vec &point2,
+                                        deque<pair<vec, int>> &que, int cal_type) const;
     void save(string filename);
 
     void load(string filename);
+
+    int get_max_nucleus(int layer);
+
+    double count_parallel_nearby8(vec &point1, vec &point2, deque<pair<vec, int>> &que, int cal_type) const;
 };
 

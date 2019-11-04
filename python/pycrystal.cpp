@@ -37,6 +37,7 @@ BOOST_PYTHON_MODULE (float_crystal)
 		.def("get_num_of_polymers",&pyroom::num_of_polymers)
 		.def("save",&pyroom::save)
 		.def("load",&pyroom::load)
+            .def("get_max_nucleus", &pyroom::get_max_nucleus)
 		;
 
 }

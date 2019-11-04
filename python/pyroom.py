@@ -298,12 +298,11 @@ class pyRoom(pyroom):
                 point = pointinfo['p']
                 type = pointinfo["t"]
                 if type == 1:
-                    pass
-                    # this_color = color.yellow
+                    this_color = 'any'
                 elif type == 2:
                     # pass
-                    pass
-                    # this_color = color.blue
+
+                    this_color = 'grey'
                 elif type == 3:
                     continue
                 if point[0] != layer:

@@ -11,8 +11,16 @@
 
 Room::Room(int x, int y, int z, int type) : lattice(x, y, z), shape(vec{x, y, z}) {
     cout << "construction" << endl;
-    cout << "using count_parallel_nearby24" << endl;
-    count_parallel = &Room::count_parallel_nearby24;
+    if (type == 24) {
+        cout << "using count_parallel_nearby24" << endl;
+        count_parallel = &Room::count_parallel_nearby24;
+    } else if (type == 8) {
+        cout << "using count_parallel_nearby8" << endl;
+        count_parallel = &Room::count_parallel_nearby8;
+    } else if (type == 4) {
+        cout << "using count_parallel_nearby4" << endl;
+        count_parallel = &Room::count_parallel_nearby4;
+    }
     initmoves();
     srand(time(NULL));
 }
@@ -22,8 +30,16 @@ Room::Room(int x, int y, int z,
         : lattice(x, y, z), shape(vec{x, y, z}) {
     Ep_matrix = std::move(Ep);
     Eb_matrix = std::move(Eb);
-    cout << "using count_parallel_nearby24" << endl;
-    count_parallel = &Room::count_parallel_nearby24;
+    if (type == 24) {
+        cout << "using count_parallel_nearby24" << endl;
+        count_parallel = &Room::count_parallel_nearby24;
+    } else if (type == 8) {
+        cout << "using count_parallel_nearby8" << endl;
+        count_parallel = &Room::count_parallel_nearby8;
+    } else if (type == 4) {
+        cout << "using count_parallel_nearby4" << endl;
+        count_parallel = &Room::count_parallel_nearby4;
+    }
     initmoves();
     srand(time(NULL));
     //cout<< time(NULL);
@@ -445,14 +461,14 @@ void Room::save(string filename) {
             file << Ep << '\t';
         }
     }
-    file<< endl;
+    file << endl;
     file << "# " << "Eb ";
     for (auto Eb_list:Eb_matrix) {
         for (auto Eb:Eb_list) {
             file << Eb << '\t';
         }
     }
-    file<<endl;
+    file << endl;
     file << "# " << "nums " << this->polymer_list.size() << endl;
 
     for (auto &p : polymer_list) {
@@ -475,14 +491,14 @@ void Room::load(string filename) {
     Polymer p;
     while (getline(file, temp)) {
         if (temp[0] == '#') {
-            if(temp=="####"){
-                polymer_list[chain_num]=p;
-                
+            if (temp == "####") {
+                polymer_list[chain_num] = p;
+
                 chain_num++;
-                pos_in_chain=0;
-               
-                
-                p=Polymer();
+                pos_in_chain = 0;
+
+
+                p = Polymer();
             }
             int pos = temp.find("shape");
             if (pos != -1) {
@@ -527,11 +543,11 @@ void Room::load(string filename) {
                     continue;
 
                 } else {
-                    printf("Ep_matrix is not squre,num=%d\n",result.size());
-                    for(auto &x:result){
-                        cout<<"Ep"<<x;
+                    printf("Ep_matrix is not squre,num=%d\n", result.size());
+                    for (auto &x:result) {
+                        cout << "Ep" << x;
                     }
-                    cout<<endl;
+                    cout << endl;
                     throw "Ep_matrix is not squre\n";
 
                 };
@@ -547,23 +563,23 @@ void Room::load(string filename) {
                 sscanf_s(data_str.c_str(), "%d", &nums);
                 polymer_list.resize(nums);
                 continue;
-            } ;
+            };
 
-        }else {
-        int x, y, z, t, m, t_p;
-        sscanf_s(temp.c_str(), "%d%d%d%d%d%d", &x, &y, &z, &t, &m, &t_p);
+        } else {
+            int x, y, z, t, m, t_p;
+            sscanf_s(temp.c_str(), "%d%d%d%d%d%d", &x, &y, &z, &t, &m, &t_p);
 
-        p.chain.push_back(set_point(vec{x, y, z}, chain_num, pos_in_chain, t, m, t_p));
-        pos_in_chain++;
+            p.chain.push_back(set_point(vec{x, y, z}, chain_num, pos_in_chain, t, m, t_p));
+            pos_in_chain++;
 
+
+        }
 
     }
 
-}
+    file.
 
-file.
-
-close();
+            close();
 
 }
 
@@ -1008,106 +1024,108 @@ double Room::count_parallel_nearby24(vec &point1, vec &point2,
 //	}
 //}
 //
-//double Room::count_parallel_nearby8(vec &point1, vec &point2,
-//	deque<vec> & que, int cal_type)const {//TODO
-//
-//	double num_self = 0, num_others = 0;
-//	int chain_num;
-//	if (lattice[point1] == nullptr)
-//		throw "NULL";
-//	chain_num = lattice[point1]->chain_num;
-//	vec p1(point1), p2(point2);
-//	vec dir = cal_direction(p1, p2);
-//	int i = 0; j = 0;
-//	//int k = 3 - i - j;
-//	for (int x = -1; x <= 1; x++) {
-//		for (int y = -1; y <= 1; y++) {
-//			if (x == 0 && y == 0) {
-//				continue;
-//			}
-//			p1[i] = (point1[i] + shape[i] + x) % shape[i];
-//			p2[i] = (point2[i] + shape[i] + x) % shape[i];
-//			p1[j] = (point1[j] + shape[j] + y) % shape[j];
-//			p2[j] = (point2[j] + shape[j] + y) % shape[j];
-//			int result;
-//			result = get_side_num(p1, p2);
-//			if (result == -1) { ; }
-//			else {
-//				if (result == chain_num) {
-//					if (find_in_que(que, p1) && find_in_que(que, p2)) {
-//						num_self += 0.5;
-//					}
-//					else {
-//						num_self += 1;
-//					}
-//				}
-//				else {
-//					num_others += 1;
-//				}
-//			}
-//
-//		}
-//
-//	}
-//	if (cal_type == 0) {
-//		return num_others + num_self / 2;
-//		//cout << num_others << ',' << num_self << endl;
-//	}
-//	else {
-//
-//		if (num_self != 0) { ; }
-//		//cout << num_others << ',' << num_self << endl;
-//		return num_others + num_self;
-//	}
-//}
+double Room::count_parallel_nearby4(vec &point1, vec &point2,
+                                    deque<pair<vec, int>> &que, int cal_type) const {//TODO
 
-//double Room::count_parallel_nearby8(vec &point1, vec &point2,
-//	deque<vec> & que, int cal_type)const {
-//
-//	double num_self = 0, num_others = 0;
-//	int chain_num;
-//	chain_num = lattice[point1]->chain_num;
-//	int type1 = lattice[point1]->type;
-//	vec p1, p2;
-//	vec direction = cal_direction(point1, point2);
-//
-//	for (auto &direc : moves) {
-//		if (0==direc * direction) {
-//			//cout << vec{ x,y,z };
-//			p1 = (point1 + direc) % shape;
-//			p2 = (point2 + direc) % shape;
-//			int result = get_side_num(p1, p2);
-//			if (result == -1) { continue; }
-//			else {
-//				int type2 = lattice[p1]->type;
-//				double Ep_cross = Ep_matrix[type1][type2];
-//				if (result == chain_num) {
-//
-//					if (find_in_que(que, p1) && find_in_que(que, p2)) {
-//						num_self += 0.5*Ep_cross;
-//					}
-//					else {
-//						num_self += Ep_cross;
-//					}
-//				}
-//				else {
-//					num_others += Ep_cross;
-//				}
-//		}
-//		
-//		}
-//	}
-//	if (cal_type == 0) {
-//		return num_others + num_self / 2;
-//		//cout << num_others << ',' << num_self << endl;
-//	}
-//	else {
-//
-//		if (num_self != 0) { ; }
-//		//cout << num_others << ',' << num_self << endl;
-//		return num_others + num_self;
-//	}
-//}
+    double num_self = 0, num_others = 0;
+    int chain_num;
+    if (lattice[point1] == nullptr)
+        throw "NULL";
+    chain_num = lattice[point1]->chain_num;
+    vec p1(point1), p2(point2);
+    vec dir = cal_direction(p1, p2);
+    int i = 0, j = 0;
+    //int k = 3 - i - j;
+    for (int x = -1; x <= 1; x++) {
+        for (int y = -1; y <= 1; y++) {
+            if (x == 0 || y == 0) {
+                continue;
+            }
+            p1[i] = (point1[i] + shape[i] + x) % shape[i];
+            p2[i] = (point2[i] + shape[i] + x) % shape[i];
+            p1[j] = (point1[j] + shape[j] + y) % shape[j];
+            p2[j] = (point2[j] + shape[j] + y) % shape[j];
+            int result;
+            result = get_side_num(p1, p2);
+            if (result == -1) { ; }
+            else {
+                if (result == chain_num) {
+                    if (find_in_que(que, make_pair(p1, lattice[p1]->true_position)) &&
+                        find_in_que(que, make_pair(p2, lattice[p2]->true_position))) {
+                        num_self += 0.5;
+                    } else {
+                        num_self += 1;
+                    }
+                } else {
+                    num_others += 1;
+                }
+            }
+
+        }
+
+    }
+    if (cal_type == 0) {
+        return num_others + num_self / 2;
+        //cout << num_others << ',' << num_self << endl;
+    } else {
+
+        if (num_self != 0) { ; }
+        //cout << num_others << ',' << num_self << endl;
+        return num_others + num_self;
+    }
+}
+
+double Room::count_parallel_nearby8(vec &point1, vec &point2,
+                                    deque<pair<vec, int>> &que, int cal_type) const {//TODO
+
+    double num_self = 0, num_others = 0;
+    int chain_num;
+    if (lattice[point1] == nullptr)
+        throw "NULL";
+    chain_num = lattice[point1]->chain_num;
+    vec p1(point1), p2(point2);
+    vec dir = cal_direction(p1, p2);
+    int i = 0, j = 0;
+    //int k = 3 - i - j;
+    for (int x = -1; x <= 1; x++) {
+        for (int y = -1; y <= 1; y++) {
+            if (x == 0 && y == 0) {
+                continue;
+            }
+            p1[i] = (point1[i] + shape[i] + x) % shape[i];
+            p2[i] = (point2[i] + shape[i] + x) % shape[i];
+            p1[j] = (point1[j] + shape[j] + y) % shape[j];
+            p2[j] = (point2[j] + shape[j] + y) % shape[j];
+            int result;
+            result = get_side_num(p1, p2);
+            if (result == -1) { ; }
+            else {
+                if (result == chain_num) {
+                    if (find_in_que(que, make_pair(p1, lattice[p1]->true_position)) &&
+                        find_in_que(que, make_pair(p2, lattice[p2]->true_position))) {
+                        num_self += 0.5;
+                    } else {
+                        num_self += 1;
+                    }
+                } else {
+                    num_others += 1;
+                }
+            }
+
+        }
+
+    }
+    if (cal_type == 0) {
+        return num_others + num_self / 2;
+        //cout << num_others << ',' << num_self << endl;
+    } else {
+
+        if (num_self != 0) { ; }
+        //cout << num_others << ',' << num_self << endl;
+        return num_others + num_self;
+    }
+}
+
 
 
 double Room::cal_average_thick() const {
@@ -1201,12 +1219,11 @@ double Room::cal_Rg() const// ?????????
 
 double Room::cal_h2() const// ????????
 {
-    throw "NOT DONE!";
     double num = 0;
     for (auto &p : polymer_list) {
         num += distance_squre(p.chain[0]->location, p.chain.back()->location);
     }
-    return num;
+    return num / polymer_list.size();
 }
 
 stack<pair<vec, int>> Room::repair(stack<pair<vec, int>> &path) {
@@ -1274,6 +1291,24 @@ double Room::cal_PSM() const {
 
 double Room::cal_PSM_point(vec &p) const {
     return 0.0;
+}
+
+int Room::get_max_nucleus(int layer) {
+    auto &matrix3 = this->lattice;
+    matrix::Matrix2 bitmap(shape[0], shape[2] - 1);
+    for (int i = 0; i < shape[1]; i++) {
+        for (int j = 0; j < shape[2] - 1; ++j) {
+            auto p1 = vec{layer, i, j};
+            auto p2 = vec{layer, i, j + 1};
+            if (get_side_num(p1, p2) != -1) {
+                bitmap[i][j] = 1;
+            } else {
+                bitmap[i][j] = 0;
+            }
+        }
+    }
+//    cout<<"bitmap constructed"<<endl;
+    return matrix::ConnectedComponentLabeling(bitmap);
 }
 
 

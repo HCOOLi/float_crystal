@@ -29,8 +29,7 @@ Room::Room(int x, int y, int z,
     //cout<< time(NULL);
 }
 
-void Room::initmoves()//27??moves
-{
+void Room::initmoves() {
     if (dimension == 3) {
         for (int x = -1; x <= 1; x++) {
             for (int y = -1; y <= 1; y++) {
@@ -53,11 +52,11 @@ inline vec Room::cal_direction(const vec &point1, const vec &point2) const {
 
 }
 
-void Room::input_one_circle(vec init, int length, int direction, int moveable) {
+void Room::input_one_circle(vec init, int length, int direction, int movable) {
     //TODO
 }
 
-void Room::input_one_ECC(vec init, int length, int direction, vector<int> type_list, int moveable) {
+void Room::input_one_ECC(vec init, int length, int direction, vector<int> type_list, int movable) {//放入一根伸直链
     //cout << __FUNCTION__ << endl;
     try {
         Polymer p;
@@ -69,7 +68,7 @@ void Room::input_one_ECC(vec init, int length, int direction, vector<int> type_l
             vec point(init);
             //cout << point << endl;
             point[direction] += j;
-            p[j] = set_point(point, chain_num, j, type, moveable, 0);
+            p[j] = set_point(point, chain_num, j, type, movable, 0);
         }
         polymer_list.emplace_back(move(p));
     }
@@ -81,7 +80,7 @@ void Room::input_one_ECC(vec init, int length, int direction, vector<int> type_l
 
 }
 
-void Room::input_one_FCC(vec init, int length, int direction, int fold_direction, vector<int> type_list, int moveable) {
+void Room::input_one_FCC(vec init, int length, int direction, int fold_direction, vector<int> type_list, int movable) {
     //cout << __FUNCTION__ << endl;
     try {
         Polymer p;
@@ -99,7 +98,7 @@ void Room::input_one_FCC(vec init, int length, int direction, int fold_direction
             }
             point[fold_direction] += int(j / shape[direction]);
 
-            p[j] = set_point(point, chain_num, j, type, moveable, 0);
+            p[j] = set_point(point, chain_num, j, type, movable, 0);
         }
         polymer_list.emplace_back(move(p));
     }
@@ -110,7 +109,7 @@ void Room::input_one_FCC(vec init, int length, int direction, int fold_direction
     //cout << "end"<<endl;
 }
 
-void Room::inputECC(int num, int length) {
+void Room::inputECC(int num, int length) {//放入一些伸直链
 
     vec start_point = shape / 2;
     start_point[1] -= length / 2;
@@ -163,7 +162,7 @@ void Room::input_stop_chain2() {
 
 
 inline shared_ptr<Point>
-Room::set_point(vec location, int chain_num, int pos_in_chain, int type, int moveable, int true_p) {
+Room::set_point(vec location, int chain_num, int pos_in_chain, int type, int movable, int true_p) {
     //cout << __FUNCTION__ << endl;
     try {
         //cout << "makePoint" << "ended" << endl;
@@ -171,7 +170,7 @@ Room::set_point(vec location, int chain_num, int pos_in_chain, int type, int mov
             cout << location;
             throw string("error");
         }
-        shared_ptr<Point> temp(new Point(location, chain_num, pos_in_chain, type, moveable, true_p));
+        shared_ptr<Point> temp(new Point(location, chain_num, pos_in_chain, type, movable, true_p));
 
         lattice[location] = temp;
         return temp;
@@ -184,7 +183,7 @@ Room::set_point(vec location, int chain_num, int pos_in_chain, int type, int mov
 
 }
 
-bool Room::intersect(vec &point1, vec &point2) const {
+bool Room::intersect(vec &point1, vec &point2) const {//是否交叉
     vec direction = point2 - point1;
 
     if (direction * direction == 3) {
@@ -215,7 +214,7 @@ bool Room::intersect(vec &point1, vec &point2) const {
 
 }
 
-int Room::get_side_num(vec &p1, vec &p2) const {
+int Room::get_side_num(vec &p1, vec &p2) const {//是否有键接关系，是返回链的标号，否，返回-1
     try {
         shared_ptr<Point> a = lattice[p1];
         if (a == nullptr || a->true_position != 0) return -1;
@@ -234,7 +233,7 @@ int Room::get_side_num(vec &p1, vec &p2) const {
 
 }
 
-bool Room::canMove(vec &point, vec &direction) const {
+bool Room::canMove(vec &point, vec &direction) const {//能否移动
     try {
         shared_ptr<Point> p = lattice[point];
         if (p->movable == 1) {
@@ -276,7 +275,7 @@ void Room::stepMove(vec &position, vec &next_position, stack<pair<vec, int>> &pa
     }
 }
 
-void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {
+void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {//移动
     Polymer &polymer = polymer_list[i];
     int length = polymer.chain.size();
 
@@ -308,22 +307,18 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {
         }
         p1 = (*pol_iter).location;
         p2 = (*pol_iter).location;
-
         stepMove((*pol_iter).location, p_next, path, true_p);
-        //break;
+
     }
-        // ??2
     else {
         return;
     }
-
-    //if (can_move.empty())return;
-    for (int j = start_point - 1; j > -1; j--) {
+    int j;
+    for ( j = start_point - 1; j > -1; j--) {
         if (distance_squre(polymer[j]->location, polymer[j + 1]->location) > dimension) {
             try {
                 if (lattice[p1] == nullptr) {
                     vec t1 = polymer[j]->location;
-
                     stepMove(t1, p1, path, rand() % (this->q / moves.size()));
                     p1 = t1;
                 } else {
@@ -337,10 +332,13 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {
             break;
         }
     }
-    //TODO
-    // intersect(point, p_next);
+
+    if(j>=0&&intersect(polymer[j]->location, polymer[j + 1]->location)){
+        repair(path);
+        return;
+    }
     //repair then return;
-    for (int j = start_point + 1; j < length; j++) {
+    for (j = start_point + 1; j < length; j++) {
         if (distance_squre(polymer[j]->location, polymer[j - 1]->location) > dimension) {
             try {
                 if (lattice[p2] == nullptr) {
@@ -357,13 +355,14 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {
         } else {
             break;
         }
-        //TODO
-        // intersect(point, p_next);
-        //repair then return;
+        if(j<length&&intersect(polymer[j]->location, polymer[j - 1]->location)){
+            repair(path);
+            return;
+        }
     }
 }
 
-void Room::movie(int m, int n, double T) {
+void Room::movie(int m, int n, double T) {//主循环
 //	double Ec = cal_Ec()*Ec0;
     double Ep = cal_Ep();
 //	double Eb = cal_Eb();
@@ -391,33 +390,25 @@ void Room::movie(int m, int n, double T) {
 //				Eb += dEb;
             } else {
                 auto a = randfloat();
-
-                if (a < pow(2.718281828, dE / T)) {
+                if (a < exp(dE / T)) {
                     //cout <<a;
                     E += dE;
 //					Ec += dEc;
                     Ep += dEp;
 //					Eb += dEb;
-
                 } else {
-//
                     repair(path);
                 }
             }
         }
-
         if (i % n == 0) {
             printf("%f\t%f\t%f\t%f\n", 0.0, Ep, 0.0, E);
-
             //TODO
         }
-
     }
-
-
 }
 
-void Room::preheat(int m) {
+void Room::preheat(int m) {//预热，不判断能量
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < polymer_list.size(); j++) {
@@ -445,14 +436,14 @@ void Room::save(string filename) {
             file << Ep << '\t';
         }
     }
-    file<< endl;
+    file << endl;
     file << "# " << "Eb ";
     for (auto Eb_list:Eb_matrix) {
         for (auto Eb:Eb_list) {
             file << Eb << '\t';
         }
     }
-    file<<endl;
+    file << endl;
     file << "# " << "nums " << this->polymer_list.size() << endl;
 
     for (auto &p : polymer_list) {
@@ -466,7 +457,6 @@ void Room::save(string filename) {
     file.close();
 }
 
-
 void Room::load(string filename) {
     ifstream file(filename, ios::in);
 
@@ -475,14 +465,11 @@ void Room::load(string filename) {
     Polymer p;
     while (getline(file, temp)) {
         if (temp[0] == '#') {
-            if(temp=="####"){
-                polymer_list[chain_num]=p;
-                
+            if (temp == "####") {
+                polymer_list[chain_num] = p;
                 chain_num++;
-                pos_in_chain=0;
-               
-                
-                p=Polymer();
+                pos_in_chain = 0;
+                p = Polymer();
             }
             int pos = temp.find("shape");
             if (pos != -1) {
@@ -527,11 +514,11 @@ void Room::load(string filename) {
                     continue;
 
                 } else {
-                    printf("Ep_matrix is not squre,num=%d\n",result.size());
-                    for(auto &x:result){
-                        cout<<"Ep"<<x;
+                    printf("Ep_matrix is not squre,num=%d\n", result.size());
+                    for (auto &x:result) {
+                        cout << "Ep" << x;
                     }
-                    cout<<endl;
+                    cout << endl;
                     throw "Ep_matrix is not squre\n";
 
                 };
@@ -547,23 +534,23 @@ void Room::load(string filename) {
                 sscanf_s(data_str.c_str(), "%d", &nums);
                 polymer_list.resize(nums);
                 continue;
-            } ;
+            };
 
-        }else {
-        int x, y, z, t, m, t_p;
-        sscanf_s(temp.c_str(), "%d%d%d%d%d%d", &x, &y, &z, &t, &m, &t_p);
+        } else {
+            int x, y, z, t, m, t_p;
+            sscanf_s(temp.c_str(), "%d%d%d%d%d%d", &x, &y, &z, &t, &m, &t_p);
 
-        p.chain.push_back(set_point(vec{x, y, z}, chain_num, pos_in_chain, t, m, t_p));
-        pos_in_chain++;
+            p.chain.push_back(set_point(vec{x, y, z}, chain_num, pos_in_chain, t, m, t_p));
+            pos_in_chain++;
 
+
+        }
 
     }
 
-}
+    file.
 
-file.
-
-close();
+            close();
 
 }
 
@@ -882,7 +869,6 @@ double Room::cal_Ep() const {
 //}
 
 double Room::cal_one_Ep(int i) const {
-    //????????????????????????????????
     deque<Position> a;
     double num = 0;
     const Polymer &polymer = polymer_list[i];
@@ -1238,11 +1224,9 @@ double Room::cal_Eb_point(vec &p, int type) const {
         j = lattice[point] == nullptr ? 0 : lattice[point]->type;
         //cout << i << ',' << j << endl;
         sum += this->Eb_matrix[i][j];
-
     }
     //cout << "---dEp=" << sum << "---" << endl;
     return sum;
-
 }
 
 double Room::cal_Eb_point(vec &p) const {

@@ -35,7 +35,7 @@ def drawpicture(date, T):
         # plt.savefig(picpath + str(i) + "-10")
         # plt.close()
 
-        countlist = r.draw_a_layer_plot_json(2, polymerlist)
+        countlist = r.draw_a_layer_plot_json(0, polymerlist)
 
         plt.savefig(picpath + str(i) + "-2")
         plt.close()

@@ -359,10 +359,11 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {//ÒÆ¶¯
         } else {
             break;
         }
-        if(j<length&&intersect(polymer[j]->location, polymer[j - 1]->location)){
-            repair(path);
-            return;
-        }
+
+    }
+    if(j<length&&intersect(polymer[j]->location, polymer[j - 1]->location)){
+        repair(path);
+        return;
     }
 }
 

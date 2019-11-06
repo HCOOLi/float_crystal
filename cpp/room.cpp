@@ -321,6 +321,9 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {//ÒÆ¶¯
                 distance_squre(p_next, polymer[start_point - 1]->location) > dimension) {
                 return;
             }
+            if(intersect(p_next,polymer[start_point + 1]->location)||intersect(p_next,polymer[start_point - 1]->location)){
+                return ;
+            }
         }
         p1 = (*pol_iter).location;
         p2 = (*pol_iter).location;

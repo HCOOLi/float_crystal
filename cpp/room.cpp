@@ -184,7 +184,7 @@ Room::set_point(vec location, int chain_num, int pos_in_chain, int type, int mov
 }
 
 bool Room::intersect(vec &point1, vec &point2) const {//ÊÇ·ñ½»²æ
-    vec direction = point2 - point1;
+    vec direction =cal_direction( point1,point2);
 
     if (direction * direction == 3) {
 
@@ -304,9 +304,11 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {//ÒÆ¶¯
                 distance_squre(p_next, polymer[start_point - 1]->location) > dimension) {
                 return;
             }
-            if(intersect(p_next,polymer[start_point + 1]->location)||intersect(p_next,polymer[start_point - 1]->location)){
-                return ;
-            }
+
+        }
+        if(((start_point < length - 1)&&intersect(p_next,polymer[start_point + 1]->location))||
+                (start_point > 0) &&(intersect(p_next,polymer[start_point - 1]->location))){
+            return ;
         }
         p1 = (*pol_iter).location;
         p2 = (*pol_iter).location;

@@ -15,8 +15,8 @@ def drawpicture(date, T):
         os.mkdir(picpath)
     Ec = []
     r = pyRoom(64, 32, 40, Ep=[[0, 0, 0], [0, 1, 0], [0, 0, 0]], Eb=[[0, 0, 0], [0, 0, 0], [0, 0, 0]], roomtype=24)
-    for i in range(0, 1000, 10):
-        filename = ('d=0E%d=1.00,T=' + T + '.data') % (i * 100)
+    for i in range(0, 1000):
+        filename = ('d=0E%d=1.00,T=' + T + '.data') % (i * 20000)
 
         print(thinpath + filename)
         print("loading")
@@ -93,13 +93,13 @@ def drawpicture(date, T):
 if __name__ == '__main__':
     start = time.time()
     print('Parent process %s.' % os.getpid())
-    date = "2019-10-4-q=135a=64_32_40c=1.0t=4"
+    date = "2019-10-4-q=135a=64_32_40c=1.0"
     # S.simulate(parameter_list[1])
     with Pool(12) as p:
 
         # for T in ["4.60", "4.80", "4.40"]:"2.20","2.40","2.60","2.80",
         # for T in ["3.00","3.20","3.40","3.60","3.80","4.00","4.20","4.60", "4.80", "4.40"]:
-        for T in ['%3.2f' % x for x in np.arange(1.0, 2.3, 0.1)]:
+        for T in ['%3.2f' % x for x in np.arange(2.0, 2.2, 0.02)]:
             p.apply_async(drawpicture, (date, T))
         p.close()
         p.join()

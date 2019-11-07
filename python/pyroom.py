@@ -306,6 +306,7 @@ class pyRoom(pyroom):
                 elif type == 3:
                     continue
                 if point[0] != layer:
+                    last_point = None
                     continue
                 else:
                     # sphere(pos=vector(point[0], point[1], point[2]), color=this_color, radius=0.2)

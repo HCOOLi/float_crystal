@@ -183,12 +183,17 @@ public:
 
     double Room::count_parallel_nearby4(vec &point1, vec &point2,
                                         deque<pair<vec, int>> &que, int cal_type) const;
-    void save(string filename);
+
+    void save(string filename) const;
 
     void load(string filename);
 
     int get_max_nucleus(int layer);
 
     double count_parallel_nearby8(vec &point1, vec &point2, deque<pair<vec, int>> &que, int cal_type) const;
+
+    double cal_if_inter(int i) const;
+
+    int cal_crystallinity() const;
 };
 

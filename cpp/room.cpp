@@ -211,6 +211,7 @@ bool Room::intersect(vec &point1, vec &point2) const {//是否交叉
         vec p4{point1[0], point2[1], point2[2]};
         vec p5{point1[0], point1[1], point2[2]};
         vec p6{point2[0], point1[1], point2[2]};
+
         return get_side_num(p1, p4) != -1 || get_side_num(p2, p5) != -1 || get_side_num(p3, p6) != -1;
     } else if (direction * direction == 2) {
         if (point1[0] == point2[0]) {
@@ -234,9 +235,9 @@ bool Room::intersect(vec &point1, vec &point2) const {//是否交叉
 int Room::get_side_num(vec &p1, vec &p2) const {//是否有键接关系，是返回链的标号，否，返回-1
     try {
         shared_ptr<Point> a = lattice[p1];
-        if (a == nullptr || a->true_position != 0) return -1;
+        if (a == nullptr) return -1;
         shared_ptr<Point> b = lattice[p2];
-        if (b == nullptr || b->true_position != 0) return -1;
+        if (b == nullptr) return -1;
         if (a->chain_num == b->chain_num) {
             if (abs(a->pos_in_chain - b->pos_in_chain) == 1)
                 return a->chain_num;
@@ -308,8 +309,6 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {//移动
     m_rand /= this->q / moves.size();
     vec direction(moves[m_rand]);
     if (direction == vec{0, 0, 0}) {
-//	    printf("no move");
-        //TODO
         stepMove((*pol_iter).location, (*pol_iter).location, path, true_p);
         return;
     }
@@ -323,8 +322,8 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {//移动
             }
 
         }
-        if(((start_point < length - 1)&&intersect(p_next,polymer[start_point + 1]->location))||
-                (start_point > 0) &&(intersect(p_next,polymer[start_point - 1]->location))){
+        if(((start_point < length - 1)&&intersect(p_next,polymer[start_point + 1]->location)) ||
+           ((start_point > 0) && intersect(p_next, polymer[start_point - 1]->location))) {
             return ;
         }
         p1 = (*pol_iter).location;
@@ -333,7 +332,6 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {//移动
         stepMove((*pol_iter).location, p_next, path, true_p);
 
     }
-        // ??2
     else {
         return;
     }
@@ -343,7 +341,6 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {//移动
             try {
                 if (lattice[p1] == nullptr) {
                     vec t1 = polymer[j]->location;
-
                     stepMove(t1, p1, path, rand() % (this->q / moves.size()));
                     p1 = t1;
                 } else {
@@ -357,8 +354,7 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {//移动
             break;
         }
     }
-
-    if(j>=0&&intersect(polymer[j]->location, polymer[j + 1]->location)){
+    if (j >= 0 && intersect(polymer[j]->location, polymer[j + 1]->location)) {
         repair(path);
         return;
     }
@@ -388,27 +384,38 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {//移动
     }
 }
 
+int Room::cal_crystallinity() const {
+    int num = 0;
+    deque<Position> a;
+    for (const auto &p : polymer_list) {
+        int length = p.chain.size();
+        for (int j = 1; j < length; j++) {
+            if (((this->*count_parallel))(p[j - 1]->location, p[j]->location, a, 1) > 5) {
+                num++;
+            }
+        }
+    }
+    return num;
+}
+
 void Room::movie(int m, int n, double T) {//主循环
 //	double Ec = cal_Ec()*Ec0;
     double Ep = cal_Ep();
 //	double Eb = cal_Eb();
-    double E = Ep;
+    double E = Ep;;
     /*double a = cal_Ec() + cal_Ep();*/
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < polymer_list.size(); j++) {
-
             stack<pair<vec, int> > path;
             this->localSnakeMove(j, path);
-            //TODO if   repair
             if (path.empty()) {
                 continue;
             }
-            double dEc = cal_dEc_nearby(path) * Ec0;
+//            double dEc = cal_dEc_nearby(path) * Ec0;
             double dEp = cal_dEp_nearby(path);
 //			double dEb = cal_dEb_nearby(path);
             //double dEf = cal_dEf(path);
             double dE = dEp;
-
             if (dE >= 0) {
                 E += dE;
 //				Ec += dEc;
@@ -424,6 +431,7 @@ void Room::movie(int m, int n, double T) {//主循环
 //					Eb += dEb;
                 } else {
                     repair(path);
+
                 }
             }
         }
@@ -432,20 +440,15 @@ void Room::movie(int m, int n, double T) {//主循环
             //TODO
         }
     }
+
 }
 
 void Room::preheat(int m) {//预热，不判断能量
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < polymer_list.size(); j++) {
-
             stack<pair<vec, int >> path;
             this->localSnakeMove(j, path);
-            //TODO if ???????repair??
-            if (path.empty()) {
-                continue;
-            }
-
         }
 
 
@@ -453,7 +456,7 @@ void Room::preheat(int m) {//预热，不判断能量
 
 }
 
-void Room::save(string filename) {
+void Room::save(string filename) const {
     ofstream file(filename, ios::out | ios::trunc);// 覆盖
     file << "# " << "shape " << this->shape[0] << '\t' << this->shape[1] << '\t' << this->shape[2] << endl;
     file << "# " << "Ep ";
@@ -473,7 +476,7 @@ void Room::save(string filename) {
     file << "# " << "nums " << this->polymer_list.size() << endl;
 
     for (auto &p : polymer_list) {
-        for (shared_ptr<Point> &point:p.chain) {
+        for (const shared_ptr<Point> &point:p.chain) {
             file << point->location[0] << '\t' << point->location[1] << '\t' << point->location[2] << '\t'
                  << point->type << '\t' << point->movable << '\t' << point->true_position << endl;
         }
@@ -596,15 +599,20 @@ double Room::cal_dEp(deque<pair<vec, int>> &path) const {
 
 
     double num = 0;
+    int i = 0;
     vec v1, v2;
     auto iter = path.begin();
     if (iter != path.end()) v1 = (*iter).first; else return num;
-    iter++;
+    iter++, i++;
     while (iter != path.end()) {
         v2 = (*iter).first;
         num += ((this->*count_parallel))(v1, v2, path, 1);
+//        if(intersect(v1,v2)){
+//            cout<< "intersected"<<v1<<v2<<i<<endl;
+//            throw ;
+//        }
         v1 = v2;
-        iter++;
+        iter++, i++;
     }
 #ifdef DEBUG
     cout<<__FUNCTION__<<num<<endl;
@@ -644,6 +652,20 @@ double Room::cal_dEf(deque<pair<vec, int>> path) const {
         iter++;
     }
     return num;
+}
+
+double Room::cal_if_inter(int i) const {
+    const auto &p = polymer_list[i];
+    int length = p.chain.size();
+    for (int j = 1; j < length; j++) {
+        if (intersect(p.chain[j - 1]->location, p.chain[j]->location)) {
+            cout << "at" << i << "intersected" << p.chain[j - 1]->location << p.chain[j]->location;
+            this->save("test.data");
+            throw;
+        }
+    }
+    return 0;
+
 }
 
 double Room::cal_one_Ec(int i) const {//has some bugs
@@ -809,6 +831,7 @@ double Room::cal_dEp_nearby(stack<pair<vec, int>> path) {
 
     double dEp1;
     try {
+//        cout << "new_path"<<new_path.size() << endl;
         dEp1 = cal_dEp(new_path);
     }
     catch (...) {
@@ -819,10 +842,10 @@ double Room::cal_dEp_nearby(stack<pair<vec, int>> path) {
     stack<pair<vec, int>> re = repair(do_path);
 
     double dEp2;
-    dEp2 = cal_dEp(old_path);
 
     try {
-
+//        cout << "old_path"<<old_path.size()<<endl;
+        dEp2 = cal_dEp(old_path);
     }
     catch (...) {
         cout << "old_path";
@@ -913,11 +936,9 @@ double Room::count_parallel_nearby24(vec &point1, vec &point2,
 
     double num_self = 0, num_others = 0;
     int chain_num;
-    if (lattice[point1] == nullptr)
+    if (lattice[point1] == nullptr || lattice[point2] == nullptr)
         throw "NULL";
     if (lattice[point1]->true_position != 0 || lattice[point2]->true_position != 0) {
-//        cout<<"true_position!=0"<<endl;
-//	    throw "true_position!=0";
         return 0;
     }
     chain_num = lattice[point1]->chain_num;
@@ -937,10 +958,8 @@ double Room::count_parallel_nearby24(vec &point1, vec &point2,
         int result = get_side_num(p1, p2);
         if (result == -1) { continue; }
         else {
+            if (lattice[p1]->true_position != 0 || lattice[p2]->true_position != 0) { continue; }
             int type2 = max(lattice[p1]->type, lattice[p2]->type);
-
-            //cout << type1 << type2;
-
             double Ep_cross = Ep_matrix[type1][type2];
             if (result == chain_num) {
 

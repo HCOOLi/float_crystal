@@ -31,6 +31,7 @@ BOOST_PYTHON_MODULE (float_crystal)
 		.def("get_list",&pyroom::get_list)
             .def("cal_Ec", &pyroom::cal_Ec)
 		.def("cal_Ep",&pyroom::cal_Ep)
+            .def("cal_crystallinity", &pyroom::cal_crystallinity)
 //		.def("ca_Eb",&pyroom::cal_Eb)
 		/*.def("get_result",&pyroom::get_result)*/
 		//.def("get_polymer",&pyroom::get_polymer, py::return_internal_reference<>())

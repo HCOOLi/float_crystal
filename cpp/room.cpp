@@ -384,13 +384,13 @@ void Room::localSnakeMove(int i, stack<pair<vec, int>> &path) {//ÒÆ¶¯
     }
 }
 
-int Room::cal_crystallinity() const {
+int Room::cal_crystallinity(int q) const {
     int num = 0;
     deque<Position> a;
     for (const auto &p : polymer_list) {
         int length = p.chain.size();
         for (int j = 1; j < length; j++) {
-            if (((this->*count_parallel))(p[j - 1]->location, p[j]->location, a, 1) > 5) {
+            if (((this->*count_parallel))(p[j - 1]->location, p[j]->location, a, 1) > q) {
                 num++;
             }
         }
@@ -406,8 +406,10 @@ void Room::movie(int m, int n, double T) {//Ö÷Ñ­»·
     /*double a = cal_Ec() + cal_Ep();*/
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < polymer_list.size(); j++) {
+            int k = rand() % polymer_list.size();
+
             stack<pair<vec, int> > path;
-            this->localSnakeMove(j, path);
+            this->localSnakeMove(k, path);
             if (path.empty()) {
                 continue;
             }

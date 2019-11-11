@@ -194,6 +194,6 @@ public:
 
     double cal_if_inter(int i) const;
 
-    int cal_crystallinity() const;
+    int cal_crystallinity(int q) const;
 };
 

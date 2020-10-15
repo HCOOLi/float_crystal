@@ -76,7 +76,7 @@ public:
 
 	//some useful functions
 	bool intersect(vec &point1, vec &point2)const;
-	int get_side_num(vec & p1, vec & p2) const;
+	int get_chain_num(vec & p1, vec & p2) const;
 	vec cal_direction(const vec & point1, const vec & point2) const;
 	int distance_squre(vec &p1, vec &p2)const {
 		vec direction = cal_direction(p2, p1);
@@ -120,6 +120,9 @@ public:
 	double cal_Ec()const;
 	double cal_Ep()const;
 	double cal_Eb()const;
+	double cal_Ee2e() const;
+	double count_e2e(vec &, vec &) const;//TODO
+
 
 
 	double cal_one_Ec(int)const;

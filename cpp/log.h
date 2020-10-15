@@ -1,7 +1,5 @@
-//
-// Created by 1007 on 2019/9/12.
-//
-#pragma once
+
+#pragma once         // not used
 #ifndef CRYSTAL_LOG_H
 #define CRYSTAL_LOG_H
 
@@ -15,8 +13,7 @@ using namespace std;
 class logger {
     std::ofstream file;
 
-    logger(string filename) {
-        file = fopen(filename, "w+");
+    logger(string filename): file(filename,ios::out|ios::trunc) {
     }
     void log(){
         time_t now = time(0);
@@ -24,7 +21,7 @@ class logger {
         file << dt << endl;
     }
 
-    template<typenameT>
+    template<typename T>
     logger& operator<<(T data){
         file<<data;
         return (*this)

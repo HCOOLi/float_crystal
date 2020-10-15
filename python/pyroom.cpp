@@ -133,23 +133,23 @@ void pyroom::input_one_FCC(int x, int y, int z, int length, int direction, int f
 void pyroom::Ep_setter(py::list Ep_list) {
 
     Ep_matrix=pylist2matrix<double>(Ep_list);
-    cout<<"Ep_matrix:"<<endl;
+    //cout<<"Ep_matrix:"<<endl;
     for(auto row:Ep_matrix) {
         for (auto data:row) {
-            cout << data << '\t';
+            //cout << data << '\t';
         }
-        cout << endl;
+        //cout << endl;
     }
 }
 
 void pyroom::Eb_setter(py::list Eb_list) {
     Ep_matrix=pylist2matrix<double>(Eb_list);
-    cout<<"Eb_matrix:"<<endl;
+    //cout<<"Eb_matrix:"<<endl;
     for(auto row:Eb_matrix) {
         for (auto data:row) {
-            cout << data << '\t';
+            //cout << data << '\t';
         }
-        cout << endl;
+        //cout << endl;
     }
 
 }
@@ -161,7 +161,6 @@ py::list pyroom::get_list() const {
         py::dict json;
         py::list chain_list;
         for (int j = 0; j < polymer.chain.size(); j++) {
-
             py::dict dic;
             py::list py_position;
             for (int k = 0; k < 3; k++) {
@@ -169,8 +168,7 @@ py::list pyroom::get_list() const {
             }
             dic["p"] = py_position;
             dic["t"] = polymer.chain[j]->type;
-            dic["m"] = polymer.chain[j]->movable;
-
+            dic["m"] = polymer.chain[j]->movable; 
             chain_list.append(dic);
         }
         json["c"] = chain_list;

@@ -4,8 +4,6 @@ import time
 from multiprocessing import Pool
 
 from pyroom import *
-
-
 class Simulator():
     def __init__(self):
         pass

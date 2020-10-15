@@ -23,9 +23,10 @@ class logger {
 
     template<typename T>
     logger& operator<<(T data){
-        file<<data;
+        time_t now = time(0);
+        char* dt = ctime(&now);
+        file << dt << ": "<<data<<endl;
         return (*this)
-
     }
 
     ~logger() {

@@ -7,6 +7,7 @@
 #include <vector>
 #include <queue>
 #include <sstream>
+#include<algorithm>
 
 using namespace std;
 

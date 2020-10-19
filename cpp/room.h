@@ -182,8 +182,8 @@ public:
 
 	double cal_dEc_nearby(stack<Position> path) const;
 
-	double Room::count_parallel_nearby4(vec &point1, vec &point2,
-										deque<pair<vec, int>> &que, int cal_type) const;
+	// double Room::count_parallel_nearby4(vec &point1, vec &point2,
+	// 									deque<pair<vec, int>> &que, int cal_type) const;
 
 	void save(string filename) const;
 

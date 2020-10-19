@@ -24,11 +24,11 @@ Room::Room(int x, int y, int z, int type) : lattice(x, y, z), shape(vec{x, y, z}
         cout << "using count_parallel_nearby8" << endl;
         count_parallel = &Room::count_parallel_nearby8;
     }
-    else if (type == 4)
-    {
-        cout << "using count_parallel_nearby4" << endl;
-        count_parallel = &Room::count_parallel_nearby4;
-    }
+    // else if (type == 4)
+    // {
+    //     cout << "using count_parallel_nearby4" << endl;
+    //     count_parallel = &Room::count_parallel_nearby4;
+    // }
     initmoves();
     srand(time(NULL));
 }
@@ -49,11 +49,11 @@ Room::Room(int x, int y, int z,
         cout << "using count_parallel_nearby8" << endl;
         count_parallel = &Room::count_parallel_nearby8;
     }
-    else if (type == 4)
-    {
-        cout << "using count_parallel_nearby4" << endl;
-        count_parallel = &Room::count_parallel_nearby4;
-    }
+    // else if (type == 4)
+    // {
+    //     cout << "using count_parallel_nearby4" << endl;
+    //     count_parallel = &Room::count_parallel_nearby4;
+    // }
     initmoves();
     srand(time(NULL));
     //cout<< time(NULL);
@@ -1027,7 +1027,7 @@ double Room::count_e2e(vec &point1, vec &point2) const
     }
     p1 = (point1 - dir) % shape;
     p2 = (point2 - dir) % shape;
-    int result = get_chain_num(p1, p2);
+    result = get_chain_num(p1, p2);
     if (result > 0)
     {
         num_self += 1;
@@ -1190,74 +1190,74 @@ double Room::count_parallel_nearby24(vec &point1, vec &point2,
 //	}
 //}
 //
-double Room::count_parallel_nearby4(vec &point1, vec &point2,
-                                    deque<pair<vec, int>> &que, int cal_type) const
-{ //TODO
-    throw "bugs";
-    double num_self = 0, num_others = 0;
-    int chain_num;
-    if (lattice[point1] == nullptr)
-        throw "NULL";
-    chain_num = lattice[point1]->chain_num;
-    vec p1(point1), p2(point2);
-    vec dir = cal_direction(p1, p2);
-    int i = 0, j = 0;
-    //int k = 3 - i - j;
-    for (int x = -1; x <= 1; x++)
-    {
-        for (int y = -1; y <= 1; y++)
-        {
-            if (x == 0 || y == 0)
-            {
-                continue;
-            }
-            p1[i] = (point1[i] + shape[i] + x) % shape[i];
-            p2[i] = (point2[i] + shape[i] + x) % shape[i];
-            p1[j] = (point1[j] + shape[j] + y) % shape[j];
-            p2[j] = (point2[j] + shape[j] + y) % shape[j];
-            int result;
-            result = get_chain_num(p1, p2);
-            if (result == -1)
-            {
-                ;
-            }
-            else
-            {
-                if (result == chain_num)
-                {
-                    if (find_in_que(que, make_pair(p1, lattice[p1]->true_position)) &&
-                        find_in_que(que, make_pair(p2, lattice[p2]->true_position)))
-                    {
-                        num_self += 0.5;
-                    }
-                    else
-                    {
-                        num_self += 1;
-                    }
-                }
-                else
-                {
-                    num_others += 1;
-                }
-            }
-        }
-    }
-    if (cal_type == 0)
-    {
-        return num_others + num_self / 2;
-        //cout << num_others << ',' << num_self << endl;
-    }
-    else
-    {
+// double Room::count_parallel_nearby4(vec &point1, vec &point2,
+//                                     deque<pair<vec, int>> &que, int cal_type) const
+// { //TODO
+//     throw "bugs";
+//     double num_self = 0, num_others = 0;
+//     int chain_num;
+//     if (lattice[point1] == nullptr)
+//         throw "NULL";
+//     chain_num = lattice[point1]->chain_num;
+//     vec p1(point1), p2(point2);
+//     vec dir = cal_direction(p1, p2);
+//     int i = 0, j = 0;
+//     //int k = 3 - i - j;
+//     for (int x = -1; x <= 1; x++)
+//     {
+//         for (int y = -1; y <= 1; y++)
+//         {
+//             if (x == 0 || y == 0)
+//             {
+//                 continue;
+//             }
+//             p1[i] = (point1[i] + shape[i] + x) % shape[i];
+//             p2[i] = (point2[i] + shape[i] + x) % shape[i];
+//             p1[j] = (point1[j] + shape[j] + y) % shape[j];
+//             p2[j] = (point2[j] + shape[j] + y) % shape[j];
+//             int result;
+//             result = get_chain_num(p1, p2);
+//             if (result == -1)
+//             {
+//                 ;
+//             }
+//             else
+//             {
+//                 if (result == chain_num)
+//                 {
+//                     if (find_in_que(que, make_pair(p1, lattice[p1]->true_position)) &&
+//                         find_in_que(que, make_pair(p2, lattice[p2]->true_position)))
+//                     {
+//                         num_self += 0.5;
+//                     }
+//                     else
+//                     {
+//                         num_self += 1;
+//                     }
+//                 }
+//                 else
+//                 {
+//                     num_others += 1;
+//                 }
+//             }
+//         }
+//     }
+//     if (cal_type == 0)
+//     {
+//         return num_others + num_self / 2;
+//         //cout << num_others << ',' << num_self << endl;
+//     }
+//     else
+//     {
 
-        if (num_self != 0)
-        {
-            ;
-        }
-        //cout << num_others << ',' << num_self << endl;
-        return num_others + num_self;
-    }
-}
+//         if (num_self != 0)
+//         {
+//             ;
+//         }
+//         //cout << num_others << ',' << num_self << endl;
+//         return num_others + num_self;
+//     }
+// }
 
 double Room::count_parallel_nearby8(vec &point1, vec &point2,
                                     deque<pair<vec, int>> &que, int cal_type) const

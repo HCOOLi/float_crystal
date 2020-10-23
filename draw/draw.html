@@ -37,39 +37,53 @@
         function CreatePolymer(list, shape) {
             var CurvePath = new THREE.CurvePath();// 创建CurvePath对象
             var Point_last = list[0];
-    
             for (var i = 1; i < list.length; i++) {
-                var  Point = list[i];
+                var Point = list[i];
                 function out_of_range(point1, point2) {
                     for (var j = 0; j < 3; j++) {
                         if (Math.abs(point1[j] - point2[j]) > 1) {
-                            return false;
+                            return true;
                         }
                     }
-                    return true;
+                    return false;
                 }
                 if (out_of_range(Point_last, Point)) {
+                    if (CurvePath.curves == 0) {
+
+                    } else {
+                        var geometry2 = new THREE.TubeGeometry(CurvePath, 16, 0.2, 10, false);
+                        var material2 = new THREE.MeshLambertMaterial({
+                            color: 0xffff00,
+                            side: THREE.DoubleSide
+                        });
+                        var mesh2 = new THREE.Mesh(geometry2, material2); //网格模型对象Mesh
+
+                        scene.add(mesh2);
+                        
+                       
+                    }
                     Point_last = Point;
+                    CurvePath = new THREE.CurvePath();
                     continue;
+                    
                 }
-                let line1 = new THREE.LineCurve3(new THREE.Vector3(Point_last[0],Point_last[1],Point_last[2]), new THREE.Vector3(point[0],point[1],point[2]));
+                let line1 = new THREE.LineCurve3(new THREE.Vector3(Point_last[0], Point_last[1], Point_last[2]), new THREE.Vector3(Point[0], Point[1], Point[2]));
+                console.info(Point_last,Point)
                 Point_last = Point;
                 CurvePath.curves.push(line1);
             }
-
-            if(CurvePath.curves==0){
-                
-            }else{
-                var geometry2 = new THREE.TubeGeometry(CurvePath, 32, 0.2, 20, false);
+            if (CurvePath.curves == 0) {
+            } else {
+                var geometry2 = new THREE.TubeGeometry(CurvePath, 16, 0.2, 10, false);
                 var material2 = new THREE.MeshLambertMaterial({
-                color: 0xffff00,
-                side: THREE.DoubleSide
-            });
-            var mesh2 = new THREE.Mesh(geometry2, material2); //网格模型对象Mesh
+                    color: 0xffff00,
+                    side: THREE.DoubleSide
+                });
+                var mesh2 = new THREE.Mesh(geometry2, material2); //网格模型对象Mesh
 
-            scene.add(mesh2);
+                scene.add(mesh2);
             }
-            
+
         }
         file.onchange = function () {
             //初始化一个文件读取对象
@@ -127,11 +141,8 @@
                         for (var i3 = 0; i3 < 3; i3++) {
                             point.push(parseInt(result[i3]));
                         }
-
                         polymer.push(point);
                         //console.log(point);
-
-
                     }
                 }
                 console.log("read ended");
@@ -141,9 +152,6 @@
                 }
                 render();
             }
-
-
-
         }
 
         function DrawBox(point1, point2) {
@@ -184,7 +192,6 @@
 
         //设置mesh3模型对象的xyz坐标为120,0,0
         scene.add(group); //
-
 
         function SetLight() {
             this.point = new THREE.PointLight(0xffffff);

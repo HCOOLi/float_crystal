@@ -2,14 +2,16 @@
 #include <iostream>
 #include "vec.h"
 #define TYPE
-#define TRUE_POSITION
+
+//#define TRUE_POSITION
+//#pragma message("using TRUE_POSITION")
 class Point //A point class
 {
 
 public:
 	int chain_num;
 	int pos_in_chain;
-	int movable; //0canmove,1can't move
+	bool movable; 
 	vec location;
 #ifdef TYPE
 	int type;
@@ -22,12 +24,32 @@ public:
 public:
 	Point() = default;
 
-	Point(vec loc, int c_num, int p_i_c,
-		  int ty = 1, int movable = 0, int true_p = 0)
-		: location(loc), chain_num(c_num), type(ty),
-		  pos_in_chain(p_i_c), movable(movable),
-		  true_position(true_p)
+	Point(vec loc, int c_num, int p_i_c
+#ifdef TYPE
+		  ,
+		  int ty = 1
+#endif
+		  ,
+		  int mable = 0
+#ifdef TRUE_POSITION
+		  ,
+		  int true_p = 0
+#endif
+	)
 	{
+		location = loc;
+		chain_num = c_num;
+#ifdef TYPE
+		type = ty;
+#endif
+		pos_in_chain = p_i_c;
+		movable = mable;
+#ifdef TRUE_POSITION
+		true_position = true_p;
+#endif
 	}
+
+friend ostream &operator<<(ostream &o, Point &p);
+	
 };
 ostream &operator<<(ostream &o, Point &p);

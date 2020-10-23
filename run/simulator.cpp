@@ -3,34 +3,12 @@
 #include<functional>
 #include<regex>
 #include"../cpp/room.h"
+#include"../cpp/utils.h"
 #include <tuple>
 #include "threadpool.h"
 #include<sstream>
 using namespace std;
 
-template<class First, class Second>
-auto Cartesian_product(vector<First> F, vector<Second> S) -> vector<tuple<First, Second >> {
-    vector<tuple<First, Second >> result;
-    for (auto f:F) {
-        for (const auto &s:S) {
-            result.push_back(std::make_tuple(f, s));
-        }
-    }
-    return result;
-}
-
-template<class First, class... Args>
-auto Cartesian_product(vector<First> F, vector<Args> ... rests) -> vector<tuple<First, Args ... >> {
-    vector<tuple<First, Args ... >> result;
-    auto rest_results = Cartesian_product(rests...);
-    for (auto f:F) {
-        for (const auto &r:rest_results) {
-            result.push_back(tuple_cat(std::make_tuple(f), r));
-        }
-    }
-    return result;
-
-}
 
 //
 class Simulator {

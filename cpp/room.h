@@ -9,9 +9,11 @@
 
 #include <ctime>
 using namespace std;
-
+#ifdef TRUE_POSITION 
 typedef pair<vec, int> Position;
-
+#else
+typedef vec Position;
+#endif
 template <typename T>
 class Grid
 {
@@ -55,14 +57,16 @@ public:
 	vector<vec> moves;
 	//parameters
 	double Ec0 = 1.0;
+	#ifdef TRUE_POSITION
 	int q = 27; //27的倍数
+	#endif
 	vector<vector<double>> Eb_matrix;
 	vector<vector<double>> Ep_matrix;
 	vector<vector<double>> Ee2e_matrix;
 
-	double (Room::*count_parallel)(vec &, vec &, deque<Position> &, int) const {};
+	double (Room::*count_parallel)(const vec &,const vec &, deque<Position> &, int) const {};
 
-	double (Room::*cal_Eb_func)(vec &, vec &, deque<Position> &, int) const {};
+	double (Room::*cal_Eb_func)(const vec &,const vec &, deque<Position> &, int) const {};
 
 	vector<Polymer> polymer_list;
 
@@ -76,13 +80,17 @@ public:
 	Room(int x, int y, int z, vector<vector<double>> Ep, vector<vector<double>> Eb, int type);
 
 	void initmoves();
-
-	shared_ptr<Point> set_point(vec location, int chain_num, int pos_in_chain, int type, int moveable, int true_p);
-
 	//some useful functions
-	bool intersect(vec &point1, vec &point2) const;
-	int get_chain_num(vec &p1, vec &p2) const;
-	vec cal_direction(const vec &point1, const vec &point2) const;
+	bool intersect(const vec &point1,const vec &point2) const;
+	int get_chain_num(const vec &p1,const vec &p2) const;
+	vec cal_direction(const vec &point1, const vec &point2)const{
+    vec temp;
+    for (int i = 0; i < 3; i++)
+    {
+        temp[i] = abs(point2[i] - point1[i]) <= 1 ? point2[i] - point1[i] : (point2[i] + 1) % shape[i] - (point1[i] + 1) % shape[i];
+    }
+    return temp;
+	}
 	int distance_squre(vec &p1, vec &p2) const
 	{
 		vec direction = cal_direction(p2, p1);
@@ -108,20 +116,17 @@ public:
 	{
 		for (auto &p : polymer_list[i].chain)
 		{
-			if (lattice[p->location] != p)
+			if (lattice[p.location].get() != &p)
 			{
 				throw "somethin wrong";
 			}
 			else
 			{
-				lattice[p->location] = nullptr;
-				p = nullptr;
+				lattice[p.location] = nullptr;
 			}
 		}
 
 		polymer_list[i].chain.clear();
-
-		//cout << polymer_list.size();
 	}
 
 	double cal_Ec() const;
@@ -138,17 +143,17 @@ public:
 
 	double cal_dEb_nearby(stack<vec> path);
 
-	double cal_ifline(vec &p1, vec &p2, vec &p3) const;
+	double cal_ifline(const vec &p1,const  vec &p2,const vec &p3) const;
 
 	//double cal_Eb_point(vec & p, vec & p2) const;
 
-	double cal_Eb_point(vec &p, int type) const;
+	double cal_Eb_point(const vec &p, int type) const;
 
-	double cal_Eb_point(vec &p) const;
+	double cal_Eb_point(const vec &p) const;
 
 	/*double count_parallel_nearby(vec & point1, vec & point2, int i, int j, deque<vec>& que, int cal_type)const;
 	double count_parallel_nearby24(vec & point1, vec & point2, int i, int j, const  deque<vec>& que, int cal_type)const;*/
-	double count_parallel_nearby24(vec &point1, vec &point2, deque<Position> &que, int cal_type) const;
+	double count_parallel_nearby24(const vec &point1,const vec &point2, deque<Position> &que, int cal_type) const;
 
 	//double count_parallel_nearby8(vec & point1, vec & point2, int i, int j, deque<vec>& que, int cal_type)const;
 	//	double count_parallel_B(vec & point1, vec & point2, deque<vec>& que, int cal_type) const;
@@ -165,9 +170,12 @@ public:
 	}
 
 	~Room() = default;
-
+#ifdef TRUE_POSITION
 	void stepMove(vec &position, vec &next_position, stack<Position> &path, int true_p);
+#else
+	void stepMove(vec &position, vec &next_position, stack<Position> &path);
 
+#endif
 	stack<Position> repair(stack<Position> &path);
 
 	void localSnakeMove(int i, stack<Position> &path);
@@ -183,7 +191,8 @@ public:
 	double cal_dEc_nearby(stack<Position> path) const;
 
 	// double Room::count_parallel_nearby4(vec &point1, vec &point2,
-	// 									deque<pair<vec, int>> &que, int cal_type) const;
+	// 									deque<Position> &que, int cal_type) const;
+	double count_parallel_nearby8(vec &point1, vec &point2, deque<Position> &que, int cal_type) const;
 
 	void save(string filename) const;
 
@@ -191,8 +200,7 @@ public:
 
 	int get_max_nucleus(int layer);
 
-	double count_parallel_nearby8(vec &point1, vec &point2, deque<pair<vec, int>> &que, int cal_type) const;
-
+	
 	double cal_if_inter(int i) const;
 
 	int cal_crystallinity(int q) const;

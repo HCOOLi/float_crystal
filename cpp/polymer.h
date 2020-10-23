@@ -13,15 +13,13 @@ using namespace std;
 
 class Polymer {//a polymer 
 public:
-	vector<shared_ptr< Point>> chain;
-
+	vector<Point> chain;
     Polymer() noexcept = default;;
 	Polymer(const Polymer & p) {
 		chain = p.chain;
 	};
 
     Polymer &operator=(const Polymer &p) = default;
-
     Polymer &operator=(Polymer &&p) noexcept {
 		chain = move(p.chain);
 		p.chain.clear();
@@ -30,18 +28,13 @@ public:
 
     Polymer(Polymer &&p) noexcept {
 		chain = move(p.chain);
-
 		p.chain.clear();
 	};
 
+	Point & operator[](int i) { return chain[i]; }
+	Point operator[](int i) const { return chain[i]; }
 
-
-	shared_ptr< Point>& operator[](int i) { return chain[i]; }
-	shared_ptr< Point> operator[](int i) const { return chain[i]; }
-
-	Point &  get_polymer(int i) {
-		return *chain[i];
-	}
+	
 };
 ostream & operator<<(ostream & o, Polymer& p);
 //py::dict get_list()const {

@@ -63,6 +63,7 @@ public:
 	vector<vector<double>> Eb_matrix;
 	vector<vector<double>> Ep_matrix;
 	vector<vector<double>> Ee2e_matrix;
+	double e2e;
 
 	double (Room::*count_parallel)(const vec &,const vec &, deque<Position> &, int) const {};
 
@@ -91,12 +92,12 @@ public:
     }
     return temp;
 	}
-	int distance_squre(vec &p1, vec &p2) const
+	int distance_squre(const vec &p1,const vec &p2) const
 	{
 		vec direction = cal_direction(p2, p1);
 		return direction * direction;
 	}
-	bool canMove(vec &point, vec &direction) const;
+	bool canMove(const vec &point,const vec &direction) const;
 	//input chains
 	void inputECC(int num, int length);
 	void inputcircle(int num, int length);
@@ -133,7 +134,7 @@ public:
 	double cal_Ep() const;
 	double cal_Eb() const;
 	double cal_Ee2e() const;
-	double count_e2e(vec &, vec &) const; //TODO
+	double count_e2e(const vec &,const vec &) const; //TODO
 
 	double cal_one_Ec(int) const;
 	double cal_one_Ep(int) const;
@@ -162,7 +163,7 @@ public:
 	double cal_Rg() const;
 	double cal_h2() const;
 	double cal_PSM() const;
-	double cal_PSM_point(vec &) const;
+	double cal_PSM_point(const vec &) const;
 
 	int num_of_polymers() const
 	{
@@ -186,7 +187,7 @@ public:
 
 	double cal_dEc(deque<Position> &path) const;
 
-	double cal_dEf(deque<Position> path) const;
+	double cal_dEf(deque<Position> &path) const;
 
 	double cal_dEc_nearby(stack<Position> path) const;
 

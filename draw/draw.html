@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>第一个three.js文件_WebGL三维场景</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            /* 隐藏body窗口区域滚动条 */
+        }
+    </style>
+    <!--引入three.js三维引擎-->
+    <script src="./three.js"></script>
+    <script src="./vue.min.js"></script>
+    <script src="./OrbitControls.js"></script>
+</head>
+
+<body>
+    <button onclick="pause()" type="button" style="position: absolute;padding: 10px;">暂停/继续</button>
+    <input type="file" class="file" multiple style="position:absolute;padding: 10px;">
+    <div id="txt"></div>
+    <script>
+        var scene = new THREE.Scene();
+        function isSupportFileApi() {
+            if (window.File && window.FileList && window.FileReader && window.Blob) {
+                return true;
+            }
+            return false;
+        }
+        console.log(isSupportFileApi());
+
+        var file = document.querySelector(".file");
+        //选择文件后触发
+
+        function CreatePolymer(list, shape) {
+            var CurvePath = new THREE.CurvePath();// 创建CurvePath对象
+            var Point_last = list[0];
+    
+            for (var i = 1; i < list.length; i++) {
+                var  Point = list[i];
+                function out_of_range(point1, point2) {
+                    for (var j = 0; j < 3; j++) {
+                        if (Math.abs(point1[j] - point2[j]) > 1) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+                if (out_of_range(Point_last, Point)) {
+                    Point_last = Point;
+                    continue;
+                }
+                let line1 = new THREE.LineCurve3(new THREE.Vector3(Point_last[0],Point_last[1],Point_last[2]), new THREE.Vector3(point[0],point[1],point[2]));
+                Point_last = Point;
+                CurvePath.curves.push(line1);
+            }
+
+            if(CurvePath.curves==0){
+                
+            }else{
+                var geometry2 = new THREE.TubeGeometry(CurvePath, 32, 0.2, 20, false);
+                var material2 = new THREE.MeshLambertMaterial({
+                color: 0xffff00,
+                side: THREE.DoubleSide
+            });
+            var mesh2 = new THREE.Mesh(geometry2, material2); //网格模型对象Mesh
+
+            scene.add(mesh2);
+            }
+            
+        }
+        file.onchange = function () {
+            //初始化一个文件读取对象
+            var reader = new FileReader();
+            //读取文件数据
+            reader.readAsText(this.files[0], "utf-8");
+
+            //读取完毕,相当于加载的过程
+            reader.onload = function () {
+                //this.result就是使用base64表示的图片信息
+                // console.log(this.result);
+                var result = reader.result;
+                var readlines = result.split('\n');
+                var Polymerlist = [];
+                var polymer = [];
+                var chain_num = 0, pos_in_chain = 0;
+                var shape;
+                for (var i = 0; i < readlines.length; i++) {
+
+                    var temp = readlines[i];
+                    if (temp[0] == '#') {
+                        if (temp == "####") {
+                            Polymerlist.push(polymer);
+                            chain_num++;
+                            pos_in_chain = 0;
+                            polymer = [];
+
+                        }
+                        var pos = temp.indexOf("shape")
+                        if (pos != -1) {
+                            var data_str = temp.substring(pos + 6);
+                            var result = data_str.split('\t');
+                            var point = []
+                            if (result.length == 3) {
+                                for (var i2 = 0; i2 < result.length; i2++) {
+                                    point.push(parseInt(result[i2]));
+                                }
+                            }
+                            shape = point;
+                            continue;
+                        }
+                        pos = temp.indexOf("Ep");
+                        if (pos != -1) {
+
+                        }
+                        pos = temp.indexOf("Eb");
+                        if (pos != -1) {
+
+                        }
+
+                    }
+                    else {
+                        var result = temp.split('\t');
+                        var point = []
+                        for (var i3 = 0; i3 < 3; i3++) {
+                            point.push(parseInt(result[i3]));
+                        }
+
+                        polymer.push(point);
+                        //console.log(point);
+
+
+                    }
+                }
+                console.log("read ended");
+                for (var i4 = 0; i4 < Polymerlist.length; i4++) {
+                    CreatePolymer(Polymerlist[i4], shape);
+                    console.info("add a polymer");
+                }
+                render();
+            }
+
+
+
+        }
+
+        function DrawBox(point1, point2) {
+            var lines = [];
+            var p1 = [0, 0, 0];
+            var p2 = [0, 0, 0];
+            for (var a = 0; a < 2; a++) {
+                for (var b = 0; b < 2; b++) {
+                    for (var c = 0; c < 3; c++) {
+                        p1[c] = point1[c];
+                        p2[c] = point2[c];
+                        p1[(c + 1) % 3] = a == 0 ? point1[(c + 1) % 3] : point2[(c + 1) % 3];
+                        p2[(c + 1) % 3] = a == 0 ? point1[(c + 1) % 3] : point2[(c + 1) % 3];
+                        p1[(c + 2) % 3] = b == 0 ? point1[(c + 2) % 3] : point2[(c + 2) % 3];
+                        p2[(c + 2) % 3] = b == 0 ? point1[(c + 2) % 3] : point2[(c + 2) % 3];
+                        let line1 = new THREE.LineCurve3(new THREE.Vector3(p1[0], p1[1], p1[2]), new THREE.Vector3(p2[0], p2[1], p2[2]));
+                        lines.push(line1);
+                        console.log(p1, p2);
+                    }
+                }
+            }
+            return lines;
+        }
+        var lines = DrawBox([0, 0, 0], [64, 64, 64]);
+        var group = new THREE.Group();
+        for (var i = 0; i < lines.length; i++) {
+            var geometry = new THREE.TubeGeometry(lines[i], 64, 0.2, 20, false);
+
+            var material = new THREE.MeshBasicMaterial({
+                color: 0x0000ff,
+                side: THREE.DoubleSide
+            });
+            var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
+            group.add(mesh);
+
+        }
+
+
+        //设置mesh3模型对象的xyz坐标为120,0,0
+        scene.add(group); //
+
+
+        function SetLight() {
+            this.point = new THREE.PointLight(0xffffff);
+            // var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+            // // 设置光源的方向：通过光源position属性和目标指向对象的position属性计算
+            // directionalLight.position.set(-80, -100, -50);
+            // // 方向光指向对象网格模型mesh2，可以不设置，默认的位置是0,0,0
+            // directionalLight.target = group;
+            // scene.add(directionalLight);
+            point.position.set(100, 100, 100); //点光源位置
+            scene.add(point); //点光源添加到场景中
+            //环境光
+            this.ambient = new THREE.AmbientLight(0x444444);
+            scene.add(ambient);
+        }
+
+        SetLight();
+        /**
+         * 相机设置
+         */
+        var width = window.innerWidth; //窗口宽度
+        var height = window.innerHeight; //窗口高度
+        var k = width / height; //窗口宽高比
+        var s = 200; //三维场景显示范围控制系数，系数越大，显示的范围越大
+
+        //创建相机对象
+        var camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 500);
+        camera.position.set(100, 100, 100); //设置相机位置
+        camera.lookAt(scene.position); //设置相机方向(指向的场景对象)
+
+
+        /**
+         * 创建渲染器对象
+         */
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(width, height);//设置渲染区域尺寸
+        renderer.setClearColor(0xffffff, 1); //设置背景颜色
+        document.body.appendChild(renderer.domElement); //body元素中插入canvas对象
+        //执行渲染操作   指定场景、相机作为参数
+        // 渲染函数
+
+        function render() {
+            renderer.render(scene, camera);//执行渲染操作
+            // mesh.rotateY(0.01);//每次绕y轴旋转0.01弧度
+            requestAnimationFrame(render);//请求再次执行渲染函数render
+        }
+        // render();
+        var controls = new THREE.OrbitControls(camera);//创建控件对象
+    </script>
+</body>
+
+</html>

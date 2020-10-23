@@ -28,7 +28,7 @@ inline vec operator/(const vec &a, const int b)
 {
 	return vec{a[0] / b, a[1] / b, a[2] / b};
 }
-inline bool operator>=(const vec &a, const vec &b)
+inline bool operator>=(const vec &a, const vec &b) // any 
 {
 	for (int i = 0; i < 3; i++)
 	{
@@ -39,8 +39,14 @@ inline bool operator>=(const vec &a, const vec &b)
 	}
 	return false;
 }
-inline bool operator<(const vec &a, const vec &b)
+inline bool operator<(const vec &a, const vec &b) //any
 {
+	/*
+	any_of(a,b,[](int a,int b){
+		return a<b;
+
+	});
+	*/
 	for (int i = 0; i < 3; i++)
 	{
 		if (a[i] < b[i])
@@ -72,7 +78,7 @@ inline vec operator*(int a, const vec &b)
 
 inline vector<double> mean(const vec &a, const vec &b)
 {
-	return vector<double>();
+	return vector<double> {(a[0]+b[0])/2.0,(a[1]+b[1])/2.0,(a[2]+b[2])/2.0};
 }
 inline double mean(const vec &a)
 {
@@ -80,7 +86,7 @@ inline double mean(const vec &a)
 }
 inline ostream &operator<<(ostream &o, const vec &a)
 {
-	o << '<' << a[0] << "," << a[1] << ',' << a[2] << '>';
+	o << '[' << a[0] << "," << a[1] << ',' << a[2] << ']';
 	return o;
 }
 inline bool if_opposite(const vec &a, const vec &b)
@@ -114,7 +120,7 @@ inline vec operator%(const vec &a, const vec &b)
 	}
 	return v;
 }
-inline bool operator==(const vec &a, const vec &b)
+inline bool operator==(const vec &a, const vec &b) //all
 {
 	for (int i = 0; i < 3; i++)
 	{

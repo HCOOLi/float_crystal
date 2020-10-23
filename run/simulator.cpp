@@ -45,13 +45,12 @@ public:
         cout << "installing" << endl;
         install_model(room);
         cout << "preheat" << endl;
-        room.preheat(10000);
+        room.preheat(100000);
 		room.movie(50000, 10000, 100);
 		string path;int a=0;
         stringstream stream;
         stream<<"./data/"<<"f"<<p1<<p2<<p3;
         stream>>path;
-        
 		room.save(path);
 
 

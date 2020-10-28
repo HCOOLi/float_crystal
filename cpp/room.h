@@ -53,7 +53,7 @@ class Room
 public:
 	vec shape{};
 	const int dimension = 3;
-	Grid<shared_ptr<Point>> lattice;
+	Grid<Point *> lattice;
 	vector<vec> moves;
 	//parameters
 	double Ec0 = 1.0;
@@ -63,7 +63,11 @@ public:
 	vector<vector<double>> Eb_matrix;
 	vector<vector<double>> Ep_matrix;
 	vector<vector<double>> Ee2e_matrix;
-	double e2e;
+
+	double cal_Ee2e() ;
+	double count_e2e(const vec &,const vec &) ; //TODO
+	double cal_dEe2e(deque<Position> &path) ;
+	double cal_dEe2e_nearby(stack<Position> path) ;
 
 	double (Room::*count_parallel)(const vec &,const vec &, deque<Position> &, int) const {};
 
@@ -78,7 +82,7 @@ public:
 
 	Room() = default;
 	Room(int x, int y, int z, int type = 24);
-	Room(int x, int y, int z, vector<vector<double>> Ep, vector<vector<double>> Eb, int type);
+	Room(int x, int y, int z, vector<vector<double>> Ep, vector<vector<double>> Eb,vector<vector<double>> Ee2e, int type);
 
 	void initmoves();
 	//some useful functions
@@ -109,15 +113,16 @@ public:
 
 	//move
 
-	void movie(int m, int n, double T);
+	void movie(int m, int n, double T,string path);
 
-	void preheat(int m);
+	void preheat(int m,int n);
+	void init_queue(vector<array<int,2>> &queue);
 	//calculate something
 	void lazy_delete_chain(int i)
 	{
 		for (auto &p : polymer_list[i].chain)
 		{
-			if (lattice[p.location].get() != &p)
+			if (lattice[p.location] != &p)
 			{
 				throw "somethin wrong";
 			}
@@ -131,26 +136,27 @@ public:
 	}
 
 	double cal_Ec() const;
-	double cal_Ep() const;
-	double cal_Eb() const;
-	double cal_Ee2e() const;
-	double count_e2e(const vec &,const vec &) const; //TODO
-
 	double cal_one_Ec(int) const;
-	double cal_one_Ep(int) const;
-	double cal_one_Eb(int) const;
-
-	//double cal_dEb(deque<vec> &path)const;
-
-	double cal_dEb_nearby(stack<vec> path);
-
+	double cal_dEc(deque<Position> &path) const;
+	double cal_dEf(deque<Position> &path) const;
+	double cal_dEc_nearby(stack<Position> path) const;
 	double cal_ifline(const vec &p1,const  vec &p2,const vec &p3) const;
 
-	//double cal_Eb_point(vec & p, vec & p2) const;
+	double cal_Ep() const;
+	double cal_one_Ep(int) const;
+	double cal_dEp_nearby(stack<Position> path);
+	double cal_dEp(deque<Position> &path) const;
+	double cal_dEb_nearby(stack<vec> path);
 
+	double cal_Eb() const;
+	double cal_one_Eb(int) const;
 	double cal_Eb_point(const vec &p, int type) const;
 
 	double cal_Eb_point(const vec &p) const;
+
+	//double cal_dEb(deque<vec> &path)const;
+
+	//double cal_Eb_point(vec & p, vec & p2) const;
 
 	/*double count_parallel_nearby(vec & point1, vec & point2, int i, int j, deque<vec>& que, int cal_type)const;
 	double count_parallel_nearby24(vec & point1, vec & point2, int i, int j, const  deque<vec>& que, int cal_type)const;*/
@@ -179,17 +185,7 @@ public:
 #endif
 	stack<Position> repair(stack<Position> &path);
 
-	void localSnakeMove(int i, stack<Position> &path);
-
-	double cal_dEp_nearby(stack<Position> path);
-
-	double cal_dEp(deque<Position> &path) const;
-
-	double cal_dEc(deque<Position> &path) const;
-
-	double cal_dEf(deque<Position> &path) const;
-
-	double cal_dEc_nearby(stack<Position> path) const;
+	void localSnakeMove(int i,int st, stack<Position> &path);
 
 	// double Room::count_parallel_nearby4(vec &point1, vec &point2,
 	// 									deque<Position> &que, int cal_type) const;

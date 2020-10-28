@@ -18,9 +18,9 @@
 </head>
 
 <body>
-    <button onclick="pause()" type="button" style="position: absolute;padding: 10px;">暂停/继续</button>
-    <input type="file" class="file" multiple style="position:absolute;padding: 10px;">
-    <div id="txt"></div>
+    <!-- <button onclick="pause()" type="button" style="position: absolute;padding: 10px;">暂停/继续</button> -->
+    <input type="file" class="file" multiple style="position:relative;padding: 10px;">
+    <!-- <div id="txt"></div> -->
     <script>
         var scene = new THREE.Scene();
         function isSupportFileApi() {
@@ -35,10 +35,26 @@
         //选择文件后触发
 
         function CreatePolymer(list, shape) {
-            var CurvePath = new THREE.CurvePath();// 创建CurvePath对象
+            var group = new THREE.Group();
+            var CurvePath = new THREE.CurvePath();
             var Point_last = list[0];
+            var type=Point_last[3];
+            var material2;
+            if(type==1){
+                material2 = new THREE.MeshLambertMaterial({
+                            color: 0xffff00,
+                            side: THREE.DoubleSide
+                        });
+            }else{
+                material2 = new THREE.MeshLambertMaterial({
+                            color: 0x0000ff,
+                            side: THREE.DoubleSide
+                        });
+            }
+           
             for (var i = 1; i < list.length; i++) {
                 var Point = list[i];
+
                 function out_of_range(point1, point2) {
                     for (var j = 0; j < 3; j++) {
                         if (Math.abs(point1[j] - point2[j]) > 1) {
@@ -47,50 +63,36 @@
                     }
                     return false;
                 }
+
                 if (out_of_range(Point_last, Point)) {
-                    if (CurvePath.curves == 0) {
-
-                    } else {
-                        var geometry2 = new THREE.TubeGeometry(CurvePath, 16, 0.2, 10, false);
-                        var material2 = new THREE.MeshLambertMaterial({
-                            color: 0xffff00,
-                            side: THREE.DoubleSide
-                        });
-                        var mesh2 = new THREE.Mesh(geometry2, material2); //网格模型对象Mesh
-
-                        scene.add(mesh2);
+                    if (CurvePath.curves!=0) {
+                        var geometry2 = new THREE.TubeGeometry(CurvePath, 8, 0.2, 8, false);
                         
-                       
+                        var mesh2 = new THREE.Mesh(geometry2, material2); //网格模型对象Mesh
+                        group.add(mesh2);
                     }
                     Point_last = Point;
                     CurvePath = new THREE.CurvePath();
                     continue;
-                    
                 }
-                let line1 = new THREE.LineCurve3(new THREE.Vector3(Point_last[0], Point_last[1], Point_last[2]), new THREE.Vector3(Point[0], Point[1], Point[2]));
-                console.info(Point_last,Point)
+                let line1 = new THREE.LineCurve3(new THREE.Vector3(Point_last[0], Point_last[1], Point_last[2]), 
+                                            new THREE.Vector3(Point[0], Point[1], Point[2]));
                 Point_last = Point;
                 CurvePath.curves.push(line1);
             }
             if (CurvePath.curves == 0) {
             } else {
-                var geometry2 = new THREE.TubeGeometry(CurvePath, 16, 0.2, 10, false);
-                var material2 = new THREE.MeshLambertMaterial({
-                    color: 0xffff00,
-                    side: THREE.DoubleSide
-                });
+                var geometry2 = new THREE.TubeGeometry(CurvePath, 8, 0.2, 8, false);
                 var mesh2 = new THREE.Mesh(geometry2, material2); //网格模型对象Mesh
-
-                scene.add(mesh2);
+                group.add(mesh2);
             }
-
+            scene.add(group);
         }
         file.onchange = function () {
             //初始化一个文件读取对象
             var reader = new FileReader();
             //读取文件数据
             reader.readAsText(this.files[0], "utf-8");
-
             //读取完毕,相当于加载的过程
             reader.onload = function () {
                 //this.result就是使用base64表示的图片信息
@@ -102,7 +104,6 @@
                 var chain_num = 0, pos_in_chain = 0;
                 var shape;
                 for (var i = 0; i < readlines.length; i++) {
-
                     var temp = readlines[i];
                     if (temp[0] == '#') {
                         if (temp == "####") {
@@ -110,7 +111,6 @@
                             chain_num++;
                             pos_in_chain = 0;
                             polymer = [];
-
                         }
                         var pos = temp.indexOf("shape")
                         if (pos != -1) {
@@ -123,8 +123,10 @@
                                 }
                             }
                             shape = point;
+                            DrawBox([0,0,0],shape);
                             continue;
                         }
+                        /*
                         pos = temp.indexOf("Ep");
                         if (pos != -1) {
 
@@ -133,12 +135,13 @@
                         if (pos != -1) {
 
                         }
+                        */
 
                     }
                     else {
                         var result = temp.split('\t');
                         var point = []
-                        for (var i3 = 0; i3 < 3; i3++) {
+                        for (var i3 = 0; i3 < 4; i3++) {
                             point.push(parseInt(result[i3]));
                         }
                         polymer.push(point);
@@ -173,15 +176,11 @@
                     }
                 }
             }
-            return lines;
-        }
-        var lines = DrawBox([0, 0, 0], [64, 64, 64]);
-        var group = new THREE.Group();
-        for (var i = 0; i < lines.length; i++) {
-            var geometry = new THREE.TubeGeometry(lines[i], 64, 0.2, 20, false);
-
+            var group = new THREE.Group();
+            for (var i = 0; i < lines.length; i++) {
+            var geometry = new THREE.TubeGeometry(lines[i], 8, 0.1, 8, false);
             var material = new THREE.MeshBasicMaterial({
-                color: 0x0000ff,
+                color: 0x110011,
                 side: THREE.DoubleSide
             });
             var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
@@ -189,9 +188,11 @@
 
         }
 
+        scene.add(group); 
 
-        //设置mesh3模型对象的xyz坐标为120,0,0
-        scene.add(group); //
+        }
+       
+        
 
         function SetLight() {
             this.point = new THREE.PointLight(0xffffff);
@@ -235,10 +236,8 @@
 
         function render() {
             renderer.render(scene, camera);//执行渲染操作
-            // mesh.rotateY(0.01);//每次绕y轴旋转0.01弧度
             requestAnimationFrame(render);//请求再次执行渲染函数render
         }
-        // render();
         var controls = new THREE.OrbitControls(camera);//创建控件对象
     </script>
 </body>

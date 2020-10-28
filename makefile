@@ -1,12 +1,12 @@
 pypath=/home/centos/anaconda3/envs/py3_5
 boostpath=/home/zy/package/boost_1_68_0
 
-CXXFLAGS=-O3 -g -fPIC -std=c++17
+CXXFLAGS=-O3 -g -fPIC -std=c++11
 
 dirlib:
 	-mkdir ./lib
 main:crystal.o polymer.o ConnectedComponent.o
-	g++  $(CXXFLAGS) ./lib/ConnectedComponent.o ./run/simulator.cpp ./lib/crystal.o ./lib/polymer.o -o main  -pthread 
+	g++  $(CXXFLAGS) ./lib/ConnectedComponent.o ./run/simulator.cpp ./run/main.cpp ./lib/crystal.o ./lib/polymer.o -o main  -pthread 
 
 crystal.so:polymer.o crystal.o ConnectedComponent.o
 	g++ -shared -fPIC ./lib/ConnectedComponent.o ./lib/polymer.o./lib/ crystal.o -o ./python/crystal.so -L $(pypath)/lib -L $(boostpath)/stage/lib  -lpython3.5m  -lboost_python35

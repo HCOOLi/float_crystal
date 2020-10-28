@@ -12,13 +12,19 @@ using namespace std;
 
 class logger {
     std::ofstream file;
+public:
 
     logger(string filename): file(filename,ios::out|ios::trunc) {
     }
-    void log(){
+    void log(const char* msg){
         time_t now = time(0);
         char* dt = ctime(&now);
-        file << dt << endl;
+        file << dt <<msg<< endl;
+    }
+    void info(const char* msg){
+        time_t now = time(0);
+        char* dt = ctime(&now);
+        file << dt <<msg<< endl; 
     }
 
     template<typename T>

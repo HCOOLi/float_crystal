@@ -85,11 +85,11 @@ namespace matrix {
             return _v[x[0]][x[1]][x[2]];
         }
 
-        auto &operator[](int x) {
+        auto operator[](int x)->decltype(_v[x]){
             return _v[x];
         }
 
-        const auto &operator[](int x) const {
+        const auto operator[](int x) const -> const decltype(_v[x]) {
             return _v[x];
         }
 
@@ -131,7 +131,7 @@ namespace matrix {
             shape[1] = mat[0].size();
         }
 
-        auto &operator[](int x) {
+        auto operator[](int x) ->decltype(_v[x]) {
             return _v[x];
         }
 
@@ -143,7 +143,7 @@ namespace matrix {
             return _v[x[0]][x[1]];
         }
 
-        const auto &operator[](int x) const {
+        const auto operator[](int x)const  ->const decltype(_v[x])  {
             return _v[x];
         }
 

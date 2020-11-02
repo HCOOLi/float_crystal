@@ -5,11 +5,13 @@
 #include <cassert>
 #include <chrono>
 #include <fstream>
+#include<sstream>
 #include <random>
 #include <stack>
 #include <string>
 #include <tuple>
 #include <utility>
+#include<ctime>
 
 #include "utils.h"
 
@@ -352,10 +354,11 @@ int Room::cal_crystallinity(int q) const {
 }
 void Room::init_queue(vector<array<int, 2>> &queue) {
     for (int i = 0; i < polymer_list.size(); i++) {
-        for (int j = 0; j < polymer_list[i].chain.size(); i++) {
+        for (int j = 0; j < polymer_list[i].chain.size(); j++) {
             queue.emplace_back(array<int, 2>{i, j});
         }
     }
+    //;cout<<queue.size()<<endl;
 }
 
 void Room::movie(int m, int n, double T, string path) {
@@ -371,7 +374,7 @@ void Room::movie(int m, int n, double T, string path) {
     for (int i = 0; i < m; i++) {
         unsigned seed =
             std::chrono::system_clock::now().time_since_epoch().count();
-        shuffle(queue.begin(), queue.end(), std::default_random_engine(seed));
+             shuffle(queue.begin(), queue.end(), std::default_random_engine(seed));
         for (auto v : queue) {
             int k = v[0];
             int start_point_i = v[1];
@@ -419,19 +422,23 @@ void Room::movie(int m, int n, double T, string path) {
                 throw std::runtime_error("Ep cal error");
             }
 #endif
-            time_t now = time(0);
-            char *dt = ctime(&now);
-            printf("%s: %f\t%f\t%f\n", dt, Ep, Ee2e, E);
-            fflush(stdout);
+            time_t now= time(0);
+            auto ltm=localtime(&now);
+            stringstream time;
+            time<<1 + ltm->tm_mon<<"-"<<ltm->tm_mday<<":"<<ltm->tm_hour<<":"<<ltm->tm_min<<":"<<ltm->tm_sec;
+            string stime;
+            time>>stime;
+            cout<<stime<<":\t"<<"i="<<i<<"\t"<<E<<"\t"<<Ep<<"\t"<<Ee2e<<endl; 
             save(path + to_string(i / n));
         }
     }
 }
 
 void Room::preheat(int m, int n) {
-    for (int i = 0; i < m; i++) {
-        vector<array<int, 2>> queue;
+    vector<array<int, 2>> queue;
         init_queue(queue);
+    for (int i = 0; i < m; i++) {
+        
         unsigned seed =
             std::chrono::system_clock::now().time_since_epoch().count();
         shuffle(queue.begin(), queue.end(), std::default_random_engine(seed));
@@ -1384,14 +1391,33 @@ double Room::cal_Rg() const  //
     return 0.0;
 }
 
+int Room::get_h2(int n  ){
+        Polymer &p=polymer_list [n];
+		vec  vector_end;
+		vec & point_last=p.chain[0].position;
+		for(int i=1;i<p.chain.size();i++){
+			vec & point=p.chain[i].position;
+            vector_end=vector_end+cal_direction(point,point_last);
+
+		}
+        return vector_end*vector_end;
+	}
 double Room::cal_h2() const  //
 {
-    throw "NOT DONE!";
-    double num = 0;
-    for (auto &p : polymer_list) {
-        num += distance_squre(p.chain[0].location, p.chain.back().location);
+    //throw "NOT DONE!";
+    int num = 0;
+    double s=0;
+    for(int i=0;i<this.polymer_list.size();i++)
+    if(polymer_list[i].chain.size()<=2)
+        s += get_h2(i);
+        num++;
     }
-    return num;
+    if(num!=0){
+        return s/num;
+    }else{
+        return 0;
+    }
+   
 }
 
 #ifdef TRUE_POSITION
@@ -1488,6 +1514,12 @@ int Room::get_max_nucleus(int layer) {
     return matrix::ConnectedComponentLabeling(bitmap);
 }
 
+int Room::get_max_straight_length (){
+
+}
+double Room::get_average_straight_length (){
+    
+}
 ostream &operator<<(ostream &o, Point &p) {
     o << p.location;
     return o;

@@ -14,7 +14,7 @@ using namespace std;
 class Polymer {//a polymer 
 public:
 	vector<Point> chain;
-    Polymer() noexcept = default;;
+    Polymer() = default;
 	Polymer(const Polymer & p) {
 		chain = p.chain;
 	};
@@ -30,6 +30,7 @@ public:
 		chain = move(p.chain);
 		p.chain.clear();
 	};
+	
 
 	Point & operator[](int i) { return chain[i]; }
 	Point operator[](int i) const { return chain[i]; }

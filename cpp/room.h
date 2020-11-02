@@ -197,6 +197,12 @@ public:
 
 	int get_max_nucleus(int layer);
 
+	int Room::get_h2(int n  )
+	int get_max_straight_length ();
+	double get_average_straight_length ();
+
+
+
 	
 	double cal_if_inter(int i) const;
 

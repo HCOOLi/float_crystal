@@ -1,6 +1,6 @@
-lib/
-.vscode/
-.idea/
-data/
+lib/*
+.vscode/*
+.idea/*
+data/*
 main*
 

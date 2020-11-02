@@ -15,43 +15,68 @@
     <script src="./three.js"></script>
     <script src="./vue.min.js"></script>
     <script src="./OrbitControls.js"></script>
+    <!-- <script src="./stats.module.js"></script> -->
 </head>
 
 <body>
-    <!-- <button onclick="pause()" type="button" style="position: absolute;padding: 10px;">暂停/继续</button> -->
-    <input type="file" class="file" multiple style="position:relative;padding: 10px;">
+    <!-- <button onclick="show()" type="button" style="position: relative;padding: 10px;">visible/unvisible</button> -->
+    <div>
+        <input type="file" class="file" multiple style="position:relative;">
+        <button type="button" class="button" multiple style="position:relative;">visiable</button>
+        <button type="button" class="button" multiple style="position:relative;">save</button>
+
+    </div>
+    
     <!-- <div id="txt"></div> -->
     <script>
+        //import Stats from "./stats.module.js"
         var scene = new THREE.Scene();
-        function isSupportFileApi() {
-            if (window.File && window.FileList && window.FileReader && window.Blob) {
-                return true;
-            }
-            return false;
-        }
-        console.log(isSupportFileApi());
+        var group1 = new THREE.Group();
+        var group2 = new THREE.Group();
+        // function show(){
+        //     console.log("nothing");
+        // }
+        // function isSupportFileApi() {
+        //     if (window.File && window.FileList && window.FileReader && window.Blob) {
+        //         return true;
+        //     }
+        //     return false;
+        // }
+        // console.log(isSupportFileApi());
+        var material1 = new THREE.MeshLambertMaterial({
+            color: 0xffff00,
+            side: THREE.DoubleSide
+        });
+        var material2 = new THREE.MeshBasicMaterial({
+            color: 0x0000ff,
+            side: THREE.DoubleSide
+        });
 
         var file = document.querySelector(".file");
         //选择文件后触发
+        function flash(){
+            //scene.dispose();
+            group1.children=[];
+            group2.children=[];
+           
 
+        }
         function CreatePolymer(list, shape) {
-            var group = new THREE.Group();
+            var group
             var CurvePath = new THREE.CurvePath();
             var Point_last = list[0];
-            var type=Point_last[3];
-            var material2;
-            if(type==1){
-                material2 = new THREE.MeshLambertMaterial({
-                            color: 0xffff00,
-                            side: THREE.DoubleSide
-                        });
-            }else{
-                material2 = new THREE.MeshLambertMaterial({
-                            color: 0x0000ff,
-                            side: THREE.DoubleSide
-                        });
+            var type = Point_last[3];
+            var material;
+            if (type == 1) {
+                group = group1;
+                material=material1
+
+            } else {
+                group = group2;
+                material=material2;
+
             }
-           
+
             for (var i = 1; i < list.length; i++) {
                 var Point = list[i];
 
@@ -65,28 +90,37 @@
                 }
 
                 if (out_of_range(Point_last, Point)) {
-                    if (CurvePath.curves!=0) {
-                        var geometry2 = new THREE.TubeGeometry(CurvePath, 8, 0.2, 8, false);
-                        
-                        var mesh2 = new THREE.Mesh(geometry2, material2); //网格模型对象Mesh
-                        group.add(mesh2);
+                    if (CurvePath.curves != 0) {
+                        var geometry;
+                        if(type==1){
+                    geometry = new THREE.TubeBufferGeometry(CurvePath, 20, 0.2, 8, false);
+                }else{
+                    geometry = new THREE.TubeBufferGeometry(CurvePath, 1, 0.2, 8, false);
+                }
+
+                        var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
+                        group.add(mesh);
                     }
                     Point_last = Point;
                     CurvePath = new THREE.CurvePath();
                     continue;
                 }
-                let line1 = new THREE.LineCurve3(new THREE.Vector3(Point_last[0], Point_last[1], Point_last[2]), 
-                                            new THREE.Vector3(Point[0], Point[1], Point[2]));
+                let line1 = new THREE.LineCurve3(new THREE.Vector3(Point_last[0], Point_last[1], Point_last[2]),
+                    new THREE.Vector3(Point[0], Point[1], Point[2]));
                 Point_last = Point;
                 CurvePath.curves.push(line1);
             }
             if (CurvePath.curves == 0) {
             } else {
-                var geometry2 = new THREE.TubeGeometry(CurvePath, 8, 0.2, 8, false);
-                var mesh2 = new THREE.Mesh(geometry2, material2); //网格模型对象Mesh
-                group.add(mesh2);
+                var geometry;
+                if(type==1){
+                    geometry = new THREE.TubeBufferGeometry(CurvePath, 20, 0.2, 8, false);
+                }else{
+                    geometry = new THREE.TubeBufferGeometry(CurvePath, 1, 0.2, 8, false);
+                }
+                var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
+                group.add(mesh);
             }
-            scene.add(group);
         }
         file.onchange = function () {
             //初始化一个文件读取对象
@@ -95,8 +129,8 @@
             reader.readAsText(this.files[0], "utf-8");
             //读取完毕,相当于加载的过程
             reader.onload = function () {
-                //this.result就是使用base64表示的图片信息
-                // console.log(this.result);
+                flash();
+               
                 var result = reader.result;
                 var readlines = result.split('\n');
                 var Polymerlist = [];
@@ -123,7 +157,7 @@
                                 }
                             }
                             shape = point;
-                            DrawBox([0,0,0],shape);
+                            DrawBox([0, 0, 0], shape);
                             continue;
                         }
                         /*
@@ -151,9 +185,19 @@
                 console.log("read ended");
                 for (var i4 = 0; i4 < Polymerlist.length; i4++) {
                     CreatePolymer(Polymerlist[i4], shape);
-                    console.info("add a polymer");
                 }
-                render();
+                group2.visible=false;
+                //scene.add(group1)
+                scene.add(group1,group2);
+                renderall();
+                var dataimg = new Image()
+                var fileName = 'testImg.png';
+                dataimg.src=renderer1.domElement.toDataURL("image/png");
+                //document.querySelector('#view').appendChild(dataImg)
+                var alink = document.createElement("a");
+                alink.href = dataurl=dataimg.src;
+                alink.download = fileName;
+                alink.click();
             }
         }
 
@@ -178,21 +222,21 @@
             }
             var group = new THREE.Group();
             for (var i = 0; i < lines.length; i++) {
-            var geometry = new THREE.TubeGeometry(lines[i], 8, 0.1, 8, false);
-            var material = new THREE.MeshBasicMaterial({
-                color: 0x110011,
-                side: THREE.DoubleSide
-            });
-            var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
-            group.add(mesh);
+                var geometry = new THREE.TubeBufferGeometry(lines[i], 1, 0.1, 4, false);
+                var material = new THREE.MeshBasicMaterial({
+                    color: 0x110011,
+                    side: THREE.DoubleSide
+                });
+                var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
+                group.add(mesh);
+
+            }
+
+            scene.add(group);
 
         }
 
-        scene.add(group); 
 
-        }
-       
-        
 
         function SetLight() {
             this.point = new THREE.PointLight(0xffffff);
@@ -202,7 +246,7 @@
             // // 方向光指向对象网格模型mesh2，可以不设置，默认的位置是0,0,0
             // directionalLight.target = group;
             // scene.add(directionalLight);
-            point.position.set(100, 100, 100); //点光源位置
+            point.position.set(50, 50, 50); //点光源位置
             scene.add(point); //点光源添加到场景中
             //环境光
             this.ambient = new THREE.AmbientLight(0x444444);
@@ -213,32 +257,68 @@
         /**
          * 相机设置
          */
-        var width = window.innerWidth; //窗口宽度
-        var height = window.innerHeight; //窗口高度
+        var width = 600; //窗口宽度
+        var height = 600; //窗口高度
         var k = width / height; //窗口宽高比
-        var s = 200; //三维场景显示范围控制系数，系数越大，显示的范围越大
+        var s = 50; //三维场景显示范围控制系数，系数越大，显示的范围越大
 
         //创建相机对象
-        var camera = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 500);
-        camera.position.set(100, 100, 100); //设置相机位置
-        camera.lookAt(scene.position); //设置相机方向(指向的场景对象)
+        var camera1 = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 200);
+        camera1.position.set(80, 80, 80); //设置相机位置
+        camera1.lookAt(scene.position); //设置相机方向(指向的场景对象)
+        // var camera2 = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 200);
+        // camera2.position.set(80, 0, 0); //设置相机位置
+        // camera2.lookAt(scene.position); //设置相机方向(指向的场景对象)
+        // var camera3 = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 200);
+        // camera3.position.set(0, 80, 0); //设置相机位置
+        // camera3.lookAt(scene.position); //设置相机方向(指向的场景对象)
+        // var camera4 = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 200);
+        // camera4.position.set(0, 0, 80); //设置相机位置
+        // camera4.lookAt(scene.position); //设置相机方向(指向的场景对象)
+        
 
 
         /**
          * 创建渲染器对象
          */
-        var renderer = new THREE.WebGLRenderer();
-        renderer.setSize(width, height);//设置渲染区域尺寸
-        renderer.setClearColor(0xffffff, 1); //设置背景颜色
-        document.body.appendChild(renderer.domElement); //body元素中插入canvas对象
+        var renderer1 = new THREE.WebGLRenderer();
+        // var renderer2 = new THREE.WebGLRenderer();
+        // var renderer3 = new THREE.WebGLRenderer();
+        // var renderer4 = new THREE.WebGLRenderer();
+
+        renderer1.setSize(width, height);//设置渲染区域尺寸
+        renderer1.setClearColor(0xd0ffff, 1); //设置背景颜色
+        // renderer2.setSize(width/2, height/2);//设置渲染区域尺寸
+        // renderer2.setClearColor(0xaaffaa, 1); //设置背景颜色
+        // renderer3.setSize(width/2, height/2);//设置渲染区域尺寸
+        // renderer3.setClearColor(0xaaffaa, 1); //设置背景颜色
+        // renderer4.setSize(width/2, height/2);//设置渲染区域尺寸
+        // renderer4.setClearColor(0xaaffaa, 1); //设置背景颜色
+        document.body.appendChild(renderer1.domElement); //body元素中插入canvas对象
+
+        // document.body.appendChild(renderer2.domElement); 
+        // document.body.appendChild(renderer3.domElement); 
+        // document.body.appendChild(renderer4.domElement); 
+        // var stats = new Stats();
+        // document.body.appendChild( stats.dom );
         //执行渲染操作   指定场景、相机作为参数
         // 渲染函数
 
-        function render() {
-            renderer.render(scene, camera);//执行渲染操作
-            requestAnimationFrame(render);//请求再次执行渲染函数render
+        function renderall() {
+            renderer1.render(scene, camera1);//执行渲染操作
+            // renderer2.render(scene, camera2);//
+            // renderer3.render(scene, camera3);//
+            // renderer4.render(scene, camera4);//
         }
-        var controls = new THREE.OrbitControls(camera);//创建控件对象
+        renderall();
+        var controls1 = new THREE.OrbitControls(camera1, renderer1.domElement);//创建控件对象
+        controls1.addEventListener('change', renderall);//监听鼠标、键盘事件
+        // var controls2= new THREE.OrbitControls(camera2, renderer2.domElement);//创建控件对象
+        // controls2.addEventListener('change', renderall);//监听鼠标、键盘事件
+        // var controls3 = new THREE.OrbitControls(camera3, renderer3.domElement);//创建控件对象
+        // controls3.addEventListener('change', renderall);//监听鼠标、键盘事件
+        // var controls4 = new THREE.OrbitControls(camera4, renderer4.domElement);//创建控件对象
+        // controls4.addEventListener('change', renderall);//监听鼠标、键盘事件
     </script>
 </body>
 

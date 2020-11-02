@@ -15,7 +15,8 @@
         "tuple": "cpp",
         "utility": "cpp",
         "algorithm": "cpp",
-        "chrono": "cpp"
+        "chrono": "cpp",
+        "iostream": "cpp"
     },
     "python.pythonPath": "/usr/bin/python3"
 }

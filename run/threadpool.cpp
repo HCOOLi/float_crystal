@@ -10,7 +10,6 @@
 #include <future>
 #include <functional>
 #include <stdexcept>
-
 namespace std
 {
 #define  MAX_THREAD_NUM 8

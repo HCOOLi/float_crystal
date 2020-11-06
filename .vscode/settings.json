@@ -16,7 +16,17 @@
         "utility": "cpp",
         "algorithm": "cpp",
         "chrono": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iosfwd": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "system_error": "cpp",
+        "bitset": "cpp",
+        "limits": "cpp",
+        "numeric": "cpp",
+        "ratio": "cpp",
+        "stdexcept": "cpp",
+        "ostream": "cpp"
     },
     "python.pythonPath": "/usr/bin/python3"
 }

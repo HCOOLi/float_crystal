@@ -7,32 +7,52 @@
     <style>
         body {
             margin: 0;
-            overflow: hidden;
+            /* overflow: hidden; */
             /* 隐藏body窗口区域滚动条 */
         }
     </style>
     <!--引入three.js三维引擎-->
     <script src="./three.js"></script>
+    <script src="./three.module.js"></script>
     <script src="./vue.min.js"></script>
+    <script src="./stats.min.js"></script>
     <script src="./OrbitControls.js"></script>
     <!-- <script src="./stats.module.js"></script> -->
 </head>
 
 <body>
-    <!-- <button onclick="show()" type="button" style="position: relative;padding: 10px;">visible/unvisible</button> -->
+
     <div>
         <input type="file" class="file" multiple style="position:relative;">
-        <button type="button" class="button" multiple style="position:relative;">visiable</button>
-        <button type="button" class="button" multiple style="position:relative;">save</button>
+        <button type="button" class="button" multiple style="position:relative;" onclick="visible()">visiable</button>
+        <button type="button" class="button" multiple style="position:relative;" onclick="save()">save</button>
 
     </div>
-    
+    <!-- <button onclick="show()" type="button" style="position: relative;padding: 10px;">visible/unvisible</button> -->
     <!-- <div id="txt"></div> -->
     <script>
         //import Stats from "./stats.module.js"
         var scene = new THREE.Scene();
         var group1 = new THREE.Group();
         var group2 = new THREE.Group();
+        function visible() {
+            if (group2.visible) {
+                group2.visible = false;
+            } else {
+                group2.visible = true;
+            }
+        }
+
+        function save() {
+            var dataimg = new Image()
+            var fileName = 'testImg.png';
+            dataimg.src = renderer1.domElement.toDataURL("image/png");
+            //document.querySelector('#view').appendChild(dataImg)
+            var alink = document.createElement("a");
+            alink.href = dataurl = dataimg.src;
+            alink.download = fileName;
+            alink.click();
+        }
         // function show(){
         //     console.log("nothing");
         // }
@@ -43,85 +63,165 @@
         //     return false;
         // }
         // console.log(isSupportFileApi());
-        var material1 = new THREE.MeshLambertMaterial({
+        var material1 = new THREE.MeshStandardMaterial({
             color: 0xffff00,
             side: THREE.DoubleSide
         });
-        var material2 = new THREE.MeshBasicMaterial({
-            color: 0x0000ff,
-            side: THREE.DoubleSide
+        var material2 = new THREE.MeshStandardMaterial({
+            //color: 0x2194ce,
+            side: THREE.DoubleSide,
+            roughness: 0.2,
+            metalness: 0.6
         });
 
-        var file = document.querySelector(".file");
-        //选择文件后触发
-        function flash(){
-            //scene.dispose();
-            group1.children=[];
-            group2.children=[];
-           
+
+
+
+
+        var insMesh;
+
+        var ball0 = new THREE.SphereGeometry(0.1, 10, 10);
+
+        let line1 = new THREE.LineCurve3(new THREE.Vector3(0, 0, 0),
+            new THREE.Vector3(0, 0, 1));
+        var geometry = new THREE.TubeGeometry(line1, 1, 0.1, 8, false);
+        var ball1 = new THREE.SphereGeometry(0.1, 8, 8);
+        ball1.translate(0, 0, 1)
+        geometry.merge(ball1);
+        geometry.merge(ball0);
+        var index = 0;
+        insMesh = new THREE.InstancedMesh(geometry, material2, 30* 30 * 30);
+
+        //修改位置
+        var sq2 = Math.sqrt(2);
+        var sq3 = Math.sqrt(3);
+        // let transform = new THREE.Object3D();
+
+
+        function add(direction, position,) {
+            if (direction.toString() === [0, 0, 0].toString) {
+                return;
+            }
+            let transform = new THREE.Object3D();
+            // var matrix=new THREE.Matrix4();
+            // matrix.lookAt(new Vector3(0,0,0),new Vector3(direction[0],direction[1],direction[2]),new Vector3(0,0,1))
+            
+            var color =new THREE.Color();
+            color.setHex(0xaa0000*Math.abs(direction[0])|Math.abs(direction[1])*0xaa00|Math.abs( direction[2])*0xaa);
+            
+            transform.lookAt(direction[0], direction[1], direction[2]);
+            transform.position.set(position[0], position[1], position[2]);
+            transform.updateMatrix();
+            
+            insMesh.setMatrixAt(index, transform.matrix);
+            insMesh.setColorAt( index, color );
+           // console.log(index);
+            index++;
 
         }
+        //scene.add(insMesh);
+
+
+        function DrawBox(point1, point2) {
+
+            var box = new THREE.Box3();
+            box.setFromCenterAndSize(new THREE.Vector3(point2[0] / 2, point2[1] / 2, point2[2] / 2),
+                new THREE.Vector3(point2[0], point2[1], point2[2]));
+
+            var helper = new THREE.Box3Helper(box, 0xffff00);
+            scene.add(helper);
+
+        }
+        
         function CreatePolymer(list, shape) {
-            var group
-            var CurvePath = new THREE.CurvePath();
+            // var group
+            // var material;
+            // if (type == 1) {
+            //     group = group1;
+            //     material = material1
+
+            // } else {
+            //     group = group2;
+            //     material = material2;
+            // }
+            // var CurvePath = new THREE.CurvePath();
             var Point_last = list[0];
-            var type = Point_last[3];
-            var material;
-            if (type == 1) {
-                group = group1;
-                material=material1
+            // var ball = ball0.clone();
+            // ball.translate(Point_last[0], Point_last[1], Point_last[2]);
+            // var mesh = new THREE.Mesh(ball, material);
+            // group.add(mesh);
+            // var type = Point_last[3];
 
-            } else {
-                group = group2;
-                material=material2;
-
+            function out_of_range(point1, point2) {
+                for (var j = 0; j < 3; j++) {
+                    if (Math.abs(point1[j] - point2[j]) > 1) {
+                        return true;
+                    }
+                }
+                return false;
             }
+
 
             for (var i = 1; i < list.length; i++) {
                 var Point = list[i];
 
-                function out_of_range(point1, point2) {
-                    for (var j = 0; j < 3; j++) {
-                        if (Math.abs(point1[j] - point2[j]) > 1) {
-                            return true;
-                        }
-                    }
-                    return false;
-                }
+                // var ball = ball0.clone();
+                // ball.translate(Point[0], Point[1], Point[2]);
+                // var mesh = new THREE.Mesh(ball, material);
+                // group.add(mesh);
 
                 if (out_of_range(Point_last, Point)) {
-                    if (CurvePath.curves != 0) {
-                        var geometry;
-                        if(type==1){
-                    geometry = new THREE.TubeBufferGeometry(CurvePath, 20, 0.2, 8, false);
-                }else{
-                    geometry = new THREE.TubeBufferGeometry(CurvePath, 1, 0.2, 8, false);
-                }
+                    // if (CurvePath.curves != 0) {
+                    //     var geometry;
+                    //     if (type == 1) {
+                    //         geometry = new THREE.TubeBufferGeometry(CurvePath, 20, 0.1, 8, false);
+                    //     } else {
+                    //         geometry = new THREE.TubeBufferGeometry(CurvePath, 1, 0.1, 8, false);
+                    //     }
 
-                        var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
-                        group.add(mesh);
-                    }
-                    Point_last = Point;
-                    CurvePath = new THREE.CurvePath();
+                    //     var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
+                    //     group.add(mesh);
+                    // }
+
+                    // CurvePath = new THREE.CurvePath();
                     continue;
                 }
-                let line1 = new THREE.LineCurve3(new THREE.Vector3(Point_last[0], Point_last[1], Point_last[2]),
-                    new THREE.Vector3(Point[0], Point[1], Point[2]));
-                Point_last = Point;
-                CurvePath.curves.push(line1);
+
+                // let line1 = new THREE.LineCurve3(new THREE.Vector3(Point_last[0], Point_last[1], Point_last[2]),
+                //     new THREE.Vector3(Point[0], Point[1], Point[2]));
+                add([Point_last[0] - Point[0], Point_last[1] - Point[1], Point_last[2] - Point[2]],
+                    [Point_last[0], Point_last[1], Point_last[2]]),
+                    //     new THREE.Vector3(Point[0], Point[1], Point[2])
+                    Point_last = Point;
+                // CurvePath.curves.push(line1);
             }
-            if (CurvePath.curves == 0) {
-            } else {
-                var geometry;
-                if(type==1){
-                    geometry = new THREE.TubeBufferGeometry(CurvePath, 20, 0.2, 8, false);
-                }else{
-                    geometry = new THREE.TubeBufferGeometry(CurvePath, 1, 0.2, 8, false);
-                }
-                var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
-                group.add(mesh);
-            }
+            // if (CurvePath.curves == 0) {
+            // } else {
+            //     var geometry;
+            //     if (type == 1) {
+            //         geometry = new THREE.TubeBufferGeometry(CurvePath, 20, 0.1, 8, false);
+            //     } else {
+            //         geometry = new THREE.TubeBufferGeometry(CurvePath, 1, 0.1, 8, false);
+            //     }
+            //     var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
+            //     group.add(mesh);
+            // }
         }
+        var axesHelper = new THREE.AxesHelper(30);
+        scene.add(axesHelper);
+
+
+
+        var file = document.querySelector(".file");
+        //选择文件后触发
+        function flash() {
+            scene.remove(insMesh);
+            insMesh = new THREE.InstancedMesh(geometry, material2, 30* 30 * 30);
+
+            // 
+            index=0;
+        }
+
         file.onchange = function () {
             //初始化一个文件读取对象
             var reader = new FileReader();
@@ -130,7 +230,8 @@
             //读取完毕,相当于加载的过程
             reader.onload = function () {
                 flash();
-               
+
+
                 var result = reader.result;
                 var readlines = result.split('\n');
                 var Polymerlist = [];
@@ -184,67 +285,34 @@
                 }
                 console.log("read ended");
                 for (var i4 = 0; i4 < Polymerlist.length; i4++) {
-                    CreatePolymer(Polymerlist[i4], shape);
-                }
-                group2.visible=false;
-                //scene.add(group1)
-                scene.add(group1,group2);
-                renderall();
-                var dataimg = new Image()
-                var fileName = 'testImg.png';
-                dataimg.src=renderer1.domElement.toDataURL("image/png");
-                //document.querySelector('#view').appendChild(dataImg)
-                var alink = document.createElement("a");
-                alink.href = dataurl=dataimg.src;
-                alink.download = fileName;
-                alink.click();
-            }
-        }
+                    if (Polymerlist.length == 2) {
 
-        function DrawBox(point1, point2) {
-            var lines = [];
-            var p1 = [0, 0, 0];
-            var p2 = [0, 0, 0];
-            for (var a = 0; a < 2; a++) {
-                for (var b = 0; b < 2; b++) {
-                    for (var c = 0; c < 3; c++) {
-                        p1[c] = point1[c];
-                        p2[c] = point2[c];
-                        p1[(c + 1) % 3] = a == 0 ? point1[(c + 1) % 3] : point2[(c + 1) % 3];
-                        p2[(c + 1) % 3] = a == 0 ? point1[(c + 1) % 3] : point2[(c + 1) % 3];
-                        p1[(c + 2) % 3] = b == 0 ? point1[(c + 2) % 3] : point2[(c + 2) % 3];
-                        p2[(c + 2) % 3] = b == 0 ? point1[(c + 2) % 3] : point2[(c + 2) % 3];
-                        let line1 = new THREE.LineCurve3(new THREE.Vector3(p1[0], p1[1], p1[2]), new THREE.Vector3(p2[0], p2[1], p2[2]));
-                        lines.push(line1);
-                        console.log(p1, p2);
+                    } else {
+                        CreatePolymer(Polymerlist[i4], shape);
                     }
+
                 }
-            }
-            var group = new THREE.Group();
-            for (var i = 0; i < lines.length; i++) {
-                var geometry = new THREE.TubeBufferGeometry(lines[i], 1, 0.1, 4, false);
-                var material = new THREE.MeshBasicMaterial({
-                    color: 0x110011,
-                    side: THREE.DoubleSide
-                });
-                var mesh = new THREE.Mesh(geometry, material); //网格模型对象Mesh
-                group.add(mesh);
+                //group2.visible = false;
+                scene.add(insMesh)
+                //scene.add(group1, group2);
+                renderall();
+                //stats.update();
+                //scene.add(group1)
 
             }
-
-            scene.add(group);
-
         }
+
+
 
 
 
         function SetLight() {
             this.point = new THREE.PointLight(0xffffff);
-            // var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-            // // 设置光源的方向：通过光源position属性和目标指向对象的position属性计算
-            // directionalLight.position.set(-80, -100, -50);
+            var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+            // 设置光源的方向：通过光源position属性和目标指向对象的position属性计算
+            directionalLight.position.set(80, 0, 0);
             // // 方向光指向对象网格模型mesh2，可以不设置，默认的位置是0,0,0
-            // directionalLight.target = group;
+            directionalLight.target = scene;
             // scene.add(directionalLight);
             point.position.set(50, 50, 50); //点光源位置
             scene.add(point); //点光源添加到场景中
@@ -254,6 +322,10 @@
         }
 
         SetLight();
+
+        // stats = new Stats();
+        // stats.update();
+		// document.body.appendChild( stats.dom );
         /**
          * 相机设置
          */
@@ -263,9 +335,9 @@
         var s = 50; //三维场景显示范围控制系数，系数越大，显示的范围越大
 
         //创建相机对象
-        var camera1 = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 200);
-        camera1.position.set(80, 80, 80); //设置相机位置
-        camera1.lookAt(scene.position); //设置相机方向(指向的场景对象)
+        var camera1 = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 100);
+        camera1.position.set(50, 0, 0); //设置相机位置
+        camera1.lookAt(0, 0, 0); //设置相机方向(指向的场景对象)
         // var camera2 = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 200);
         // camera2.position.set(80, 0, 0); //设置相机位置
         // camera2.lookAt(scene.position); //设置相机方向(指向的场景对象)
@@ -275,7 +347,7 @@
         // var camera4 = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 200);
         // camera4.position.set(0, 0, 80); //设置相机位置
         // camera4.lookAt(scene.position); //设置相机方向(指向的场景对象)
-        
+
 
 
         /**
@@ -320,6 +392,33 @@
         // var controls4 = new THREE.OrbitControls(camera4, renderer4.domElement);//创建控件对象
         // controls4.addEventListener('change', renderall);//监听鼠标、键盘事件
     </script>
+    <div id="app">
+        <div class="block" style="display:inline;width:500px">
+            <el-slider v-model="time" show-input :max=20 :step=0.01></el-slider>
+        </div>
+    </div>
+    <script>
+        // var mixer = new THREE.AnimationMixer(mesh);
+        // var AnimationAction = mixer.clipAction(clip);
+        // AnimationAction.loop = THREE.LoopOnce;
+        // AnimationAction.clampWhenFinished = true;
+        //实例化vue
+        vm = new Vue({
+            el: "#app",
+            data: {
+                time: 0
+            },
+            watch: {
+                time: function (value) {
+                    //   // 开始结束时间设置为一样，相当于播放时间为0，直接跳转到时间点对应的状态
+                    //   AnimationAction.time = value; //操作对象设置开始播放时间
+                    //   clip.duration = AnimationAction.time;//剪辑对象设置播放结束时间
+                    //   AnimationAction.play(); //开始播放
+                }
+            },
+        })
+    </script>
+
 </body>
 
 </html>

@@ -422,14 +422,16 @@ void Room::movie(int m, int n, double T, string path) {
                 throw std::runtime_error("Ep cal error");
             }
 #endif
-            time_t now= time(0);
-            auto ltm=localtime(&now);
-            stringstream time;
-            time<<1 + ltm->tm_mon<<"-"<<ltm->tm_mday<<":"<<ltm->tm_hour<<":"<<ltm->tm_min<<":"<<ltm->tm_sec;
-            string stime;
-            time>>stime;
-            cout<<stime<<":\t"<<"i="<<i<<"\t"<<E<<"\t"<<Ep<<"\t"<<Ee2e<<endl; 
-            save(path + to_string(i / n));
+            // time_t now= time(0);
+            // auto ltm=localtime(&now);
+            // stringstream time;
+            // time<<1 + ltm->tm_mon<<"-"<<ltm->tm_mday<<":"<<ltm->tm_hour<<":"<<ltm->tm_min<<":"<<ltm->tm_sec;
+            // string stime;
+            // time>>stime;
+            // cout<<stime<<
+
+            cout<<"i="<<i<<"\t"<<std::left<<E<<"\t"<<std::left<<Ep<<"\t"<<std::left<<Ee2e<<endl; 
+            save(path +to_string(T)+string("-")+ to_string(i / n));
         }
     }
 }
@@ -1391,12 +1393,12 @@ double Room::cal_Rg() const  //
     return 0.0;
 }
 
-int Room::get_h2(int n  ){
-        Polymer &p=polymer_list [n];
+int Room::get_h2(int n  )const{
+        const Polymer &p=polymer_list [n];
 		vec  vector_end;
-		vec & point_last=p.chain[0].position;
+		vec  point_last=p.chain[0].location;
 		for(int i=1;i<p.chain.size();i++){
-			vec & point=p.chain[i].position;
+			vec  point=p.chain[i].location;
             vector_end=vector_end+cal_direction(point,point_last);
 
 		}
@@ -1407,8 +1409,8 @@ double Room::cal_h2() const  //
     //throw "NOT DONE!";
     int num = 0;
     double s=0;
-    for(int i=0;i<this.polymer_list.size();i++)
-    if(polymer_list[i].chain.size()<=2)
+    for(int i=0;i<this->polymer_list.size();i++)
+    if(polymer_list[i].chain.size()<=2){
         s += get_h2(i);
         num++;
     }
@@ -1514,10 +1516,38 @@ int Room::get_max_nucleus(int layer) {
     return matrix::ConnectedComponentLabeling(bitmap);
 }
 
+
+int Room::get_max_straight_length_p (int i){
+
+        const Polymer &p=polymer_list [i];
+        if(p.chain.size()<=2){
+            return 0;
+        }
+		int max=0;
+        int length=0;
+		vec  point1=p.chain[0].location;
+        vec  point2=p.chain[1].location;
+		for(int i=2;i<p.chain.size();i++){
+			vec  point=p.chain[i].location;
+            
+
+		}
+        return 0;
+    
+
+}
+
 int Room::get_max_straight_length (){
+
+
+
+    return 0;
 
 }
 double Room::get_average_straight_length (){
+
+
+    return 0;
     
 }
 ostream &operator<<(ostream &o, Point &p) {

@@ -132,7 +132,7 @@ public:
 //        countlist.append(count)
 //        count = 0
 //        plt.figure()
-//        histlist, bins, _ = plt.hist(countlist, bins=range(1, 21, 1))
+//        histlist, bins, _ = plt.hist(countlist, bins=myrange(1, 21, 1))
 //# print(histlist, bins)
 //        plt.close()
 //# countlist

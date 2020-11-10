@@ -33,33 +33,28 @@ int main(int argc, char *argv[]) {
         sem=sem_open(sem_str,O_CREAT|O_RDWR);
         cout<<"succeed"<<endl;
     }
-
-
-    
     //ThreadPool pool(thread_number);
-    UreaCrystal U;
-    auto params = U.parameters2();
+    // UreaCrystal U;
+    // auto params = U.parameters2();
     //vector<int> waitinglist;
-    for (auto p : params) {
-        //process
-        sem_wait(sem);
-        sem_post(sem);
+    ExtendedChainCrystal E;
+    auto params = E.parameters();
+    //int i=0;
+    for (auto p : params) {      
         int pid=fork();
-        //cout<<pid<<endl;
         if(pid==0){
             sem_wait(sem);
-            U.simulate2(p);
+            E.simulate(p);
+
+            // U.simulate2(p);
             sem_post(sem);
             return 0;
         }else{
-            //waitinglist.push_back(pid);
+           
         }
-        //pool.enqueue(bind(&ExtendedChainCrystal::simulate, E, p));
+       
     }
     int status;
     while(wait(&status)!=-1);
     sem_unlink(sem_str);
-    // for(auto id:waitinglist){
-    //     wait();
-    // }
 }

@@ -8,6 +8,10 @@ dirlib:
 main:crystal.o  ConnectedComponent.o
 	g++  $(CXXFLAGS) ./lib/ConnectedComponent.o ./run/simulator.cpp ./run/main.cpp ./lib/crystal.o -o main  -pthread 
 
+analyze:crystal.o  ConnectedComponent.o
+	g++  $(CXXFLAGS) ./lib/ConnectedComponent.o  ./analyze/analyze.cpp ./lib/crystal.o -o analy  -pthread 
+
+
 crystal.so:crystal.o ConnectedComponent.o
 	g++ -shared -fPIC ./lib/ConnectedComponent.o  ./lib/ crystal.o -o ./python/crystal.so -L $(pypath)/lib -L $(boostpath)/stage/lib  -lpython3.5m  -lboost_python35
 

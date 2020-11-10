@@ -2,7 +2,8 @@
 make main
 if [ $? -eq 0 ]; then
 
-    nohup ./main > main.out  2>&1 &
+    nohup ./main 12 > main.out  2>&1 &
+ 
 
 else
 

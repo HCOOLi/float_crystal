@@ -31,6 +31,21 @@ public:
 	{
 		return lattice[P[0] * shape[1] * shape[2] + P[1] * shape[2] + P[2]];
 	}
+	void resize(int x, int y, int z)
+	{
+		shape=vec{x, y, z};
+		lattice.resize(x * y * z);
+		for (int i = 0; i < x; i++)
+		{
+			for (int j = 0; j < y; j++)
+			{
+				for (int k = 0; k < z; k++)
+				{
+					lattice[i * y * z + j * z + k] = nullptr;
+				}
+			}
+		}
+	}
 
 	Grid(int x, int y, int z) : shape(vec{x, y, z})
 	{
@@ -196,6 +211,7 @@ public:
 	void load(string filename);
 
 	int get_max_nucleus(int layer);
+	int get_max_nucleus();
 
 	int get_h2(int n  )const;
 	int get_max_straight_length ();

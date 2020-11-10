@@ -5,6 +5,7 @@ private:
     T  *_vector;
     int shmid;
     string name;
+    data * data;
     struct data
     {
        int _capacity;

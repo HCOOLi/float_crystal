@@ -4,14 +4,12 @@
 
 #include <ctime>
 #include <functional>
-#include <regex>
 #include <sstream>
 #include <tuple>
 #include <vector>
 
 #include "../cpp/room.h"
 #include "../cpp/utils.h"
-#include "threadpool.h"
 using namespace std;
 
 //
@@ -70,8 +68,10 @@ class ExtendedChainCrystal : public Simulator {
     virtual void install_model(Room &room) {
         for (int i = 0; i < room.shape[0]; i++) {
             for (int j = 0; j < room.shape[1]; j++) {
-                if (j % 2 == 0 || i % 2 == 0 || (i + j) % 8 == 0 ||
-                    (i - j) % 8 == 0) 
+                 if ((i + j) % 8 != 0 ||
+                    (i - j) % 8 != 0) 
+                // if (j % 2 == 0 || i % 2 == 0 || (i + j) % 8 == 0 ||
+                //     (i - j) % 8 == 0) 
                 // if(i!=10||j!=10)
                 {   for (int k = 0; k < int(9 * room.shape[2] / 10); k += 2) {
                         room.input_one_ECC(vec{i, j, k + 1}, 2, 2,
@@ -91,11 +91,12 @@ class ExtendedChainCrystal : public Simulator {
         auto Ee2e = get<2>(param);
         auto length = get<3>(param);
         auto T = get<4>(param);
+        T=T+0.1*Ee2e;
         stringstream path;
         time_t now = time(0);
         auto ltm = localtime(&now);
-        mkdir("./scale112eccdata/", 00744);
-        path << "./scale112eccdata/";
+        mkdir("./data/eccdata/", 00744);
+        path << "./data/eccdata/";
         path << 1900 + ltm->tm_year << "-" << 1 + ltm->tm_mon << "-"
              << ltm->tm_mday << "/";
 
@@ -113,7 +114,7 @@ class ExtendedChainCrystal : public Simulator {
         printf("Runing task Ep12=%f,Ep=%f ,Ee2e=%f,T=%f,length=%d\n", Ep12, Ep2,
                Ee2e, T, length);
         Room room(
-            length, length, 2*length,
+            length, length, length,
             vector<vector<double>>{{0, 0, 0}, {0, 0, Ep12}, {0, Ep12, Ep2}},
             vector<vector<double>>{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
             vector<vector<double>>{{0, 0, 0}, {0, 0, 0}, {0, 0, Ee2e}}, 24);
@@ -124,15 +125,60 @@ class ExtendedChainCrystal : public Simulator {
         room.save(spath + string("init"));
         room.preheat(100000, 1000);
         cout << "preheated" << endl;
-        room.movie(200000, 1000, T, spath);
+        room.movie(500000, 1000, T, spath);
+        fclose(log_file);
+    }
+    virtual void simulate2(tuple<double, double, double, int, double> param) {
+        // auto [Ep2, Ee2e,length, T]= param;
+        auto Ep2 = get<0>(param);
+        auto Ep12 = get<1>(param);
+        auto Ee2e = get<2>(param);
+        auto length = get<3>(param);
+        auto T = get<4>(param);
+        //T=T+0.25*Ee2e;
+        auto Ep1=(0.35*Ee2e+3*Ep2)/5;
+        stringstream path;
+        time_t now = time(0);
+        auto ltm = localtime(&now);
+        mkdir("./data/eccdata_ep1/", 00744);
+        path << "./data/eccdata_ep1/";
+        path << 1900 + ltm->tm_year << "-" << 1 + ltm->tm_mon << "-"
+             << ltm->tm_mday << "/";
+
+        string path_date;
+        path >> path_date;
+        mkdir(path_date.c_str(), 00744);
+        path.clear();
+        path << path_date << "Ep2=" << Ep2 << "Ep12=" << Ep12
+             << "Ee2e=" << Ee2e << "T=" << T << '/';
+        string spath;
+        path >> spath;
+        mkdir(spath.c_str(), 00744);
+        auto log_file =
+            freopen((spath + string("out.log")).c_str(), "w", stdout);
+        printf("Runing task Ep12=%f,Ep=%f ,Ee2e=%f,T=%f,length=%d\n", Ep12, Ep2,
+               Ee2e, T, length);
+        Room room(
+            length, length, length,
+            vector<vector<double>>{{0, 0, 0}, {0, Ep1, Ep12}, {0, Ep12, Ep2}},
+            vector<vector<double>>{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
+            vector<vector<double>>{{0, 0, 0}, {0, 0, 0}, {0, 0, Ee2e}}, 24);
+        install_model(room);
+
+        cout << "installed" << endl;
+        cout << "preheating" << endl;
+        room.save(spath + string("init"));
+        room.preheat(100000, 1000);
+        cout << "preheated" << endl;
+        room.movie(500000, 1000, T, spath);
         fclose(log_file);
     }
     auto parameters() -> vector<tuple<double, double, double, int, double>> {
         auto Ep2 = vector<double>{0.2};
-        auto Ep12 =myrange<double>(0.2,1.1,0.2);
-        auto Ee2e = vector<double>{4};
-        auto length = vector<int>{32};
-        auto T = myrange<double>(1.4, 2.1, 0.1);
+        auto Ep12 =myrange<double>(0.6,1.3,0.2);
+        auto Ee2e = vector<double>{4,6};
+        auto length = vector<int>{40};
+        auto T = myrange<double>(0.5, 2.5, 0.2);
         return Cartesian_product(Ep2, Ep12, Ee2e, length, T);
     }
 };

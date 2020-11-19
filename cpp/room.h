@@ -185,6 +185,7 @@ public:
 	double cal_h2() const;
 	double cal_PSM() const;
 	double cal_PSM_point(const vec &) const;
+	void transfer_to();
 
 	int num_of_polymers() const
 	{

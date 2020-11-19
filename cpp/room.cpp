@@ -4,14 +4,14 @@
 #include <algorithm>
 #include <cassert>
 #include <chrono>
+#include <ctime>
 #include <fstream>
-#include<sstream>
 #include <random>
+#include <sstream>
 #include <stack>
 #include <string>
 #include <tuple>
 #include <utility>
-#include<ctime>
 
 #include "utils.h"
 
@@ -362,11 +362,11 @@ void Room::init_queue(vector<array<int, 2>> &queue) {
 }
 
 void Room::movie(int m, int n, double T, string path) {
-    //	double Ec = cal_Ec()*Ec0;
+    double Ec = cal_Ec()*Ec0;
     double Ep = cal_Ep();
     //	double Eb = cal_Eb();
     double Ee2e = cal_Ee2e();
-    double E = Ep + Ee2e;
+    double E = Ep + Ee2e+Ec;
 
     /*double a = cal_Ec() + cal_Ep();*/
     vector<array<int, 2>> queue;
@@ -374,7 +374,7 @@ void Room::movie(int m, int n, double T, string path) {
     for (int i = 0; i < m; i++) {
         unsigned seed =
             std::chrono::system_clock::now().time_since_epoch().count();
-             shuffle(queue.begin(), queue.end(), std::default_random_engine(seed));
+        shuffle(queue.begin(), queue.end(), std::default_random_engine(seed));
         for (auto v : queue) {
             int k = v[0];
             int start_point_i = v[1];
@@ -384,15 +384,15 @@ void Room::movie(int m, int n, double T, string path) {
             if (path.empty()) {
                 continue;
             }
-            //  double dEc = cal_dEc_nearby(path) * Ec0;
+             double dEc = cal_dEc_nearby(path) * Ec0;
             double dEp = cal_dEp_nearby(path);
             //  double dEb = cal_dEb_nearby(path);
             // double dEf = cal_dEf(path);
             double dEe2e = cal_dEe2e_nearby(path);
-            double dE = dEp + dEe2e;
+            double dE = dEp + dEe2e+dEc;
             if (dE >= 0) {
                 E += dE;
-                //				Ec += dEc;
+                Ec += dEc;
                 Ep += dEp;
                 Ee2e += dEe2e;
                 //				Eb += dEb;
@@ -401,7 +401,7 @@ void Room::movie(int m, int n, double T, string path) {
                 if (a < exp(dE / T)) {
                     // cout <<a;
                     E += dE;
-                    //					Ec += dEc;
+                    Ec += dEc;
                     Ep += dEp;
                     Ee2e += dEe2e;
                     //					Eb += dEb;
@@ -410,7 +410,25 @@ void Room::movie(int m, int n, double T, string path) {
                 }
             }
         }
-        if (i % n == 0) {
+        if (i < 40000) {
+            if (i % (n/10) == 0) {
+#ifdef DEBUG
+                if (Ee2e != cal_Ee2e()) {
+                    cerr << "Ee2e cal error" << Ee2e << "!=" << cal_Ee2e()
+                         << endl;
+                    throw std::runtime_error("Ee2e cal error");
+                }
+                if (Ep != cal_Ep()) {
+                    cerr << "Ep cal error" << Ep << "!=" << cal_Ep() << endl;
+                    throw std::runtime_error("Ep cal error");
+                }
+
+#endif
+                cout << "i=" << i << "\t" << std::left << E << "\t" << std::left
+                     << Ep << "\t" << std::left << Ee2e << "\t" << std::left << Ec <<"\n";
+                save(path + to_string(T) + string("-") + to_string(i));
+            }
+        } else if (i % n == 0) {
 #ifdef DEBUG
 
             if (Ee2e != cal_Ee2e()) {
@@ -422,25 +440,17 @@ void Room::movie(int m, int n, double T, string path) {
                 throw std::runtime_error("Ep cal error");
             }
 #endif
-            // time_t now= time(0);
-            // auto ltm=localtime(&now);
-            // stringstream time;
-            // time<<1 + ltm->tm_mon<<"-"<<ltm->tm_mday<<":"<<ltm->tm_hour<<":"<<ltm->tm_min<<":"<<ltm->tm_sec;
-            // string stime;
-            // time>>stime;
-            // cout<<stime<<
-
-            cout<<"i="<<i<<"\t"<<std::left<<E<<"\t"<<std::left<<Ep<<"\t"<<std::left<<Ee2e<<"\n"; 
-            save(path +to_string(T)+string("-")+ to_string(i / n));
+            cout << "i=" << i << "\t" << std::left << E << "\t" << std::left
+                 << Ep << "\t" << std::left << Ee2e << "\n";
+            save(path + to_string(T) + string("-") + to_string(i));
         }
     }
 }
 
 void Room::preheat(int m, int n) {
     vector<array<int, 2>> queue;
-        init_queue(queue);
+    init_queue(queue);
     for (int i = 0; i < m; i++) {
-        
         unsigned seed =
             std::chrono::system_clock::now().time_since_epoch().count();
         shuffle(queue.begin(), queue.end(), std::default_random_engine(seed));
@@ -454,14 +464,13 @@ void Room::preheat(int m, int n) {
             time_t now = time(0);
             char *dt = ctime(&now);
             printf("%s i=%d\n", dt, i);
-            fflush(stdout);
         }
     }
 }
 
 void Room::save(string filename) const {  // TODO
     ofstream file(filename, ios::out | ios::trunc);
-    if(!file){
+    if (!file) {
         throw("can't create file");
     }
     file << "# "
@@ -495,20 +504,20 @@ void Room::save(string filename) const {  // TODO
                  //<< point.true_position
                  << "\n";
         }
-        file << "####" << "\n";
+        file << "####"
+             << "\n";
     }
 
     file.close();
 }
 
 void Room::load(string filename) {
-
     ifstream file(filename, ios::in);
-    if(!file){
+    if (!file) {
         throw "file open failed";
     }
     stringstream filestream;
-    filestream<<file.rdbuf();
+    filestream << file.rdbuf();
     file.close();
 
     string temp;
@@ -517,10 +526,11 @@ void Room::load(string filename) {
     while (getline(filestream, temp)) {
         if (temp[0] == '#') {
             if (temp == "####") {
-                for(auto point_tmp :p.chain){
-                    lattice[point_tmp.location]=&p.chain[point_tmp.pos_in_chain];
+                for (auto point_tmp : p.chain) {
+                    lattice[point_tmp.location] =
+                        &p.chain[point_tmp.pos_in_chain];
                 }
-                
+
                 polymer_list[chain_num] = std::move(p);
                 chain_num++;
                 pos_in_chain = 0;
@@ -602,7 +612,6 @@ void Room::load(string filename) {
             // ;
             pos_in_chain++;
         }
-       
     }
     initmoves();
     file.close();
@@ -1058,7 +1067,7 @@ double Room::cal_one_Eb(int) const { return 0.0; }
 double Room::count_parallel_nearby24(const vec &point1, const vec &point2,
                                      deque<Position> &que, int cal_type) const {
     double num_self = 0, num_others = 0;
-    int crystal_nums=0;
+    int crystal_nums = 0;
     int chain_num;
     if (lattice[point1] == nullptr || lattice[point2] == nullptr) {
         cerr << __FUNCTION__ << ":  line:" << __LINE__ << "  " << point1
@@ -1123,7 +1132,7 @@ double Room::count_parallel_nearby24(const vec &point1, const vec &point2,
     if (cal_type == 0) {
         return num_others + num_self / 2.0;
         // cout << num_others << ',' << num_self << endl;
-    }else if(cal_type==2){
+    } else if (cal_type == 2) {
         return crystal_nums;
     } else {
         return num_others + num_self;
@@ -1415,33 +1424,31 @@ double Room::cal_Rg() const  //
     return 0.0;
 }
 
-int Room::get_h2(int n  )const{
-        const Polymer &p=polymer_list [n];
-		vec  vector_end;
-		vec  point_last=p.chain[0].location;
-		for(int i=1;i<p.chain.size();i++){
-			vec  point=p.chain[i].location;
-            vector_end=vector_end+cal_direction(point,point_last);
-
-		}
-        return vector_end*vector_end;
-	}
+int Room::get_h2(int n) const {
+    const Polymer &p = polymer_list[n];
+    vec vector_end;
+    vec point_last = p.chain[0].location;
+    for (int i = 1; i < p.chain.size(); i++) {
+        vec point = p.chain[i].location;
+        vector_end = vector_end + cal_direction(point, point_last);
+    }
+    return vector_end * vector_end;
+}
 double Room::cal_h2() const  //
 {
-    //throw "NOT DONE!";
+    // throw "NOT DONE!";
     int num = 0;
-    double s=0;
-    for(int i=0;i<this->polymer_list.size();i++)
-    if(polymer_list[i].chain.size()<=2){
-        s += get_h2(i);
-        num++;
-    }
-    if(num!=0){
-        return s/num;
-    }else{
+    double s = 0;
+    for (int i = 0; i < this->polymer_list.size(); i++)
+        if (polymer_list[i].chain.size() <= 2) {
+            s += get_h2(i);
+            num++;
+        }
+    if (num != 0) {
+        return s / num;
+    } else {
         return 0;
     }
-   
 }
 
 #ifdef TRUE_POSITION
@@ -1520,6 +1527,26 @@ double Room::cal_PSM() const {
 
 double Room::cal_PSM_point(const vec &p) const { return 0.0; }
 
+void Room::transfer_to(){
+    for(int i=0;i<polymer_list.size();i++){
+        vector<Point> chain;
+        Point  point=polymer_list[i].chain[0];
+        Point  point1bak=point;
+        chain.emplace_back(point);
+        for(int j=1;j<polymer_list[i].chain.size();j++)
+        
+        {
+            Point point2=polymer_list[i].chain[j];
+            Point point2bak=point2;
+            point2.location=point.location+cal_direction(point1bak.location,point2.location);
+            chain.emplace_back(point2);
+            point=point2;
+            point1bak=point2bak;
+        }
+        polymer_list[i].chain=chain; 
+    }
+}
+
 int Room::get_max_nucleus(int layer) {
     auto &matrix3 = this->lattice;
     matrix::Matrix2 bitmap(shape[0], shape[2] - 1);
@@ -1538,86 +1565,75 @@ int Room::get_max_nucleus(int layer) {
     return matrix::ConnectedComponentLabeling(bitmap);
 }
 int Room::get_max_nucleus() {
-    int count =0;
-    //cout<<Ep_matrix[2][2]<<endl;
+    int count = 0;
+    // cout<<Ep_matrix[2][2]<<endl;
     // return 0;
 
-    for(auto &polymer:polymer_list){
-        auto &point_last=polymer[0];
-        for(int i=1;i<polymer.chain.size();i++){
-            auto &point=polymer[i];
+    for (auto &polymer : polymer_list) {
+        auto &point_last = polymer[0];
+        for (int i = 1; i < polymer.chain.size(); i++) {
+            auto &point = polymer[i];
             deque<vec> q;
-            double res=count_parallel_nearby24(point.location,point_last.location,q,2);
+            double res = count_parallel_nearby24(point.location,
+                                                 point_last.location, q, 2);
             // cout<<res<<endl;
-            if(res>=5){
+            if (res >= 5) {
                 count++;
-                
-            }else{
-                if(point.type==1){
 
-                }else{
-                    point_last.type=0;
-                    point.type=0;
+            } else {
+                if (point.type == 1) {
+                } else {
+                    point_last.type = 0;
+                    point.type = 0;
                 }
-               
             }
-
         }
     }
     //    cout<<"bitmap constructed"<<endl;
     return count;
 }
 
-
-
-int Room::get_max_straight_length_p (int i){
-
-        const Polymer &p=polymer_list [i];
-        if(p.chain.size()<=2){
-            return 0;
+int Room::get_max_straight_length_p(int i) {
+    const Polymer &p = polymer_list[i];
+    if (p.chain.size() <= 2) {
+        return 0;
+    }
+    int m = 0;
+    int length = 0;
+    vec point1 = p.chain[0].location;
+    vec point2 = p.chain[1].location;
+    for (int i = 2; i < p.chain.size(); i++) {
+        vec point3 = p.chain[i].location;
+        if (cal_ifline(point1, point2, point3) == 0) {
+            length++;
+        } else {
+            m = max(m, length);
+            length = 0;
         }
-		int m=0;
-        int length=0;
-		vec  point1=p.chain[0].location;
-        vec  point2=p.chain[1].location;
-		for(int i=2;i<p.chain.size();i++){
-			vec  point3=p.chain[i].location;
-            if( cal_ifline(point1,point2,point3)==0){
-                length++;
-            }else{
-                m=max(m,length);
-                length=0;
-            }
-            point1=point2;
-            point2=point3;             
-
-		}
-        return m;
-    
-
+        point1 = point2;
+        point2 = point3;
+    }
+    m = max(m, length);
+    return m;
 }
 
-int Room::get_max_straight_length (){
-    int m=0;
-    for(int i=0;i<polymer_list.size();i++){
-        m=max(m,get_max_straight_length_p(i));
+int Room::get_max_straight_length() {
+    int m = 0;
+    for (int i = 0; i < polymer_list.size(); i++) {
+        m = max(m, get_max_straight_length_p(i));
     }
     return m;
-
 }
-double Room::get_average_straight_length (){
-    int count=0;
-    int num=0;
-    for(int i=0;i<polymer_list.size();i++){
-        if(get_max_straight_length_p(i)>0){
-             count+= get_max_straight_length_p(i);
-             num++;
+double Room::get_average_straight_length() {
+    int count = 0;
+    int num = 0;
+    for (int i = 0; i < polymer_list.size(); i++) {
+        if (get_max_straight_length_p(i) > 0) {
+            count += get_max_straight_length_p(i);
+            num++;
         }
-
-      
     }
-    return double(count)/num;
-    
+    return double(count) / num;
 }
 ostream &operator<<(ostream &o, Point &p) {
     o << p.location;

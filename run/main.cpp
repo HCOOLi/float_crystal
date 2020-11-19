@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
         int pid=fork();
         if(pid==0){
             sem_wait(sem);
-            E.simulate(p);
+            E.simulate2(p);
 
             // U.simulate2(p);
             sem_post(sem);
@@ -55,6 +55,10 @@ int main(int argc, char *argv[]) {
        
     }
     int status;
-    while(wait(&status)!=-1);
+    while(wait(&status)!=-1){
+        if(!WIFEXITED(status) ){
+            sem_post(sem);
+        }
+    }
     sem_unlink(sem_str);
 }

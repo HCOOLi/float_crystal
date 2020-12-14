@@ -89,7 +89,7 @@ namespace matrix {
             return _v[x];
         }
 
-        const auto operator[](int x) const -> const decltype(_v[x]) {
+        const auto operator[](int x) const -> decltype(_v[x]) {
             return _v[x];
         }
 
@@ -143,7 +143,7 @@ namespace matrix {
             return _v[x[0]][x[1]];
         }
 
-        const auto operator[](int x)const  ->const decltype(_v[x])  {
+        const auto operator[](int x)const  ->decltype(_v[x])  {
             return _v[x];
         }
 

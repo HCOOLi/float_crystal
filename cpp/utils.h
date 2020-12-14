@@ -9,15 +9,33 @@
 #include <string>
 #include <tuple>
 #include <vector>
+#include <map>
 
 using namespace std;
 template <typename T>
-vector<T> range(T from, T to, T step = 1) {
+vector<T> myrange(T from, T to, T step = 1) {
     vector<T> result;
-    for (T x = from; x < to; x += step) {
-        result.push_back(x);
+    if(step==0.0){
+        cerr<<"step can't be zero"<<endl;
+        throw "zero";
     }
+    if(step>0.0){
+        for (T x = from; x < to; x += step) {
+            //cout<<x<<endl;
+            result.push_back(x);
+        }
+    }else{
+        for (T x = from; x > to; x += step) {
+            //cout<<x<<endl;
+            result.push_back(x);
+        }
+    }
+    return result;
 }
+// map<int,int> hist(vector<int> list){
+
+// return map<int,int>();
+// }
 
 template <class First, class Second>
 auto Cartesian_product(vector<First> F, vector<Second> S)
@@ -63,11 +81,3 @@ inline std::vector<std::string> split(const std::string &s, char delimiter) {
     return tokens;
 }
 
-inline vector<double> range(double from, double to,
-                            double step) {  // generate a random float
-    vector<double> temp;
-    for (double i = from; i < to; i += step) {
-        temp.emplace_back(i);
-    }
-    return temp;
-}

@@ -134,7 +134,7 @@
             }, time);
         }
         function saveall() {
-            
+
             var range = document.getElementById('range');
             save(range.value);
             // for (var i = 0; i < file.files.length; i=i+10) {
@@ -144,7 +144,7 @@
 
         function save(i) {
             var range = document.getElementById('range');
-            range.value=i;
+            range.value = i;
             changeV();
 
             file.onchange(i);
@@ -437,6 +437,7 @@
 
         }
 
+
         var pointlight, directlight, ambientlight
         function SetLight() {
             pointlight = new THREE.PointLight(0xffffff, 1.2);
@@ -465,7 +466,6 @@
         //创建相机对象
         var camera1 = new THREE.OrthographicCamera(-s * k, s * k, s, -s, 1, 150);
 
-
         function checkCamera() {
             var obj = document.getElementsByName('radio');
             for (var i = 0; i < obj.length; i++) {
@@ -489,11 +489,12 @@
                         return;
                     }
                     if (i == 3) {
-                        camera1.position.set(40, 40, 70); //设置相机位置
+                        camera1.position.set(70, 70, 70); //设置相机位置
                         camera1.lookAt(0, 0, 0); //设置相机方向(指向的场景对象)
                         renderall();
                         return;
                     }
+
 
 
                 }

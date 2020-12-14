@@ -436,14 +436,38 @@ void Room::movie(int m, int n, double T, string path) {
         throw std::runtime_error("Ep cal error");
       }
 #endif
+<<<<<<< HEAD
       cout << "i=" << i << "\t" << std::left << E << "\t" << std::left << Ep
            << "\t" << std::left << Ee2e << "\n";
       save(path + to_string(T) + string("-") + to_string(i));
+=======
+      cout << "i=" << i << "\t" << std::left << E << "\t" << std::left << Ep
+           << "\t" << std::left << Ee2e << "\n";
+      save(path + to_string(T) + string("-") + to_string(i));
+    }
+>>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
     }
   }
 }
 
 void Room::preheat(int m, int n) {
+<<<<<<< HEAD
+  vector<array<int, 2>> queue;
+  init_queue(queue);
+  for (int i = 0; i < m; i++) {
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    shuffle(queue.begin(), queue.end(), std::default_random_engine(seed));
+    for (auto v : queue) {
+      int k = v[0];
+      int start_point_i = v[2];
+      stack<Position> path;
+      this->localSnakeMove(k, start_point_i, path);
+    }
+    if (i % n == 0) {
+      time_t now = time(0);
+      char *dt = ctime(&now);
+      printf("%s i=%d\n", dt, i);
+=======
   vector<array<int, 2>> queue;
   init_queue(queue);
   for (int i = 0; i < m; i++) {
@@ -460,10 +484,47 @@ void Room::preheat(int m, int n) {
       char *dt = ctime(&now);
       printf("%s i=%d\n", dt, i);
     }
+>>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
+    }
   }
 }
 
 void Room::save(string filename) const {  // TODO
+<<<<<<< HEAD
+  ofstream file(filename, ios::out | ios::trunc);
+  if (!file) {
+    throw("can't create file");
+  }
+  file << "# "
+       << "shape " << this->shape[0] << '\t' << this->shape[1] << '\t'
+       << this->shape[2] << "\n";
+  file << "# "
+       << "Ep ";
+  for (auto Ep_list : Ep_matrix) {
+    for (auto Ep : Ep_list) {
+      file << Ep << '\t';
+    }
+  }
+  file << "\n";
+  file << "# "
+       << "Eb ";
+  for (auto Eb_list : Eb_matrix) {
+    for (auto Eb : Eb_list) {
+      file << Eb << '\t';
+    }
+  }
+  file << "\n";
+  file << "# "
+       << "nums " << this->polymer_list.size() << "\n";
+
+  for (auto &p : polymer_list) {
+    for (const Point &point : p.chain) {
+      file << point.location[0] << '\t' << point.location[1] << '\t'
+           << point.location[2] << '\t' << point.type << '\t' << point.movable
+           << '\t'
+           //<< point.true_position
+           << "\n";
+=======
   ofstream file(filename, ios::out | ios::trunc);
   if (!file) {
     throw("can't create file");
@@ -500,12 +561,17 @@ void Room::save(string filename) const {  // TODO
     }
     file << "####"
          << "\n";
+>>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
+    }
+    file << "####"
+         << "\n";
   }
 
   file.close();
 }
 
 void Room::load(string filename) {
+<<<<<<< HEAD
   ifstream file(filename, ios::in);
   if (!file) {
     throw "file open failed";
@@ -535,13 +601,44 @@ void Room::load(string filename) {
         auto result = split(data_str, '\t');
 
         if (result.size() == 3) {
-#ifdef _WIN32
-          sscanf_s(data_str.c_str(), "%d%d%d", &this->shape[0], &this->shape[1],
-                   &this->shape[2]);
+=======
+  ifstream file(filename, ios::in);
+  if (!file) {
+    throw "file open failed";
+  }
+  stringstream filestream;
+  filestream << file.rdbuf();
+  file.close();
+
+  string temp;
+  int chain_num = 0, pos_in_chain = 0;
+  Polymer p;
+  while (getline(filestream, temp)) {
+    if (temp[0] == '#') {
+      if (temp == "####") {
+        for (auto point_tmp : p.chain) {
+          lattice[point_tmp.location] = &p.chain[point_tmp.pos_in_chain];
+        }
+
+        polymer_list[chain_num] = std::move(p);
+        chain_num++;
+        pos_in_chain = 0;
+        p = Polymer();
+      }
+      int pos = temp.find("shape");
+      if (pos != -1) {
+        auto data_str = temp.substr(pos + 6);
+        auto result = split(data_str, '\t');
+
+        if (result.size() == 3) {
+>>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
+#ifdef _WIN32 sscanf_s(data_str.c_str(), "%d%d%d", &this->shape[0],
+                                 &this->shape[1], &this->shape[2]);
 #else
           sscanf(data_str.c_str(), "%d%d%d", &this->shape[0], &this->shape[1],
                  &this->shape[2]);
 #endif
+<<<<<<< HEAD
           lattice.resize(shape[0], shape[1], shape[2]);
           continue;
         } else {
@@ -607,6 +704,73 @@ void Room::load(string filename) {
   }
   initmoves();
   file.close();
+=======
+          lattice.resize(shape[0], shape[1], shape[2]);
+          continue;
+        } else {
+          throw "shape is not 3d\n";
+        };
+      }
+      pos = temp.find("Ep");
+      if (pos != -1) {
+        auto data_str = temp.substr(pos + 3);
+        auto result = split(data_str, '\t');
+        if (result.size() == 9) {
+          Ep_matrix.resize(3);
+          for (auto &x : Ep_matrix) {
+            x.resize(3);
+          }
+
+          sscanf_s(data_str.c_str(), "%lf%lf%lf%lf%lf%lf%lf%lf%lf",
+                   &this->Ep_matrix[0][0], &this->Ep_matrix[0][1],
+                   &this->Ep_matrix[0][2], &this->Ep_matrix[1][0],
+                   &this->Ep_matrix[1][1], &this->Ep_matrix[1][2],
+                   &this->Ep_matrix[2][0], &this->Ep_matrix[2][1],
+                   &this->Ep_matrix[2][2]);
+          continue;
+        } else if (result.size() == 4) {
+          Ep_matrix.resize(2);
+          for (auto &x : Ep_matrix) {
+            x.resize(2);
+          }
+
+          sscanf_s(data_str.c_str(), "%lf%lf%lf%lf", &this->Ep_matrix[0][0],
+                   &this->Ep_matrix[0][1], &this->Ep_matrix[1][0],
+                   &this->Ep_matrix[1][1]);
+          continue;
+        } else {
+          printf("Ep_matrix is not squre,num=%ld\n", result.size());
+          for (auto &x : result) {
+            cout << "Ep" << x;
+          }
+          cout << "\n";
+          throw "Ep_matrix is not squre\n";
+        };
+      }
+      pos = temp.find("Eb");
+      if (pos != -1) {
+        continue;
+      }
+      pos = temp.find("nums");
+      if (pos != -1) {
+        auto data_str = temp.substr(pos + 4);
+        int nums;
+        sscanf_s(data_str.c_str(), "%d", &nums);
+        polymer_list.resize(nums);
+        continue;
+      };
+    } else {
+      int x, y, z, t, m;
+      sscanf_s(temp.c_str(), "%d%d%d%d%d", &x, &y, &z, &t, &m);
+
+      p.chain.push_back(Point(vec{x, y, z}, chain_num, pos_in_chain, t, m));
+      // ;
+      pos_in_chain++;
+    }
+  }
+  initmoves();
+  file.close();
+>>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
 }
 
 double Room::cal_Ec() const {
@@ -1065,6 +1229,7 @@ double Room::cal_one_Eb(int) const { return 0.0; }
 // TODO
 double Room::count_parallel_nearby24(const vec &point1, const vec &point2,
                                      deque<Position> &que, int cal_type) const {
+<<<<<<< HEAD
   double num_self = 0, num_others = 0;
   int crystal_nums = 0;
   int chain_num;
@@ -1073,13 +1238,24 @@ double Room::count_parallel_nearby24(const vec &point1, const vec &point2,
          << endl;
     throw "NULL";
   }
+=======
+  double num_self = 0, num_others = 0;
+  int crystal_nums = 0;
+  int chain_num;
+  if (lattice[point1] == nullptr || lattice[point2] == nullptr) {
+    cerr << __FUNCTION__ << ":  line:" << __LINE__ << "  " << point1 << "null"
+         << endl;
+    throw "NULL";
+  }
+>>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
 #ifdef TRUE_POSITION
 
-  if (lattice[point1]->true_position != 0 ||
-      lattice[point2]->true_position != 0) {
+      if (lattice[point1]->true_position != 0 ||
+          lattice[point2]->true_position != 0) {
     return 0;
   }
 #endif
+<<<<<<< HEAD
   chain_num = lattice[point1]->chain_num;
   int type1 = max(lattice[point1]->type, lattice[point2]->type);
   vec p1, p2;
@@ -1100,8 +1276,30 @@ double Room::count_parallel_nearby24(const vec &point1, const vec &point2,
       continue;
     } else {
       crystal_nums++;
-#ifdef TRUE_POSITION
-      if (lattice[p1]->true_position != 0 || lattice[p2]->true_position != 0) {
+=======
+  chain_num = lattice[point1]->chain_num;
+  int type1 = max(lattice[point1]->type, lattice[point2]->type);
+  vec p1, p2;
+  vec direction = cal_direction(point1, point2);
+
+  // cout << direction<<endl;
+  for (auto &direc : moves) {
+    if ((direc == direction) || if_opposite(direc, direction) ||
+        (direc == vec{0, 0, 0})) {
+      // cout << vec{ x,y,z };
+      continue;
+    }
+    p1 = (point1 + direc) % shape;
+    p2 = (point2 + direc) % shape;
+    int result = get_chain_num(p1, p2);
+
+    if (result == -1) {
+      continue;
+    } else {
+      crystal_nums++;
+>>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
+#ifdef TRUE_POSITION if (lattice[p1]->true_position != 0 ||
+                               lattice[p2]->true_position != 0) {
         continue;
       }
 #endif
@@ -1124,6 +1322,7 @@ double Room::count_parallel_nearby24(const vec &point1, const vec &point2,
         num_others += Ep_cross;
       }
     }
+<<<<<<< HEAD
   }
 
   if (cal_type == 0) {
@@ -1134,6 +1333,17 @@ double Room::count_parallel_nearby24(const vec &point1, const vec &point2,
   } else {
     return num_others + num_self;
   }
+=======
+
+    if (cal_type == 0) {
+      return num_others + num_self / 2.0;
+      // cout << num_others << ',' << num_self << endl;
+    } else if (cal_type == 2) {
+      return crystal_nums;
+    } else {
+      return num_others + num_self;
+    }
+>>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
 }
 
 // double Room::count_parallel_nearby12(vec &point1, vec &point2,
@@ -1422,6 +1632,7 @@ double Room::cal_Rg() const  //
 }
 
 int Room::get_h2(int n) const {
+<<<<<<< HEAD
   const Polymer &p = polymer_list[n];
   vec vector_end;
   vec point_last = p.chain[0].location;
@@ -1446,6 +1657,32 @@ double Room::cal_h2() const  //
   } else {
     return 0;
   }
+=======
+    const Polymer &p = polymer_list[n];
+    vec vector_end;
+    vec point_last = p.chain[0].location;
+    for (int i = 1; i < p.chain.size(); i++) {
+      vec point = p.chain[i].location;
+      vector_end = vector_end + cal_direction(point, point_last);
+    }
+    return vector_end * vector_end;
+  }
+  double Room::cal_h2() const  //
+  {
+    // throw "NOT DONE!";
+    int num = 0;
+    double s = 0;
+    for (int i = 0; i < this->polymer_list.size(); i++)
+      if (polymer_list[i].chain.size() <= 2) {
+        s += get_h2(i);
+        num++;
+      }
+    if (num != 0) {
+      return s / num;
+    } else {
+      return 0;
+    }
+>>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
 }
 
 #ifdef TRUE_POSITION
@@ -1462,17 +1699,17 @@ stack<Position> Room::repair(stack<Position> &path) {
   return no_use;
 }
 #else
-stack<Position> Room::repair(stack<Position> &path) {
-  stack<Position> no_use;
-  while (!path.empty()) {
-    vec v1 = path.top();
-    path.pop();
-    vec v2 = path.top();
-    path.pop();
-    stepMove(v1, v2, no_use);
+  stack<Position> Room::repair(stack<Position> & path) {
+    stack<Position> no_use;
+    while (!path.empty()) {
+      vec v1 = path.top();
+      path.pop();
+      vec v2 = path.top();
+      path.pop();
+      stepMove(v1, v2, no_use);
+    }
+    return no_use;
   }
-  return no_use;
-}
 
 #endif
 inline double Room::cal_ifline(const vec &p1, const vec &p2,
@@ -1524,6 +1761,7 @@ double Room::cal_PSM() const {
 
 double Room::cal_PSM_point(const vec &p) const { return 0.0; }
 
+<<<<<<< HEAD
 void Room::transfer_to() {
   for (int i = 0; i < polymer_list.size(); i++) {
     vector<Point> chain;
@@ -1543,6 +1781,27 @@ void Room::transfer_to() {
     }
     polymer_list[i].chain = chain;
   }
+=======
+  void Room::transfer_to() {
+    for (int i = 0; i < polymer_list.size(); i++) {
+      vector<Point> chain;
+      Point point = polymer_list[i].chain[0];
+      Point point1bak = point;
+      chain.emplace_back(point);
+      for (int j = 1; j < polymer_list[i].chain.size(); j++)
+
+      {
+        Point point2 = polymer_list[i].chain[j];
+        Point point2bak = point2;
+        point2.location =
+            point.location + cal_direction(point1bak.location, point2.location);
+        chain.emplace_back(point2);
+        point = point2;
+        point1bak = point2bak;
+      }
+      polymer_list[i].chain = chain;
+    }
+>>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
 }
 
 int Room::get_max_nucleus(int layer) {
@@ -1561,6 +1820,34 @@ int Room::get_max_nucleus(int layer) {
   }
   //    cout<<"bitmap constructed"<<endl;
   return matrix::ConnectedComponentLabeling(bitmap);
+}
+int Room::get_max_nucleus() {
+  int count = 0;
+  // cout<<Ep_matrix[2][2]<<endl;
+  // return 0;
+
+  for (auto &polymer : polymer_list) {
+    auto &point_last = polymer[0];
+    for (int i = 1; i < polymer.chain.size(); i++) {
+      auto &point = polymer[i];
+      deque<vec> q;
+      double res =
+          count_parallel_nearby24(point.location, point_last.location, q, 2);
+      // cout<<res<<endl;
+      if (res >= 5) {
+        count++;
+
+      } else {
+        if (point.type == 1) {
+        } else {
+          point_last.type = 0;
+          point.type = 0;
+        }
+      }
+    }
+  }
+  //    cout<<"bitmap constructed"<<endl;
+  return count;
 }
 int Room::get_max_nucleus() {
   int count = 0;
@@ -1615,6 +1902,31 @@ int Room::get_max_straight_length_p(int i) {
   return m;
 }
 
+<<<<<<< HEAD
+int Room::get_max_straight_length_p(int i) {
+  const Polymer &p = polymer_list[i];
+  if (p.chain.size() <= 2) {
+    return 0;
+  }
+  int m = 0;
+  int length = 0;
+  vec point1 = p.chain[0].location;
+  vec point2 = p.chain[1].location;
+  for (int i = 2; i < p.chain.size(); i++) {
+    vec point3 = p.chain[i].location;
+    if (cal_ifline(point1, point2, point3) == 0) {
+      length++;
+    } else {
+      m = max(m, length);
+      length = 0;
+    }
+    point1 = point2;
+    point2 = point3;
+  }
+  m = max(m, length);
+  return m;
+}
+
 int Room::get_max_straight_length() {
   int m = 0;
   for (int i = 0; i < polymer_list.size(); i++) {
@@ -1632,6 +1944,25 @@ double Room::get_average_straight_length() {
     }
   }
   return double(count) / num;
+=======
+  int Room::get_max_straight_length() {
+    int m = 0;
+    for (int i = 0; i < polymer_list.size(); i++) {
+      m = max(m, get_max_straight_length_p(i));
+    }
+    return m;
+  }
+  double Room::get_average_straight_length() {
+    int count = 0;
+    int num = 0;
+    for (int i = 0; i < polymer_list.size(); i++) {
+      if (get_max_straight_length_p(i) > 0) {
+        count += get_max_straight_length_p(i);
+        num++;
+      }
+    }
+    return double(count) / num;
+>>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
 }
 ostream &operator<<(ostream &o, Point &p) {
   o << p.location;

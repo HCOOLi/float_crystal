@@ -15,8 +15,14 @@ using namespace std;
 //
 class Simulator {
  public:
-  virtual void install_model(){};
-  virtual void simulate(){};
+  // virtual void install_model(){};
+  // virtual void simulate(){};
+  // virtual void simulate1(){};
+  // virtual void simulate2(){};
+  // virtual void simulate3(){};
+  // virtual void simulate3(){};
+  // virtual void parameters(){};
+  // virtual void parameters2() {};
 };
 class SecondNuclear : public Simulator {
  public:
@@ -177,8 +183,15 @@ class ExtendedChainCrystal : public Simulator {
     stringstream path;
     time_t now = time(0);
     auto ltm = localtime(&now);
+#if 1
+    mkdir("./data/IC_stepheating/", 00755);
+    path << "./data/IC_stepcooling/";
+#else
     mkdir("./data/IC_isothermal_less", 00755);
     path << "./data/IC_isothermal_less/";
+
+#endif
+
     path << 1900 + ltm->tm_year << "-" << 1 + ltm->tm_mon << "-" << ltm->tm_mday
          << "/";
 
@@ -211,15 +224,15 @@ class ExtendedChainCrystal : public Simulator {
     }
 #elif 0
 
-    for (auto a : myrange<double>(0.1, 10, 0.05)) {
+    for (auto a : myrange<double>(0.1, 10, 0.01)) {
       cout << a << endl;
-      room.movie(100000, 200000, a, spath);
+      room.movie(10000, 200000, a, spath);
     }
 #elif 0
     double Tm = 0.3 * Ee2e + 3.5 * Ep2;
     double Ticm = 0.2 * Ee2e + 3.5 * Ep2 + 1.6 * Ep12;
     room.preheat(10000, 1000);
-    for (auto a : myrange<double>(Ticm, Tm, -0.05)) {
+    for (auto a : myrange<double>(Ticm, Tm, -0.01)) {
       cout << a << endl;
       room.movie(10000, 200000, a, spath);
     }
@@ -231,6 +244,51 @@ class ExtendedChainCrystal : public Simulator {
     room.movie(500000, 20000, T_crystal, spath);
 
 #endif
+    fclose(log_file);
+  }
+
+  virtual void simulate4(tuple<double, double, double, int> param, double T) {
+    // auto [Ep2, Ee2e,length, T]= param;
+    auto Ep2 = get<0>(param);
+    auto Ep12 = get<1>(param);
+    auto Ee2e = get<2>(param);
+    auto length = get<3>(param);
+    // auto T = get<4>(param);
+
+    stringstream path;
+    time_t now = time(0);
+    auto ltm = localtime(&now);
+    mkdir("./data/IC_iso_Ef=1", 00755);
+    path << "./data/IC_iso_Ef=1/";
+    path << 1900 + ltm->tm_year << "-" << 1 + ltm->tm_mon << "-" << ltm->tm_mday
+         << "/";
+
+    string path_date;
+    path >> path_date;
+    mkdir(path_date.c_str(), 00755);
+    path.clear();
+    path << path_date << "Ep2=" << Ep2 << "Ep12=" << Ep12 << "Ee2e=" << Ee2e
+         << "T=" << T << '/';
+    string spath;
+    path >> spath;
+    mkdir(spath.c_str(), 00755);
+    auto log_file = freopen((spath + string("out.log")).c_str(), "w", stdout);
+    printf("Runing task Ep12=%f,Ep=%f ,Ee2e=%f,length=%d,T=%g\n", Ep12, Ep2,
+           Ee2e, length, T);
+    Room room(length, length, length,
+              vector<vector<double>>{{0, 0, 0}, {0, 0, Ep12}, {0, Ep12, Ep2}},
+              vector<vector<double>>{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
+              vector<vector<double>>{{0, 0, 0}, {0, 0, 0}, {0, 0, Ee2e}}, 24);
+    install_model(room);
+    cout << "installed" << endl;
+    room.save(spath + string("init"));
+
+    double Tm = 0.3 * Ee2e + 2.5 * Ep2;
+    // double Ticm = 0.2 * Ee2e + 3.3 * Ep2 + 1.6 * Ep12;
+    double T_crystal = Tm + T;
+    room.preheat(100000, 10000);
+    // room.movie(50000, 20000, Tm, spath);
+    room.movie(1000000, 20000, T_crystal, spath);
     fclose(log_file);
   }
 
@@ -265,15 +323,14 @@ class UreaCrystal : public Simulator {
   virtual void simulate(tuple<double, double, int, double> param) {
     // auto [Ep2, Ee2e,length, T]= param;
     auto Ep2 = get<0>(param);
-
     auto Ee2e = get<1>(param);
     auto length = get<2>(param);
     auto T = get<3>(param);
     stringstream path;
     time_t now = time(0);
     auto ltm = localtime(&now);
-    mkdir("./data/", 00744);
-    path << "./data/";
+    mkdir("./ureadata/", 00744);
+    path << "./ureadata/";
     path << 1900 + ltm->tm_year << "-" << 1 + ltm->tm_mon << "-" << ltm->tm_mday
          << "/";
 
@@ -281,8 +338,7 @@ class UreaCrystal : public Simulator {
     path >> path_date;
     mkdir(path_date.c_str(), 00744);
     path.clear();
-    path << path_date << "smallEp2=" << Ep2 << "Ee2e=" << Ee2e << "T=" << T
-         << '/';
+    path << path_date << "Ep2=" << Ep2 << "Ee2e=" << Ee2e << "T=" << T << '/';
     string spath;
     path >> spath;
     // cout<<spath<<endl;
@@ -303,21 +359,22 @@ class UreaCrystal : public Simulator {
     room.movie(20000, 100, T, spath);
     fclose(log_file);
   }
-  virtual void simulate2(tuple<double, double, int> param) {
+  virtual void simulate2(tuple<double, int> param, double Ep2) {
     // step heating &&cooling .
     // auto [Ep2, Ee2e,length, T]= param;//std=c++17
-    auto Ep2 = get<0>(param);
-    auto Ee2e = get<1>(param);
-    auto length = get<2>(param);
+    // auto Ep2 = get<0>(param);
+    auto Ee2e = get<0>(param);
+    auto length = get<1>(param);
     stringstream path;
     time_t now = time(0);
     auto ltm = localtime(&now);
+
 #if 1
-    mkdir("./30datastepcool/", 00744);
-    path << "./30datastepcool/";
+    mkdir("./ureastepcool/", 00744);
+    path << "./ureastepcool/";
 #else
-    mkdir("./30datastepheat/", 00744);
-    path << "./30datastepheat/";
+    mkdir("./ureastepheat/", 00744);
+    path << "./ureastepheat/";
 #endif
     path << 1900 + ltm->tm_year << "-" << 1 + ltm->tm_mon << "-" << ltm->tm_mday
          << "/";
@@ -337,55 +394,22 @@ class UreaCrystal : public Simulator {
               vector<vector<double>>{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
               vector<vector<double>>{{0, 0, 0}, {0, 0, 0}, {0, 0, Ee2e}}, 24);
     install_model(room);
+    room.Ef0 = 0;
 
     cout << "installed" << endl;
     room.save(spath + string("init"));
 #if 1
     room.preheat(100000, 10000);
-    for (auto a : myrange<double>(5.0, 0.0, -0.1)) {
+    for (auto a : myrange<double>(10.0, 0.1, -0.02)) {
       cout << a << endl;
-      room.movie(100000, 20000, a, spath);
+      room.movie(10000, 200000, a, spath);
     }
 #else
-    for (auto a : myrange<double>(0.1, 5, 0.1)) {
+    for (auto a : myrange<double>(0.1, 10.0, 0.02)) {
       cout << a << endl;
-      room.movie(100000, 20000, a, spath);
+      room.movie(10000, 200000, a, spath);
     }
 #endif
-    fclose(log_file);
-  }
-  virtual void simulate3(tuple<double, double, int> param) {
-    auto Ep2 = get<0>(param);
-    auto Ee2e = get<1>(param);
-    auto length = get<2>(param);
-    stringstream path;
-    time_t now = time(0);
-    auto ltm = localtime(&now);
-    mkdir("./dataisothermal/", 00744);
-    path << "./dataisothermal/";
-    path << 1900 + ltm->tm_year << "-" << 1 + ltm->tm_mon << "-" << ltm->tm_mday
-         << "/";
-    string path_date;
-    path >> path_date;
-    path.clear();
-    mkdir(path_date.c_str(), 00744);
-    path << path_date << "Ep2=" << Ep2 << "Ee2e=" << Ee2e << '/';
-    string spath;
-    path >> spath;
-    mkdir(spath.c_str(), 00744);
-    auto log_file = freopen((spath + string("out.log")).c_str(), "w", stdout);
-    printf("Runing task,Ep=%1g ,Ee2e=%1g,length=%d\n", Ep2, Ee2e, length);
-    Room room(length, length, length,
-              vector<vector<double>>{{0, 0, 0}, {0, 0, 0}, {0, 0, Ep2}},
-              vector<vector<double>>{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}},
-              vector<vector<double>>{{0, 0, 0}, {0, 0, 0}, {0, 0, Ee2e}}, 24);
-    install_model(room);
-
-    cout << "installed" << endl;
-    room.save(spath + string("init"));
-
-    // room.preheat(100000, 10000);
-    // room.movie(1000000, 10000, , spath);
     fclose(log_file);
   }
   auto parameters() -> vector<tuple<double, double, int, double>> {
@@ -401,10 +425,10 @@ class UreaCrystal : public Simulator {
     auto length = vector<int>{30};
     return Cartesian_product(Ep2, Ee2e, length);
   }
-  auto parameters3() -> vector<tuple<double, double, int>> {
-    auto Ep2 = myrange<double>(0.2, 0.9, 0.2);
-    auto Ee2e = myrange<double>(4.0, 8.1, 2);
-    auto length = vector<int>{24};
-    return Cartesian_product(Ep2, Ee2e, length);
+  auto parameters3() -> vector<tuple<double, int>> {
+    // auto Ep2 = myrange<double>(0.0, 0.9, 0.1);
+    auto Ee2e = myrange<double>(0.0, 12.1, 1);
+    auto length = vector<int>{40};
+    return Cartesian_product(Ee2e, length);
   }
 };

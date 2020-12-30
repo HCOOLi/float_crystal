@@ -1,0 +1,7 @@
+#! /bin/bash
+#BSUB -q hpc_linux
+#BSUB -n 24
+#BSUB -o output.%J
+#BSUB -e error.%J
+#BSUB -a intelmpi
+mpirun.lsf lmp_mpi -in in.lammps

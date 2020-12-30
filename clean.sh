@@ -1,0 +1,1 @@
+rm error.* output.* core.*

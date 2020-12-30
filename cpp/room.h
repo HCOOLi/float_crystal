@@ -100,7 +100,6 @@ class Room {
                     : (point2[i] + 1) % shape[i] - (point1[i] + 1) % shape[i];
     }
     return temp;
-<<<<<<< HEAD
   }
   int distance_squre(const vec &p1, const vec &p2) const {
     vec direction = cal_direction(p2, p1);
@@ -117,6 +116,9 @@ class Room {
                      int moveable);
   void input_one_FCC(vec init, int length, int direction, int fold_direction,
                      vector<int>, int moveable);
+  void input_one_FCC_jump(vec init, int length, int direction,
+                          int fold_direction, vector<int> type_list,
+                          int movable);
 
   // move
 
@@ -182,90 +184,9 @@ class Room {
   int num_of_polymers() const { return polymer_list.size(); }
 
   ~Room() = default;
-=======
-  }
-  int distance_squre(const vec &p1, const vec &p2) const {
-    vec direction = cal_direction(p2, p1);
-    return direction * direction;
-  }
-  bool canMove(const vec &point, const vec &direction) const;
-  // input chains
-  void inputECC(int num, int length);
-  void inputcircle(int num, int length);
-  void input_stop_chain();
-  void input_stop_chain2();
-  void input_one_circle(vec init, int length, int direction, int moveable);
-  void input_one_ECC(vec init, int length, int direction, vector<int> list,
-                     int moveable);
-  void input_one_FCC(vec init, int length, int direction, int fold_direction,
-                     vector<int>, int moveable);
-
-  // move
-
-  void movie(int m, int n, double T, string path);
-
-  void preheat(int m, int n);
-  void init_queue(vector<array<int, 2>> &queue);
-  // calculate something
-  void lazy_delete_chain(int i) {
-    for (auto &p : polymer_list[i].chain) {
-      if (lattice[p.location] != &p) {
-        throw "somethin wrong";
-      } else {
-        lattice[p.location] = nullptr;
-      }
-    }
-
-    polymer_list[i].chain.clear();
-  }
-
-  double cal_Ec() const;
-  double cal_one_Ec(int) const;
-  double cal_dEc(deque<Position> &path) const;
-  double cal_dEf(deque<Position> &path) const;
-  double cal_dEc_nearby(stack<Position> path) const;
-  double cal_ifline(const vec &p1, const vec &p2, const vec &p3) const;
-
-  double cal_Ep() const;
-  double cal_one_Ep(int) const;
-  double cal_dEp_nearby(stack<Position> path);
-  double cal_dEp(deque<Position> &path) const;
-  double cal_dEb_nearby(stack<vec> path);
-
-  double cal_Eb() const;
-  double cal_one_Eb(int) const;
-  double cal_Eb_point(const vec &p, int type) const;
-
-  double cal_Eb_point(const vec &p) const;
-
-  // double cal_dEb(deque<vec> &path)const;
-
-  // double cal_Eb_point(vec & p, vec & p2) const;
-
-  /*double count_parallel_nearby(vec & point1, vec & point2, int i, int j,
-  deque<vec>& que, int cal_type)const; double count_parallel_nearby24(vec &
-  point1, vec & point2, int i, int j, const  deque<vec>& que, int
-  cal_type)const;*/
-  double count_parallel_nearby24(const vec &point1, const vec &point2,
-                                 deque<Position> &que, int cal_type) const;
-
-  // double count_parallel_nearby8(vec & point1, vec & point2, int i, int j,
-  // deque<vec>& que, int cal_type)const; 	double count_parallel_B(vec & point1,
-  //vec & point2, deque<vec>& que, int cal_type) const;
-  double cal_average_thick() const;
-
-  double cal_Rg() const;
-  double cal_h2() const;
-  double cal_PSM() const;
-  double cal_PSM_point(const vec &) const;
-  void transfer_to();
-
-  int num_of_polymers() const { return polymer_list.size(); }
-
-  ~Room() = default;
->>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
-#ifdef TRUE_POSITION void stepMove(vec &position, vec &next_position,
-                                     stack <Position> &path, int true_p);
+#ifdef TRUE_POSITION
+  void stepMove(vec &position, vec &next_position, stack<Position> &path,
+                int true_p);
 #else
   void stepMove(vec &position, vec &next_position, stack<Position> &path);
 
@@ -274,9 +195,9 @@ class Room {
 
   void localSnakeMove(int i, int st, stack<Position> &path);
 
-  // double Room::count_parallel_nearby4(vec &point1, vec &point2,
-  // 									deque<Position>
-  // &que, int cal_type) const;
+  // double Room::count_parallel_nearby4(vec
+  // &point1, vec &point2,
+  // deque<Position> &que, int cal_type) const;
   double count_parallel_nearby8(vec &point1, vec &point2, deque<Position> &que,
                                 int cal_type) const;
 
@@ -285,24 +206,12 @@ class Room {
   void load(string filename);
 
   int get_max_nucleus(int layer);
-  int get_max_nucleus();
-
-<<<<<<< HEAD
-  int get_h2(int n) const;
-  int get_max_straight_length();
-  double get_average_straight_length();
-  int get_max_straight_length_p(int i);
-=======
-  int get_max_nucleus(int layer);
-  int get_max_nucleus();
+  tuple<int, int> get_max_nucleus();
 
   int get_h2(int n) const;
   int get_max_straight_length();
   double get_average_straight_length();
   int get_max_straight_length_p(int i);
-
-
->>>>>>> 654ff300de8486ff57265099df58d8b8f4789a36
 
   double cal_if_inter(int i) const;
 

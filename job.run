@@ -1,0 +1,4 @@
+for i in 0.25 0.30 0.35 0.40 0.45 0.50
+do
+    bsub -q  hpc_linux -n 12 -o output.%J -e error.%J /home/xujun/float/main 12 $i
+done

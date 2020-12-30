@@ -1,0 +1,15 @@
+make ICmain
+if [ $? -eq 0 ]; then
+
+    for i in 0.25 0.30 0.35 0.40 0.45 0.50
+    do
+        for j in 1 2 3 4 5 6 7 8 9
+    
+            do
+                bsub -q  hpc_linux -n 12 -o output.%J -e error.%J /home/xujun/float/main $j $i
+            done
+        done
+    
+else
+    echo "make failed"
+fi

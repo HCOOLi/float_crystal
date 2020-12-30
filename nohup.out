@@ -1,1 +1,2914 @@
-succeed
+[W 11:58:12.982 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[I 11:58:12.984 NotebookApp] Serving notebooks from local directory: /home/hcooh/projects/float_crystal
+[I 11:58:12.984 NotebookApp] Jupyter Notebook 6.1.4 is running at:
+[I 11:58:12.984 NotebookApp] http://ubuntu-1007:8888/
+[I 11:58:12.984 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 11:58:23.504 NotebookApp] Kernel started: 3d76cd79-2844-42c6-9e17-1a7019143615, name: python3
+[I 12:00:16.060 NotebookApp] Saving file at /plot.ipynb
+[I 12:00:23.512 NotebookApp] Saving file at /plot.ipynb
+[I 12:00:26.634 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:261b0e618b2c414a88ec4ba281122716
+[I 12:00:26.844 NotebookApp] Kernel restarted: 3d76cd79-2844-42c6-9e17-1a7019143615
+[I 12:00:26.856 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:261b0e618b2c414a88ec4ba281122716
+[I 12:00:26.856 NotebookApp] Replaying 3 buffered messages
+[I 12:02:23.547 NotebookApp] Saving file at /plot.ipynb
+[I 12:18:23.588 NotebookApp] Saving file at /plot.ipynb
+[W 12:19:15.020 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 17.13ms referer=None
+[I 12:19:17.293 NotebookApp] Saving file at /plot.ipynb
+[I 12:20:23.909 NotebookApp] Saving file at /plot.ipynb
+[I 12:22:23.595 NotebookApp] Saving file at /plot.ipynb
+[I 12:23:03.697 NotebookApp] Saving file at /plot.ipynb
+[I 12:23:21.075 NotebookApp] Saving file at /plot.ipynb
+[I 12:23:38.420 NotebookApp] Saving file at /plot.ipynb
+[I 12:24:23.601 NotebookApp] Saving file at /plot.ipynb
+[I 12:26:59.593 NotebookApp] Saving file at /plot.ipynb
+[I 12:27:16.332 NotebookApp] Saving file at /plot.ipynb
+[I 12:27:26.232 NotebookApp] Saving file at /plot.ipynb
+[I 12:27:29.752 NotebookApp] Saving file at /plot.ipynb
+[I 12:27:59.492 NotebookApp] Saving file at /plot.ipynb
+[I 12:28:02.327 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:261b0e618b2c414a88ec4ba281122716
+[I 12:28:02.637 NotebookApp] Kernel restarted: 3d76cd79-2844-42c6-9e17-1a7019143615
+[I 12:28:02.698 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:261b0e618b2c414a88ec4ba281122716
+[I 12:28:02.698 NotebookApp] Replaying 3 buffered messages
+[I 12:28:23.587 NotebookApp] Saving file at /plot.ipynb
+[I 12:30:25.106 NotebookApp] Saving file at /plot.ipynb
+[I 12:34:19.548 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:261b0e618b2c414a88ec4ba281122716
+[I 12:34:20.779 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:261b0e618b2c414a88ec4ba281122716
+[I 13:39:14.703 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:261b0e618b2c414a88ec4ba281122716
+[I 13:39:16.535 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:261b0e618b2c414a88ec4ba281122716
+[W 13:42:16.538 NotebookApp] WebSocket ping timeout after 119970 ms.
+[I 13:42:21.541 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:261b0e618b2c414a88ec4ba281122716
+[I 13:44:27.252 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:261b0e618b2c414a88ec4ba281122716
+[W 14:01:17.823 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 15.90ms referer=None
+[I 14:33:48.252 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:261b0e618b2c414a88ec4ba281122716
+[I 14:42:58.610 NotebookApp] 302 GET / (166.111.88.74) 1.06ms
+[I 14:51:02.043 NotebookApp] Saving file at /plot.ipynb
+[I 14:52:33.046 NotebookApp] Saving file at /plot.ipynb
+[I 14:52:35.457 NotebookApp] Saving file at /plot.ipynb
+[I 14:52:52.410 NotebookApp] Saving file at /plot.ipynb
+[I 14:52:58.492 NotebookApp] Saving file at /plot.ipynb
+[I 14:53:02.020 NotebookApp] Saving file at /plot.ipynb
+[I 14:53:45.472 NotebookApp] Saving file at /plot.ipynb
+[I 14:53:48.356 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:8b1bbed68e1e43d68277ed9d53867a76
+[I 14:53:48.675 NotebookApp] Kernel restarted: 3d76cd79-2844-42c6-9e17-1a7019143615
+[I 14:53:48.687 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:8b1bbed68e1e43d68277ed9d53867a76
+[I 14:53:48.687 NotebookApp] Replaying 3 buffered messages
+[I 14:54:43.970 NotebookApp] Saving file at /plot.ipynb
+[I 14:55:02.033 NotebookApp] Saving file at /plot.ipynb
+[W 14:55:29.876 NotebookApp] 404 GET /static/notebook/js/main.min.js.map (166.111.88.74) 10.87ms referer=None
+[I 14:57:03.686 NotebookApp] Saving file at /plot.ipynb
+[I 14:57:22.240 NotebookApp] Saving file at /plot.ipynb
+[I 14:57:41.775 NotebookApp] Saving file at /plot.ipynb
+[I 14:58:46.101 NotebookApp] Saving file at /plot.ipynb
+[I 14:58:51.762 NotebookApp] Saving file at /plot.ipynb
+[I 15:00:05.725 NotebookApp] 302 GET / (167.248.133.37) 1.05ms
+[I 15:00:06.271 NotebookApp] 302 GET / (167.248.133.37) 1.13ms
+[I 15:00:06.830 NotebookApp] 302 GET /tree (167.248.133.37) 1.48ms
+[I 15:05:02.086 NotebookApp] Saving file at /plot.ipynb
+[I 15:05:07.437 NotebookApp] Saving file at /plot.ipynb
+[I 15:06:17.699 NotebookApp] Saving file at /plot.ipynb
+[I 15:06:56.415 NotebookApp] Saving file at /plot.ipynb
+[I 15:07:03.666 NotebookApp] Saving file at /plot.ipynb
+[W 15:17:04.672 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.21ms referer=None
+[I 15:17:16.136 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:8b1bbed68e1e43d68277ed9d53867a76
+[I 15:17:18.875 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:8b1bbed68e1e43d68277ed9d53867a76
+[W 15:20:18.876 NotebookApp] WebSocket ping timeout after 119941 ms.
+[I 15:20:23.880 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:8b1bbed68e1e43d68277ed9d53867a76
+[I 15:46:49.341 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:8b1bbed68e1e43d68277ed9d53867a76
+[W 15:48:19.343 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 15:48:24.348 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:8b1bbed68e1e43d68277ed9d53867a76
+[I 16:25:01.404 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:8b1bbed68e1e43d68277ed9d53867a76
+[I 16:25:31.072 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:8b1bbed68e1e43d68277ed9d53867a76
+[W 19:56:28.718 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.33ms referer=None
+[W 00:53:37.430 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.87ms referer=None
+[I 01:29:33.909 NotebookApp] 302 GET / (183.136.225.42) 0.98ms
+[I 01:29:34.103 NotebookApp] 302 GET /tree? (183.136.225.42) 1.26ms
+[I 01:29:34.208 NotebookApp] 302 GET / (183.136.225.42) 1.00ms
+[I 01:29:34.305 NotebookApp] 302 GET /tree? (183.136.225.42) 1.23ms
+[W 08:06:18.146 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 2.74ms referer=None
+[W 08:39:35.362 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 2.72ms referer=None
+[I 08:58:21.221 NotebookApp] 302 GET / (166.111.88.74) 1.35ms
+[I 08:59:17.242 NotebookApp] Saving file at /plot.ipynb
+[I 08:59:26.618 NotebookApp] Saving file at /plot.ipynb
+[I 09:00:24.598 NotebookApp] Saving file at /plot.ipynb
+[I 09:02:24.587 NotebookApp] Saving file at /plot.ipynb
+[I 09:59:30.898 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:1ad6635fa1a14ea68420cdcec55daf52
+[W 10:35:39.096 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.19ms referer=None
+[I 12:23:05.771 NotebookApp] 302 GET / (166.111.88.74) 1.49ms
+[I 12:25:08.632 NotebookApp] Saving file at /plot.ipynb
+[I 12:25:27.427 NotebookApp] Saving file at /plot.ipynb
+[I 12:25:43.806 NotebookApp] Saving file at /plot.ipynb
+[I 12:27:08.611 NotebookApp] Saving file at /plot.ipynb
+[W 12:28:15.128 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 3.33ms referer=None
+[W 12:34:32.078 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.06ms referer=None
+[I 12:37:09.176 NotebookApp] Saving file at /plot.ipynb
+[I 12:37:17.516 NotebookApp] Saving file at /plot.ipynb
+[I 12:39:08.627 NotebookApp] Saving file at /plot.ipynb
+[I 12:41:08.646 NotebookApp] Saving file at /plot.ipynb
+[I 12:46:05.399 NotebookApp] Saving file at /plot.ipynb
+[I 12:47:08.656 NotebookApp] Saving file at /plot.ipynb
+[I 13:07:47.279 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[I 13:07:48.311 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[W 13:09:18.314 NotebookApp] WebSocket ping timeout after 90002 ms.
+[I 13:09:23.318 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[I 13:12:27.059 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[W 13:13:57.062 NotebookApp] WebSocket ping timeout after 90003 ms.
+[I 13:14:02.065 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[I 13:42:23.696 NotebookApp] 302 GET / (89.248.174.3) 1.10ms
+[I 13:54:24.187 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[W 13:56:54.191 NotebookApp] WebSocket ping timeout after 119885 ms.
+[I 13:56:59.195 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[I 14:12:38.220 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[I 14:17:07.818 NotebookApp] Saving file at /plot.ipynb
+[W 15:22:45.618 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 3.21ms referer=None
+[W 15:28:11.454 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 3.00ms referer=None
+[I 16:56:43.415 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[I 16:56:45.233 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[W 16:59:45.236 NotebookApp] WebSocket ping timeout after 119963 ms.
+[I 16:59:50.239 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[I 17:29:05.685 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[I 17:42:34.640 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:f1658f65577a40f58fe5cc7b6951d41c
+[I 18:40:01.214 NotebookApp] 302 GET / (139.162.83.10) 1.21ms
+[W 19:28:35.212 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 3.21ms referer=None
+[W 19:33:29.335 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 3.11ms referer=None
+[W 20:03:38.537 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 3.20ms referer=None
+[W 20:15:35.905 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.71ms referer=None
+[W 20:54:05.036 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.12ms referer=None
+[W 11:24:29.775 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 2.99ms referer=None
+[W 13:32:50.654 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.13ms referer=None
+[W 15:36:08.375 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 12.29ms referer=None
+[I 15:37:12.416 NotebookApp] 302 GET / (139.162.83.10) 1.23ms
+[I 20:42:12.552 NotebookApp] 302 GET / (162.142.125.56) 0.95ms
+[I 20:42:13.163 NotebookApp] 302 GET / (162.142.125.56) 1.00ms
+[I 20:42:13.713 NotebookApp] 302 GET /tree (162.142.125.56) 1.21ms
+[W 01:13:31.613 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.89ms referer=None
+[I 02:44:22.703 NotebookApp] 302 GET / (74.120.14.55) 0.96ms
+[I 02:44:23.167 NotebookApp] 302 GET / (74.120.14.55) 0.99ms
+[I 02:44:23.633 NotebookApp] 302 GET /tree (74.120.14.55) 1.15ms
+[I 03:16:22.502 NotebookApp] 302 GET / (167.248.133.54) 0.89ms
+[I 03:16:22.925 NotebookApp] 302 GET / (167.248.133.54) 0.89ms
+[I 03:16:23.349 NotebookApp] 302 GET /tree (167.248.133.54) 1.15ms
+[I 07:34:06.530 NotebookApp] 302 GET / (167.71.174.251) 1.10ms
+[W 10:50:54.399 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 14.89ms referer=None
+[W 12:47:27.456 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 3.22ms referer=None
+[W 20:29:29.866 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.26ms referer=None
+[W 01:45:15.533 NotebookApp] 404 HEAD http://112.124.42.80:63435/ (60.191.125.35) 2.92ms referer=None
+[W 06:09:07.333 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.03ms referer=None
+[W 06:50:19.077 NotebookApp] 404 GET http://www.bing.com/ (121.57.231.61) 2.97ms referer=None
+[W 06:50:19.116 NotebookApp] 404 GET http://www.minghui.org/ (121.57.231.61) 2.55ms referer=None
+[W 06:50:19.119 NotebookApp] 404 GET http://www.epochtimes.com/ (121.57.231.61) 1.66ms referer=None
+[W 06:50:19.127 NotebookApp] 404 GET http://www.baidu.com/ (121.57.231.61) 0.72ms referer=None
+[W 06:50:19.128 NotebookApp] 404 GET http://www.123cha.com/ (121.57.231.61) 1.02ms referer=None
+[W 06:50:19.129 NotebookApp] 404 GET http://www.boxun.com/ (121.57.231.61) 0.55ms referer=None
+[W 06:50:19.145 NotebookApp] 404 GET http://wujieliulan.com/ (121.57.231.61) 2.55ms referer=None
+[W 06:50:19.148 NotebookApp] 404 GET http://www.rfa.org/ (121.57.231.61) 2.48ms referer=None
+[W 06:50:19.217 NotebookApp] 405 CONNECT www.voanews.com:443 (121.57.231.61) 5.38ms referer=None
+[W 09:35:32.515 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 3.04ms referer=None
+[I 11:26:50.370 NotebookApp] 302 GET / (176.85.220.153) 2.87ms
+[I 12:38:35.957 NotebookApp] 302 GET / (122.228.19.79) 2.44ms
+[I 12:38:36.107 NotebookApp] 302 GET /tree? (122.228.19.79) 1.25ms
+[I 12:38:36.312 NotebookApp] 302 GET / (122.228.19.79) 1.01ms
+[I 12:38:36.445 NotebookApp] 302 GET /tree? (122.228.19.79) 1.25ms
+[W 15:49:14.070 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 9.46ms referer=None
+[I 21:07:01.967 NotebookApp] 302 GET / (102.165.30.33) 1.11ms
+[I 21:07:02.710 NotebookApp] 302 GET /tree (102.165.30.33) 1.23ms
+[W 11:13:05.840 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.30ms referer=None
+[W 13:19:29.525 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 2.97ms referer=None
+[I 18:15:02.240 NotebookApp] 302 GET / (196.52.43.129) 3.22ms
+[I 12:52:15.044 NotebookApp] 302 GET / (54.241.140.214) 3.62ms
+[W 13:00:29.019 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 19.58ms referer=None
+[W 14:59:14.644 NotebookApp] 405 CONNECT aahwwx.52host.xyz:443 (91.199.118.137) 9.56ms referer=None
+[W 14:59:15.444 NotebookApp] 405 CONNECT aahwwx.52host.xyz:443 (91.199.118.137) 3.17ms referer=None
+[W 14:59:17.233 NotebookApp] 405 CONNECT aahwwx.52host.xyz:443 (91.199.118.137) 3.21ms referer=None
+[W 14:59:20.411 NotebookApp] 404 HEAD http://123.125.114.144/ (60.186.192.87) 4.37ms referer=None
+[W 16:13:33.498 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.01ms referer=None
+[W 17:25:05.375 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 3.04ms referer=None
+[W 17:49:10.463 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 2.96ms referer=None
+[W 18:23:11.899 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.04ms referer=None
+[W 18:25:36.231 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 2.95ms referer=None
+[I 20:40:49.485 NotebookApp] 302 GET / (162.142.125.55) 0.89ms
+[I 20:40:50.451 NotebookApp] 302 GET / (162.142.125.55) 1.03ms
+[I 20:40:51.415 NotebookApp] 302 GET /tree (162.142.125.55) 1.30ms
+[I 21:07:31.735 NotebookApp] 302 GET / (172.105.238.87) 1.19ms
+[W 21:08:22.190 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.96ms referer=None
+[W 22:52:57.400 NotebookApp] 404 GET http://www.baidu.com/ (139.210.238.106) 2.98ms referer=None
+[W 22:52:57.409 NotebookApp] 404 GET http://www.bing.com/ (139.210.238.106) 2.81ms referer=None
+[W 22:52:57.413 NotebookApp] 404 GET http://www.123cha.com/ (139.210.238.106) 2.76ms referer=None
+[W 22:52:57.424 NotebookApp] 404 GET http://wujieliulan.com/ (139.210.238.106) 2.80ms referer=None
+[W 22:52:57.430 NotebookApp] 404 GET http://www.boxun.com/ (139.210.238.106) 3.04ms referer=None
+[W 22:52:57.452 NotebookApp] 404 GET http://www.rfa.org/ (139.210.238.106) 3.54ms referer=None
+[W 22:52:57.455 NotebookApp] 404 GET http://www.epochtimes.com/ (139.210.238.106) 5.13ms referer=None
+[W 22:52:57.459 NotebookApp] 404 GET http://www.minghui.org/ (139.210.238.106) 2.64ms referer=None
+[W 22:52:57.865 NotebookApp] 405 CONNECT www.voanews.com:443 (139.210.238.106) 9.61ms referer=None
+[I 06:38:32.101 NotebookApp] 302 GET / (139.162.83.10) 1.20ms
+[W 06:47:29.974 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.97ms referer=None
+[W 09:22:31.044 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 3.01ms referer=None
+[I 12:02:26.508 NotebookApp] 302 GET / (167.248.133.40) 3.50ms
+[I 12:02:27.031 NotebookApp] 302 GET / (167.248.133.40) 1.06ms
+[I 12:02:27.527 NotebookApp] 302 GET /tree (167.248.133.40) 1.53ms
+[I 14:20:02.822 NotebookApp] 302 GET / (127.0.0.1) 1.29ms
+[I 14:20:02.824 NotebookApp] 302 GET /tree? (127.0.0.1) 0.31ms
+[W 14:20:08.340 NotebookApp] 401 POST /login?next=%2Ftree%3F (127.0.0.1) 63.99ms referer=http://localhost:8888/login?next=%2Ftree%3F
+[W 14:20:12.721 NotebookApp] 401 POST /login?next=%2Ftree%3F (127.0.0.1) 56.58ms referer=http://localhost:8888/login?next=%2Ftree%3F
+[W 14:20:14.508 NotebookApp] 401 POST /login?next=%2Ftree%3F (127.0.0.1) 48.76ms referer=http://localhost:8888/login?next=%2Ftree%3F
+[W 14:20:16.633 NotebookApp] 401 POST /login?next=%2Ftree%3F (127.0.0.1) 53.84ms referer=http://localhost:8888/login?next=%2Ftree%3F
+[W 14:20:20.330 NotebookApp] 401 POST /login?next=%2Ftree%3F (127.0.0.1) 31.68ms referer=http://localhost:8888/login?next=%2Ftree%3F
+[I 14:20:27.817 NotebookApp] 302 POST /login?next=%2Ftree%3F (127.0.0.1) 40.94ms
+[I 14:20:37.351 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:9df9f72b2d2240a5955f312aafe8a491
+[I 14:20:45.572 NotebookApp] Copying plot.ipynb to 
+[I 14:20:48.099 NotebookApp] Kernel started: 119d23f4-2d22-402d-b710-caf9561b6ed0, name: python3
+[I 14:22:48.137 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:23:32.279 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:23:40.358 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:24:01.949 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:24:43.351 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:25:33.399 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:26:16.734 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:26:41.275 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:26:48.109 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:26:58.884 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:27:14.898 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:27:50.068 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:28:30.172 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:28:37.864 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:28:47.338 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:29:39.999 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:30:07.423 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:30:48.111 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:31:37.288 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:32:15.471 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:32:48.112 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:37:04.933 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:3b8b3dcd856a4ec7ad3bb414f347cdd2
+[I 14:37:06.738 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:7e5c5aa2082b4fae987d8ec8194da314
+[I 14:41:09.958 NotebookApp] 302 GET / (127.0.0.1) 0.36ms
+[I 14:42:41.520 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:43:13.420 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:45:13.419 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 15:43:35.684 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:0f4d15cb038543a2b1f3993cff829428
+[W 16:27:11.384 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.35ms referer=None
+[W 19:44:20.651 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 2.82ms referer=None
+[W 19:54:23.872 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 2.81ms referer=None
+[W 20:03:57.674 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 2.68ms referer=None
+[W 20:05:21.212 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 2.78ms referer=None
+[W 20:11:30.683 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 2.78ms referer=None
+[W 00:39:57.860 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 3.07ms referer=None
+[W 00:46:07.454 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 2.77ms referer=None
+[W 01:03:01.725 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 3.11ms referer=None
+[W 01:44:47.053 NotebookApp] 404 GET http://example.com/ (69.162.83.246) 3.13ms referer=None
+[W 02:07:30.779 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.14ms referer=None
+[W 03:39:53.609 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.81ms referer=None
+[I 05:34:22.683 NotebookApp] 302 GET / (139.162.83.10) 1.21ms
+[I 05:47:19.554 NotebookApp] 302 GET / (102.165.30.5) 1.02ms
+[I 05:47:20.016 NotebookApp] 302 GET /tree (102.165.30.5) 1.25ms
+[I 07:37:59.946 NotebookApp] 302 GET / (183.136.225.42) 0.96ms
+[I 07:38:00.116 NotebookApp] 302 GET /tree? (183.136.225.42) 1.39ms
+[I 07:38:00.221 NotebookApp] 302 GET / (183.136.225.42) 0.99ms
+[I 07:38:00.292 NotebookApp] 302 GET /tree? (183.136.225.42) 1.33ms
+[I 09:01:44.549 NotebookApp] 302 GET / (92.118.160.61) 1.01ms
+[W 11:46:21.663 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.24ms referer=None
+[W 12:28:28.769 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 3.19ms referer=None
+[W 17:12:42.765 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 2.99ms referer=None
+[W 21:24:16.086 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.00ms referer=None
+[I 04:29:36.109 NotebookApp] 302 GET / (45.155.126.213) 0.98ms
+[W 07:03:15.067 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.96ms referer=None
+[I 09:15:51.091 NotebookApp] 302 GET / (192.241.218.169) 0.94ms
+[W 10:07:18.040 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 0.94ms referer=None
+[I 12:12:39.095 NotebookApp] 302 GET / (172.105.238.87) 1.17ms
+[W 12:58:15.164 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.79ms referer=None
+[I 16:24:39.686 NotebookApp] 302 GET / (127.0.0.1) 0.44ms
+[I 16:33:33.330 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:5d5ae518ed2b4b37808874d6d20a5719
+[I 16:35:28.931 NotebookApp] 302 GET / (127.0.0.1) 0.48ms
+[I 16:37:31.342 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:39:31.316 NotebookApp] Saving file at /plot-Copy1.ipynb
+[W 16:41:02.384 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.22ms referer=None
+[I 16:41:19.377 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:41:31.347 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:42:13.872 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:43:31.335 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:44:08.932 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:45:29.699 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:45:31.327 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:45:39.422 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:47:31.319 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:53:28.982 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:53:32.850 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 16:55:31.311 NotebookApp] Saving file at /plot-Copy1.ipynb
+[W 02:18:15.221 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.13ms referer=None
+[W 05:36:41.740 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.92ms referer=None
+[I 13:16:41.786 NotebookApp] 302 GET / (74.120.14.38) 0.89ms
+[I 13:16:42.496 NotebookApp] 302 GET / (74.120.14.38) 0.84ms
+[I 13:16:43.209 NotebookApp] 302 GET /tree (74.120.14.38) 1.20ms
+[W 13:56:42.910 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.14ms referer=None
+[I 15:01:14.326 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:1b0b4b49d4a742ef820812522475138a
+[W 15:45:51.110 NotebookApp] 405 CONNECT ip.ws.126.net:443 (222.186.136.150) 3.11ms referer=None
+[I 18:13:40.591 NotebookApp] 302 GET / (89.248.174.3) 1.05ms
+[W 21:38:38.811 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.84ms referer=None
+[I 23:18:58.692 NotebookApp] 302 GET / (83.97.20.35) 1.02ms
+[I 23:18:59.467 NotebookApp] 302 GET /tree? (83.97.20.35) 1.38ms
+[I 05:39:08.711 NotebookApp] 302 GET / (139.162.83.10) 1.22ms
+[W 07:19:20.899 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.98ms referer=None
+[I 09:46:46.987 NotebookApp] 302 GET / (176.85.220.153) 1.05ms
+[W 10:04:09.249 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 2.91ms referer=None
+[I 10:31:16.165 NotebookApp] 302 GET / (92.118.161.9) 0.96ms
+[I 10:31:16.821 NotebookApp] 302 GET /tree (92.118.161.9) 1.15ms
+[I 11:51:25.505 NotebookApp] 302 GET / (172.105.238.87) 1.19ms
+[I 14:50:46.039 NotebookApp] 302 GET / (183.136.225.42) 0.98ms
+[I 14:50:46.139 NotebookApp] 302 GET /tree? (183.136.225.42) 1.32ms
+[W 14:54:33.859 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.09ms referer=None
+[I 16:46:51.076 NotebookApp] 302 GET / (80.94.93.82) 1.00ms
+[I 16:46:51.857 NotebookApp] 302 GET /tree? (80.94.93.82) 1.36ms
+[W 16:56:50.269 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.13ms referer=None
+[W 23:13:18.600 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.07ms referer=None
+[W 02:34:07.930 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.99ms referer=None
+[W 07:33:08.235 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.06ms referer=None
+[W 08:18:53.154 NotebookApp] 405 CONNECT aahwwx.52host.xyz:443 (91.199.118.137) 3.26ms referer=None
+[W 08:18:53.737 NotebookApp] 405 CONNECT aahwwx.52host.xyz:443 (91.199.118.137) 3.30ms referer=None
+[W 08:18:55.269 NotebookApp] 405 CONNECT aahwwx.52host.xyz:443 (91.199.118.137) 3.33ms referer=None
+[W 08:18:59.927 NotebookApp] 404 HEAD http://123.125.114.144/ (110.177.176.176) 4.59ms referer=None
+[W 09:32:00.972 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 3.19ms referer=None
+[W 12:16:34.590 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.82ms referer=None
+[I 13:16:54.617 NotebookApp] 302 GET / (196.52.43.87) 0.35ms
+[I 21:46:56.408 NotebookApp] 302 GET / (167.248.133.38) 0.87ms
+[I 21:46:56.923 NotebookApp] 302 GET / (167.248.133.38) 0.97ms
+[I 21:46:57.501 NotebookApp] 302 GET /tree (167.248.133.38) 1.15ms
+[W 22:01:01.099 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.86ms referer=None
+[I 22:52:16.296 NotebookApp] 302 GET / (74.120.14.53) 0.89ms
+[I 22:52:17.014 NotebookApp] 302 GET / (74.120.14.53) 0.89ms
+[I 22:52:17.644 NotebookApp] 302 GET /tree (74.120.14.53) 1.15ms
+[W 00:11:13.585 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.98ms referer=None
+[I 02:32:57.516 NotebookApp] 302 GET / (192.35.168.176) 0.98ms
+[I 02:32:57.725 NotebookApp] 302 GET /tree? (192.35.168.176) 1.10ms
+[I 06:47:16.401 NotebookApp] 302 GET / (188.166.242.152) 1.02ms
+[W 07:41:24.169 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.03ms referer=None
+[W 08:32:26.196 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.96ms referer=None
+[W 08:54:38.502 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 2.83ms referer=None
+[I 10:18:02.141 NotebookApp] 302 GET / (106.75.79.172) 1.07ms
+[I 10:18:02.190 NotebookApp] 302 GET / (106.75.85.103) 1.01ms
+[I 10:18:02.197 NotebookApp] 302 GET /tree? (106.75.85.103) 1.27ms
+[I 12:20:03.053 NotebookApp] 302 GET / (167.248.133.53) 0.88ms
+[I 12:20:03.619 NotebookApp] 302 GET / (167.248.133.53) 0.99ms
+[I 12:20:04.217 NotebookApp] 302 GET /tree (167.248.133.53) 1.29ms
+[I 14:22:58.091 NotebookApp] 302 GET / (172.105.238.87) 1.16ms
+[W 16:50:07.527 NotebookApp] 404 GET /cityjson?ie=utf-8 (54.91.250.110) 8.80ms referer=None
+[W 16:52:09.764 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.05ms referer=None
+[W 17:20:05.151 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.98ms referer=None
+[W 09:19:19.707 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 3.11ms referer=None
+[W 09:30:56.606 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 1.01ms referer=None
+[I 10:22:31.187 NotebookApp] 302 GET / (139.162.83.10) 1.25ms
+[W 12:45:09.875 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.98ms referer=None
+[I 14:14:44.476 NotebookApp] 302 GET / (192.35.169.48) 0.89ms
+[I 15:14:40.829 NotebookApp] 302 GET / (127.0.0.1) 0.27ms
+[I 15:15:42.671 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:85d1a947302349cf879b5169a41bba01
+[I 18:55:55.852 NotebookApp] 302 GET / (122.228.19.79) 0.98ms
+[I 18:55:56.008 NotebookApp] 302 GET /tree? (122.228.19.79) 1.27ms
+[I 18:55:56.218 NotebookApp] 302 GET / (122.228.19.79) 0.99ms
+[I 18:55:56.325 NotebookApp] 302 GET /tree? (122.228.19.79) 1.16ms
+[W 22:25:29.173 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.10ms referer=None
+[I 22:44:04.993 NotebookApp] 302 GET / (162.142.125.38) 0.89ms
+[I 22:44:05.588 NotebookApp] 302 GET / (162.142.125.38) 0.90ms
+[I 22:44:06.111 NotebookApp] 302 GET /tree (162.142.125.38) 1.26ms
+[W 23:50:23.906 NotebookApp] 403 POST /index.do (118.123.213.74): '_xsrf' argument missing from POST
+[W 23:50:23.914 NotebookApp] 403 POST /index.do (118.123.213.74) 9.38ms referer=None
+[I 00:13:31.912 NotebookApp] 302 GET / (92.118.160.9) 0.99ms
+[I 00:13:32.533 NotebookApp] 302 GET /tree (92.118.160.9) 1.16ms
+[W 08:07:48.629 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.82ms referer=None
+[I 09:04:15.390 NotebookApp] 302 GET / (162.142.125.54) 0.88ms
+[I 09:04:15.799 NotebookApp] 302 GET / (162.142.125.54) 0.97ms
+[I 09:04:16.210 NotebookApp] 302 GET /tree (162.142.125.54) 1.16ms
+[I 10:24:07.556 NotebookApp] 302 GET / (196.52.43.66) 1.23ms
+[I 15:42:22.447 NotebookApp] 302 GET / (127.0.0.1) 0.30ms
+[I 15:43:04.047 NotebookApp] Saving file at /plot.ipynb
+[I 15:44:25.564 NotebookApp] Saving file at /plot.ipynb
+[I 15:50:49.973 NotebookApp] 302 GET / (166.111.88.72) 3.43ms
+[I 15:50:49.987 NotebookApp] 302 GET /tree? (166.111.88.72) 1.61ms
+[W 15:50:54.298 NotebookApp] 401 POST /login?next=%2Ftree%3F (166.111.88.72) 67.84ms referer=http://166.111.88.57:8888/login?next=%2Ftree%3F
+[I 15:51:01.926 NotebookApp] 302 POST /login?next=%2Ftree%3F (166.111.88.72) 54.76ms
+[W 17:47:47.546 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 11.21ms referer=None
+[W 18:12:15.465 NotebookApp] WebSocket ping timeout after 119977 ms.
+[I 19:16:25.604 NotebookApp] Saving file at /plot.ipynb
+[I 19:18:25.599 NotebookApp] Saving file at /plot.ipynb
+[I 19:19:17.663 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:dece21e23d8e4bb289b399f474893585
+[I 19:23:49.871 NotebookApp] 302 GET / (127.0.0.1) 0.30ms
+[I 19:24:09.704 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:25:38.389 NotebookApp] Saving file at /plot-Copy1.ipynb
+[W 19:27:10.217 NotebookApp] Replacing stale connection: 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 19:31:13.481 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:31:20.295 NotebookApp] Saving file at /plot-Copy1.ipynb
+[W 19:54:10.219 NotebookApp] WebSocket ping timeout after 119983 ms.
+[W 19:54:10.222 NotebookApp] WebSocket ping timeout after 119985 ms.
+[I 19:54:15.222 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 20:34:38.749 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:e6629ab9f5614b858f5bcb98e627c1c7
+[I 20:34:46.392 NotebookApp] Copying plot.ipynb to 
+[I 20:34:48.984 NotebookApp] Kernel started: f546a3fa-fbbe-459a-897b-31b7d2bfb17c, name: python3
+[I 20:40:48.989 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 20:41:56.216 NotebookApp] Kernel shutdown: f546a3fa-fbbe-459a-897b-31b7d2bfb17c
+[W 20:41:56.530 NotebookApp] delete /plot-Copy2.ipynb
+[W 20:41:56.599 NotebookApp] 404 DELETE /api/sessions/75e2cd32-e428-4523-9349-0358f03f7b74 (127.0.0.1): Session not found: session_id='75e2cd32-e428-4523-9349-0358f03f7b74'
+[W 20:41:56.599 NotebookApp] Session not found: session_id='75e2cd32-e428-4523-9349-0358f03f7b74'
+[W 20:41:56.599 NotebookApp] 404 DELETE /api/sessions/75e2cd32-e428-4523-9349-0358f03f7b74 (127.0.0.1) 1.03ms referer=http://localhost:8888/notebooks/plot-Copy2.ipynb
+[I 20:42:01.013 NotebookApp] Copying plot-Copy1.ipynb to 
+[I 20:42:04.750 NotebookApp] Kernel started: 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b, name: python3
+[I 20:42:19.910 NotebookApp] Saving file at /plot-Copy2.ipynb
+[W 20:42:26.311 NotebookApp] 404 DELETE /api/sessions/75e2cd32-e428-4523-9349-0358f03f7b74 (127.0.0.1): Session not found: session_id='75e2cd32-e428-4523-9349-0358f03f7b74'
+[W 20:42:26.311 NotebookApp] Session not found: session_id='75e2cd32-e428-4523-9349-0358f03f7b74'
+[W 20:42:26.312 NotebookApp] 404 DELETE /api/sessions/75e2cd32-e428-4523-9349-0358f03f7b74 (127.0.0.1) 0.87ms referer=http://localhost:8888/notebooks/plot-Copy2.ipynb
+[I 20:42:58.656 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 20:43:16.821 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 20:44:04.761 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 21:09:20.024 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:d629a86ebf194d1a81e8f6846564e3b5
+[I 21:15:29.664 NotebookApp] 302 GET / (183.172.106.205) 1.95ms
+[W 21:15:33.778 NotebookApp] 404 GET /.git/HEAD (183.172.106.205) 19.03ms referer=None
+[I 21:15:33.779 NotebookApp] 302 GET / (183.172.106.205) 18.84ms
+[W 21:15:33.782 NotebookApp] 404 GET /rs-status (183.172.106.205) 21.05ms referer=None
+[W 21:15:33.783 NotebookApp] 405 PROPFIND / (183.172.106.205) 21.89ms referer=None
+[W 21:15:33.785 NotebookApp] 405 OPTIONS / (183.172.106.205) 23.78ms referer=None
+[W 21:15:33.786 NotebookApp] 403 POST / (183.172.106.205): '_xsrf' argument missing from POST
+[W 21:15:33.786 NotebookApp] 403 POST / (183.172.106.205) 25.07ms referer=None
+[W 21:15:33.789 NotebookApp] 404 GET /browseDirectory.jsp (183.172.106.205) 27.58ms referer=None
+[W 21:15:33.790 NotebookApp] 403 POST /sdk (183.172.106.205): '_xsrf' argument missing from POST
+[W 21:15:33.792 NotebookApp] 403 POST /sdk (183.172.106.205) 30.53ms referer=None
+[I 21:15:33.793 NotebookApp] 302 GET / (183.172.106.205) 31.20ms
+[W 21:15:33.796 NotebookApp] 404 GET /nmaplowercheck1608124528 (183.172.106.205) 33.54ms referer=None
+[W 21:15:33.799 NotebookApp] 405 OPTIONS / (183.172.106.205) 36.39ms referer=None
+[W 21:15:33.801 NotebookApp] 404 GET /master.jsp (183.172.106.205) 37.81ms referer=None
+[W 21:15:33.801 NotebookApp] 404 GET /flumemaster.jsp (183.172.106.205) 38.17ms referer=None
+[W 21:15:33.802 NotebookApp] 404 GET /tasktracker.jsp (183.172.106.205) 38.45ms referer=None
+[W 21:15:33.802 NotebookApp] 404 GET /jobtracker.jsp (183.172.106.205) 38.74ms referer=None
+[W 21:15:33.802 NotebookApp] 405 OPTIONS / (183.172.106.205) 38.75ms referer=None
+[W 21:15:33.803 NotebookApp] 404 GET /status.jsp (183.172.106.205) 39.12ms referer=None
+[I 21:15:33.833 NotebookApp] 302 GET /tree? (183.172.106.205) 0.35ms
+[W 21:15:33.834 NotebookApp] 404 GET /evox/about (183.172.106.205) 0.80ms referer=None
+[W 21:15:33.834 NotebookApp] 405 PROPFIND / (183.172.106.205) 0.85ms referer=None
+[W 21:15:33.834 NotebookApp] 405 OXBZ / (183.172.106.205) 0.93ms referer=None
+[W 21:15:33.835 NotebookApp] 405 OPTIONS / (183.172.106.205) 0.26ms referer=None
+[W 21:15:33.843 NotebookApp] 405 PROPFIND / (183.172.106.205) 0.21ms referer=None
+[W 21:15:33.844 NotebookApp] 404 GET /HNAP1 (183.172.106.205) 0.55ms referer=None
+[W 21:15:33.845 NotebookApp] 404 GET /dfshealth.jsp (183.172.106.205) 0.54ms referer=None
+[I 21:15:33.865 NotebookApp] 302 GET / (183.172.106.205) 0.32ms
+[W 21:15:33.865 NotebookApp] 405 OPTIONS / (183.172.106.205) 0.42ms referer=None
+[I 21:15:33.874 NotebookApp] 302 GET / (183.172.106.205) 0.19ms
+[W 21:15:33.880 NotebookApp] 405 HEAD / (183.172.106.205) 0.22ms referer=None
+[W 21:15:33.880 NotebookApp] 405 OPTIONS / (183.172.106.205) 0.21ms referer=None
+[I 21:15:33.904 NotebookApp] 302 GET /tree? (183.172.106.205) 0.32ms
+[W 21:15:33.910 NotebookApp] 405 OPTIONS / (183.172.106.205) 0.22ms referer=None
+[W 21:15:33.919 NotebookApp] 403 POST / (183.172.106.205): '_xsrf' argument missing from POST
+[W 21:15:33.919 NotebookApp] 403 POST / (183.172.106.205) 0.33ms referer=None
+[W 21:15:33.953 NotebookApp] 405 OPTIONS / (183.172.106.205) 0.21ms referer=None
+[W 21:15:33.960 NotebookApp] 405 OPTIONS / (183.172.106.205) 0.22ms referer=None
+[W 21:15:33.975 NotebookApp] 405 OPTIONS / (183.172.106.205) 0.25ms referer=None
+[W 21:15:34.055 NotebookApp] 405 OPTIONS / (183.172.106.205) 1.11ms referer=None
+[W 21:15:34.077 NotebookApp] 405 OPTIONS / (183.172.106.205) 1.48ms referer=None
+[I 21:15:34.260 NotebookApp] 302 GET / (183.172.106.205) 1.16ms
+[I 21:15:34.270 NotebookApp] 302 GET / (183.172.106.205) 0.97ms
+[I 22:11:59.732 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[W 22:14:29.719 NotebookApp] WebSocket ping timeout after 119869 ms.
+[W 22:14:29.732 NotebookApp] WebSocket ping timeout after 119882 ms.
+[I 22:14:34.722 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 22:14:34.734 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 23:53:39.733 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 23:53:39.734 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[W 23:56:09.734 NotebookApp] WebSocket ping timeout after 119935 ms.
+[W 23:56:09.735 NotebookApp] WebSocket ping timeout after 119935 ms.
+[I 23:56:14.738 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 23:56:14.738 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 00:47:47.480 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 00:47:47.482 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[W 00:50:17.481 NotebookApp] WebSocket ping timeout after 119947 ms.
+[W 00:50:17.482 NotebookApp] WebSocket ping timeout after 119946 ms.
+[I 00:50:22.484 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 00:50:22.485 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 02:36:08.399 NotebookApp] 302 GET / (166.111.9.83) 1.28ms
+[W 02:36:08.408 NotebookApp] 405 OPTIONS / (166.111.9.83) 0.29ms referer=None
+[W 02:36:08.424 NotebookApp] 404 GET /nice%20ports%2C/Tri%6Eity.txt%2ebak (166.111.9.83) 0.81ms referer=None
+[I 02:36:08.494 NotebookApp] Malformed HTTP message from 166.111.9.83: Malformed HTTP request line
+[W 02:36:28.551 NotebookApp] 404 GET /rs-status (166.111.9.83) 3.15ms referer=None
+[W 02:36:28.553 NotebookApp] 404 GET /master.jsp (166.111.9.83) 1.57ms referer=None
+[W 02:36:28.554 NotebookApp] 404 GET /browseDirectory.jsp (166.111.9.83) 1.85ms referer=None
+[I 02:36:28.554 NotebookApp] 302 GET / (166.111.9.83) 1.81ms
+[W 02:36:28.556 NotebookApp] 404 GET http://www.google.com (166.111.9.83) 1.51ms referer=None
+[W 02:36:28.556 NotebookApp] 404 GET /dfshealth.jsp (166.111.9.83) 1.85ms referer=None
+[W 02:36:28.557 NotebookApp] 404 GET /flumemaster.jsp (166.111.9.83) 2.20ms referer=None
+[W 02:36:28.557 NotebookApp] 405 OPTIONS / (166.111.9.83) 2.21ms referer=None
+[W 02:36:28.557 NotebookApp] 404 GET /tasktracker.jsp (166.111.9.83) 2.59ms referer=None
+[W 02:36:28.558 NotebookApp] 404 GET /jobtracker.jsp (166.111.9.83) 2.95ms referer=None
+[W 02:36:28.558 NotebookApp] 404 GET /.git/HEAD (166.111.9.83) 3.32ms referer=None
+[W 02:36:28.559 NotebookApp] 405 OPTIONS / (166.111.9.83) 3.42ms referer=None
+[W 02:36:28.559 NotebookApp] 404 GET /status.jsp (166.111.9.83) 0.67ms referer=None
+[I 02:36:28.571 NotebookApp] 302 GET /tree? (166.111.9.83) 1.72ms
+[W 02:36:28.572 NotebookApp] 404 HEAD http://www.google.com (166.111.9.83) 1.30ms referer=None
+[W 02:36:28.572 NotebookApp] 405 OPTIONS / (166.111.9.83) 1.09ms referer=None
+[I 02:36:28.574 NotebookApp] 302 GET / (166.111.9.83) 0.19ms
+[W 02:36:28.578 NotebookApp] 405 CONNECT www.google.com:80 (166.111.9.83) 1.14ms referer=None
+[W 02:36:28.578 NotebookApp] 405 OPTIONS / (166.111.9.83) 1.20ms referer=None
+[I 02:36:28.581 NotebookApp] 302 GET /tree? (166.111.9.83) 0.25ms
+[W 02:36:28.582 NotebookApp] 405 OPTIONS / (166.111.9.83) 0.26ms referer=None
+[W 02:36:28.597 NotebookApp] 405 OPTIONS / (166.111.9.83) 0.24ms referer=None
+[W 02:36:28.601 NotebookApp] 405 OPTIONS / (166.111.9.83) 0.26ms referer=None
+[W 02:36:28.603 NotebookApp] 405 OPTIONS / (166.111.9.83) 0.29ms referer=None
+[W 02:36:28.730 NotebookApp] 405 OPTIONS / (166.111.9.83) 1.03ms referer=None
+[W 02:36:28.734 NotebookApp] 405 OPTIONS / (166.111.9.83) 1.10ms referer=None
+[I 02:37:42.438 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 02:37:42.439 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[W 02:40:12.439 NotebookApp] WebSocket ping timeout after 119968 ms.
+[W 02:40:12.440 NotebookApp] WebSocket ping timeout after 119969 ms.
+[I 02:40:17.442 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 02:40:17.443 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 03:31:51.510 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 03:31:51.510 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[W 03:34:21.512 NotebookApp] WebSocket ping timeout after 119925 ms.
+[W 03:34:21.513 NotebookApp] WebSocket ping timeout after 119925 ms.
+[I 03:34:26.515 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 03:34:26.515 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 04:25:57.742 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 04:25:57.743 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[W 04:28:57.743 NotebookApp] WebSocket ping timeout after 119973 ms.
+[W 04:28:57.744 NotebookApp] WebSocket ping timeout after 119974 ms.
+[I 04:29:02.745 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 04:29:02.746 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 05:20:08.514 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 05:20:08.515 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[W 05:22:38.515 NotebookApp] WebSocket ping timeout after 119883 ms.
+[W 05:22:38.516 NotebookApp] WebSocket ping timeout after 119883 ms.
+[I 05:22:43.518 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 05:22:43.519 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 06:14:17.563 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 06:14:17.563 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[W 06:16:47.565 NotebookApp] WebSocket ping timeout after 119960 ms.
+[W 06:16:47.565 NotebookApp] WebSocket ping timeout after 119960 ms.
+[I 06:16:52.568 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 06:16:52.568 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 07:08:26.656 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 07:08:26.656 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[W 07:11:26.657 NotebookApp] WebSocket ping timeout after 119885 ms.
+[W 07:11:26.657 NotebookApp] WebSocket ping timeout after 119886 ms.
+[I 07:11:31.659 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 07:11:31.660 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 08:02:35.476 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 08:02:35.476 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[W 08:05:05.477 NotebookApp] WebSocket ping timeout after 119979 ms.
+[W 08:05:05.478 NotebookApp] WebSocket ping timeout after 119979 ms.
+[I 08:05:10.479 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 08:05:10.479 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 08:54:36.531 NotebookApp] 302 GET / (127.0.0.1) 0.57ms
+[I 08:56:43.577 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 08:56:43.577 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 08:56:44.745 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 08:58:29.954 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 08:58:44.737 NotebookApp] Saving file at /plot-Copy2.ipynb
+[W 08:59:43.579 NotebookApp] WebSocket ping timeout after 119972 ms.
+[W 08:59:43.580 NotebookApp] WebSocket ping timeout after 119971 ms.
+[I 08:59:48.581 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 08:59:48.582 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:292083a42dcd4d468e9bd184e037053f
+[I 09:00:44.747 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:01:18.854 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:02:14.803 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:02:38.559 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:02:44.748 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:04:44.745 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:38:30.893 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:38:41.387 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:38:44.782 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:40:25.395 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:40:39.193 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:40:44.790 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:46:02.160 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 09:46:44.762 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 10:06:44.760 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 10:08:44.797 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 10:10:44.759 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 10:11:07.589 NotebookApp] Saving file at /plot.ipynb
+[I 10:12:13.394 NotebookApp] Saving file at /plot.ipynb
+[I 10:12:22.320 NotebookApp] Saving file at /plot.ipynb
+[I 10:12:52.059 NotebookApp] Saving file at /plot.ipynb
+[I 10:13:00.626 NotebookApp] Saving file at /plot.ipynb
+[I 10:13:07.594 NotebookApp] Saving file at /plot.ipynb
+[I 10:14:47.758 NotebookApp] Saving file at /plot.ipynb
+[I 10:14:57.378 NotebookApp] Saving file at /plot.ipynb
+[I 10:15:07.612 NotebookApp] Saving file at /plot.ipynb
+[I 10:17:07.598 NotebookApp] Saving file at /plot.ipynb
+[I 12:03:26.020 NotebookApp] 302 GET / (166.111.88.72) 0.88ms
+[I 12:04:57.355 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 12:05:30.930 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 12:06:05.768 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 12:07:30.013 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 12:09:30.023 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 12:10:41.422 NotebookApp] Saving file at /plot-Copy1.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 12:11:30.046 NotebookApp] Saving file at /plot-Copy1.ipynb
+[W 12:53:18.182 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 3.24ms referer=None
+[I 12:53:53.767 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:dc9e5e85eb9545e9a8cac66ab45705a6
+[I 12:53:56.789 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:dc9e5e85eb9545e9a8cac66ab45705a6
+[I 12:54:09.851 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 12:55:27.713 NotebookApp] 302 GET / (183.172.215.103) 1.16ms
+[I 12:55:30.760 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 12:55:39.303 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:dc9e5e85eb9545e9a8cac66ab45705a6
+[I 12:55:40.530 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:dc9e5e85eb9545e9a8cac66ab45705a6
+[I 12:55:44.067 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 12:56:44.791 NotebookApp] Saving file at /plot-Copy2.ipynb
+[W 12:58:38.370 NotebookApp] 404 GET /dfshealth.jsp (183.172.215.103) 1.47ms referer=None
+[W 12:58:38.373 NotebookApp] 403 POST /sdk (183.172.215.103): '_xsrf' argument missing from POST
+[W 12:58:38.375 NotebookApp] 403 POST /sdk (183.172.215.103) 3.67ms referer=None
+[W 12:58:38.376 NotebookApp] 404 GET /flumemaster.jsp (183.172.215.103) 4.25ms referer=None
+[I 12:58:38.376 NotebookApp] 302 GET / (183.172.215.103) 4.36ms
+[I 12:58:38.376 NotebookApp] 302 GET / (183.172.215.103) 4.45ms
+[W 12:58:38.376 NotebookApp] 405 PROPFIND / (183.172.215.103) 4.59ms referer=None
+[W 12:58:38.377 NotebookApp] 405 PROPFIND / (183.172.215.103) 4.71ms referer=None
+[W 12:58:38.377 NotebookApp] 405 OPTIONS / (183.172.215.103) 4.83ms referer=None
+[W 12:58:38.378 NotebookApp] 404 GET /nmaplowercheck1608181122 (183.172.215.103) 5.62ms referer=None
+[W 12:58:38.379 NotebookApp] 404 GET /tasktracker.jsp (183.172.215.103) 6.39ms referer=None
+[W 12:58:38.380 NotebookApp] 404 GET /status.jsp (183.172.215.103) 7.13ms referer=None
+[W 12:58:38.382 NotebookApp] 404 GET /browseDirectory.jsp (183.172.215.103) 1.51ms referer=None
+[W 12:58:38.383 NotebookApp] 404 GET /jobtracker.jsp (183.172.215.103) 2.30ms referer=None
+[W 12:58:38.650 NotebookApp] 404 GET /HNAP1 (183.172.215.103) 1.11ms referer=None
+[I 12:58:38.651 NotebookApp] 302 GET /tree? (183.172.215.103) 0.65ms
+[W 12:58:38.651 NotebookApp] 405 OPTIONS / (183.172.215.103) 0.74ms referer=None
+[W 12:58:38.941 NotebookApp] 405 OPTIONS / (183.172.215.103) 0.80ms referer=None
+[W 12:58:39.209 NotebookApp] 405 OPTIONS / (183.172.215.103) 0.73ms referer=None
+[W 12:58:39.422 NotebookApp] 405 OPTIONS / (183.172.215.103) 0.73ms referer=None
+[W 12:58:39.666 NotebookApp] 405 OPTIONS / (183.172.215.103) 0.43ms referer=None
+[W 12:58:39.852 NotebookApp] 405 OPTIONS / (183.172.215.103) 0.76ms referer=None
+[W 12:58:40.017 NotebookApp] 405 OPTIONS / (183.172.215.103) 0.57ms referer=None
+[W 12:58:40.193 NotebookApp] 405 OPTIONS / (183.172.215.103) 0.66ms referer=None
+[W 12:58:50.470 NotebookApp] 405 OPTIONS / (183.172.215.103) 0.65ms referer=None
+[W 12:58:50.675 NotebookApp] 405 PROPFIND / (183.172.215.103) 0.82ms referer=None
+[W 12:58:50.827 NotebookApp] 405 OPTIONS / (183.172.215.103) 0.56ms referer=None
+[W 12:58:50.983 NotebookApp] 405 AYIS / (183.172.215.103) 0.67ms referer=None
+[I 12:58:51.141 NotebookApp] 302 GET / (183.172.215.103) 0.44ms
+[W 12:58:51.289 NotebookApp] 405 HEAD / (183.172.215.103) 0.50ms referer=None
+[W 12:58:51.506 NotebookApp] 403 POST / (183.172.215.103): '_xsrf' argument missing from POST
+[W 12:58:51.507 NotebookApp] 403 POST / (183.172.215.103) 0.86ms referer=None
+[W 12:58:51.661 NotebookApp] 405 OPTIONS / (183.172.215.103) 0.41ms referer=None
+[W 12:58:51.890 NotebookApp] 404 GET /.git/HEAD (183.172.215.103) 1.66ms referer=None
+[W 12:58:56.905 NotebookApp] 404 GET /evox/about (183.172.215.103) 1.26ms referer=None
+[W 12:58:59.414 NotebookApp] 404 GET /rs-status (183.172.215.103) 0.77ms referer=None
+[W 12:58:59.521 NotebookApp] 404 GET /master.jsp (183.172.215.103) 0.78ms referer=None
+[W 12:58:59.769 NotebookApp] 403 POST / (183.172.215.103): '_xsrf' argument missing from POST
+[W 12:58:59.769 NotebookApp] 403 POST / (183.172.215.103) 0.52ms referer=None
+[I 12:58:59.973 NotebookApp] 302 GET / (183.172.215.103) 0.31ms
+[I 12:59:00.125 NotebookApp] 302 GET /tree? (183.172.215.103) 0.39ms
+[I 12:59:49.953 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 13:00:03.285 NotebookApp] Saving file at /plot-Copy2.ipynb
+[W 13:00:10.531 NotebookApp] WebSocket ping timeout after 119937 ms.
+[I 13:00:15.534 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:dc9e5e85eb9545e9a8cac66ab45705a6
+[I 13:00:44.784 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 13:01:27.487 NotebookApp] 302 GET / (183.172.215.103) 0.33ms
+[I 13:01:27.641 NotebookApp] 302 GET / (183.172.215.103) 0.24ms
+[I 13:01:53.892 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 13:02:44.818 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 13:02:45.527 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 13:04:44.829 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 13:04:45.301 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 13:05:38.907 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 13:05:40.667 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 13:05:41.623 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:f1a6ce50d8fb48c79b5153e9a0794ec7
+[I 13:05:43.147 NotebookApp] Saving file at /plot.ipynb
+[I 13:05:44.387 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:a60c2313bcf9411182b8a6fe270544e6
+[I 13:06:21.705 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:dc9e5e85eb9545e9a8cac66ab45705a6
+[W 13:10:17.546 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.87ms referer=None
+[W 13:16:54.682 NotebookApp] 404 GET /static/notebook/js/main.min.js.map (166.111.88.72) 4.05ms referer=None
+[I 13:17:21.950 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:9a9477f2b4374d378b1c7582ac3e9c59
+[W 13:17:22.259 NotebookApp] 404 GET /static/notebook/js/main.min.js.map (166.111.88.72) 4.21ms referer=None
+[I 13:26:53.938 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 13:27:49.825 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 14:02:32.356 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:02:48.020 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:09:09.805 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:10:05.831 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:11:06.300 NotebookApp] Kernel interrupted: 119d23f4-2d22-402d-b710-caf9561b6ed0
+[I 14:11:10.852 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:12:44.099 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:14:41.787 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:15:01.257 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[I 14:15:02.892 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[W 14:16:32.893 NotebookApp] WebSocket ping timeout after 90002 ms.
+[W 14:16:32.894 NotebookApp] WebSocket ping timeout after 90002 ms.
+[W 14:16:32.895 NotebookApp] WebSocket ping timeout after 90002 ms.
+[I 14:16:37.897 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[I 14:16:39.785 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[W 14:19:09.784 NotebookApp] WebSocket ping timeout after 119936 ms.
+[W 14:19:09.785 NotebookApp] WebSocket ping timeout after 119936 ms.
+[W 14:19:09.785 NotebookApp] WebSocket ping timeout after 119937 ms.
+[I 14:19:14.789 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[W 14:19:20.553 NotebookApp] WebSocket ping timeout after 119926 ms.
+[I 14:19:25.556 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:6528f94cf7524466b843f1492286a952
+[I 14:20:35.940 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[I 14:22:47.906 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:23:55.141 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:24:47.936 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:31:54.454 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:33:38.681 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:35:38.748 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:37:38.154 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[I 14:37:39.973 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[I 14:40:21.786 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:42:22.096 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 14:42:31.410 NotebookApp] 302 GET / (183.173.133.214) 1.07ms
+[W 14:45:48.630 NotebookApp] 405 PROPFIND / (183.173.133.214) 1.20ms referer=None
+[W 14:45:48.836 NotebookApp] 404 GET /dfshealth.jsp (183.173.133.214) 11.17ms referer=None
+[W 14:45:50.867 NotebookApp] 404 GET /.git/HEAD (183.173.133.214) 3.10ms referer=None
+[W 14:45:51.177 NotebookApp] 404 GET /jobtracker.jsp (183.173.133.214) 2.90ms referer=None
+[W 14:45:52.061 NotebookApp] 405 PROPFIND / (183.173.133.214) 1.04ms referer=None
+[W 14:45:53.200 NotebookApp] 404 GET /tasktracker.jsp (183.173.133.214) 2.84ms referer=None
+[W 14:45:54.746 NotebookApp] 404 GET /nmaplowercheck1608187550 (183.173.133.214) 2.64ms referer=None
+[W 14:45:54.945 NotebookApp] 404 GET /evox/about (183.173.133.214) 2.64ms referer=None
+[W 14:45:54.995 NotebookApp] 404 GET /HNAP1 (183.173.133.214) 2.61ms referer=None
+[W 14:45:55.241 NotebookApp] 405 OPTIONS / (183.173.133.214) 0.28ms referer=None
+[W 14:45:55.391 NotebookApp] 405 TWRP / (183.173.133.214) 1.07ms referer=None
+[I 14:45:55.599 NotebookApp] 302 GET / (183.173.133.214) 0.99ms
+[W 14:45:55.767 NotebookApp] 405 HEAD / (183.173.133.214) 1.09ms referer=None
+[W 14:45:56.027 NotebookApp] 403 POST / (183.173.133.214): '_xsrf' argument missing from POST
+[W 14:45:56.028 NotebookApp] 403 POST / (183.173.133.214) 1.42ms referer=None
+[W 14:45:56.085 NotebookApp] 403 POST /sdk (183.173.133.214): '_xsrf' argument missing from POST
+[W 14:45:56.088 NotebookApp] 403 POST /sdk (183.173.133.214) 3.50ms referer=None
+[W 14:45:56.212 NotebookApp] 405 OPTIONS / (183.173.133.214) 1.69ms referer=None
+[W 14:45:57.236 NotebookApp] 404 GET /rs-status (183.173.133.214) 2.67ms referer=None
+[W 14:45:57.362 NotebookApp] 404 GET /master.jsp (183.173.133.214) 2.53ms referer=None
+[W 14:45:59.301 NotebookApp] 404 GET /status.jsp (183.173.133.214) 3.05ms referer=None
+[I 14:46:06.020 NotebookApp] 302 GET / (183.173.133.214) 1.01ms
+[W 14:46:06.461 NotebookApp] 405 OPTIONS / (183.173.133.214) 1.04ms referer=None
+[W 14:46:06.649 NotebookApp] 405 OPTIONS / (183.173.133.214) 1.02ms referer=None
+[W 14:46:06.833 NotebookApp] 405 OPTIONS / (183.173.133.214) 1.14ms referer=None
+[W 14:46:07.021 NotebookApp] 405 OPTIONS / (183.173.133.214) 1.02ms referer=None
+[W 14:46:07.211 NotebookApp] 405 OPTIONS / (183.173.133.214) 1.09ms referer=None
+[W 14:46:07.399 NotebookApp] 405 OPTIONS / (183.173.133.214) 1.23ms referer=None
+[W 14:46:07.586 NotebookApp] 405 OPTIONS / (183.173.133.214) 1.03ms referer=None
+[W 14:46:07.713 NotebookApp] 404 GET /flumemaster.jsp (183.173.133.214) 2.69ms referer=None
+[W 14:46:07.780 NotebookApp] 405 OPTIONS / (183.173.133.214) 0.28ms referer=None
+[W 14:46:07.964 NotebookApp] 405 OPTIONS / (183.173.133.214) 1.21ms referer=None
+[W 14:46:09.651 NotebookApp] 404 GET /browseDirectory.jsp (183.173.133.214) 2.76ms referer=None
+[W 14:46:10.075 NotebookApp] 403 POST / (183.173.133.214): '_xsrf' argument missing from POST
+[W 14:46:10.076 NotebookApp] 403 POST / (183.173.133.214) 0.42ms referer=None
+[W 14:46:10.456 NotebookApp] 405 OPTIONS / (183.173.133.214) 1.11ms referer=None
+[W 14:46:10.632 NotebookApp] 405 PROPFIND / (183.173.133.214) 1.04ms referer=None
+[I 14:46:11.693 NotebookApp] 302 GET / (183.173.133.214) 0.95ms
+[I 14:46:11.883 NotebookApp] 302 GET /tree? (183.173.133.214) 1.30ms
+[I 14:46:14.136 NotebookApp] 302 GET / (183.173.133.214) 1.02ms
+[I 14:46:14.314 NotebookApp] 302 GET /tree? (183.173.133.214) 1.39ms
+[I 14:48:19.062 NotebookApp] 302 GET / (183.173.133.214) 1.00ms
+[I 14:48:19.248 NotebookApp] 302 GET / (183.173.133.214) 0.80ms
+[I 14:49:57.704 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[I 14:49:59.519 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[W 14:53:46.362 NotebookApp] WebSocket ping timeout after 119904 ms.
+[W 14:53:59.521 NotebookApp] WebSocket ping timeout after 119950 ms.
+[W 14:53:59.522 NotebookApp] WebSocket ping timeout after 119951 ms.
+[W 14:53:59.531 NotebookApp] WebSocket ping timeout after 119960 ms.
+[I 14:54:04.524 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[I 14:54:04.532 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:dc9e5e85eb9545e9a8cac66ab45705a6
+[I 15:09:17.263 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:dc9e5e85eb9545e9a8cac66ab45705a6
+[I 15:09:17.263 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[I 15:09:34.806 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[I 15:09:34.807 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:ce5ad9ff70dc42fd87ec8cb2050ff09d
+[I 15:09:36.582 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[I 15:40:51.913 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:dc9e5e85eb9545e9a8cac66ab45705a6
+[I 15:40:51.914 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:7eb83ff791e34bcdb7b47b4cfb85f052
+[I 19:35:35.804 NotebookApp] 302 GET / (166.111.9.83) 1.66ms
+[W 19:35:37.837 NotebookApp] 404 GET /dfshealth.jsp (166.111.9.83) 1.49ms referer=None
+[W 19:35:37.837 NotebookApp] 404 GET /.git/HEAD (166.111.9.83) 1.80ms referer=None
+[W 19:35:37.838 NotebookApp] 404 GET /master.jsp (166.111.9.83) 2.08ms referer=None
+[W 19:35:37.839 NotebookApp] 403 POST /sdk (166.111.9.83): '_xsrf' argument missing from POST
+[W 19:35:37.839 NotebookApp] 403 POST /sdk (166.111.9.83) 1.42ms referer=None
+[W 19:35:37.840 NotebookApp] 404 GET /rs-status (166.111.9.83) 1.75ms referer=None
+[W 19:35:37.840 NotebookApp] 405 PROPFIND / (166.111.9.83) 1.80ms referer=None
+[I 19:35:37.840 NotebookApp] 302 GET / (166.111.9.83) 1.87ms
+[W 19:35:37.842 NotebookApp] 404 GET /tasktracker.jsp (166.111.9.83) 1.54ms referer=None
+[W 19:35:37.842 NotebookApp] 405 OPTIONS / (166.111.9.83) 1.62ms referer=None
+[W 19:35:37.843 NotebookApp] 404 GET /jobtracker.jsp (166.111.9.83) 2.11ms referer=None
+[W 19:35:37.843 NotebookApp] 404 GET /flumemaster.jsp (166.111.9.83) 2.55ms referer=None
+[W 19:35:37.844 NotebookApp] 404 GET /nmaplowercheck1608207483 (166.111.9.83) 2.98ms referer=None
+[W 19:35:37.844 NotebookApp] 403 POST / (166.111.9.83): '_xsrf' argument missing from POST
+[W 19:35:37.844 NotebookApp] 403 POST / (166.111.9.83) 3.12ms referer=None
+[W 19:35:37.846 NotebookApp] 404 GET /browseDirectory.jsp (166.111.9.83) 1.35ms referer=None
+[W 19:35:37.846 NotebookApp] 405 OPTIONS / (166.111.9.83) 1.40ms referer=None
+[W 19:35:37.846 NotebookApp] 405 OPTIONS / (166.111.9.83) 1.50ms referer=None
+[W 19:35:37.847 NotebookApp] 405 PROPFIND / (166.111.9.83) 1.75ms referer=None
+[I 19:35:37.858 NotebookApp] 302 GET /tree? (166.111.9.83) 0.64ms
+[W 19:35:37.858 NotebookApp] 405 PROPFIND / (166.111.9.83) 0.69ms referer=None
+[W 19:35:37.860 NotebookApp] 404 GET /evox/about (166.111.9.83) 1.20ms referer=None
+[W 19:35:37.860 NotebookApp] 405 OPTIONS / (166.111.9.83) 1.20ms referer=None
+[W 19:35:37.860 NotebookApp] 405 XCRJ / (166.111.9.83) 1.30ms referer=None
+[W 19:35:37.871 NotebookApp] 404 GET /HNAP1 (166.111.9.83) 4.10ms referer=None
+[W 19:35:37.872 NotebookApp] 404 GET /status.jsp (166.111.9.83) 5.08ms referer=None
+[I 19:35:37.873 NotebookApp] 302 GET / (166.111.9.83) 4.62ms
+[I 19:35:37.873 NotebookApp] 302 GET / (166.111.9.83) 0.19ms
+[W 19:35:37.883 NotebookApp] 405 OPTIONS / (166.111.9.83) 0.40ms referer=None
+[I 19:35:37.883 NotebookApp] 302 GET / (166.111.9.83) 0.44ms
+[W 19:35:37.894 NotebookApp] 405 OPTIONS / (166.111.9.83) 2.57ms referer=None
+[W 19:35:37.895 NotebookApp] 405 HEAD / (166.111.9.83) 2.70ms referer=None
+[I 19:35:37.896 NotebookApp] 302 GET /tree? (166.111.9.83) 3.07ms
+[W 19:35:37.927 NotebookApp] 405 OPTIONS / (166.111.9.83) 0.79ms referer=None
+[W 19:35:37.930 NotebookApp] 403 POST / (166.111.9.83): '_xsrf' argument missing from POST
+[W 19:35:37.931 NotebookApp] 403 POST / (166.111.9.83) 0.94ms referer=None
+[W 19:35:37.942 NotebookApp] 405 OPTIONS / (166.111.9.83) 0.76ms referer=None
+[W 19:35:37.950 NotebookApp] 405 OPTIONS / (166.111.9.83) 0.74ms referer=None
+[W 19:35:37.974 NotebookApp] 405 OPTIONS / (166.111.9.83) 0.80ms referer=None
+[W 19:35:37.999 NotebookApp] 405 OPTIONS / (166.111.9.83) 1.13ms referer=None
+[W 19:35:38.013 NotebookApp] 405 OPTIONS / (166.111.9.83) 1.16ms referer=None
+[I 19:35:38.100 NotebookApp] 302 GET / (166.111.9.83) 0.80ms
+[I 19:35:38.101 NotebookApp] 302 GET / (166.111.9.83) 0.64ms
+[W 19:47:23.518 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.71ms referer=None
+[W 22:49:14.628 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.83ms referer=None
+[I 04:34:12.797 NotebookApp] 302 GET / (52.32.0.162) 1.10ms
+[I 05:45:29.286 NotebookApp] 302 GET / (172.105.238.87) 1.11ms
+[I 08:25:06.711 NotebookApp] 302 GET / (139.162.83.10) 1.17ms
+[W 08:28:20.508 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.90ms referer=None
+[W 08:41:19.727 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 2.90ms referer=None
+[W 12:26:25.088 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.10ms referer=None
+[I 20:56:45.522 NotebookApp] 302 GET / (183.136.225.42) 1.37ms
+[I 20:56:45.625 NotebookApp] 302 GET /tree? (183.136.225.42) 1.30ms
+[I 20:57:00.760 NotebookApp] 302 GET / (183.136.225.42) 1.26ms
+[I 09:01:22.814 NotebookApp] 302 GET / (183.172.41.81) 1.05ms
+[W 09:04:17.161 NotebookApp] 404 GET /nmaplowercheck1608339916 (183.172.41.81) 8.91ms referer=None
+[W 09:04:17.201 NotebookApp] 404 GET /evox/about (183.172.41.81) 2.85ms referer=None
+[W 09:04:17.475 NotebookApp] 404 GET /HNAP1 (183.172.41.81) 2.58ms referer=None
+[W 09:04:17.830 NotebookApp] 403 POST /sdk (183.172.41.81): '_xsrf' argument missing from POST
+[W 09:04:17.833 NotebookApp] 403 POST /sdk (183.172.41.81) 3.52ms referer=None
+[I 09:04:17.980 NotebookApp] 302 GET / (183.172.41.81) 1.01ms
+[I 09:04:18.966 NotebookApp] 302 GET / (183.172.41.81) 0.94ms
+[I 09:04:19.074 NotebookApp] 302 GET / (183.172.41.81) 0.81ms
+[I 20:20:15.064 NotebookApp] 302 GET / (167.248.133.37) 0.89ms
+[I 20:20:15.623 NotebookApp] 302 GET / (167.248.133.37) 0.97ms
+[I 20:20:16.241 NotebookApp] 302 GET /tree (167.248.133.37) 1.17ms
+[W 21:23:54.897 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 0.71ms referer=None
+[I 22:14:35.957 NotebookApp] 302 GET / (92.118.161.41) 1.02ms
+[I 04:09:25.021 NotebookApp] 302 GET / (183.172.216.111) 0.37ms
+[I 04:12:31.776 NotebookApp] 302 GET / (183.172.216.111) 1.83ms
+[W 04:12:31.787 NotebookApp] 404 GET /tasktracker.jsp (183.172.216.111) 11.93ms referer=None
+[W 04:12:31.789 NotebookApp] 404 GET /master.jsp (183.172.216.111) 13.67ms referer=None
+[W 04:12:31.791 NotebookApp] 404 GET /flumemaster.jsp (183.172.216.111) 15.08ms referer=None
+[W 04:12:31.792 NotebookApp] 405 OPTIONS / (183.172.216.111) 0.89ms referer=None
+[I 04:12:31.792 NotebookApp] 302 GET / (183.172.216.111) 0.94ms
+[W 04:12:31.793 NotebookApp] 404 GET /nmaplowercheck1608408751 (183.172.216.111) 1.31ms referer=None
+[W 04:12:31.793 NotebookApp] 403 POST /sdk (183.172.216.111): '_xsrf' argument missing from POST
+[W 04:12:31.793 NotebookApp] 403 POST /sdk (183.172.216.111) 1.79ms referer=None
+[W 04:12:31.793 NotebookApp] 403 POST / (183.172.216.111): '_xsrf' argument missing from POST
+[W 04:12:31.794 NotebookApp] 403 POST / (183.172.216.111) 1.86ms referer=None
+[W 04:12:31.795 NotebookApp] 404 GET /dfshealth.jsp (183.172.216.111) 1.09ms referer=None
+[W 04:12:31.795 NotebookApp] 405 OPTIONS / (183.172.216.111) 1.13ms referer=None
+[W 04:12:31.795 NotebookApp] 405 OPTIONS / (183.172.216.111) 1.21ms referer=None
+[W 04:12:31.796 NotebookApp] 404 GET /rs-status (183.172.216.111) 1.58ms referer=None
+[W 04:12:31.796 NotebookApp] 405 PROPFIND / (183.172.216.111) 1.64ms referer=None
+[W 04:12:31.796 NotebookApp] 405 PROPFIND / (183.172.216.111) 0.24ms referer=None
+[W 04:12:32.061 NotebookApp] 404 GET /HNAP1 (183.172.216.111) 3.82ms referer=None
+[I 04:12:32.062 NotebookApp] 302 GET /tree? (183.172.216.111) 4.09ms
+[W 04:12:32.063 NotebookApp] 405 OPTIONS / (183.172.216.111) 4.42ms referer=None
+[W 04:12:32.065 NotebookApp] 405 ICLZ / (183.172.216.111) 1.58ms referer=None
+[W 04:12:32.066 NotebookApp] 405 PROPFIND / (183.172.216.111) 2.12ms referer=None
+[W 04:12:32.484 NotebookApp] 405 OPTIONS / (183.172.216.111) 1.54ms referer=None
+[I 04:12:32.485 NotebookApp] 302 GET / (183.172.216.111) 1.89ms
+[W 04:12:32.848 NotebookApp] 405 OPTIONS / (183.172.216.111) 1.53ms referer=None
+[W 04:12:32.849 NotebookApp] 405 HEAD / (183.172.216.111) 1.98ms referer=None
+[W 04:12:33.174 NotebookApp] 405 OPTIONS / (183.172.216.111) 1.03ms referer=None
+[W 04:12:33.268 NotebookApp] 403 POST / (183.172.216.111): '_xsrf' argument missing from POST
+[W 04:12:33.269 NotebookApp] 403 POST / (183.172.216.111) 1.36ms referer=None
+[W 04:12:33.453 NotebookApp] 405 OPTIONS / (183.172.216.111) 1.04ms referer=None
+[W 04:12:33.488 NotebookApp] 405 OPTIONS / (183.172.216.111) 1.03ms referer=None
+[W 04:12:33.617 NotebookApp] 405 OPTIONS / (183.172.216.111) 1.03ms referer=None
+[W 04:12:33.786 NotebookApp] 405 OPTIONS / (183.172.216.111) 1.04ms referer=None
+[W 04:12:33.951 NotebookApp] 405 OPTIONS / (183.172.216.111) 1.12ms referer=None
+[W 04:12:40.503 NotebookApp] 404 GET /jobtracker.jsp (183.172.216.111) 2.78ms referer=None
+[I 04:12:44.108 NotebookApp] 302 GET / (183.172.216.111) 0.96ms
+[I 04:12:44.302 NotebookApp] 302 GET /tree? (183.172.216.111) 1.20ms
+[W 04:12:52.087 NotebookApp] 404 GET /evox/about (183.172.216.111) 2.83ms referer=None
+[W 04:12:55.497 NotebookApp] 404 GET /status.jsp (183.172.216.111) 2.76ms referer=None
+[W 04:12:56.803 NotebookApp] 404 GET /.git/HEAD (183.172.216.111) 2.74ms referer=None
+[W 04:12:57.861 NotebookApp] 404 GET /browseDirectory.jsp (183.172.216.111) 2.68ms referer=None
+[I 04:13:44.994 NotebookApp] 302 GET / (183.172.216.111) 1.00ms
+[I 04:13:45.148 NotebookApp] 302 GET / (183.172.216.111) 0.81ms
+[W 06:03:00.280 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.78ms referer=None
+[W 14:23:01.745 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.82ms referer=None
+[W 16:51:42.317 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 15.83ms referer=None
+[I 19:17:08.245 NotebookApp] 302 GET / (74.120.14.55) 0.87ms
+[I 19:17:08.888 NotebookApp] 302 GET / (74.120.14.55) 0.81ms
+[I 19:17:09.505 NotebookApp] 302 GET /tree (74.120.14.55) 1.15ms
+[I 19:47:29.047 NotebookApp] 302 GET / (162.142.125.56) 0.94ms
+[I 19:47:29.650 NotebookApp] 302 GET / (162.142.125.56) 0.87ms
+[I 19:47:30.167 NotebookApp] 302 GET /tree (162.142.125.56) 1.23ms
+[I 23:18:23.749 NotebookApp] 302 GET / (192.35.168.16) 0.96ms
+[I 23:18:24.037 NotebookApp] 302 GET /tree? (192.35.168.16) 1.07ms
+[W 02:27:42.635 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 1.65ms referer=None
+[W 07:01:45.899 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.03ms referer=None
+[W 10:21:50.234 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 3.36ms referer=None
+[W 12:07:50.573 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 3.08ms referer=None
+[I 12:38:44.586 NotebookApp] 302 GET / (89.248.174.3) 0.89ms
+[I 12:40:19.329 NotebookApp] 302 GET / (174.138.26.50) 1.07ms
+[W 15:21:45.039 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.92ms referer=None
+[I 16:48:07.578 NotebookApp] 302 GET / (183.136.225.42) 1.12ms
+[I 16:53:17.795 NotebookApp] 302 GET / (139.162.83.10) 1.18ms
+[W 21:49:02.868 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 4.44ms referer=None
+[I 01:08:39.959 NotebookApp] 302 GET / (196.52.43.52) 13.72ms
+[I 03:12:00.548 NotebookApp] 302 GET / (71.6.199.23) 0.93ms
+[I 03:12:01.080 NotebookApp] 302 GET /tree (71.6.199.23) 1.13ms
+[I 03:12:07.168 NotebookApp] 302 GET / (34.78.227.165) 0.96ms
+[W 06:59:52.467 NotebookApp] 405 CONNECT ip.ws.126.net:443 (222.186.136.150) 8.97ms referer=None
+[W 07:27:31.392 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.69ms referer=None
+[W 08:37:05.884 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 2.97ms referer=None
+[I 15:28:03.730 NotebookApp] 302 GET / (127.0.0.1) 2.39ms
+[I 15:28:45.225 NotebookApp] Saving file at /plot.ipynb
+[I 15:29:08.039 NotebookApp] Saving file at /plot.ipynb
+[I 15:29:26.949 NotebookApp] Saving file at /plot.ipynb
+[I 15:30:06.507 NotebookApp] Saving file at /plot.ipynb
+[I 16:22:06.498 NotebookApp] Saving file at /plot.ipynb
+[I 16:23:08.954 NotebookApp] Saving file at /plot.ipynb
+[I 16:24:06.511 NotebookApp] Saving file at /plot.ipynb
+[I 16:24:16.535 NotebookApp] Saving file at /plot.ipynb
+[I 16:25:16.712 NotebookApp] Saving file at /plot.ipynb
+[I 16:26:06.487 NotebookApp] Saving file at /plot.ipynb
+[I 16:26:32.178 NotebookApp] Saving file at /plot.ipynb
+[I 16:27:33.732 NotebookApp] Saving file at /plot.ipynb
+[I 16:27:59.790 NotebookApp] Saving file at /plot.ipynb
+[I 16:28:06.508 NotebookApp] Saving file at /plot.ipynb
+[I 16:28:10.903 NotebookApp] Saving file at /plot.ipynb
+[I 16:29:56.744 NotebookApp] Saving file at /plot.ipynb
+[I 16:30:06.496 NotebookApp] Saving file at /plot.ipynb
+[I 16:30:12.234 NotebookApp] Saving file at /plot.ipynb
+[I 16:30:19.920 NotebookApp] Saving file at /plot.ipynb
+[I 16:30:47.991 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 16:31:42.226 NotebookApp] Kernel interrupted: 3d76cd79-2844-42c6-9e17-1a7019143615
+[I 16:31:45.980 NotebookApp] Kernel interrupted: 3d76cd79-2844-42c6-9e17-1a7019143615
+[I 16:31:48.915 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:f43016a31f1d4687824541a6eba38615
+[I 16:31:49.550 NotebookApp] Kernel restarted: 3d76cd79-2844-42c6-9e17-1a7019143615
+[I 16:31:49.575 NotebookApp] Restoring connection for 3d76cd79-2844-42c6-9e17-1a7019143615:f43016a31f1d4687824541a6eba38615
+[I 16:31:49.575 NotebookApp] Replaying 3 buffered messages
+[I 16:32:06.536 NotebookApp] Saving file at /plot.ipynb
+[I 16:32:42.745 NotebookApp] Saving file at /plot.ipynb
+[I 16:32:47.317 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 16:33:13.054 NotebookApp] Saving file at /plot.ipynb
+[I 16:33:19.513 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 16:34:06.497 NotebookApp] Saving file at /plot.ipynb
+[I 16:56:22.503 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:f43016a31f1d4687824541a6eba38615
+[W 17:09:36.934 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 16.16ms referer=None
+[W 19:35:31.729 NotebookApp] 404 GET http://api.proxychecker.co/?ip=223.104.103.6 (223.104.103.6) 2.71ms referer=None
+[I 20:15:14.643 NotebookApp] 302 GET / (139.162.83.10) 1.27ms
+[I 21:00:25.601 NotebookApp] 302 GET / (196.52.43.112) 0.97ms
+[I 21:00:27.385 NotebookApp] 302 GET /tree (196.52.43.112) 1.24ms
+[W 00:39:39.449 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.91ms referer=None
+[W 00:41:16.493 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 2.94ms referer=None
+[W 02:50:58.526 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.68ms referer=None
+[I 07:42:10.136 NotebookApp] 302 GET / (183.172.216.140) 1.16ms
+[W 07:45:49.666 NotebookApp] 404 GET /tasktracker.jsp (183.172.216.140) 2.73ms referer=None
+[W 07:45:54.042 NotebookApp] 404 GET /flumemaster.jsp (183.172.216.140) 2.57ms referer=None
+[I 07:45:54.866 NotebookApp] 302 GET / (183.172.216.140) 0.91ms
+[W 07:45:55.543 NotebookApp] 405 PROPFIND / (183.172.216.140) 1.08ms referer=None
+[W 07:45:55.940 NotebookApp] 405 OPTIONS / (183.172.216.140) 1.02ms referer=None
+[W 07:45:56.104 NotebookApp] 405 OPTIONS / (183.172.216.140) 1.01ms referer=None
+[W 07:45:56.279 NotebookApp] 405 OPTIONS / (183.172.216.140) 2.36ms referer=None
+[W 07:45:56.288 NotebookApp] 404 GET /master.jsp (183.172.216.140) 10.44ms referer=None
+[W 07:45:56.465 NotebookApp] 405 OPTIONS / (183.172.216.140) 1.01ms referer=None
+[W 07:45:56.498 NotebookApp] 405 OPTIONS / (183.172.216.140) 1.00ms referer=None
+[W 07:45:56.605 NotebookApp] 405 PROPFIND / (183.172.216.140) 0.99ms referer=None
+[W 07:45:56.666 NotebookApp] 405 OPTIONS / (183.172.216.140) 1.00ms referer=None
+[W 07:45:56.884 NotebookApp] 405 OPTIONS / (183.172.216.140) 1.00ms referer=None
+[W 07:45:57.056 NotebookApp] 405 OPTIONS / (183.172.216.140) 1.01ms referer=None
+[W 07:45:57.225 NotebookApp] 405 OPTIONS / (183.172.216.140) 1.01ms referer=None
+[W 07:45:57.407 NotebookApp] 405 OPTIONS / (183.172.216.140) 1.07ms referer=None
+[W 07:46:00.035 NotebookApp] 404 GET /nmaplowercheck1608680749 (183.172.216.140) 0.89ms referer=None
+[W 07:46:00.246 NotebookApp] 404 GET /HNAP1 (183.172.216.140) 2.51ms referer=None
+[W 07:46:00.357 NotebookApp] 404 GET /evox/about (183.172.216.140) 2.52ms referer=None
+[W 07:46:03.058 NotebookApp] 405 OPTIONS / (183.172.216.140) 1.09ms referer=None
+[W 07:46:03.219 NotebookApp] 405 PXKL / (183.172.216.140) 1.07ms referer=None
+[I 07:46:03.389 NotebookApp] 302 GET / (183.172.216.140) 0.92ms
+[W 07:46:03.553 NotebookApp] 405 HEAD / (183.172.216.140) 1.00ms referer=None
+[W 07:46:03.827 NotebookApp] 403 POST / (183.172.216.140): '_xsrf' argument missing from POST
+[W 07:46:03.828 NotebookApp] 403 POST / (183.172.216.140) 1.32ms referer=None
+[W 07:46:03.941 NotebookApp] 403 POST /sdk (183.172.216.140): '_xsrf' argument missing from POST
+[W 07:46:03.944 NotebookApp] 403 POST /sdk (183.172.216.140) 3.62ms referer=None
+[W 07:46:03.996 NotebookApp] 405 OPTIONS / (183.172.216.140) 1.01ms referer=None
+[W 07:46:05.865 NotebookApp] 405 PROPFIND / (183.172.216.140) 0.99ms referer=None
+[W 07:46:06.092 NotebookApp] 404 GET /browseDirectory.jsp (183.172.216.140) 2.62ms referer=None
+[W 07:46:06.372 NotebookApp] 404 GET /jobtracker.jsp (183.172.216.140) 2.60ms referer=None
+[W 07:46:09.288 NotebookApp] 403 POST / (183.172.216.140): '_xsrf' argument missing from POST
+[W 07:46:09.289 NotebookApp] 403 POST / (183.172.216.140) 1.56ms referer=None
+[W 07:46:09.346 NotebookApp] 404 GET /status.jsp (183.172.216.140) 2.57ms referer=None
+[I 07:46:10.525 NotebookApp] 302 GET / (183.172.216.140) 1.01ms
+[I 07:46:10.691 NotebookApp] 302 GET /tree? (183.172.216.140) 1.27ms
+[I 07:46:10.794 NotebookApp] 302 GET / (183.172.216.140) 1.01ms
+[I 07:46:10.998 NotebookApp] 302 GET /tree? (183.172.216.140) 1.15ms
+[W 07:46:12.072 NotebookApp] 404 GET /.git/HEAD (183.172.216.140) 2.61ms referer=None
+[W 07:46:13.537 NotebookApp] 404 GET /dfshealth.jsp (183.172.216.140) 2.65ms referer=None
+[W 07:46:18.820 NotebookApp] 404 GET /rs-status (183.172.216.140) 2.71ms referer=None
+[I 07:47:05.314 NotebookApp] 302 GET / (183.172.216.140) 1.00ms
+[I 07:47:05.472 NotebookApp] 302 GET / (183.172.216.140) 0.79ms
+[W 08:59:43.666 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.50ms referer=None
+[I 09:35:38.467 NotebookApp] 302 GET / (127.0.0.1) 0.73ms
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 09:36:26.716 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 09:36:47.861 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 09:37:12.277 NotebookApp] Saving file at /plot.ipynb
+[I 09:37:13.725 NotebookApp] Saving file at /plot.ipynb
+[I 09:37:15.205 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:469c9db546a3488f9ae0c39fc3818736
+[I 10:12:51.720 NotebookApp] 302 GET / (172.105.238.87) 1.11ms
+[I 15:34:05.186 NotebookApp] 302 GET / (166.111.68.22) 1.06ms
+[W 15:34:30.063 NotebookApp] 404 GET /rs-status (166.111.68.22) 3.78ms referer=None
+[W 15:34:30.063 NotebookApp] 403 POST / (166.111.68.22): '_xsrf' argument missing from POST
+[W 15:34:30.063 NotebookApp] 403 POST / (166.111.68.22) 3.01ms referer=None
+[I 15:34:30.066 NotebookApp] 302 GET / (166.111.68.22) 2.35ms
+[W 15:34:30.066 NotebookApp] 405 PROPFIND / (166.111.68.22) 2.43ms referer=None
+[I 15:34:30.066 NotebookApp] 302 GET / (166.111.68.22) 2.51ms
+[W 15:34:30.067 NotebookApp] 405 OPTIONS / (166.111.68.22) 2.60ms referer=None
+[W 15:34:30.067 NotebookApp] 405 PROPFIND / (166.111.68.22) 2.70ms referer=None
+[W 15:34:30.067 NotebookApp] 405 OPTIONS / (166.111.68.22) 2.79ms referer=None
+[W 15:34:30.067 NotebookApp] 405 OPTIONS / (166.111.68.22) 2.88ms referer=None
+[W 15:34:30.068 NotebookApp] 404 GET /jobtracker.jsp (166.111.68.22) 3.30ms referer=None
+[W 15:34:30.068 NotebookApp] 404 GET /tasktracker.jsp (166.111.68.22) 3.66ms referer=None
+[W 15:34:30.069 NotebookApp] 404 GET /.git/HEAD (166.111.68.22) 4.02ms referer=None
+[W 15:34:30.069 NotebookApp] 404 GET /flumemaster.jsp (166.111.68.22) 4.38ms referer=None
+[W 15:34:30.070 NotebookApp] 404 GET /master.jsp (166.111.68.22) 4.77ms referer=None
+[W 15:34:30.070 NotebookApp] 404 GET /dfshealth.jsp (166.111.68.22) 5.15ms referer=None
+[W 15:34:30.071 NotebookApp] 404 GET /status.jsp (166.111.68.22) 5.54ms referer=None
+[W 15:34:30.071 NotebookApp] 404 GET /browseDirectory.jsp (166.111.68.22) 5.91ms referer=None
+[I 15:34:30.084 NotebookApp] 302 GET /tree? (166.111.68.22) 0.59ms
+[W 15:34:30.084 NotebookApp] 405 OPTIONS / (166.111.68.22) 0.64ms referer=None
+[W 15:34:30.084 NotebookApp] 405 PROPFIND / (166.111.68.22) 0.71ms referer=None
+[I 15:34:30.084 NotebookApp] 302 GET / (166.111.68.22) 0.76ms
+[W 15:34:30.085 NotebookApp] 405 VQOV / (166.111.68.22) 0.30ms referer=None
+[W 15:34:30.085 NotebookApp] 404 GET /nmaplowercheck1608708870 (166.111.68.22) 0.69ms referer=None
+[W 15:34:30.093 NotebookApp] 405 OPTIONS / (166.111.68.22) 0.78ms referer=None
+[I 15:34:30.093 NotebookApp] 302 GET / (166.111.68.22) 0.86ms
+[W 15:34:30.094 NotebookApp] 404 GET /HNAP1 (166.111.68.22) 0.60ms referer=None
+[W 15:34:30.098 NotebookApp] 405 OPTIONS / (166.111.68.22) 0.33ms referer=None
+[W 15:34:30.098 NotebookApp] 405 HEAD / (166.111.68.22) 0.41ms referer=None
+[W 15:34:30.106 NotebookApp] 405 OPTIONS / (166.111.68.22) 0.22ms referer=None
+[W 15:34:30.109 NotebookApp] 403 POST / (166.111.68.22): '_xsrf' argument missing from POST
+[W 15:34:30.109 NotebookApp] 403 POST / (166.111.68.22) 0.29ms referer=None
+[W 15:34:30.124 NotebookApp] 405 OPTIONS / (166.111.68.22) 0.28ms referer=None
+[W 15:34:30.125 NotebookApp] 405 OPTIONS / (166.111.68.22) 0.33ms referer=None
+[W 15:34:30.134 NotebookApp] 405 OPTIONS / (166.111.68.22) 0.31ms referer=None
+[W 15:34:30.143 NotebookApp] 405 OPTIONS / (166.111.68.22) 0.34ms referer=None
+[W 15:34:30.145 NotebookApp] 405 OPTIONS / (166.111.68.22) 0.37ms referer=None
+[W 22:13:01.698 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.86ms referer=None
+[W 23:13:54.733 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 2.79ms referer=None
+[W 07:50:00.045 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 1.21ms referer=None
+[I 14:13:36.259 NotebookApp] 302 GET / (166.111.68.233) 1.12ms
+[W 14:13:36.265 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.26ms referer=None
+[W 14:13:36.273 NotebookApp] 404 GET /nice%20ports%2C/Tri%6Eity.txt%2ebak (166.111.68.233) 0.73ms referer=None
+[I 14:13:36.341 NotebookApp] Malformed HTTP message from 166.111.68.233: Malformed HTTP request line
+[W 14:13:56.390 NotebookApp] 404 GET /browseDirectory.jsp (166.111.68.233) 1.70ms referer=None
+[W 14:13:56.390 NotebookApp] 404 GET /status.jsp (166.111.68.233) 2.05ms referer=None
+[W 14:13:56.391 NotebookApp] 404 GET /tasktracker.jsp (166.111.68.233) 2.38ms referer=None
+[W 14:13:56.393 NotebookApp] 404 GET /jobtracker.jsp (166.111.68.233) 1.67ms referer=None
+[W 14:13:56.394 NotebookApp] 404 GET /rs-status (166.111.68.233) 2.00ms referer=None
+[W 14:13:56.395 NotebookApp] 404 GET /master.jsp (166.111.68.233) 2.81ms referer=None
+[W 14:13:56.395 NotebookApp] 405 OPTIONS / (166.111.68.233) 2.95ms referer=None
+[I 14:13:56.395 NotebookApp] 302 GET / (166.111.68.233) 3.06ms
+[W 14:13:56.396 NotebookApp] 404 GET http://www.google.com (166.111.68.233) 3.44ms referer=None
+[W 14:13:56.396 NotebookApp] 404 GET /dfshealth.jsp (166.111.68.233) 3.79ms referer=None
+[W 14:13:56.397 NotebookApp] 404 GET /flumemaster.jsp (166.111.68.233) 4.15ms referer=None
+[W 14:13:56.397 NotebookApp] 405 OPTIONS / (166.111.68.233) 4.22ms referer=None
+[W 14:13:56.398 NotebookApp] 404 GET /.git/HEAD (166.111.68.233) 4.60ms referer=None
+[W 14:13:56.404 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.25ms referer=None
+[I 14:13:56.405 NotebookApp] 302 GET /tree? (166.111.68.233) 0.42ms
+[W 14:13:56.406 NotebookApp] 404 HEAD http://www.google.com (166.111.68.233) 0.81ms referer=None
+[W 14:13:56.414 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.30ms referer=None
+[W 14:13:56.416 NotebookApp] 405 CONNECT www.google.com:80 (166.111.68.233) 1.27ms referer=None
+[I 14:13:56.416 NotebookApp] 302 GET / (166.111.68.233) 0.28ms
+[W 14:13:56.419 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.27ms referer=None
+[I 14:13:56.420 NotebookApp] 302 GET /tree? (166.111.68.233) 0.37ms
+[W 14:13:56.435 NotebookApp] 405 OPTIONS / (166.111.68.233) 1.84ms referer=None
+[W 14:13:56.443 NotebookApp] 405 OPTIONS / (166.111.68.233) 1.16ms referer=None
+[W 14:13:56.449 NotebookApp] 405 OPTIONS / (166.111.68.233) 1.09ms referer=None
+[W 14:13:56.453 NotebookApp] 405 OPTIONS / (166.111.68.233) 1.09ms referer=None
+[W 14:13:56.457 NotebookApp] 405 OPTIONS / (166.111.68.233) 1.09ms referer=None
+[W 17:28:51.238 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.74ms referer=None
+[I 17:58:25.892 NotebookApp] 302 GET / (74.120.14.55) 0.90ms
+[I 17:58:26.436 NotebookApp] 302 GET / (74.120.14.55) 0.94ms
+[I 17:58:27.084 NotebookApp] 302 GET /tree (74.120.14.55) 1.20ms
+[I 21:28:09.709 NotebookApp] 302 GET / (166.111.68.233) 1.02ms
+[W 21:28:09.717 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.25ms referer=None
+[W 21:28:09.725 NotebookApp] 404 GET /nice%20ports%2C/Tri%6Eity.txt%2ebak (166.111.68.233) 0.74ms referer=None
+[I 21:28:09.799 NotebookApp] Malformed HTTP message from 166.111.68.233: Malformed HTTP request line
+[W 21:28:29.846 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.64ms referer=None
+[W 21:28:29.847 NotebookApp] 404 GET http://www.google.com (166.111.68.233) 1.18ms referer=None
+[W 21:28:29.848 NotebookApp] 404 GET /flumemaster.jsp (166.111.68.233) 1.41ms referer=None
+[W 21:28:29.850 NotebookApp] 404 GET /status.jsp (166.111.68.233) 2.21ms referer=None
+[I 21:28:29.850 NotebookApp] 302 GET / (166.111.68.233) 2.25ms
+[W 21:28:29.850 NotebookApp] 404 GET /rs-status (166.111.68.233) 2.65ms referer=None
+[W 21:28:29.851 NotebookApp] 404 GET /jobtracker.jsp (166.111.68.233) 3.03ms referer=None
+[W 21:28:29.851 NotebookApp] 404 GET /dfshealth.jsp (166.111.68.233) 3.42ms referer=None
+[W 21:28:29.852 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.93ms referer=None
+[W 21:28:29.853 NotebookApp] 404 GET /tasktracker.jsp (166.111.68.233) 1.35ms referer=None
+[W 21:28:29.853 NotebookApp] 404 GET /.git/HEAD (166.111.68.233) 1.74ms referer=None
+[W 21:28:29.854 NotebookApp] 404 GET /browseDirectory.jsp (166.111.68.233) 2.14ms referer=None
+[W 21:28:29.855 NotebookApp] 404 GET /master.jsp (166.111.68.233) 2.56ms referer=None
+[W 21:28:29.862 NotebookApp] 404 HEAD http://www.google.com (166.111.68.233) 0.93ms referer=None
+[I 21:28:29.862 NotebookApp] 302 GET /tree? (166.111.68.233) 1.00ms
+[W 21:28:29.863 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.31ms referer=None
+[I 21:28:29.863 NotebookApp] 302 GET / (166.111.68.233) 0.24ms
+[W 21:28:29.870 NotebookApp] 405 CONNECT www.google.com:80 (166.111.68.233) 0.69ms referer=None
+[W 21:28:29.871 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.56ms referer=None
+[I 21:28:29.871 NotebookApp] 302 GET /tree? (166.111.68.233) 0.55ms
+[W 21:28:29.874 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.22ms referer=None
+[W 21:28:29.881 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.26ms referer=None
+[W 21:28:29.884 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.37ms referer=None
+[W 21:28:29.888 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.23ms referer=None
+[W 21:28:29.892 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.25ms referer=None
+[W 21:28:29.894 NotebookApp] 405 OPTIONS / (166.111.68.233) 0.25ms referer=None
+[I 13:15:50.509 NotebookApp] 302 GET / (59.66.139.21) 0.32ms
+[I 13:19:34.277 NotebookApp] 302 GET / (59.66.139.21) 1.74ms
+[W 13:19:34.279 NotebookApp] 404 GET /tasktracker.jsp (59.66.139.21) 3.76ms referer=None
+[I 13:19:34.540 NotebookApp] 302 GET /tree? (59.66.139.21) 1.28ms
+[W 13:19:35.784 NotebookApp] 404 GET /nmaplowercheck1608873573 (59.66.139.21) 2.80ms referer=None
+[W 13:19:35.940 NotebookApp] 404 GET /HNAP1 (59.66.139.21) 3.28ms referer=None
+[I 13:19:35.941 NotebookApp] 302 GET / (59.66.139.21) 3.68ms
+[W 13:19:40.388 NotebookApp] 405 PROPFIND / (59.66.139.21) 1.16ms referer=None
+[W 13:19:40.625 NotebookApp] 403 POST /sdk (59.66.139.21): '_xsrf' argument missing from POST
+[W 13:19:40.633 NotebookApp] 403 POST /sdk (59.66.139.21) 9.38ms referer=None
+[W 13:19:43.166 NotebookApp] 404 GET /evox/about (59.66.139.21) 2.75ms referer=None
+[W 13:19:43.802 NotebookApp] 403 POST / (59.66.139.21): '_xsrf' argument missing from POST
+[W 13:19:43.803 NotebookApp] 403 POST / (59.66.139.21) 1.70ms referer=None
+[W 13:19:47.589 NotebookApp] 404 GET /jobtracker.jsp (59.66.139.21) 2.84ms referer=None
+[W 13:19:47.921 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.63ms referer=None
+[W 13:19:47.922 NotebookApp] 405 PROPFIND / (59.66.139.21) 2.16ms referer=None
+[W 13:19:48.071 NotebookApp] 405 PROPFIND / (59.66.139.21) 1.18ms referer=None
+[W 13:19:48.155 NotebookApp] 404 GET /flumemaster.jsp (59.66.139.21) 2.78ms referer=None
+[W 13:19:52.838 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.13ms referer=None
+[W 13:19:52.998 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.12ms referer=None
+[W 13:19:53.157 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.11ms referer=None
+[W 13:19:53.306 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.10ms referer=None
+[W 13:19:53.459 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.20ms referer=None
+[W 13:19:53.617 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.11ms referer=None
+[W 13:19:53.775 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.18ms referer=None
+[W 13:19:53.934 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.13ms referer=None
+[W 13:19:54.083 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.17ms referer=None
+[W 13:19:56.100 NotebookApp] 404 GET /rs-status (59.66.139.21) 2.99ms referer=None
+[W 13:19:56.676 NotebookApp] 404 GET /browseDirectory.jsp (59.66.139.21) 2.78ms referer=None
+[W 13:19:57.443 NotebookApp] 404 GET /master.jsp (59.66.139.21) 0.69ms referer=None
+[W 13:19:59.244 NotebookApp] 404 GET /.git/HEAD (59.66.139.21) 2.88ms referer=None
+[I 13:20:00.577 NotebookApp] 302 GET / (59.66.139.21) 1.11ms
+[I 13:20:00.726 NotebookApp] 302 GET /tree? (59.66.139.21) 1.22ms
+[W 13:20:02.288 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.12ms referer=None
+[W 13:20:02.441 NotebookApp] 405 GIVH / (59.66.139.21) 1.02ms referer=None
+[I 13:20:02.588 NotebookApp] 302 GET / (59.66.139.21) 0.93ms
+[W 13:20:02.738 NotebookApp] 405 HEAD / (59.66.139.21) 1.02ms referer=None
+[W 13:20:02.937 NotebookApp] 403 POST / (59.66.139.21): '_xsrf' argument missing from POST
+[W 13:20:02.937 NotebookApp] 403 POST / (59.66.139.21) 1.32ms referer=None
+[W 13:20:03.087 NotebookApp] 405 OPTIONS / (59.66.139.21) 1.11ms referer=None
+[W 13:20:03.539 NotebookApp] 404 GET /dfshealth.jsp (59.66.139.21) 2.68ms referer=None
+[W 13:20:06.174 NotebookApp] 404 GET /status.jsp (59.66.139.21) 0.63ms referer=None
+[I 13:20:37.425 NotebookApp] 302 GET / (59.66.139.21) 1.01ms
+[I 13:20:37.575 NotebookApp] 302 GET / (59.66.139.21) 0.88ms
+[I 07:58:10.014 NotebookApp] 302 GET / (183.172.214.197) 1.06ms
+[W 08:01:57.407 NotebookApp] 404 GET /master.jsp (183.172.214.197) 2.85ms referer=None
+[W 08:01:57.791 NotebookApp] 404 GET /tasktracker.jsp (183.172.214.197) 0.80ms referer=None
+[W 08:01:58.019 NotebookApp] 404 GET /dfshealth.jsp (183.172.214.197) 2.72ms referer=None
+[W 08:01:58.077 NotebookApp] 404 GET /nmaplowercheck1608941001 (183.172.214.197) 2.64ms referer=None
+[W 08:01:58.250 NotebookApp] 404 GET /evox/about (183.172.214.197) 3.24ms referer=None
+[W 08:01:58.362 NotebookApp] 403 POST /sdk (183.172.214.197): '_xsrf' argument missing from POST
+[W 08:01:58.364 NotebookApp] 403 POST /sdk (183.172.214.197) 3.40ms referer=None
+[W 08:01:59.812 NotebookApp] 405 PROPFIND / (183.172.214.197) 1.01ms referer=None
+[I 08:02:01.440 NotebookApp] 302 GET / (183.172.214.197) 1.07ms
+[I 08:02:01.639 NotebookApp] 302 GET /tree? (183.172.214.197) 1.40ms
+[I 08:02:01.989 NotebookApp] 302 GET / (183.172.214.197) 0.93ms
+[I 08:02:02.150 NotebookApp] 302 GET /tree? (183.172.214.197) 1.16ms
+[W 08:02:03.743 NotebookApp] 404 GET /flumemaster.jsp (183.172.214.197) 2.64ms referer=None
+[W 08:02:07.134 NotebookApp] 405 OPTIONS / (183.172.214.197) 1.06ms referer=None
+[W 08:02:07.190 NotebookApp] 404 GET /browseDirectory.jsp (183.172.214.197) 2.61ms referer=None
+[W 08:02:07.295 NotebookApp] 405 OHCD / (183.172.214.197) 1.08ms referer=None
+[I 08:02:07.451 NotebookApp] 302 GET / (183.172.214.197) 1.00ms
+[W 08:02:07.690 NotebookApp] 405 HEAD / (183.172.214.197) 1.01ms referer=None
+[W 08:02:07.858 NotebookApp] 403 POST / (183.172.214.197): '_xsrf' argument missing from POST
+[W 08:02:07.858 NotebookApp] 403 POST / (183.172.214.197) 0.31ms referer=None
+[W 08:02:08.055 NotebookApp] 405 OPTIONS / (183.172.214.197) 1.11ms referer=None
+[I 08:02:08.738 NotebookApp] 302 GET / (183.172.214.197) 0.71ms
+[W 08:02:09.302 NotebookApp] 405 OPTIONS / (183.172.214.197) 1.10ms referer=None
+[W 08:02:09.459 NotebookApp] 405 PROPFIND / (183.172.214.197) 1.81ms referer=None
+[W 08:02:09.462 NotebookApp] 404 GET /rs-status (183.172.214.197) 3.82ms referer=None
+[W 08:02:10.890 NotebookApp] 405 OPTIONS / (183.172.214.197) 1.12ms referer=None
+[W 08:02:11.031 NotebookApp] 405 OPTIONS / (183.172.214.197) 1.11ms referer=None
+[W 08:02:11.203 NotebookApp] 405 OPTIONS / (183.172.214.197) 1.10ms referer=None
+[W 08:02:11.368 NotebookApp] 405 OPTIONS / (183.172.214.197) 1.02ms referer=None
+[W 08:02:11.499 NotebookApp] 405 OPTIONS / (183.172.214.197) 1.11ms referer=None
+[W 08:02:11.644 NotebookApp] 405 OPTIONS / (183.172.214.197) 1.02ms referer=None
+[W 08:02:11.802 NotebookApp] 405 OPTIONS / (183.172.214.197) 0.89ms referer=None
+[W 08:02:11.956 NotebookApp] 403 POST / (183.172.214.197): '_xsrf' argument missing from POST
+[W 08:02:11.957 NotebookApp] 403 POST / (183.172.214.197) 2.05ms referer=None
+[W 08:02:11.958 NotebookApp] 405 OPTIONS / (183.172.214.197) 2.22ms referer=None
+[W 08:02:12.115 NotebookApp] 405 OPTIONS / (183.172.214.197) 1.21ms referer=None
+[W 08:02:13.704 NotebookApp] 404 GET /jobtracker.jsp (183.172.214.197) 2.73ms referer=None
+[W 08:02:14.422 NotebookApp] 405 PROPFIND / (183.172.214.197) 1.01ms referer=None
+[W 08:02:18.488 NotebookApp] 404 GET /.git/HEAD (183.172.214.197) 2.71ms referer=None
+[W 08:02:18.827 NotebookApp] 404 GET /HNAP1 (183.172.214.197) 2.61ms referer=None
+[W 08:02:21.462 NotebookApp] 404 GET /status.jsp (183.172.214.197) 2.72ms referer=None
+[I 08:02:48.732 NotebookApp] 302 GET / (183.172.214.197) 0.98ms
+[I 08:02:48.915 NotebookApp] 302 GET / (183.172.214.197) 0.87ms
+[I 10:55:23.823 NotebookApp] 302 GET / (198.143.175.42) 1.05ms
+[I 10:55:24.005 NotebookApp] 302 GET /tree? (198.143.175.42) 1.07ms
+[W 12:12:38.384 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 3.10ms referer=None
+[W 12:56:21.767 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 2.80ms referer=None
+[W 13:22:52.633 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.93ms referer=None
+[I 17:51:12.393 NotebookApp] 302 GET / (192.35.168.96) 1.07ms
+[I 17:51:12.624 NotebookApp] 302 GET /tree? (192.35.168.96) 1.16ms
+[W 20:42:54.441 NotebookApp] 404 GET http://www.google.com/ (120.92.136.84) 3.12ms referer=None
+[W 23:02:05.068 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.93ms referer=None
+[I 23:21:34.053 NotebookApp] 302 GET / (162.142.125.39) 0.88ms
+[I 23:21:34.473 NotebookApp] 302 GET / (162.142.125.39) 0.89ms
+[I 23:21:34.904 NotebookApp] 302 GET /tree (162.142.125.39) 1.07ms
+[I 23:42:12.558 NotebookApp] 302 GET / (46.101.23.177) 1.09ms
+[I 09:40:07.693 NotebookApp] 302 GET / (60.191.17.221) 1.24ms
+[I 11:55:01.928 NotebookApp] 302 GET / (167.248.133.56) 0.89ms
+[I 11:55:02.427 NotebookApp] 302 GET / (167.248.133.56) 1.00ms
+[I 11:55:03.300 NotebookApp] 302 GET /tree (167.248.133.56) 1.26ms
+[I 15:12:57.023 NotebookApp] 302 GET / (127.0.0.1) 1.12ms
+[I 15:13:08.355 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:13:45.034 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:14:59.979 NotebookApp] Saving file at /plot.ipynb
+[I 15:17:14.198 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:7bdc80658b0942668b833d4d99592ade
+[I 15:20:43.585 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:21:24.729 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:21:55.830 NotebookApp] Saving file at /plot.ipynb
+[I 15:22:06.277 NotebookApp] Saving file at /plot.ipynb
+[I 15:22:10.355 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:22:31.669 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:22:57.584 NotebookApp] Saving file at /plot.ipynb
+[I 15:23:03.726 NotebookApp] Saving file at /plot.ipynb
+[I 15:23:09.126 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:23:53.095 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:23:55.781 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:24:21.440 NotebookApp] Saving file at /plot.ipynb
+[I 15:24:24.452 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:24:39.380 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:24:56.559 NotebookApp] Saving file at /plot.ipynb
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+sh: 1: pause: not found
+[I 15:25:55.792 NotebookApp] Saving file at /plot.ipynb
+[I 15:51:33.962 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 15:51:51.038 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 15:52:39.759 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 15:53:53.240 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 15:55:53.254 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 15:57:53.257 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 16:09:53.239 NotebookApp] Saving file at /plot-Copy2.ipynb
+[I 16:18:47.361 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:a4366a5cfae0479bb351bae7e1d8083e
+[I 16:18:47.361 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:46dcb91ad3f243cb895e0a3657d5b1e6
+[W 16:24:59.893 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 17.69ms referer=None
+[I 19:16:42.032 NotebookApp] 302 GET / (127.0.0.1) 1.03ms
+[I 19:17:20.976 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:18:46.044 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:19:48.087 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:19:52.969 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:20:31.394 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:20:46.068 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:20:55.824 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:21:01.512 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:21:10.425 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:21:48.485 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:22:46.068 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:22:50.374 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:23:41.751 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:23:59.242 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:24:29.567 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:24:45.487 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:25:07.308 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:26:18.079 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:28:16.624 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:28:19.200 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:28:29.767 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:28:46.052 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:29:06.448 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:30:46.065 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:33:58.192 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:34:46.085 NotebookApp] Saving file at /plot-Copy1.ipynb
+[W 19:43:41.415 NotebookApp] 404 GET http://example.com/ (64.31.8.10) 3.15ms referer=None
+[I 19:52:19.697 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:52:46.047 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:53:09.098 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:53:23.203 NotebookApp] Saving file at /plot-Copy1.ipynb
+[I 19:54:22.176 NotebookApp] Saving file at /urea.ipynb
+[I 19:54:30.658 NotebookApp] Saving file at /polymer.ipynb
+[I 19:54:31.710 NotebookApp] Saving file at /polymer.ipynb
+[I 19:54:32.687 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:c118cc57809247d7b41cfffd4571ecd4
+[I 19:54:33.183 NotebookApp] Saving file at /polymerEf.ipynb
+[I 19:54:34.194 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:d0602782f9ff47a48d39dc70a25efb7e
+[I 19:54:34.461 NotebookApp] Saving file at /urea.ipynb
+[I 19:54:35.614 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:67f4583fda81420f8483b9b171ff7b9a
+[I 20:42:42.052 NotebookApp] 302 GET / (127.0.0.1) 1.03ms
+[I 20:54:46.319 NotebookApp] Saving file at /polymer.ipynb
+[I 21:25:31.764 NotebookApp] 302 GET / (167.248.133.56) 0.98ms
+[I 21:25:32.361 NotebookApp] 302 GET / (167.248.133.56) 0.90ms
+[I 21:25:32.929 NotebookApp] 302 GET /tree (167.248.133.56) 1.20ms
+[W 22:14:56.691 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (185.216.140.186) 3.09ms referer=None
+[W 03:59:13.766 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.69ms referer=None
+[I 08:46:19.468 NotebookApp] 302 GET / (166.111.88.41) 0.88ms
+[I 08:46:19.475 NotebookApp] 302 GET /tree? (166.111.88.41) 1.27ms
+[I 08:46:22.605 NotebookApp] 302 POST /login?next=%2Ftree%3F (166.111.88.41) 64.63ms
+[I 08:48:28.335 NotebookApp] Saving file at /urea.ipynb
+[I 08:48:28.791 NotebookApp] Saving file at /urea.ipynb
+[I 08:48:37.267 NotebookApp] Saving file at /polymer.ipynb
+[I 08:49:15.127 NotebookApp] Saving file at /urea.ipynb
+[I 08:49:44.889 NotebookApp] Saving file at /urea.ipynb
+[I 08:50:28.387 NotebookApp] Saving file at /urea.ipynb
+[I 08:52:29.303 NotebookApp] Saving file at /urea.ipynb
+[I 08:58:28.817 NotebookApp] Saving file at /urea.ipynb
+[I 09:00:28.365 NotebookApp] Saving file at /urea.ipynb
+[I 09:02:12.495 NotebookApp] Saving file at /urea.ipynb
+[I 09:04:28.780 NotebookApp] Saving file at /urea.ipynb
+[I 09:10:28.845 NotebookApp] Saving file at /urea.ipynb
+[I 09:16:32.095 NotebookApp] Creating new file in 
+[I 09:26:28.374 NotebookApp] Saving file at /urea.ipynb
+[I 09:30:46.434 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:d7223288f9a74e858ffa1517f4027b1a
+[I 09:30:47.218 NotebookApp] Starting buffering for 3d76cd79-2844-42c6-9e17-1a7019143615:5aec98483f8e4ffb83636645a98cd267
+[I 10:03:35.461 NotebookApp] 302 GET / (71.6.135.131) 0.97ms
+[I 10:03:35.974 NotebookApp] 302 GET /tree (71.6.135.131) 1.10ms
+[I 10:40:08.913 NotebookApp] 302 GET / (128.14.209.154) 1.06ms
+[I 10:40:09.189 NotebookApp] 302 GET /tree? (128.14.209.154) 1.10ms
+[W 10:44:18.196 NotebookApp] 404 GET http://clientapi.ipip.net/echo.php?info=1234567890 (139.162.81.62) 3.23ms referer=None
+[I 13:12:07.575 NotebookApp] 302 GET / (166.111.88.41) 1.05ms
+[I 13:13:48.167 NotebookApp] Saving file at /polymer.ipynb
+[I 13:14:12.906 NotebookApp] Saving file at /polymer.ipynb
+[I 13:14:13.723 NotebookApp] Saving file at /polymer.ipynb
+[I 13:14:46.143 NotebookApp] Saving file at /polymer.ipynb
+[I 13:16:12.995 NotebookApp] Saving file at /polymer.ipynb
+[I 13:18:13.114 NotebookApp] Saving file at /polymer.ipynb
+[I 13:20:13.030 NotebookApp] Saving file at /polymer.ipynb
+[I 13:22:13.062 NotebookApp] Saving file at /polymer.ipynb
+[I 13:24:12.973 NotebookApp] Saving file at /polymer.ipynb
+[I 13:28:12.984 NotebookApp] Saving file at /polymer.ipynb
+[I 13:29:34.611 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:60b8f95362074bd48942bb954c62f247
+[I 13:29:35.864 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:60b8f95362074bd48942bb954c62f247
+[W 13:31:05.683 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 13:31:05.865 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 13:31:10.866 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:60b8f95362074bd48942bb954c62f247
+[I 13:34:50.850 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:5bb0b3b240cb478c88ee647c1f2aacd2
+[I 13:36:51.629 NotebookApp] Saving file at /polymer.ipynb
+[I 13:38:21.383 NotebookApp] Saving file at /polymer.ipynb
+[I 13:38:51.669 NotebookApp] Saving file at /polymer.ipynb
+[I 13:39:42.156 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:06be1337f58f4c65b6fe586b53301c3c
+[I 13:40:00.438 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:60b8f95362074bd48942bb954c62f247
+[I 13:40:15.348 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:79aeb9477ee142e9b628a79b7a9e4e02
+[W 13:42:12.427 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.93ms referer=None
+[I 13:42:16.695 NotebookApp] Saving file at /polymer.ipynb
+[I 13:48:16.645 NotebookApp] Saving file at /polymer.ipynb
+[I 13:50:16.476 NotebookApp] Saving file at /polymer.ipynb
+[I 13:52:16.164 NotebookApp] Saving file at /polymer.ipynb
+[I 13:54:16.819 NotebookApp] Saving file at /polymer.ipynb
+[I 14:08:16.539 NotebookApp] Saving file at /polymer.ipynb
+[I 14:09:51.512 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:09:51.513 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:60b8f95362074bd48942bb954c62f247
+[I 14:09:52.728 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:09:52.750 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:60b8f95362074bd48942bb954c62f247
+[W 14:11:22.728 NotebookApp] WebSocket ping timeout after 90000 ms.
+[W 14:11:22.751 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 14:11:27.730 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:11:27.753 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:60b8f95362074bd48942bb954c62f247
+[I 14:11:49.142 NotebookApp] Saving file at /polymer.ipynb
+[I 14:12:11.923 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:12:11.954 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:60b8f95362074bd48942bb954c62f247
+[I 14:12:52.958 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:12:53.587 NotebookApp] Kernel restarted: 119d23f4-2d22-402d-b710-caf9561b6ed0
+[I 14:12:54.501 NotebookApp] Kernel restarted: 119d23f4-2d22-402d-b710-caf9561b6ed0
+[I 14:12:54.504 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:12:54.504 NotebookApp] Replaying 3 buffered messages
+[W 14:12:54.532 NotebookApp] Replacing stale connection: 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:12:54.535 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:12:54.535 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:12:54.549 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:12:55.559 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:12:55.559 NotebookApp] Replaying 1 buffered messages
+[I 14:13:20.648 NotebookApp] Saving file at /polymer.ipynb
+[I 14:13:26.426 NotebookApp] Starting buffering for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:13:26.426 NotebookApp] Starting buffering for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:60b8f95362074bd48942bb954c62f247
+[I 14:13:27.906 NotebookApp] Restoring connection for 119d23f4-2d22-402d-b710-caf9561b6ed0:5102e3def4fd40bbba9869f254c68f5e
+[I 14:13:27.942 NotebookApp] Restoring connection for 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b:60b8f95362074bd48942bb954c62f247
+[C 14:13:51.384 NotebookApp] received signal 15, stopping
+[I 14:13:51.385 NotebookApp] Shutting down 3 kernels
+[I 14:13:51.793 NotebookApp] Kernel shutdown: 3d76cd79-2844-42c6-9e17-1a7019143615
+[I 14:13:51.793 NotebookApp] Kernel shutdown: 119d23f4-2d22-402d-b710-caf9561b6ed0
+[I 14:13:51.894 NotebookApp] Kernel shutdown: 6b65fdd1-caad-44d5-949a-9e9c8c40ff6b
+[I 14:13:51.895 NotebookApp] Shutting down 0 terminals
+[I 14:13:51.899 NotebookApp] KernelRestarter: restarting kernel (1/5), keep random ports
+WARNING:root:kernel 119d23f4-2d22-402d-b710-caf9561b6ed0 restarted
+[W 14:14:55.858 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[I 14:14:55.860 NotebookApp] Serving notebooks from local directory: /home/hcooh/projects/float_crystal
+[I 14:14:55.860 NotebookApp] Jupyter Notebook 6.1.4 is running at:
+[I 14:14:55.860 NotebookApp] http://ubuntu-1007:8888/
+[I 14:14:55.860 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 14:15:21.109 NotebookApp] Kernel started: a5beff51-bd02-47e5-9313-80adc3e084dc, name: python3
+[W 14:30:22.718 NotebookApp] WARNING: The notebook server is listening on all IP addresses and not using encryption. This is not recommended.
+[I 14:30:22.720 NotebookApp] Serving notebooks from local directory: /home/hcooh/projects/float_crystal
+[I 14:30:22.720 NotebookApp] Jupyter Notebook 6.1.4 is running at:
+[I 14:30:22.720 NotebookApp] http://ubuntu-1007:8888/
+[I 14:30:22.720 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[I 14:30:44.897 NotebookApp] 302 GET / (166.111.88.41) 1.09ms
+[I 14:30:49.675 NotebookApp] Kernel started: 8fef01d4-83ae-44b9-8571-be838ac4ad0d, name: python3
+[I 14:32:50.587 NotebookApp] Saving file at /polymerEf.ipynb
+[I 14:36:08.750 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:55d5d9b8575e4007b7835a3d6df09802
+[I 14:36:09.969 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:55d5d9b8575e4007b7835a3d6df09802
+[W 14:37:39.972 NotebookApp] WebSocket ping timeout after 90003 ms.
+[I 14:37:44.976 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:55d5d9b8575e4007b7835a3d6df09802
+[I 14:46:26.627 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 14:46:27.957 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 14:46:33.791 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 14:46:34.976 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 14:46:44.949 NotebookApp] Replacing stale connection: 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 14:46:49.952 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 14:46:49.954 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 14:47:59.300 NotebookApp] Replacing stale connection: 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 14:48:04.302 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 14:48:04.304 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 15:07:50.387 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:09:57.496 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:11:21.859 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 15:11:23.106 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 15:17:15.841 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 15:17:17.170 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 15:20:50.559 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:27:48.025 NotebookApp] Kernel started: 3b04f6df-9a37-4aa3-bded-cbe0f914edad, name: python3
+[I 15:27:55.815 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:28:21.819 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:28:50.440 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:29:07.848 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:29:56.828 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:30:50.665 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:36:50.580 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:40:50.636 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:42:05.410 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 15:42:05.411 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 15:42:06.770 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 15:42:06.847 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 15:45:55.559 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:47:55.586 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:56:48.865 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:57:55.162 NotebookApp] Saving file at /polymerEf.ipynb
+[I 15:59:55.601 NotebookApp] Saving file at /polymerEf.ipynb
+[I 16:31:01.580 NotebookApp] 302 GET / (35.187.190.226) 1.02ms
+[I 16:33:47.481 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 16:33:47.482 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 16:33:49.245 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 16:33:49.262 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 16:35:19.247 NotebookApp] WebSocket ping timeout after 90002 ms.
+[W 16:35:19.262 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 16:35:24.249 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 16:35:24.265 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 16:37:15.211 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 16:37:15.234 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 16:38:45.212 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 16:38:45.234 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 16:38:50.214 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 16:38:50.236 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 17:14:11.039 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 17:14:11.060 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 17:15:41.040 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 17:15:41.060 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 17:15:46.044 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 17:15:46.062 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 17:15:47.633 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 17:15:47.657 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 17:18:17.635 NotebookApp] WebSocket ping timeout after 119939 ms.
+[W 17:18:17.657 NotebookApp] WebSocket ping timeout after 119961 ms.
+[I 17:18:22.638 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 17:18:22.659 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 17:33:03.293 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 17:33:03.313 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 17:34:33.295 NotebookApp] WebSocket ping timeout after 90002 ms.
+[W 17:34:33.315 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 17:34:38.297 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 17:34:38.317 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 18:10:23.354 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 18:10:23.376 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 18:11:53.355 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 18:11:53.376 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 18:11:58.358 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 18:11:58.379 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 18:37:19.714 NotebookApp] 302 GET / (196.52.43.54) 0.99ms
+[I 18:37:20.382 NotebookApp] 302 GET /tree (196.52.43.54) 1.29ms
+[I 18:41:26.618 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 18:41:26.642 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 18:42:56.620 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 18:42:56.642 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 18:43:01.623 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 18:43:01.644 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 18:55:38.226 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 18:55:38.252 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 18:57:08.228 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 18:57:08.253 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 18:57:13.231 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 18:57:13.254 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 19:03:45.764 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:03:46.958 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 19:06:15.766 NotebookApp] WebSocket ping timeout after 119996 ms.
+[W 19:06:16.960 NotebookApp] WebSocket ping timeout after 119996 ms.
+[I 19:06:20.769 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:06:21.962 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 19:09:17.517 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:09:18.450 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 19:10:47.518 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 19:10:48.450 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 19:10:52.521 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:10:53.453 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 19:23:52.023 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:23:52.583 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 19:25:22.025 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 19:25:22.583 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 19:25:27.027 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:25:27.586 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 19:31:44.985 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 19:31:45.244 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:42:44.718 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:42:44.718 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 19:42:46.318 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 19:42:46.338 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 19:44:16.320 NotebookApp] WebSocket ping timeout after 90002 ms.
+[W 19:44:16.340 NotebookApp] WebSocket ping timeout after 90002 ms.
+[I 19:44:21.322 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 19:44:21.343 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:47:19.424 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 19:47:19.449 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 19:48:49.427 NotebookApp] WebSocket ping timeout after 90002 ms.
+[W 19:48:49.450 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 19:48:54.429 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 19:48:54.452 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:53:50.058 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:53:50.082 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 19:55:20.059 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 19:55:20.083 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 19:55:25.061 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 19:55:25.085 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 20:12:31.866 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 20:12:31.892 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 20:15:01.868 NotebookApp] WebSocket ping timeout after 119996 ms.
+[W 20:15:01.892 NotebookApp] WebSocket ping timeout after 119996 ms.
+[I 20:15:06.870 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 20:15:06.894 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 20:31:15.598 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 20:31:15.619 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 20:32:45.600 NotebookApp] WebSocket ping timeout after 90002 ms.
+[W 20:32:45.620 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 20:32:50.603 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 20:32:50.622 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 20:43:24.422 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 20:43:24.442 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 20:44:54.424 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 20:44:54.443 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 20:44:59.425 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 20:44:59.445 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 20:51:56.548 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 20:51:56.570 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 20:53:26.549 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 20:53:26.571 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 20:53:31.552 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 20:53:31.573 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 20:58:47.030 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 20:58:47.617 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 21:00:17.031 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 21:00:17.619 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 21:00:22.035 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 21:00:22.621 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 21:03:51.985 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 21:03:52.304 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 21:05:21.987 NotebookApp] WebSocket ping timeout after 90002 ms.
+[W 21:05:22.305 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 21:05:26.991 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 21:05:27.307 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 21:15:47.784 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 21:15:47.815 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 21:18:17.785 NotebookApp] WebSocket ping timeout after 119956 ms.
+[W 21:18:17.816 NotebookApp] WebSocket ping timeout after 119986 ms.
+[I 21:18:22.787 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 21:18:22.818 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 21:26:32.998 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 21:26:33.025 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 21:28:03.000 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 21:28:03.025 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 21:28:08.002 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 21:28:08.026 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 21:39:17.134 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 21:39:17.766 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 21:40:47.135 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 21:40:47.768 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 21:40:52.138 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 21:40:52.769 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 23:23:22.813 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 18.95ms referer=None
+[I 23:28:00.635 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 23:28:00.669 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 23:30:30.636 NotebookApp] WebSocket ping timeout after 119951 ms.
+[W 23:30:30.670 NotebookApp] WebSocket ping timeout after 119973 ms.
+[I 23:30:35.639 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 23:30:35.671 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 00:22:36.516 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 00:22:36.629 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 00:23:55.668 NotebookApp] 302 GET / (172.105.238.87) 1.10ms
+[W 00:24:06.518 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 00:24:06.629 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 00:24:11.520 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 00:24:11.631 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 00:46:36.155 NotebookApp] 302 GET / (183.136.225.42) 1.07ms
+[I 00:46:51.366 NotebookApp] 302 GET /tree? (183.136.225.42) 1.20ms
+[I 01:16:39.582 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 01:16:39.634 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 01:18:09.583 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 01:18:09.635 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 01:18:14.586 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 01:18:14.636 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 02:10:42.821 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 02:10:43.463 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 02:13:12.823 NotebookApp] WebSocket ping timeout after 119913 ms.
+[W 02:13:13.464 NotebookApp] WebSocket ping timeout after 119940 ms.
+[I 02:13:17.826 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 02:13:18.466 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 03:05:18.489 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 03:05:18.988 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 03:06:48.491 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 03:06:48.989 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 03:06:53.494 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 03:06:53.991 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 03:14:00.697 NotebookApp] 404 HEAD http://112.124.42.80:63435/ (60.191.125.35) 2.76ms referer=None
+[I 03:36:29.371 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 03:36:30.443 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 03:37:59.373 NotebookApp] WebSocket ping timeout after 90002 ms.
+[W 03:38:00.444 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 03:38:04.376 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 03:38:05.446 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 04:30:33.872 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 04:30:36.247 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 04:32:03.873 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 04:32:06.247 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 04:32:08.875 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 04:32:11.250 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 05:24:38.059 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 05:24:40.469 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 05:26:08.060 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 05:26:10.471 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 05:26:13.063 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 05:26:15.472 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 06:18:44.793 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 06:18:47.544 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 06:20:17.545 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 06:20:22.548 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 06:21:14.795 NotebookApp] WebSocket ping timeout after 119935 ms.
+[I 06:21:19.798 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 07:12:50.525 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 07:13:16.802 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 07:14:46.803 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 07:14:51.805 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[W 07:15:20.526 NotebookApp] WebSocket ping timeout after 119994 ms.
+[I 07:15:25.530 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 08:07:23.051 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 08:07:25.802 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 08:08:53.053 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 08:08:55.803 NotebookApp] WebSocket ping timeout after 90000 ms.
+[I 08:08:58.056 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 08:09:00.805 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 09:01:29.542 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 09:01:30.999 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 09:01:47.971 NotebookApp] 302 GET / (162.142.125.40) 1.02ms
+[I 09:01:48.381 NotebookApp] 302 GET / (162.142.125.40) 1.24ms
+[I 09:01:48.799 NotebookApp] 302 GET /tree (162.142.125.40) 1.35ms
+[W 09:02:59.544 NotebookApp] WebSocket ping timeout after 90001 ms.
+[W 09:03:01.000 NotebookApp] WebSocket ping timeout after 90001 ms.
+[I 09:03:04.548 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 09:03:06.004 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 09:04:04.391 NotebookApp] 404 GET http://www.baidu.com/cache/global/img/gs.gif (80.82.70.187) 2.84ms referer=None
+[I 09:10:40.591 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 09:10:40.617 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 09:15:43.553 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 09:15:43.554 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[I 09:15:45.253 NotebookApp] Restoring connection for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 09:15:45.566 NotebookApp] Restoring connection for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
+[W 09:18:45.253 NotebookApp] WebSocket ping timeout after 119996 ms.
+[W 09:18:45.567 NotebookApp] WebSocket ping timeout after 119890 ms.
+[I 09:18:50.256 NotebookApp] Starting buffering for 3b04f6df-9a37-4aa3-bded-cbe0f914edad:1916760f29ec4169884464533a437e51
+[I 09:18:50.568 NotebookApp] Starting buffering for 8fef01d4-83ae-44b9-8571-be838ac4ad0d:0f6098aaa2044ac0bcdb9a8dc1e87f17
